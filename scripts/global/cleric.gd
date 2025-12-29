@@ -23,7 +23,7 @@ var _past_hour:int = -1
 var _past_day:int = -1
 
 # INITITALIZERS
-var world_time: Array[int] = []
+var world_time: Array[int] = [0, 0, 0]
 var current_day: String
 
 

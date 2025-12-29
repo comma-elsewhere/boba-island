@@ -1,0 +1,119 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnvr6he28bx8b"]
+
+[ext_resource type="Script" uid="uid://8u0cpcaw4pfn" path="res://scripts/minigame/mandrake.gd" id="1_yclvl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysg7j"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl048"]
+bg_color = Color(0.8862616, 0.88626146, 0.8862615, 1)
+
+[node name="MandrakeEncounter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yclvl")
+sin_color = Color(1, 0, 0, 1)
+square_color = Color(0, 1, 0, 1)
+triangle_color = Color(0, 0, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="TimerBar" type="ProgressBar" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+show_percentage = false
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LineContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ysg7j")
+
+[node name="DefaultLine" type="Line2D" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/LineContainer"]
+unique_name_in_owner = true
+default_color = Color(0, 0, 0, 1)
+
+[node name="DynamicLine" type="Line2D" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/LineContainer"]
+unique_name_in_owner = true
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="ToggleContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ToggleContainer"]
+layout_mode = 2
+
+[node name="FreqSlider" type="HSlider" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ToggleContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+min_value = 2.0
+max_value = 6.0
+step = 0.01
+value = 2.0
+
+[node name="AmpSlider" type="VSlider" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ToggleContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ToggleContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SinButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ToggleContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_yl048")
+
+[node name="SquareButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ToggleContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_yl048")
+
+[node name="TriangleButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ToggleContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_yl048")
+
+[node name="CountdownTimer" type="Timer" parent="."]
+unique_name_in_owner = true

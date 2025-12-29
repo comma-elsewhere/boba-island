@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bu80w58c6dpkl"]
 
-[ext_resource type="Script" uid="uid://bmevyjch40wx1" path="res://gui_comp/hotbar_button.gd" id="1_uscnm"]
+[ext_resource type="Script" uid="uid://bmevyjch40wx1" path="res://gui_comp/script/hotbar_button.gd" id="1_uscnm"]
 
 [sub_resource type="Shortcut" id="Shortcut_aspxw"]
 

@@ -39,19 +39,20 @@ var is_crouched: bool = false
 
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	animation.animation_finished.connect(_on_animation_done)
 	add_child(mesh_slicer)
 	
-# Crouch
+ #Crouch
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("slice"):
-		_slice()
-	
-	if ground_check.is_colliding():
-		if event.is_action_pressed("dig"):
-			_remove_dirt()
-		if event.is_action_pressed("hoe"):
-			_build_dirt()
+	#if event.is_action_pressed("slice"):
+		#_slice()
+	#
+	#if ground_check.is_colliding():
+		#if event.is_action_pressed("shovel"):
+			#_remove_dirt()
+		#if event.is_action_pressed("hoe"):
+			#_build_dirt()
 	
 	if event.is_action_pressed("crouch") and !animation.is_playing():
 		if is_crouched and !uncrouch.is_colliding():
@@ -85,7 +86,7 @@ func _physics_process(delta):
 		speed = WALK_SPEED
 
 	# Get the input direction and handle the movement/deceleration.
-	var input_dir = Input.get_vector("left", "right", "up", "down")
+	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.transform.basis * transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
 		if direction:
