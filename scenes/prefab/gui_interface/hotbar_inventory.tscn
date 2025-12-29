@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://blhd62dvlvboc"]
+
+[ext_resource type="Script" uid="uid://ctk5uv2035svm" path="res://gui_comp/script/hotbar_inventory.gd" id="1_cpml4"]
+[ext_resource type="PackedScene" uid="uid://bu80w58c6dpkl" path="res://gui_comp/hotbar_button.tscn" id="1_m7mpa"]
+[ext_resource type="Script" uid="uid://bwijg6lsih103" path="res://gui_comp/script/hotbar_container.gd" id="2_3weq8"]
+[ext_resource type="Script" uid="uid://bmn1dpl5s5tf5" path="res://scripts/utility/view_model.gd" id="4_cny0f"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_3weq8"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_cny0f"]
+events = [SubResource("InputEventKey_3weq8")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_wlxid"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_5tpdf"]
+events = [SubResource("InputEventKey_wlxid")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_wmlo2"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_kd0a5"]
+events = [SubResource("InputEventKey_wmlo2")]
+
+[node name="HotbarInventory" type="Node" node_paths=PackedStringArray("hotbar_display", "view_model")]
+script = ExtResource("1_cpml4")
+hotbar_display = NodePath("CanvasLayer/HotbarHUD/HotbarContainer")
+view_model = NodePath("ViewModel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HotbarHUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HotbarContainer" type="HBoxContainer" parent="CanvasLayer/HotbarHUD"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_3weq8")
+
+[node name="HotbarButton" parent="CanvasLayer/HotbarHUD/HotbarContainer" instance=ExtResource("1_m7mpa")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_cny0f")
+
+[node name="HotbarButton2" parent="CanvasLayer/HotbarHUD/HotbarContainer" instance=ExtResource("1_m7mpa")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_5tpdf")
+
+[node name="HotbarButton3" parent="CanvasLayer/HotbarHUD/HotbarContainer" instance=ExtResource("1_m7mpa")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_kd0a5")
+
+[node name="ViewModel" type="Marker3D" parent="."]
+script = ExtResource("4_cny0f")
+
+[connection signal="slot_selected" from="CanvasLayer/HotbarHUD/HotbarContainer" to="." method="_on_hotbar_container_slot_selected"]

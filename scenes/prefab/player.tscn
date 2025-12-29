@@ -1,0 +1,178 @@
+[gd_scene load_steps=13 format=3 uid="uid://d0b3clifjliac"]
+
+[ext_resource type="Script" uid="uid://dnepsi6c0l41w" path="res://scripts/class/player_that_digs.gd" id="1_72ieh"]
+[ext_resource type="Script" path="res://prefabs/start_panel.gd" id="2_4dohe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1yw8"]
+albedo_color = Color(0.3500007, 0.2318539, 0.0744194, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72ieh"]
+albedo_color = Color(0.45490196, 1, 0, 1)
+roughness = 0.4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_22t8h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_elu5t"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7ttd6"]
+
+[sub_resource type="Animation" id="Animation_qdmn8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:shape:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gnmda"]
+resource_name = "crouch"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0, 0.75, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:shape:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 1.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5, 0), Vector3(0, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1n4xs"]
+_data = {
+&"RESET": SubResource("Animation_qdmn8"),
+&"crouch": SubResource("Animation_gnmda")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_urfm4"]
+radius = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_72ieh"]
+size = Vector3(1, 0.1, 1)
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_72ieh")
+dirt_material = SubResource("StandardMaterial3D_x1yw8")
+plant_inside_material = SubResource("StandardMaterial3D_72ieh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_22t8h")
+
+[node name="UncrouchCheck" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CapsuleShape3D_elu5t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_7ttd6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1n4xs")
+}
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Head/Camera3D"]
+transform = Transform3D(-0.99999994, 0, -8.7422784e-08, 0, 1, 0, 8.742277e-08, 0, -1.0000001, 0, 0, 0)
+collision_mask = 3
+spring_length = 2.5
+
+[node name="CSGSpawner" type="Marker3D" parent="Head/Camera3D/SpringArm3D"]
+unique_name_in_owner = true
+
+[node name="GroundCheck" type="ShapeCast3D" parent="Head/Camera3D/SpringArm3D"]
+unique_name_in_owner = true
+shape = SubResource("SphereShape3D_urfm4")
+target_position = Vector3(0, 0, 0)
+
+[node name="SlicerArea" type="Area3D" parent="Head/Camera3D/SpringArm3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7484557e-07, 0, 1.9999999)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/SpringArm3D/SlicerArea"]
+shape = SubResource("BoxShape3D_72ieh")
+
+[node name="Slicer" type="Marker3D" parent="Head/Camera3D/SpringArm3D/SlicerArea"]
+unique_name_in_owner = true
+transform = Transform3D(0.96592593, 0.25000006, 0.066987395, -1.18227426e-07, -0.25881907, 0.96592593, 0.2588191, -0.9330127, -0.25, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="PanelContainer" type="PanelContainer" parent="Head/Camera3D/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_4dohe")
+
+[node name="Label" type="Label" parent="Head/Camera3D/CanvasLayer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "CLICK TO START"

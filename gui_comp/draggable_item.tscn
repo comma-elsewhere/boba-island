@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://xlga51dsqk4u"]
+
+[ext_resource type="Script" uid="uid://cqu07ien55mk0" path="res://gui_comp/script/draggable_item.gd" id="1_8360x"]
+
+[node name="DraggableItem" type="TextureRect" groups=["DraggableItem"]]
+modulate = Color(0.65034926, 0.65034926, 0.65034926, 0.7254902)
+custom_minimum_size = Vector2(100, 100)
+layout_direction = 2
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+expand_mode = 5
+stretch_mode = 5
+script = ExtResource("1_8360x")
