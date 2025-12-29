@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://blhd62dvlvboc"]
+
+[ext_resource type="PackedScene" uid="uid://dolgr51ei36y2" path="res://scenes/prefab/gui_interface/pause_menu.tscn" id="1_4wev0"]
+[ext_resource type="Script" uid="uid://ctk5uv2035svm" path="res://gui_comp/script/hotbar_inventory.gd" id="1_f2b3q"]
+[ext_resource type="Script" uid="uid://bwijg6lsih103" path="res://gui_comp/script/hotbar_container.gd" id="3_xcoxm"]
+[ext_resource type="Script" uid="uid://bmn1dpl5s5tf5" path="res://scripts/utility/view_model.gd" id="5_jdtkk"]
+
+[node name="PlayerHUD" type="Node"]
+script = ExtResource("1_f2b3q")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HotbarHUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HotbarContainer" type="HBoxContainer" parent="CanvasLayer/HotbarHUD"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_xcoxm")
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("1_4wev0")]
+unique_name_in_owner = true
+
+[node name="ViewModel" type="Marker3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_jdtkk")
+
+[connection signal="slot_selected" from="CanvasLayer/HotbarHUD/HotbarContainer" to="." method="_on_hotbar_container_slot_selected"]

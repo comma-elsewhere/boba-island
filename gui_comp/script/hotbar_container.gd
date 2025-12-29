@@ -4,9 +4,6 @@ signal slot_selected(index: int)
 
 var slots: Array = []
 
-func _ready():
-	get_slots()
-
 func get_slots():
 	slots = get_children()
 	for slot in slots:

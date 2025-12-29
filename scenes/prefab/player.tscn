@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://d0b3clifjliac"]
 
 [ext_resource type="Script" uid="uid://dnepsi6c0l41w" path="res://scripts/class/player_that_digs.gd" id="1_72ieh"]
-[ext_resource type="Script" path="res://prefabs/start_panel.gd" id="2_4dohe"]
+[ext_resource type="PackedScene" uid="uid://blhd62dvlvboc" path="res://scenes/prefab/gui_interface/player_hud.tscn" id="2_t63vk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1yw8"]
 albedo_color = Color(0.3500007, 0.2318539, 0.0744194, 1)
@@ -162,17 +162,4 @@ shape = SubResource("BoxShape3D_72ieh")
 unique_name_in_owner = true
 transform = Transform3D(0.96592593, 0.25000006, 0.066987395, -1.18227426e-07, -0.25881907, 0.96592593, 0.2588191, -0.9330127, -0.25, 0, 0, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D"]
-
-[node name="PanelContainer" type="PanelContainer" parent="Head/Camera3D/CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_4dohe")
-
-[node name="Label" type="Label" parent="Head/Camera3D/CanvasLayer/PanelContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "CLICK TO START"
+[node name="PlayerHUD" parent="." instance=ExtResource("2_t63vk")]

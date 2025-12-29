@@ -1,18 +1,27 @@
-extends Node
+class_name PlayerHUD extends Node
 
-@export var hotbar_display: HBoxContainer
-@export var view_model: Marker3D
+@onready var hotbar_display: HBoxContainer = %HotbarContainer
+@onready var pause_menu: PanelContainer = %PauseMenu
+@onready var view_model: Marker3D = %ViewModel
 
-const HOTBAR_SIZE := 4
+
 var hotbar_array: Array[Item]
 var selected_slot: int = 0
 
-func _init():
-	for i in HOTBAR_SIZE:
+func _ready() -> void:
+	setup()
+	
+func setup() -> void:
+	for child in hotbar_display.get_children():
+		child.queue_free()
+	for i in Dynamic.inventory_space:
 		hotbar_array.append( null )
+		_create_hotbar_button(i + 1)
+		
+	hotbar_display.get_slots()
 
 func add_item(item: Item) -> bool:
-	for i in HOTBAR_SIZE:
+	for i in Dynamic.inventory_space:
 		if hotbar_array[i] == null:
 			hotbar_array[i] = item
 			_update_display(i)
@@ -24,6 +33,12 @@ func drop_item() -> void:
 	_spawn_item(dropped_item)
 	hotbar_array[selected_slot] = null
 	_update_display(selected_slot)
+	
+func pause(pause_game: bool) -> void:
+	if pause_game:
+		pause_menu.open()
+	else:
+		pause_menu.close()
 	
 func _spawn_item(item : Item) -> void:
 	var interactable = item.interactable.instantiate()
@@ -38,5 +53,15 @@ func _update_display(index: int) -> void:
 	
 
 func _on_hotbar_container_slot_selected(index: int) -> void:
-	selected_slot = clamp(index, 0, HOTBAR_SIZE - 1)
+	selected_slot = clamp(index, 0, Dynamic.inventory_space - 1)
 	_update_display(selected_slot)
+
+func _create_hotbar_button(keybind: int) -> void:
+	var new_button = HotbarButton.new()
+	hotbar_display.add_child(new_button)
+	var hotkey: Shortcut = Shortcut.new()
+	var key_event = InputEventKey.new()
+	key_event.keycode = OS.find_keycode_from_string(str(keybind))
+	key_event.pressed = true
+	hotkey.events = [key_event]
+	new_button.set_shortcut(hotkey)

@@ -7,6 +7,7 @@ signal quit_game # Connect to parent HUD to run any end of game functions then n
 
 
 func _ready() -> void:
+	hide()
 	resume_button.button_up.connect(close)
 	quit_button.button_up.connect(_quit)
 

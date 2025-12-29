@@ -1,4 +1,6 @@
-class_name WorldClock
+extends Node
+
+#Universal Clock --- for coordinating time based events
 
 # Make into a global script
 signal minute_changed # Use to sync world time advancing
@@ -15,10 +17,10 @@ const INGAME_SPEED := 1.0 # bigger number = faster in game time speed
 const INITIAL_HOUR := 6.0 # works in 24 hour time
 
 # DO NOT CHANGE THESE EITHER
-var time:float = 0.0
-var past_minute:int = -1
-var past_hour:int = -1
-var past_day:int = -1
+var _time:float = 0.0
+var _past_minute:int = -1
+var _past_hour:int = -1
+var _past_day:int = -1
 
 # INITITALIZERS
 var world_time: Array[int] = []
@@ -26,16 +28,16 @@ var current_day: String
 
 
 func _ready() -> void:
-	time = MINUTES_PER_DAY * MINUTES_PER_HOUR * INITIAL_HOUR
+	_time = MINUTES_PER_DAY * MINUTES_PER_HOUR * INITIAL_HOUR
 
 
 func _process(delta: float) -> void:
-	time += delta * MINUTES_PER_DAY * INGAME_SPEED
+	_time += delta * MINUTES_PER_DAY * INGAME_SPEED
 	_recalculate_time()
 
 
 func _recalculate_time() -> void:
-	var total_minutes = int(time / MINUTES_PER_DAY)
+	var total_minutes = int(_time / MINUTES_PER_DAY)
 	
 	var day = int(total_minutes / MINUTES_PER_DAY)
 
@@ -44,15 +46,15 @@ func _recalculate_time() -> void:
 	var hour = int(current_day_minutes / MINUTES_PER_HOUR)
 	var minute = int(current_day_minutes % int(MINUTES_PER_HOUR))
 	
-	if past_minute != minute:
-		past_minute = minute
+	if _past_minute != minute:
+		_past_minute = minute
 		world_time = [day, hour, minute]
 		minute_changed.emit()
 		
-		if past_hour != hour:
-			past_hour = hour
+		if _past_hour != hour:
+			_past_hour = hour
 			hour_changed.emit(hour)
 			
-			if past_day != day:
-				past_day = day
+			if _past_day != day:
+				_past_day = day
 				day_changed.emit(day, WEEKDAYS[day % 7])
