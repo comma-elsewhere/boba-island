@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0y2e6yqp6vgf"]
+
+[ext_resource type="Script" uid="uid://bhm1nq7qoxt56" path="res://MenusOptionsPauseSave/saver_loader.gd" id="1_cs2yh"]
+
+[node name="SaverLoader" type="Node"]
+script = ExtResource("1_cs2yh")

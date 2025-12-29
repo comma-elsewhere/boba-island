@@ -1,0 +1,151 @@
+[gd_scene load_steps=16 format=3 uid="uid://6k5dg51rvx2c"]
+
+[ext_resource type="CompositorEffect" uid="uid://ht245xmml5wo" path="res://NewCloudsGD.tres" id="1_i4eph"]
+[ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://prefabs/player.tscn" id="1_x1yw8"]
+[ext_resource type="Script" uid="uid://b81n0cs52uj28" path="res://DeformableTerrain/csg_combiner.gd" id="2_x1yw8"]
+[ext_resource type="PackedScene" uid="uid://v2pq2wkiyrj2" path="res://prefabs/grass.tscn" id="3_22t8h"]
+[ext_resource type="Shader" uid="uid://dl1m6k4w5o2n1" path="res://shaders/watercolor.gdshader" id="4_elu5t"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ttd6"]
+
+[sub_resource type="Sky" id="Sky_x1yw8"]
+sky_material = SubResource("ProceduralSkyMaterial_7ttd6")
+
+[sub_resource type="Environment" id="Environment_22t8h"]
+background_mode = 1
+background_color = Color(0.35686275, 0.2901961, 0.3529412, 1)
+sky = SubResource("Sky_x1yw8")
+ambient_light_source = 3
+ambient_light_color = Color(0.79490006, 0.2664209, 0.5506898, 1)
+ambient_light_energy = 4.0
+glow_enabled = true
+glow_intensity = 2.0
+glow_strength = 1.2
+glow_bloom = 0.2
+fog_light_color = Color(0.6039216, 0.75686276, 0.8745098, 1)
+fog_light_energy = 1.2
+fog_sun_scatter = 0.2
+fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_brightness = 1.1
+adjustment_contrast = 0.8
+adjustment_saturation = 1.1
+
+[sub_resource type="Compositor" id="Compositor_2ut7i"]
+compositor_effects = Array[CompositorEffect]([ExtResource("1_i4eph")])
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urfm4"]
+albedo_color = Color(1.2032688e-08, 0.34716833, 4.3317675e-07, 1)
+roughness = 0.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ttd6"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_elu5t"]
+frequency = 0.2
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7ttd6"]
+noise = SubResource("FastNoiseLite_elu5t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_elu5t"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_7ttd6")
+shader = ExtResource("4_elu5t")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_7ttd6")
+shader_parameter/damper = 250.0
+shader_parameter/color_intensity = 9.5000001266602
+shader_parameter/lod = 2.72999993897904
+shader_parameter/power_multiplier = 3.16999992914416
+shader_parameter/max_dark = 4.0000000596048
+shader_parameter/max_light = 2.0000000298024
+
+[sub_resource type="QuadMesh" id="QuadMesh_i4eph"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="WorldRoot" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_22t8h")
+compositor = SubResource("Compositor_2ut7i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_x1yw8")]
+
+[node name="ParentCombiner" type="CSGCombiner3D" parent="." groups=["Combiner"]]
+use_collision = true
+collision_mask = 3
+script = ExtResource("2_x1yw8")
+
+[node name="GroundFloor" type="CSGBox3D" parent="ParentCombiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -5, 5)
+size = Vector3(10, 10, 10)
+material = SubResource("StandardMaterial3D_urfm4")
+metadata/_edit_lock_ = true
+
+[node name="GroundFloor2" type="CSGBox3D" parent="ParentCombiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -5, -5)
+size = Vector3(10, 10, 10)
+material = SubResource("StandardMaterial3D_urfm4")
+metadata/_edit_lock_ = true
+
+[node name="GroundFloor3" type="CSGBox3D" parent="ParentCombiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5, -5)
+size = Vector3(10, 10, 10)
+material = SubResource("StandardMaterial3D_urfm4")
+metadata/_edit_lock_ = true
+
+[node name="GroundFloor4" type="CSGBox3D" parent="ParentCombiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5, 5)
+size = Vector3(10, 10, 10)
+material = SubResource("StandardMaterial3D_urfm4")
+metadata/_edit_lock_ = true
+
+[node name="Grass" type="Node" parent="."]
+
+[node name="Grass1" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.348032, -0.07352263, 5.983053)
+
+[node name="Grass2" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6751614, -0.07352263, -3.4751778)
+
+[node name="Grass3" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.675161, -0.07352263, -3.4751778)
+
+[node name="Grass4" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3248386, -0.07352263, -11.475178)
+
+[node name="Grass5" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8158436, -0.07352358, 4.230091)
+
+[node name="Grass6" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8158436, -0.07352358, 4.230091)
+
+[node name="Grass7" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.815844, -0.07352358, 3.230091)
+
+[node name="Grass10" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.143385, -0.07352358, -9.552547)
+
+[node name="Grass11" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3227806, 0, -10.513847)
+
+[node name="Grass12" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28388977, 0, -5.3451653)
+
+[node name="Grass13" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.514846, 0, -0.13233185)
+
+[node name="Grass15" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30254364, 0, -0.17509079)
+
+[node name="Grass16" parent="Grass" instance=ExtResource("3_22t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.808861, 0, -6.579343)
+
+[node name="PostProcessing" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_elu5t")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_i4eph")

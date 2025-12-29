@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c50xg2v4jhejc"]
+
+[ext_resource type="Script" uid="uid://cjkhbnwahckh0" path="res://ItemsInventoryCrafting/inventory_hud.gd" id="1_ylluc"]
+[ext_resource type="PackedScene" uid="uid://b1twp35u2qexl" path="res://ItemsInventoryCrafting/item_grid.tscn" id="2_k7odq"]
+[ext_resource type="Script" uid="uid://d4d3r5srrts1f" path="res://ItemsInventoryCrafting/inventory_grid.gd" id="3_q2c0c"]
+[ext_resource type="PackedScene" uid="uid://u2xpauscg5ad" path="res://ItemsInventoryCrafting/inventory_item.tscn" id="4_erexj"]
+
+[node name="InventoryHUD" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ylluc")
+
+[node name="InventoryGrid" parent="." instance=ExtResource("2_k7odq")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+columns = 6
+script = ExtResource("3_q2c0c")
+inventory_item = ExtResource("4_erexj")

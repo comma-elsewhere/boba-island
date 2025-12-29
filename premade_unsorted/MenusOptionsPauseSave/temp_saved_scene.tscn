@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://boujpo0tts15s"]
+
+[ext_resource type="Script" uid="uid://3iegto68ig4x" path="res://MenusOptionsPauseSave/temp_saved_scene.gd" id="1_12tfb"]
+
+[node name="TempSavedScene" type="Node3D" groups=["GameEvent"]]
+script = ExtResource("1_12tfb")
