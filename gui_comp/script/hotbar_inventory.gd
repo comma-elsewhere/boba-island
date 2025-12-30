@@ -10,6 +10,11 @@ var selected_slot: int = 0
 
 func _ready() -> void:
 	setup()
+	pause_menu.quit_game.connect(quit_game)
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		pause()
 	
 func setup() -> void:
 	for child in hotbar_display.get_children():
@@ -34,8 +39,11 @@ func drop_item() -> void:
 	hotbar_array[selected_slot] = null
 	_update_display(selected_slot)
 	
-func pause(pause_game: bool) -> void:
-	if pause_game:
+func quit_game() -> void:
+	get_tree().quit()
+	
+func pause() -> void:
+	if get_tree().paused == false:
 		pause_menu.open()
 	else:
 		pause_menu.close()

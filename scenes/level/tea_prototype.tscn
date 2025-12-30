@@ -1,0 +1,238 @@
+[gd_scene load_steps=13 format=3 uid="uid://0ot0ca34nlhh"]
+
+[ext_resource type="Texture2D" uid="uid://cmmbght46dnh0" path="res://assets/icons/temp_tea-shape.png" id="1_38no8"]
+[ext_resource type="Script" uid="uid://ct2hpmyg2p268" path="res://scripts/minigame/tea_prototype.gd" id="1_fboxw"]
+[ext_resource type="AudioStream" uid="uid://bs35f6ew6uuih" path="res://assets/sound effects/temp/BoilingWater.ogg" id="2_33yh2"]
+[ext_resource type="AudioStream" uid="uid://0urjxs7j6rik" path="res://assets/sound effects/temp/WaterPour.ogg" id="3_0khli"]
+[ext_resource type="AudioStream" uid="uid://bt7nx4bogrup3" path="res://assets/sound effects/temp/ChinaClink.ogg" id="4_h02gm"]
+
+[sub_resource type="GDScript" id="GDScript_fboxw"]
+resource_name = "Gaiwan"
+script/source = "extends Area2D
+
+signal mouse_click()
+signal tea_got
+
+var mouse: bool = false
+
+func _input(event: InputEvent) -> void:
+	if mouse:
+		if event.is_action_pressed(\"click\"):
+			mouse_click.emit()
+
+func _on_mouse_entered() -> void:
+	mouse = true
+
+func _on_mouse_exited() -> void:
+	mouse = false
+
+func _on_area_entered(_area: Area2D) -> void:
+	tea_got.emit()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fboxw"]
+radius = 93.08598
+
+[sub_resource type="GDScript" id="GDScript_a2ai3"]
+resource_name = "Teacup"
+script/source = "extends Area2D
+
+signal mouse_click
+
+var mouse: bool = false
+
+func _input(event: InputEvent) -> void:
+	if mouse and event.is_action_pressed(\"click\"):
+		mouse_click.emit()
+
+func _on_mouse_entered() -> void:
+	mouse = true
+
+
+func _on_mouse_exited() -> void:
+	mouse = false
+"
+
+[sub_resource type="GDScript" id="GDScript_q2k80"]
+resource_name = "Teapot"
+script/source = "extends Area2D
+
+signal mouse_click
+
+var mouse: bool = false
+
+func _input(event: InputEvent) -> void:
+	if mouse and event.is_action_pressed(\"click\"):
+		mouse_click.emit()
+
+func _on_mouse_entered() -> void:
+	mouse = true
+
+
+func _on_mouse_exited() -> void:
+	mouse = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ai3"]
+size = Vector2(236, 244)
+
+[sub_resource type="GDScript" id="GDScript_33yh2"]
+resource_name = "LooseTea"
+script/source = "extends Area2D
+
+var mouse: bool = false
+var dragging: bool = false
+
+func _input(event: InputEvent) -> void:
+	if mouse and event.is_action_pressed(\"click\"):
+		dragging = !dragging
+		
+func _process(_delta: float) -> void:
+	if dragging:
+		global_position = lerp(global_position, get_global_mouse_position(), 1.0)
+
+func _on_mouse_entered() -> void:
+	mouse = true
+
+
+func _on_mouse_exited() -> void:
+	mouse = false
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q2k80"]
+radius = 49.0408
+
+[node name="TeaPrototype" type="Node2D"]
+script = ExtResource("1_fboxw")
+boiling_sound = ExtResource("2_33yh2")
+pouring_sound = ExtResource("3_0khli")
+clinking_sound = ExtResource("4_h02gm")
+
+[node name="Gaiwan" type="Area2D" parent="."]
+position = Vector2(452, 216)
+scale = Vector2(1.5, 1.5)
+script = SubResource("GDScript_fboxw")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gaiwan"]
+position = Vector2(-7, 3)
+shape = SubResource("CircleShape2D_fboxw")
+
+[node name="Polygon2D" type="Polygon2D" parent="Gaiwan"]
+position = Vector2(-2, -4)
+polygon = PackedVector2Array(-2, -71, -75, -59, -92, 5, -82, 68, 7, 94, 76, 48, 75, -39)
+
+[node name="BrewTime" type="Timer" parent="Gaiwan"]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+
+[node name="Teacup" type="Area2D" parent="."]
+position = Vector2(461, 520)
+scale = Vector2(0.7, 0.7)
+script = SubResource("GDScript_a2ai3")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teacup"]
+position = Vector2(-7, 3)
+shape = SubResource("CircleShape2D_fboxw")
+
+[node name="Polygon2D" type="Polygon2D" parent="Teacup"]
+position = Vector2(-2, -4)
+polygon = PackedVector2Array(-2, -71, -75, -59, -92, 5, -82, 68, 7, 94, 76, 48, 75, -39)
+
+[node name="Teapot" type="Area2D" parent="."]
+position = Vector2(844, 73)
+script = SubResource("GDScript_q2k80")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teapot"]
+position = Vector2(-31, 148)
+shape = SubResource("RectangleShape2D_a2ai3")
+
+[node name="Polygon2D" type="Polygon2D" parent="Teapot"]
+polygon = PackedVector2Array(-48, 26, -150, 152, -49, 270, 37, 270, 87, 145, 41, 28)
+
+[node name="Marker2D" type="Marker2D" parent="Teapot"]
+position = Vector2(149, 143)
+
+[node name="HeatSlider" type="VSlider" parent="Teapot/Marker2D"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -100.0
+offset_right = 8.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 0.04
+max_value = 0.12
+step = 0.001
+value = 0.04
+tick_count = 5
+
+[node name="LooseTea" type="Area2D" parent="."]
+z_index = 5
+position = Vector2(147, 266)
+script = SubResource("GDScript_33yh2")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LooseTea"]
+shape = SubResource("CircleShape2D_q2k80")
+
+[node name="TeaShape" type="Sprite2D" parent="LooseTea"]
+unique_name_in_owner = true
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_38no8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Display" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(624, 415)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Display"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Temp" type="HBoxContainer" parent="Display/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Display/VBoxContainer/Temp"]
+layout_mode = 2
+text = "Temperature:"
+
+[node name="TempLabel" type="Label" parent="Display/VBoxContainer/Temp"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Brew" type="HBoxContainer" parent="Display/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Display/VBoxContainer/Brew"]
+layout_mode = 2
+text = "Steeping Time:"
+
+[node name="BrewLabel" type="Label" parent="Display/VBoxContainer/Brew"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RetryButton" type="Button" parent="Display/VBoxContainer"]
+layout_mode = 2
+text = "Retry?"
+
+[connection signal="area_entered" from="Gaiwan" to="Gaiwan" method="_on_area_entered"]
+[connection signal="mouse_entered" from="Gaiwan" to="Gaiwan" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Gaiwan" to="Gaiwan" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Teacup" to="Teacup" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Teacup" to="Teacup" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Teapot" to="Teapot" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Teapot" to="Teapot" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LooseTea" to="LooseTea" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LooseTea" to="LooseTea" method="_on_mouse_exited"]
+[connection signal="button_up" from="Display/VBoxContainer/RetryButton" to="." method="_on_retry_button_button_up"]

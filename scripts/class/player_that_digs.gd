@@ -48,11 +48,11 @@ func _input(event: InputEvent) -> void:
 	#if event.is_action_pressed("slice"):
 		#_slice()
 	#
-	#if ground_check.is_colliding():
-		#if event.is_action_pressed("shovel"):
-			#_remove_dirt()
-		#if event.is_action_pressed("hoe"):
-			#_build_dirt()
+	if ground_check.is_colliding():
+		if event.is_action_pressed("interact"):
+			_remove_dirt()
+		if event.is_action_pressed("drop"):
+			_build_dirt()
 	
 	if event.is_action_pressed("crouch") and !animation.is_playing():
 		if is_crouched and !uncrouch.is_colliding():

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bt7nx4bogrup3"
+path="res://.godot/imported/ChinaClink.ogg-19ece46f8f853ec6d977ea0a6da58b48.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound effects/temp/ChinaClink.ogg"
+dest_files=["res://.godot/imported/ChinaClink.ogg-19ece46f8f853ec6d977ea0a6da58b48.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
