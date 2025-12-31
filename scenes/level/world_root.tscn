@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://hewmp0eu4iwx" path="res://scripts/manager/day_night.gd" id="5_adc38"]
 [ext_resource type="Shader" uid="uid://c2j0rugefguwn" path="res://resources/shaders/water.gdshader" id="6_m1jft"]
 [ext_resource type="Texture2D" uid="uid://cn5lvhda5wmfr" path="res://assets/textures/water.jpg" id="7_ipn8i"]
-[ext_resource type="Material" uid="uid://6kqx7xvjsbaf" path="res://resources/materials/watercolor_one.tres" id="7_m1jft"]
+[ext_resource type="Material" uid="uid://6kqx7xvjsbaf" path="res://resources/materials/watercolor.tres" id="7_m1jft"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ttd6"]
 
@@ -35,166 +35,8 @@ adjustment_saturation = 1.1
 
 [sub_resource type="Compositor" id="Compositor_2ut7i"]
 
-[sub_resource type="Animation" id="Animation_7j0eo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DirectionalLight3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.5707964, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WorldEnvironment:environment:background_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.35686275, 0.2901961, 0.3529412, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WorldEnvironment:environment:background_energy_multiplier")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("WorldEnvironment:environment:ambient_light_color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.79490006, 0.2664209, 0.5506898, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("WorldEnvironment:environment:glow_strength")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.2]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("WorldEnvironment:environment:glow_intensity")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0]
-}
-
-[sub_resource type="Animation" id="Animation_adc38"]
-resource_name = "day_night"
-length = 2.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DirectionalLight3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 1.2, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-2.7925267, -0.6981317, 0), Vector3(-1.5707964, 0, 0), Vector3(-0.20943952, -0.6981317, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WorldEnvironment:environment:background_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 0.6, 1.2, 1.9, 2.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.07058824, 0, 0.8901961, 1), Color(0.35686275, 0.2901961, 0.3529412, 1), Color(0.35686275, 0.2901961, 0.3529412, 1), Color(0.35686275, 0.2901961, 0.3529412, 1), Color(0, 0.09019608, 0.78431374, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WorldEnvironment:environment:background_energy_multiplier")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.5, 0.6, 1.2, 1.9, 2.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 1.0, 1.0, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("WorldEnvironment:environment:ambient_light_color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.5, 0.6, 1.2, 1.9, 2.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.5372549, 1, 0.54901963, 1), Color(0.79490006, 0.2664209, 0.5506898, 1), Color(0.79490006, 0.2664209, 0.5506898, 1), Color(0.79490006, 0.2664209, 0.5506898, 1), Color(2.7434528e-06, 0.72308433, 0.39047694, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("WorldEnvironment:environment:glow_strength")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.5, 0.6, 1.2, 1.9, 2.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.2, 1.2, 1.2, 0.26]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("WorldEnvironment:environment:glow_intensity")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.5, 0.6, 1.2, 1.9, 2.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 2.0, 2.0, 2.0, 0.75]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1jft"]
-_data = {
-&"RESET": SubResource("Animation_7j0eo"),
-&"day_night": SubResource("Animation_adc38")
-}
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m1jft"]
-render_priority = 2
+render_priority = 1
 shader = ExtResource("6_m1jft")
 shader_parameter/slide_speed = 0.3
 shader_parameter/wobble_speed = 1.0
@@ -216,6 +58,44 @@ size = Vector2(1000, 1000)
 flip_faces = true
 size = Vector2(2, 2)
 
+[sub_resource type="Animation" id="Animation_m1jft"]
+resource_name = "day_night"
+length = 2.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DayNight/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.6, 1.2, 1.8, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.23137255, 0, 0.59607846, 0.39215687), Color(0.9843137, 0.54509807, 0.5803922, 0.21568628), Color(0.9843137, 0.78431374, 0.32941177, 0.09803922), Color(0.8392157, 0.38039216, 1, 0.21568628), Color(0, 0, 0.3882353, 0.39215687)]
+}
+
+[sub_resource type="Animation" id="Animation_ipn8i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DayNight/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9843137, 0.7529412, 0.22745098, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1jft"]
+_data = {
+&"RESET": SubResource("Animation_ipn8i"),
+&"day_night": SubResource("Animation_m1jft")
+}
+
 [node name="WorldRoot" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -223,7 +103,9 @@ environment = SubResource("Environment_22t8h")
 compositor = SubResource("Compositor_2ut7i")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10, 0)
+transform = Transform3D(-4.371139e-08, 0.64278764, 0.76604444, 0, -0.76604444, 0.64278764, 1, 2.809714e-08, 3.3484866e-08, 0, 10, 0)
+light_color = Color(1, 0.8235294, 0.76862746, 1)
+light_energy = 1.5
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_x1yw8")]
@@ -241,12 +123,6 @@ sides = 24
 material = ExtResource("3_v2daw")
 metadata/_edit_lock_ = true
 
-[node name="DayNightAnimator" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_m1jft")
-}
-script = ExtResource("5_adc38")
-
 [node name="Ocean" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ocean"]
@@ -263,3 +139,23 @@ shape = SubResource("WorldBoundaryShape3D_7j0eo")
 material_override = ExtResource("7_m1jft")
 cast_shadow = 0
 mesh = SubResource("QuadMesh_i4eph")
+
+[node name="DayNight" type="CanvasLayer" parent="."]
+
+[node name="DayNightAnimator" type="AnimationPlayer" parent="DayNight"]
+root_node = NodePath("../..")
+callback_mode_process = 2
+libraries = {
+&"": SubResource("AnimationLibrary_m1jft")
+}
+playback_auto_capture = false
+script = ExtResource("5_adc38")
+
+[node name="ColorRect" type="ColorRect" parent="DayNight"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.9843137, 0.7529412, 0.22745098, 1)

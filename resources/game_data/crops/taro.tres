@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_yffod")
 name = "Taro Root"
+stack_limit = 9
 metadata/_custom_type_script = "uid://c0v8vbpbe4egw"

@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://ci5dp6oig4qsx"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ci5dp6oig4qsx"]
 
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_snghs"]
+[ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_sxdcy"]
 
 [resource]
 script = ExtResource("1_snghs")
 name = "Brown Sugar"
+stack_limit = 9
 metadata/_custom_type_script = "uid://bln87ln83cftx"

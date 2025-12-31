@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://dcxtagxrswosr"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dcxtagxrswosr"]
 
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_e5s0l"]
+[ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_l76rv"]
 
 [resource]
 script = ExtResource("1_e5s0l")
 name = "Water"
+stack_limit = 9
 metadata/_custom_type_script = "uid://bln87ln83cftx"

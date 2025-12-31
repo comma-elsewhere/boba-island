@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Boba Island"
-run/main_scene="uid://0ot0ca34nlhh"
+run/main_scene="uid://6k5dg51rvx2c"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

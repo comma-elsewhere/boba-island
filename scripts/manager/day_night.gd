@@ -4,6 +4,7 @@ extends AnimationPlayer
 # Make day/night animation 2.4 seconds long for a full 24 hour loop starting at 1am and ending at midnight
 
 func _ready() -> void:
+	current_animation = "day_night"
 	var minutes_passed: float = ((Cleric.world_time[1] * 60.0) + Cleric.world_time[2])
 	var advance_by: float = minutes_passed / 60.0 / 10.0
 	call_deferred("advance", advance_by)
@@ -12,3 +13,4 @@ func _ready() -> void:
 func _on_minute_changed():
 	var minute_conversion: float = 1.0 / 60.0 / 10.0
 	advance(minute_conversion)
+	

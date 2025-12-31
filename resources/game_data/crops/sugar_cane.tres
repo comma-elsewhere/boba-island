@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="Crop" load_steps=2 format=3 uid="uid://yxg8m560ssfp"]
+[gd_resource type="Resource" script_class="Crop" load_steps=3 format=3 uid="uid://yxg8m560ssfp"]
 
+[ext_resource type="Texture2D" uid="uid://bpbv7m4osqwfd" path="res://assets/icons/sugar_cane.png" id="1_nsp7e"]
 [ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/crop.gd" id="1_tsr8t"]
 
 [resource]
 script = ExtResource("1_tsr8t")
 name = "Sugar Cane"
+icon = ExtResource("1_nsp7e")
+stack_limit = 9
 metadata/_custom_type_script = "uid://c0v8vbpbe4egw"

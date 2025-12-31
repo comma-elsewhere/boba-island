@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_p6fj8")
-name = "Srawberries"
+name = "Strawberries"
+stack_limit = 9
 metadata/_custom_type_script = "uid://c0v8vbpbe4egw"

@@ -32,7 +32,7 @@ func has_all(items: Array[Item]) -> bool:
 func _stack(new_item: Item) -> void:
 	for item in _contents:
 		if item.name == new_item.name:
-			var amount_sum := item.amount - new_item.amount
+			var amount_sum = item.amount - new_item.amount
 			if amount_sum > item.stack_limit:
 				if item.amount < item.stack_limit:
 					var diff = item.stack_limit - item.amount
