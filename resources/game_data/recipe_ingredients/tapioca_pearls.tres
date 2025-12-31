@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://cnkpypbqdv5yp"]
+
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_45eut"]
+[ext_resource type="Resource" uid="uid://b22r73eilt68" path="res://resources/game_data/ingredients/tapioca_starch.tres" id="2_6wj4y"]
+[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/recipe.gd" id="2_te3vj"]
+[ext_resource type="Resource" uid="uid://ci5dp6oig4qsx" path="res://resources/game_data/ingredients/sugar_brown.tres" id="3_ipm54"]
+[ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="4_vevdv"]
+[ext_resource type="Resource" uid="uid://dob22kpua6k0t" path="res://resources/game_data/ingredients/tapioca_pearls.tres" id="5_lmjli"]
+
+[resource]
+script = ExtResource("2_te3vj")
+results = Array[ExtResource("1_45eut")]([ExtResource("5_lmjli")])
+ingredients = Array[ExtResource("1_45eut")]([ExtResource("2_6wj4y"), ExtResource("2_6wj4y"), ExtResource("3_ipm54"), ExtResource("4_vevdv")])
+metadata/_custom_type_script = "uid://7gyba1jv1uqa"

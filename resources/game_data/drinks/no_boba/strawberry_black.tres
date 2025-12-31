@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=2 format=3 uid="uid://ce5rur8rsgv1n"]
+
+[ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/drink.gd" id="1_k7k2n"]
+
+[resource]
+script = ExtResource("1_k7k2n")
+name = "Strawberry Black Tea"
+metadata/_custom_type_script = "uid://bburi43myo1eb"

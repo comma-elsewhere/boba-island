@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://cpa18nafl67hv"]
+
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_x77an"]
+[ext_resource type="Resource" uid="uid://360c740binkf" path="res://resources/game_data/crops/strawberry.tres" id="2_165oa"]
+[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/recipe.gd" id="2_ebc6w"]
+[ext_resource type="Resource" uid="uid://dbwi81yciqm5x" path="res://resources/game_data/ingredients/puree_strawberry.tres" id="3_a7ajb"]
+
+[resource]
+script = ExtResource("2_ebc6w")
+results = Array[ExtResource("1_x77an")]([ExtResource("3_a7ajb")])
+ingredients = Array[ExtResource("1_x77an")]([ExtResource("2_165oa"), ExtResource("2_165oa")])
+metadata/_custom_type_script = "uid://7gyba1jv1uqa"

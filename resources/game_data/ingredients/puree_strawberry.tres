@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://dbwi81yciqm5x"]
+
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_4yw6s"]
+
+[resource]
+script = ExtResource("1_4yw6s")
+name = "Strawberry Puree"
+metadata/_custom_type_script = "uid://bln87ln83cftx"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=2 format=3 uid="uid://bgq6bq5vpxc83"]
+
+[ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/drink.gd" id="1_uhlla"]
+
+[resource]
+script = ExtResource("1_uhlla")
+name = "Black Milk Tea with Boba"
+metadata/_custom_type_script = "uid://bburi43myo1eb"

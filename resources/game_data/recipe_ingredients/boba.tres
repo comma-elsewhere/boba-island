@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://dn4s7mqah2mkv"]
+
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_ny2nj"]
+[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/recipe.gd" id="2_3iao5"]
+[ext_resource type="Resource" uid="uid://dob22kpua6k0t" path="res://resources/game_data/ingredients/tapioca_pearls.tres" id="2_qmtly"]
+[ext_resource type="Resource" uid="uid://ci5dp6oig4qsx" path="res://resources/game_data/ingredients/sugar_brown.tres" id="3_xfb4g"]
+[ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="4_f37hy"]
+[ext_resource type="Resource" uid="uid://8ro3okhrpfwh" path="res://resources/game_data/ingredients/boba.tres" id="5_7tue7"]
+
+[resource]
+script = ExtResource("2_3iao5")
+results = Array[ExtResource("1_ny2nj")]([ExtResource("5_7tue7")])
+ingredients = Array[ExtResource("1_ny2nj")]([ExtResource("2_qmtly"), ExtResource("3_xfb4g"), ExtResource("4_f37hy")])
+metadata/_custom_type_script = "uid://7gyba1jv1uqa"

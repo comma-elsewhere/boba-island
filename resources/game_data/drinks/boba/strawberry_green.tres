@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=2 format=3 uid="uid://csp4j2mcjta02"]
+
+[ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/drink.gd" id="1_pulgm"]
+
+[resource]
+script = ExtResource("1_pulgm")
+name = "Strawberry Green Tea with Boba"
+metadata/_custom_type_script = "uid://bburi43myo1eb"

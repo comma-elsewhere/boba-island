@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://pfn8h7tw1482"]
+
+[ext_resource type="Shader" uid="uid://dr3yyxo3qbnfn" path="res://resources/shaders/watercolor_color.gdshader" id="1_gokae"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_gokae")
+shader_parameter/color_intensity = 3.0

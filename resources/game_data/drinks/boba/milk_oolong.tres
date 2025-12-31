@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=2 format=3 uid="uid://cqy2fp6dac182"]
+
+[ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/drink.gd" id="1_wqqdq"]
+
+[resource]
+script = ExtResource("1_wqqdq")
+name = "Oolong Milk Tea with Boba"
+metadata/_custom_type_script = "uid://bburi43myo1eb"

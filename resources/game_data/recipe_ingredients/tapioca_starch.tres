@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://tbby7h6rbx31"]
+
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_kxru4"]
+[ext_resource type="Resource" uid="uid://d30x8ug78gwmc" path="res://resources/game_data/crops/cassava.tres" id="2_1qjrd"]
+[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/recipe.gd" id="2_so3le"]
+[ext_resource type="Resource" uid="uid://b22r73eilt68" path="res://resources/game_data/ingredients/tapioca_starch.tres" id="3_t6tsj"]
+
+[resource]
+script = ExtResource("2_so3le")
+results = Array[ExtResource("1_kxru4")]([ExtResource("3_t6tsj")])
+ingredients = Array[ExtResource("1_kxru4")]([ExtResource("2_1qjrd"), ExtResource("2_1qjrd"), ExtResource("2_1qjrd")])
+metadata/_custom_type_script = "uid://7gyba1jv1uqa"

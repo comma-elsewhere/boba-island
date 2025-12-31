@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://6kqx7xvjsbaf"]
+
+[ext_resource type="Material" uid="uid://pfn8h7tw1482" path="res://resources/materials/watercolor_two.tres" id="1_g1kb2"]
+[ext_resource type="Shader" uid="uid://di6svailsy25h" path="res://resources/shaders/watercolor_texture.gdshader" id="1_pqx5e"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_m1jft"]
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ipn8i"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_m1jft")
+in_3d_space = true
+normalize = false
+
+[resource]
+render_priority = 0
+next_pass = ExtResource("1_g1kb2")
+shader = ExtResource("1_pqx5e")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ipn8i")
+shader_parameter/damper = 250.0

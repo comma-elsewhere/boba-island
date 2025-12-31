@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://6k5dg51rvx2c"]
+[gd_scene load_steps=20 format=3 uid="uid://6k5dg51rvx2c"]
 
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
 [ext_resource type="Script" uid="uid://b81n0cs52uj28" path="res://scripts/manager/csg_combiner.gd" id="2_x1yw8"]
-[ext_resource type="Shader" uid="uid://di6svailsy25h" path="res://resources/shaders/watercolor.gdshader" id="3_sj12j"]
 [ext_resource type="Material" uid="uid://c346boiwd32lx" path="res://resources/materials/grass.material" id="3_v2daw"]
 [ext_resource type="Script" uid="uid://hewmp0eu4iwx" path="res://scripts/manager/day_night.gd" id="5_adc38"]
+[ext_resource type="Shader" uid="uid://c2j0rugefguwn" path="res://resources/shaders/water.gdshader" id="6_m1jft"]
+[ext_resource type="Texture2D" uid="uid://cn5lvhda5wmfr" path="res://assets/textures/water.jpg" id="7_ipn8i"]
+[ext_resource type="Material" uid="uid://6kqx7xvjsbaf" path="res://resources/materials/watercolor_one.tres" id="7_m1jft"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ttd6"]
 
@@ -32,23 +34,6 @@ adjustment_contrast = 0.8
 adjustment_saturation = 1.1
 
 [sub_resource type="Compositor" id="Compositor_2ut7i"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ttd6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_elu5t"]
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_7ttd6")
-shader = ExtResource("3_sj12j")
-shader_parameter/damper = 250.0
-shader_parameter/color_intensity = 9.5
-shader_parameter/lod = 2.7
-shader_parameter/power_multiplier = 3.2
-shader_parameter/max_dark = 4.0
-shader_parameter/max_light = 2.0
-
-[sub_resource type="QuadMesh" id="QuadMesh_i4eph"]
-flip_faces = true
-size = Vector2(2, 2)
 
 [sub_resource type="Animation" id="Animation_7j0eo"]
 length = 0.001
@@ -208,6 +193,29 @@ _data = {
 &"day_night": SubResource("Animation_adc38")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1jft"]
+render_priority = 2
+shader = ExtResource("6_m1jft")
+shader_parameter/slide_speed = 0.3
+shader_parameter/wobble_speed = 1.0
+shader_parameter/wobble_intensity = 0.4
+shader_parameter/texture_scale = 0.05
+shader_parameter/water = ExtResource("7_ipn8i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ipn8i"]
+albedo_color = Color(0, 1, 0.8745098, 1)
+roughness = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_adc38"]
+material = SubResource("StandardMaterial3D_ipn8i")
+size = Vector2(1000, 1000)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7j0eo"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_i4eph"]
+flip_faces = true
+size = Vector2(2, 2)
+
 [node name="WorldRoot" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -233,13 +241,25 @@ sides = 24
 material = ExtResource("3_v2daw")
 metadata/_edit_lock_ = true
 
-[node name="PostProcessing" type="MeshInstance3D" parent="."]
-material_override = SubResource("ShaderMaterial_elu5t")
-extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_i4eph")
-
 [node name="DayNightAnimator" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_m1jft")
 }
 script = ExtResource("5_adc38")
+
+[node name="Ocean" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+material_override = SubResource("ShaderMaterial_m1jft")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_adc38")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+shape = SubResource("WorldBoundaryShape3D_7j0eo")
+
+[node name="PostProcessing" type="MeshInstance3D" parent="."]
+material_override = ExtResource("7_m1jft")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_i4eph")

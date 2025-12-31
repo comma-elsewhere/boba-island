@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://cg1k3opfacdxc"]
+
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_548we"]
+[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/recipe.gd" id="2_evkym"]
+[ext_resource type="Resource" uid="uid://ci5dp6oig4qsx" path="res://resources/game_data/ingredients/sugar_brown.tres" id="2_jbqhh"]
+[ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="3_ik1c5"]
+[ext_resource type="Resource" uid="uid://bd8k4jlboxvqc" path="res://resources/game_data/ingredients/sugar_syrup.tres" id="4_ewjea"]
+
+[resource]
+script = ExtResource("2_evkym")
+results = Array[ExtResource("1_548we")]([ExtResource("4_ewjea")])
+ingredients = Array[ExtResource("1_548we")]([ExtResource("2_jbqhh"), ExtResource("3_ik1c5")])
+metadata/_custom_type_script = "uid://7gyba1jv1uqa"

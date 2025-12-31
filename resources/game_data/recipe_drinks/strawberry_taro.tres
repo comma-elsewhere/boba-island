@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DrinkRecipe" load_steps=10 format=3 uid="uid://rm8olw2ttyhl"]
+
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_85rxd"]
+[ext_resource type="Resource" uid="uid://8ro3okhrpfwh" path="res://resources/game_data/ingredients/boba.tres" id="2_0hvyd"]
+[ext_resource type="Resource" uid="uid://6addkmdlvevm" path="res://resources/game_data/drinks/no_boba/strawberry_taro.tres" id="2_fjmv1"]
+[ext_resource type="Script" uid="uid://ca0n2j172o6jl" path="res://scripts/resource/drink_recipe.gd" id="2_gh4y3"]
+[ext_resource type="Resource" uid="uid://db3yuj54ic2xe" path="res://resources/game_data/ingredients/milk.tres" id="3_11kn0"]
+[ext_resource type="Resource" uid="uid://bkp6o0ap4b76k" path="res://resources/game_data/drinks/boba/strawberry_taro.tres" id="3_t737b"]
+[ext_resource type="Resource" uid="uid://dbwi81yciqm5x" path="res://resources/game_data/ingredients/puree_strawberry.tres" id="4_ypo61"]
+[ext_resource type="Resource" uid="uid://bshj6d4uajaa3" path="res://resources/game_data/ingredients/puree_taro.tres" id="5_3cjhi"]
+[ext_resource type="Resource" uid="uid://bd8k4jlboxvqc" path="res://resources/game_data/ingredients/sugar_syrup.tres" id="6_wha4k"]
+
+[resource]
+script = ExtResource("2_gh4y3")
+tea_type = "Other"
+results = Array[ExtResource("1_85rxd")]([ExtResource("2_fjmv1"), ExtResource("3_t737b")])
+ingredients = Array[ExtResource("1_85rxd")]([ExtResource("2_0hvyd"), ExtResource("3_11kn0"), ExtResource("4_ypo61"), ExtResource("5_3cjhi"), ExtResource("6_wha4k")])
+metadata/_custom_type_script = "uid://ca0n2j172o6jl"

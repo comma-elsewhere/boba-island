@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DrinkRecipe" load_steps=10 format=3 uid="uid://cf7tk4f6xv865"]
+
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_5tspv"]
+[ext_resource type="Resource" uid="uid://ext7hkixn1w4" path="res://resources/game_data/drinks/no_boba/strawberry_matcha.tres" id="2_6p6hp"]
+[ext_resource type="Resource" uid="uid://8ro3okhrpfwh" path="res://resources/game_data/ingredients/boba.tres" id="2_jiqab"]
+[ext_resource type="Script" uid="uid://ca0n2j172o6jl" path="res://scripts/resource/drink_recipe.gd" id="2_le0oe"]
+[ext_resource type="Resource" uid="uid://becxnuwetlie2" path="res://resources/game_data/ingredients/matcha_powder.tres" id="3_7t47g"]
+[ext_resource type="Resource" uid="uid://cxpv3r4180it1" path="res://resources/game_data/drinks/boba/strawberry_matcha.tres" id="3_pckus"]
+[ext_resource type="Resource" uid="uid://db3yuj54ic2xe" path="res://resources/game_data/ingredients/milk.tres" id="4_8sv34"]
+[ext_resource type="Resource" uid="uid://dbwi81yciqm5x" path="res://resources/game_data/ingredients/puree_strawberry.tres" id="5_0thm8"]
+[ext_resource type="Resource" uid="uid://bd8k4jlboxvqc" path="res://resources/game_data/ingredients/sugar_syrup.tres" id="6_gcvq8"]
+
+[resource]
+script = ExtResource("2_le0oe")
+tea_type = "Other"
+results = Array[ExtResource("1_5tspv")]([ExtResource("2_6p6hp"), ExtResource("3_pckus")])
+ingredients = Array[ExtResource("1_5tspv")]([ExtResource("2_jiqab"), ExtResource("3_7t47g"), ExtResource("4_8sv34"), ExtResource("5_0thm8"), ExtResource("6_gcvq8")])
+metadata/_custom_type_script = "uid://ca0n2j172o6jl"

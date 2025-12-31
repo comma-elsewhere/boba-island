@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Tea" load_steps=2 format=3 uid="uid://e5fj4qcw1j11"]
+
+[ext_resource type="Script" uid="uid://mlslmml4ade1" path="res://scripts/resource/tea.gd" id="1_id4gh"]
+
+[resource]
+script = ExtResource("1_id4gh")
+tea_type = "Black"
+name = "Earl Grey"
+metadata/_custom_type_script = "uid://mlslmml4ade1"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Crop" load_steps=2 format=3 uid="uid://d30x8ug78gwmc"]
+
+[ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/crop.gd" id="1_yxbix"]
+
+[resource]
+script = ExtResource("1_yxbix")
+name = "Cassava Root"
+metadata/_custom_type_script = "uid://c0v8vbpbe4egw"

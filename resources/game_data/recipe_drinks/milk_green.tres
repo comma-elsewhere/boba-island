@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DrinkRecipe" load_steps=8 format=3 uid="uid://bxdxvj0u5c4cd"]
+
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_7vt17"]
+[ext_resource type="Script" uid="uid://ca0n2j172o6jl" path="res://scripts/resource/drink_recipe.gd" id="2_1qyen"]
+[ext_resource type="Resource" uid="uid://8ro3okhrpfwh" path="res://resources/game_data/ingredients/boba.tres" id="2_cpci3"]
+[ext_resource type="Resource" uid="uid://cfyr1k4rumhhn" path="res://resources/game_data/drinks/no_boba/milk_green.tres" id="2_tq46q"]
+[ext_resource type="Resource" uid="uid://dk5pd8g31cn0x" path="res://resources/game_data/drinks/boba/milk_green.tres" id="3_d3dre"]
+[ext_resource type="Resource" uid="uid://db3yuj54ic2xe" path="res://resources/game_data/ingredients/milk.tres" id="3_ol03l"]
+[ext_resource type="Resource" uid="uid://bd8k4jlboxvqc" path="res://resources/game_data/ingredients/sugar_syrup.tres" id="4_s4mrj"]
+
+[resource]
+script = ExtResource("2_1qyen")
+tea_type = "Green"
+results = Array[ExtResource("1_7vt17")]([ExtResource("2_tq46q"), ExtResource("3_d3dre")])
+ingredients = Array[ExtResource("1_7vt17")]([ExtResource("2_cpci3"), ExtResource("3_ol03l"), ExtResource("4_s4mrj")])
+metadata/_custom_type_script = "uid://ca0n2j172o6jl"

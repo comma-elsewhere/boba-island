@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=2 format=3 uid="uid://bkp6o0ap4b76k"]
+
+[ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/drink.gd" id="1_wcibj"]
+
+[resource]
+script = ExtResource("1_wcibj")
+name = "Strawberry Taro Tea with Boba"
+metadata/_custom_type_script = "uid://bburi43myo1eb"

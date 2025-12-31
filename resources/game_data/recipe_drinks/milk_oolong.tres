@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DrinkRecipe" load_steps=8 format=3 uid="uid://bboykqx6ruwot"]
+
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_wumyv"]
+[ext_resource type="Resource" uid="uid://dql44x4yg5lim" path="res://resources/game_data/drinks/no_boba/milk_oolong.tres" id="2_4upnk"]
+[ext_resource type="Script" uid="uid://ca0n2j172o6jl" path="res://scripts/resource/drink_recipe.gd" id="2_a4m8n"]
+[ext_resource type="Resource" uid="uid://8ro3okhrpfwh" path="res://resources/game_data/ingredients/boba.tres" id="2_qs75q"]
+[ext_resource type="Resource" uid="uid://db3yuj54ic2xe" path="res://resources/game_data/ingredients/milk.tres" id="3_5vymv"]
+[ext_resource type="Resource" uid="uid://cqy2fp6dac182" path="res://resources/game_data/drinks/boba/milk_oolong.tres" id="3_i7760"]
+[ext_resource type="Resource" uid="uid://bd8k4jlboxvqc" path="res://resources/game_data/ingredients/sugar_syrup.tres" id="4_lclpn"]
+
+[resource]
+script = ExtResource("2_a4m8n")
+tea_type = "Oolong"
+results = Array[ExtResource("1_wumyv")]([ExtResource("2_4upnk"), ExtResource("3_i7760")])
+ingredients = Array[ExtResource("1_wumyv")]([ExtResource("2_qs75q"), ExtResource("3_5vymv"), ExtResource("4_lclpn")])
+metadata/_custom_type_script = "uid://ca0n2j172o6jl"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=2 format=3 uid="uid://bpi4r8kctf8b8"]
+
+[ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/drink.gd" id="1_2tepl"]
+
+[resource]
+script = ExtResource("1_2tepl")
+name = "Green Tea"
+metadata/_custom_type_script = "uid://bburi43myo1eb"
