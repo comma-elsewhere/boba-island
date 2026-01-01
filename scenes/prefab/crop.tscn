@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddadbc6h0js3d"]
+
+[ext_resource type="Script" uid="uid://n4l3njvdde37" path="res://scripts/class/crop.gd" id="1_wo168"]
+[ext_resource type="Material" uid="uid://dxec2l2qoyyl3" path="res://resources/materials/dirt_material.tres" id="2_ejty6"]
+[ext_resource type="Texture2D" uid="uid://bfcgeiw054wjf" path="res://assets/icons/temp_water-droplet.png" id="3_d7slw"]
+[ext_resource type="Shader" uid="uid://dv2cahnhcv346" path="res://resources/shaders/crop_watering.gdshader" id="4_e1oe5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7slw"]
+atlas = ExtResource("3_d7slw")
+region = Rect2(258, 161, 465, 561)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0c1ba"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_un1pu"]
+resource_local_to_scene = true
+render_priority = 2
+shader = ExtResource("4_e1oe5")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_0c1ba")
+
+[sub_resource type="QuadMesh" id="QuadMesh_s0l26"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_un1pu")
+size = Vector2(0.5, 0.5)
+
+[node name="Crop" type="Node3D"]
+script = ExtResource("1_wo168")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+radius = 0.7
+material = ExtResource("2_ejty6")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WateringProgress" type="TextureProgressBar" parent="SubViewport/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_d7slw")
+texture_progress = SubResource("AtlasTexture_d7slw")
+tint_under = Color(0, 0, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("QuadMesh_s0l26")
