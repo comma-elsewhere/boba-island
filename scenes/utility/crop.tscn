@@ -1,0 +1,300 @@
+[gd_scene load_steps=55 format=3 uid="uid://ddadbc6h0js3d"]
+
+[ext_resource type="Script" uid="uid://n4l3njvdde37" path="res://scripts/class/world_crop.gd" id="1_palxt"]
+[ext_resource type="PackedScene" uid="uid://bx1u545sylij2" path="res://scenes/prefab/temp_scenes/crop_planted.tscn" id="2_d7hg7"]
+[ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_gtg64"]
+[ext_resource type="PackedScene" uid="uid://crwh4hrt5orun" path="res://scenes/prefab/temp_scenes/crop_sprouting.tscn" id="3_c3rrn"]
+[ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/crop.gd" id="3_t14ew"]
+[ext_resource type="PackedScene" uid="uid://ohlvkta461fx" path="res://scenes/prefab/temp_scenes/crop_blooming.tscn" id="4_lcnsd"]
+[ext_resource type="Texture2D" uid="uid://bfcgeiw054wjf" path="res://assets/icons/temp_water-droplet.png" id="4_veuov"]
+[ext_resource type="Shader" uid="uid://dv2cahnhcv346" path="res://resources/shaders/crop_watering.gdshader" id="5_hmnpb"]
+[ext_resource type="PackedScene" uid="uid://b0drpbp2ojgao" path="res://scenes/prefab/temp_scenes/crop_harvest.tscn" id="5_iki7v"]
+[ext_resource type="PackedScene" uid="uid://bqcaxfx1ivhsa" path="res://scenes/prefab/temp_scenes/crop_mutant.tscn" id="6_p6vro"]
+[ext_resource type="Texture2D" uid="uid://b5lty58am1ma6" path="res://assets/icons/cassava.png" id="7_w4de5"]
+[ext_resource type="Script" uid="uid://c7oum832eoo8v" path="res://ai/tasks/var_setup.gd" id="12_c3rrn"]
+[ext_resource type="Script" uid="uid://b76cxjdwvwqrr" path="res://ai/tasks/spawn_crop_main.gd" id="13_lcnsd"]
+[ext_resource type="Script" uid="uid://cdbhhom2c3xsm" path="res://ai/tasks/check_water.gd" id="14_3334u"]
+[ext_resource type="Script" uid="uid://cj1xthmy1t6hc" path="res://ai/tasks/set_mutate_chance.gd" id="14_iki7v"]
+[ext_resource type="Script" uid="uid://bbg5j3oo23c51" path="res://ai/tasks/water_loss.gd" id="14_qavuj"]
+[ext_resource type="Script" uid="uid://cqtsm51kyr5v4" path="res://ai/tasks/turn_red.gd" id="14_u8ikn"]
+[ext_resource type="Script" uid="uid://x0yglpmsfal2" path="res://ai/tasks/spawn_crop_latter.gd" id="14_w4de5"]
+[ext_resource type="Script" uid="uid://crrybp6yapn6" path="res://ai/tasks/mutate.gd" id="15_p6vro"]
+[ext_resource type="Script" uid="uid://cm31peljhl1lr" path="res://ai/tasks/neglected.gd" id="15_skxbs"]
+[ext_resource type="Script" uid="uid://bn2sg1vc4a30m" path="res://ai/tasks/grow_timer.gd" id="16_3esa8"]
+
+[sub_resource type="Resource" id="Resource_ljs1q"]
+script = ExtResource("3_t14ew")
+grow_meshes = Array[PackedScene]([ExtResource("2_d7hg7"), ExtResource("3_c3rrn"), ExtResource("4_lcnsd"), ExtResource("5_iki7v"), ExtResource("6_p6vro")])
+grow_time = 10.0
+water_max = 60
+name = "Crop"
+icon = ExtResource("7_w4de5")
+mesh = ExtResource("2_d7hg7")
+stack_limit = 9
+metadata/_custom_type_script = "uid://c0v8vbpbe4egw"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0c1ba"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_un1pu"]
+resource_local_to_scene = true
+render_priority = 2
+shader = ExtResource("5_hmnpb")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_0c1ba")
+
+[sub_resource type="QuadMesh" id="QuadMesh_s0l26"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_un1pu")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_d7hg7"]
+var/grow_time/name = &"grow_time"
+var/grow_time/type = 3
+var/grow_time/value = 0.0
+var/grow_time/hint = 0
+var/grow_time/hint_string = ""
+var/grow_index/name = &"grow_index"
+var/grow_index/type = 2
+var/grow_index/value = 0
+var/grow_index/hint = 0
+var/grow_index/hint_string = ""
+var/mutation_chance/name = &"mutation_chance"
+var/mutation_chance/type = 3
+var/mutation_chance/value = 0.0
+var/mutation_chance/hint = 0
+var/mutation_chance/hint_string = ""
+var/mutation_mod/name = &"mutation_mod"
+var/mutation_mod/type = 3
+var/mutation_mod/value = 0.0
+var/mutation_mod/hint = 0
+var/mutation_mod/hint_string = ""
+var/water_max/name = &"water_max"
+var/water_max/type = 2
+var/water_max/value = 0
+var/water_max/hint = 0
+var/water_max/hint_string = ""
+var/water_min/name = &"water_min"
+var/water_min/type = 2
+var/water_min/value = 0
+var/water_min/hint = 0
+var/water_min/hint_string = ""
+var/water_current/name = &"water_current"
+var/water_current/type = 3
+var/water_current/value = 0.0
+var/water_current/hint = 0
+var/water_current/hint_string = ""
+var/harvest/name = &"harvest"
+var/harvest/type = 1
+var/harvest/value = false
+var/harvest/hint = 0
+var/harvest/hint_string = ""
+var/dry_time/name = &"dry_time"
+var/dry_time/type = 3
+var/dry_time/value = 0.0
+var/dry_time/hint = 0
+var/dry_time/hint_string = ""
+var/moisture_loss/name = &"moisture_loss"
+var/moisture_loss/type = 3
+var/moisture_loss/value = 0.0
+var/moisture_loss/hint = 0
+var/moisture_loss/hint_string = ""
+var/disappoint/name = &"disappoint"
+var/disappoint/type = 2
+var/disappoint/value = 0
+var/disappoint/hint = 0
+var/disappoint/hint_string = ""
+var/neglect/name = &"neglect"
+var/neglect/type = 2
+var/neglect/value = 0
+var/neglect/hint = 0
+var/neglect/hint_string = ""
+var/forget/name = &"forget"
+var/forget/type = 2
+var/forget/value = 0
+var/forget/hint = 0
+var/forget/hint_string = ""
+resource_local_to_scene = true
+
+[sub_resource type="BTAction" id="BTAction_lcnsd"]
+script = ExtResource("12_c3rrn")
+
+[sub_resource type="BTAlwaysSucceed" id="BTAlwaysSucceed_c3rrn"]
+children = [SubResource("BTAction_lcnsd")]
+
+[sub_resource type="BTAction" id="BTAction_iki7v"]
+script = ExtResource("13_lcnsd")
+
+[sub_resource type="BTSequence" id="BTSequence_c3rrn"]
+custom_name = "SetupPhase"
+children = [SubResource("BTAlwaysSucceed_c3rrn"), SubResource("BTAction_iki7v")]
+
+[sub_resource type="BTAction" id="BTAction_aw66x"]
+script = ExtResource("15_skxbs")
+
+[sub_resource type="BTCooldown" id="BTCooldown_kkwcm"]
+trigger_on_failure = true
+children = [SubResource("BTAction_aw66x")]
+
+[sub_resource type="BTAction" id="BTAction_3esa8"]
+script = ExtResource("14_qavuj")
+
+[sub_resource type="BTCooldown" id="BTCooldown_73pv3"]
+duration = 5.0
+trigger_on_failure = true
+children = [SubResource("BTAction_3esa8")]
+
+[sub_resource type="BTAction" id="BTAction_73pv3"]
+script = ExtResource("14_u8ikn")
+
+[sub_resource type="BTParallel" id="BTParallel_3esa8"]
+custom_name = "DrainWater"
+children = [SubResource("BTCooldown_kkwcm"), SubResource("BTCooldown_73pv3"), SubResource("BTAction_73pv3")]
+
+[sub_resource type="BTRepeatUntilFailure" id="BTRepeatUntilFailure_skxbs"]
+children = [SubResource("BTParallel_3esa8")]
+
+[sub_resource type="BTAction" id="BTAction_33nux"]
+script = ExtResource("16_3esa8")
+
+[sub_resource type="BTRepeatUntilSuccess" id="BTRepeatUntilSuccess_3esa8"]
+children = [SubResource("BTAction_33nux")]
+
+[sub_resource type="BTAction" id="BTAction_kkwcm"]
+script = ExtResource("14_3334u")
+
+[sub_resource type="BTAction" id="BTAction_3334u"]
+script = ExtResource("14_w4de5")
+
+[sub_resource type="BTAction" id="BTAction_skxbs"]
+script = ExtResource("14_iki7v")
+
+[sub_resource type="BTAlwaysFail" id="BTAlwaysFail_3esa8"]
+children = [SubResource("BTAction_skxbs")]
+
+[sub_resource type="BTAction" id="BTAction_w4de5"]
+script = ExtResource("15_p6vro")
+metadata/_weight_ = 0.17647058823529416
+
+[sub_resource type="BTSelector" id="BTSelector_aw66x"]
+custom_name = "GrowthSelector"
+children = [SubResource("BTAction_3334u"), SubResource("BTAlwaysFail_3esa8"), SubResource("BTAction_w4de5")]
+
+[sub_resource type="BTDynamicSequence" id="BTDynamicSequence_73pv3"]
+custom_name = "GrowCrop"
+children = [SubResource("BTRepeatUntilSuccess_3esa8"), SubResource("BTAction_kkwcm"), SubResource("BTSelector_aw66x")]
+
+[sub_resource type="BTParallel" id="BTParallel_skxbs"]
+num_failures_required = 3
+custom_name = "GrowingPhase"
+children = [SubResource("BTRepeatUntilFailure_skxbs"), SubResource("BTDynamicSequence_73pv3")]
+
+[sub_resource type="BTRepeat" id="BTRepeat_skxbs"]
+forever = true
+children = [SubResource("BTParallel_skxbs")]
+
+[sub_resource type="BTSequence" id="BTSequence_lcnsd"]
+custom_name = "Root"
+children = [SubResource("BTSequence_c3rrn"), SubResource("BTRepeat_skxbs")]
+
+[sub_resource type="BehaviorTree" id="BehaviorTree_c3rrn"]
+blackboard_plan = SubResource("BlackboardPlan_d7hg7")
+root_task = SubResource("BTSequence_lcnsd")
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_3334u"]
+
+[sub_resource type="Animation" id="Animation_skxbs"]
+resource_name = "harvest"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3esa8"]
+_data = {
+&"harvest": SubResource("Animation_skxbs")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7slw"]
+atlas = ExtResource("4_veuov")
+region = Rect2(258, 161, 465, 561)
+
+[node name="Crop" type="Node3D"]
+script = ExtResource("1_palxt")
+crop_data = SubResource("Resource_ljs1q")
+
+[node name="GUI_3DVisualizer" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+mesh = SubResource("QuadMesh_s0l26")
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = SubResource("BehaviorTree_c3rrn")
+blackboard_plan = SubResource("BlackboardPlan_3334u")
+monitor_performance = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3esa8")
+}
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WaterBar" type="TextureProgressBar" parent="SubViewport/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 350)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_d7slw")
+texture_progress = SubResource("AtlasTexture_d7slw")
+tint_under = Color(0, 0, 0, 1)
+
+[node name="GrowTime" type="Label" parent="SubViewport/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.6745098, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 120
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="SubViewport"]
+unique_name_in_owner = true

@@ -152,8 +152,8 @@ target_position = Vector3(0, 0, 0)
 [node name="SlicerArea" type="Area3D" parent="Head/Camera3D/SpringArm3D"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7484557e-07, 0, 1.9999999)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/SpringArm3D/SlicerArea"]
 shape = SubResource("BoxShape3D_72ieh")

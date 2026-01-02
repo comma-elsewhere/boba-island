@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ohlvkta461fx"]
+
+[ext_resource type="Material" uid="uid://dxec2l2qoyyl3" path="res://resources/materials/dirt_material.tres" id="1_8f77r"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_25nv1"]
+material = ExtResource("1_8f77r")
+bottom_radius = 0.25
+height = 1.5
+
+[node name="CropPlanted" type="Node3D"]
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+mesh = SubResource("CylinderMesh_25nv1")
