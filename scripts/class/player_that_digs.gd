@@ -36,6 +36,8 @@ var is_crouched: bool = false
 @onready var csg_spawner: Marker3D = %CSGSpawner
 @onready var ground_check: ShapeCast3D = %GroundCheck # Should only collide with the dirt layer
 @onready var slicer: Marker3D = %Slicer
+@onready var pointer: RayCast3D = %Pointer
+
 
 
 func _ready():
@@ -47,12 +49,16 @@ func _ready():
 func _input(event: InputEvent) -> void:
 	#if event.is_action_pressed("slice"):
 		#_slice()
-	#
-	if ground_check.is_colliding():
-		if event.is_action_pressed("interact"):
-			_remove_dirt()
-		if event.is_action_pressed("drop"):
-			_build_dirt()
+	#if ground_check.is_colliding():
+		#if event.is_action_pressed("interact"):
+			#_remove_dirt()
+		#if event.is_action_pressed("drop"):
+			#_build_dirt()
+			
+	if pointer.is_colliding():
+		if event.is_action_pressed("water"):
+			if pointer.get_collider().get_parent().has_method("fill_water"):
+				pointer.get_collider().get_parent().fill_water()
 	
 	if event.is_action_pressed("crouch") and !animation.is_playing():
 		if is_crouched and !uncrouch.is_colliding():

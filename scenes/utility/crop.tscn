@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://ddadbc6h0js3d"]
+[gd_scene load_steps=56 format=3 uid="uid://ddadbc6h0js3d"]
 
 [ext_resource type="Script" uid="uid://n4l3njvdde37" path="res://scripts/class/world_crop.gd" id="1_palxt"]
 [ext_resource type="PackedScene" uid="uid://bx1u545sylij2" path="res://scenes/prefab/temp_scenes/crop_planted.tscn" id="2_d7hg7"]
@@ -25,27 +25,14 @@
 [sub_resource type="Resource" id="Resource_ljs1q"]
 script = ExtResource("3_t14ew")
 grow_meshes = Array[PackedScene]([ExtResource("2_d7hg7"), ExtResource("3_c3rrn"), ExtResource("4_lcnsd"), ExtResource("5_iki7v"), ExtResource("6_p6vro")])
-grow_time = 10.0
+grow_time = 30.0
 water_max = 60
+water_min = 50
 name = "Crop"
 icon = ExtResource("7_w4de5")
 mesh = ExtResource("2_d7hg7")
 stack_limit = 9
 metadata/_custom_type_script = "uid://c0v8vbpbe4egw"
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_0c1ba"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_un1pu"]
-resource_local_to_scene = true
-render_priority = 2
-shader = ExtResource("5_hmnpb")
-shader_parameter/viewport_texture = SubResource("ViewportTexture_0c1ba")
-
-[sub_resource type="QuadMesh" id="QuadMesh_s0l26"]
-resource_local_to_scene = true
-material = SubResource("ShaderMaterial_un1pu")
-size = Vector2(0.5, 0.5)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_d7hg7"]
 var/grow_time/name = &"grow_time"
@@ -139,7 +126,7 @@ children = [SubResource("BTAction_aw66x")]
 script = ExtResource("14_qavuj")
 
 [sub_resource type="BTCooldown" id="BTCooldown_73pv3"]
-duration = 5.0
+duration = 3.0
 trigger_on_failure = true
 children = [SubResource("BTAction_3esa8")]
 
@@ -228,13 +215,26 @@ _data = {
 atlas = ExtResource("4_veuov")
 region = Rect2(258, 161, 465, 561)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_3esa8"]
+radius = 0.3
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0c1ba"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_un1pu"]
+resource_local_to_scene = true
+render_priority = 2
+shader = ExtResource("5_hmnpb")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_0c1ba")
+
+[sub_resource type="QuadMesh" id="QuadMesh_s0l26"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_un1pu")
+size = Vector2(0.5, 0.5)
+
 [node name="Crop" type="Node3D"]
 script = ExtResource("1_palxt")
 crop_data = SubResource("Resource_ljs1q")
-
-[node name="GUI_3DVisualizer" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
-mesh = SubResource("QuadMesh_s0l26")
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = SubResource("BehaviorTree_c3rrn")
@@ -248,10 +248,11 @@ libraries = {
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
-handle_input_locally = false
 render_target_update_mode = 4
 
-[node name="Control" type="Control" parent="SubViewport"]
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+
+[node name="Control" type="Control" parent="SubViewport/CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -261,7 +262,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="WaterBar" type="TextureProgressBar" parent="SubViewport/Control"]
+[node name="WaterBar" type="TextureProgressBar" parent="SubViewport/CanvasLayer/Control"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 350)
 layout_mode = 1
@@ -279,7 +280,7 @@ texture_under = SubResource("AtlasTexture_d7slw")
 texture_progress = SubResource("AtlasTexture_d7slw")
 tint_under = Color(0, 0, 0, 1)
 
-[node name="GrowTime" type="Label" parent="SubViewport/Control"]
+[node name="GrowTime" type="Label" parent="SubViewport/CanvasLayer/Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -296,5 +297,18 @@ text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CanvasModulate" type="CanvasModulate" parent="SubViewport"]
+[node name="CanvasModulate" type="CanvasModulate" parent="SubViewport/CanvasLayer"]
 unique_name_in_owner = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("SphereShape3D_3esa8")
+
+[node name="GUI_3DVisualizer" type="MeshInstance3D" parent="StaticBody3D"]
+unique_name_in_owner = true
+mesh = SubResource("QuadMesh_s0l26")
+skeleton = NodePath("../..")

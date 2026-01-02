@@ -2,13 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dnepsi6c0l41w" path="res://scripts/class/player_that_digs.gd" id="1_72ieh"]
 [ext_resource type="PackedScene" uid="uid://blhd62dvlvboc" path="res://scenes/prefab/gui_interface/player_hud.tscn" id="2_t63vk"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1yw8"]
-albedo_color = Color(0.3500007, 0.2318539, 0.0744194, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72ieh"]
-albedo_color = Color(0.45490196, 1, 0, 1)
-roughness = 0.4
+[ext_resource type="Material" uid="uid://dxec2l2qoyyl3" path="res://resources/materials/dirt_material.tres" id="2_vuuqm"]
+[ext_resource type="Material" uid="uid://b8tpkwagy3eer" path="res://resources/materials/plant_insides.material" id="3_emxo5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_22t8h"]
 
@@ -111,8 +106,8 @@ size = Vector3(1, 0.1, 1)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_72ieh")
-dirt_material = SubResource("StandardMaterial3D_x1yw8")
-plant_inside_material = SubResource("StandardMaterial3D_72ieh")
+dirt_material = ExtResource("2_vuuqm")
+plant_inside_material = ExtResource("3_emxo5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -161,5 +156,11 @@ shape = SubResource("BoxShape3D_72ieh")
 [node name="Slicer" type="Marker3D" parent="Head/Camera3D/SpringArm3D/SlicerArea"]
 unique_name_in_owner = true
 transform = Transform3D(0.96592593, 0.25000006, 0.066987395, -1.18227426e-07, -0.25881907, 0.96592593, 0.2588191, -0.9330127, -0.25, 0, 0, 0)
+
+[node name="Pointer" type="RayCast3D" parent="Head/Camera3D"]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -2)
+collision_mask = 8
+hit_from_inside = true
 
 [node name="PlayerHUD" parent="Head/Camera3D" instance=ExtResource("2_t63vk")]

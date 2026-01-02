@@ -5,9 +5,9 @@ class_name WorldCrop extends Node3D
 @onready var water_bar: TextureProgressBar = %WaterBar
 @onready var grow_time: Label = %GrowTime
 @onready var canvas_modulate: CanvasModulate = %CanvasModulate
+@onready var gui_3d_visualizer: MeshInstance3D = %GUI_3DVisualizer
 @onready var bt_player: BTPlayer = $BTPlayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var gui_3d_visualizer: MeshInstance3D = $GUI_3DVisualizer
 
 
 
@@ -24,6 +24,9 @@ func spawn_physical_crop(grow_index: int) -> void:
 		
 		_spawn_with_static_body(crop_data.grow_meshes[grow_index])
 		
+func fill_water() -> void:
+	water_bar.value = water_bar.max_value
+		
 		
 func reduce_water(current_water: float) -> void:
 	water_bar.value = current_water
@@ -36,9 +39,9 @@ func set_timer(current_time: float) -> void:
 	
 func modulate_red(red: bool) -> void:
 	if red:
-		canvas_modulate.modulate = Color("ff0000")
+		canvas_modulate.color = Color("ff0000")
 	else:
-		canvas_modulate.modulate = Color("ffffff")
+		canvas_modulate.color = Color("ffffff")
 	
 	
 func allow_harvest() -> void: 
