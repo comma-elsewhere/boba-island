@@ -1,9 +1,10 @@
-class_name PlayerHUD extends Node
+class_name PlayerHUD extends Node3D
 
 @onready var hotbar_display: HBoxContainer = %HotbarContainer
 @onready var pause_menu: PanelContainer = %PauseMenu
 @onready var view_model: Marker3D = %ViewModel
 
+const OFFSET := Vector3(0.5, -0.2, -1.0)
 
 var hotbar_array: Array[Item]
 var selected_slot: int = 0
@@ -11,6 +12,7 @@ var selected_slot: int = 0
 func _ready() -> void:
 	setup()
 	pause_menu.quit_game.connect(quit_game)
+	view_model.position = OFFSET
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -33,11 +35,14 @@ func add_item(item: Item) -> bool:
 			return true
 	return false
 
-func drop_item() -> void:
+func drop_item(drop_position: Vector3) -> void:
 	var dropped_item = hotbar_array[selected_slot]
-	_spawn_item(dropped_item)
+	_spawn_item(dropped_item, drop_position)
 	hotbar_array[selected_slot] = null
 	_update_display(selected_slot)
+	
+func reject_item(item: Item, drop_position: Vector3) -> void:
+	_spawn_item(item, drop_position)
 	
 func quit_game() -> void:
 	get_tree().quit()
@@ -48,11 +53,11 @@ func pause() -> void:
 	else:
 		pause_menu.close()
 	
-func _spawn_item(item : Item) -> void:
+func _spawn_item(item: Item, spawn_position: Vector3) -> void:
 	var interactable = item.interactable.instantiate()
-	interactable.item_data = item
+	interactable.set_data(item)
 	get_tree().current_scene.add_child(interactable)
-
+	interactable.global_position = spawn_position
 	
 func _update_display(index: int) -> void:
 	hotbar_display.update_hotbar(hotbar_array)

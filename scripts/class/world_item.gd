@@ -3,7 +3,10 @@ class_name WorldItem extends RigidBody3D
 @export var item_data: Item
 
 func _ready():
-	_spawn_item_with_collision(item_data.mesh_scene)
+	_spawn_item_with_collision(item_data.mesh)
+	
+func set_data(data) -> void:
+	item_data = data
 	
 func pickup() -> Item:
 	call_deferred("queue_free")
@@ -29,5 +32,6 @@ func _spawn_item_with_collision(packed_scene) -> Node3D:
 
 		self.add_child(instantiated_scene)
 		self.add_child(col_shape)
+		self.set_collision_mask_value(5,true)
 
 	return instantiated_scene

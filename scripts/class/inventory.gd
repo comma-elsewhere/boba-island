@@ -1,4 +1,4 @@
-class_name Inventory
+class_name Inventory extends Node
 
 var _contents: Array[Item] = []
 

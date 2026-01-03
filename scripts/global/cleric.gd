@@ -13,7 +13,7 @@ const MINUTES_PER_HOUR: float = 60
 const WEEKDAYS: Array[String] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 # Change these to your needs
-const INGAME_SPEED := 20.0 # bigger number = faster in game time speed
+const INGAME_SPEED := 5.0 # bigger number = faster in game time speed
 const INITIAL_HOUR := 6.0 # works in 24 hour time
 
 # DO NOT CHANGE THESE EITHER
@@ -24,7 +24,7 @@ var _past_day:int = -1
 
 # INITITALIZERS
 var world_time: Array[int] = [0, 0, 0]
-var current_day: String
+var current_day: String = WEEKDAYS[0]
 
 
 func _ready() -> void:
@@ -58,3 +58,4 @@ func _recalculate_time() -> void:
 			if _past_day != day:
 				_past_day = day
 				day_changed.emit(day, WEEKDAYS[day % 7])
+				current_day = WEEKDAYS[day % 7]

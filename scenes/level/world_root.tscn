@@ -1,13 +1,11 @@
 [gd_scene load_steps=21 format=3 uid="uid://6k5dg51rvx2c"]
 
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
-[ext_resource type="Script" uid="uid://b81n0cs52uj28" path="res://scripts/manager/csg_combiner.gd" id="2_x1yw8"]
 [ext_resource type="Material" uid="uid://c346boiwd32lx" path="res://resources/materials/grass.material" id="3_v2daw"]
 [ext_resource type="Script" uid="uid://hewmp0eu4iwx" path="res://scripts/manager/day_night.gd" id="5_adc38"]
 [ext_resource type="Shader" uid="uid://c2j0rugefguwn" path="res://resources/shaders/water.gdshader" id="6_m1jft"]
 [ext_resource type="Texture2D" uid="uid://cn5lvhda5wmfr" path="res://assets/textures/water.jpg" id="7_ipn8i"]
 [ext_resource type="Material" uid="uid://6kqx7xvjsbaf" path="res://resources/materials/watercolor.tres" id="7_m1jft"]
-[ext_resource type="PackedScene" uid="uid://ddadbc6h0js3d" path="res://scenes/utility/crop.tscn" id="8_ipn8i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ttd6"]
 
@@ -54,6 +52,16 @@ material = SubResource("StandardMaterial3D_ipn8i")
 size = Vector2(1000, 1000)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7j0eo"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m1jft"]
+material = ExtResource("3_v2daw")
+top_radius = 50.0
+bottom_radius = 55.0
+height = 6.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ipn8i"]
+height = 6.0
+radius = 50.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_i4eph"]
 flip_faces = true
@@ -111,20 +119,10 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_x1yw8")]
 
-[node name="ParentCombiner" type="CSGCombiner3D" parent="." groups=["Combiner"]]
-use_collision = true
-collision_mask = 3
-script = ExtResource("2_x1yw8")
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="ParentCombiner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
-radius = 50.0
-height = 10.0
-sides = 24
-material = ExtResource("3_v2daw")
-metadata/_edit_lock_ = true
-
 [node name="Ocean" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ocean"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
@@ -135,6 +133,20 @@ mesh = SubResource("PlaneMesh_adc38")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ocean"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 shape = SubResource("WorldBoundaryShape3D_7j0eo")
+
+[node name="Island" type="StaticBody3D" parent="."]
+collision_layer = 16
+collision_mask = 19
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Island"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+mesh = SubResource("CylinderMesh_m1jft")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Island"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+shape = SubResource("CylinderShape3D_ipn8i")
 
 [node name="PostProcessing" type="MeshInstance3D" parent="."]
 material_override = ExtResource("7_m1jft")
@@ -160,6 +172,3 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.9843137, 0.7529412, 0.22745098, 1)
-
-[node name="Crop" parent="." instance=ExtResource("8_ipn8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 2)

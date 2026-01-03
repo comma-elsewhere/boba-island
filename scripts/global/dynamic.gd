@@ -1,7 +1,7 @@
 extends Node
 
 # Financial variables
-var total_money: int = 0
+var total_money: int = 3
 var total_debt: int = 0
 var daily_earnings: int = 0
 

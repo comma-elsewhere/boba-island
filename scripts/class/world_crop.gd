@@ -10,17 +10,18 @@ class_name WorldCrop extends Node3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-
-
 var physical_crop: Node3D = null
-var static_body: StaticBody3D
+var static_body: StaticBody3D = null
 
 var mutated: bool = false
 
+func set_data(data: Crop) -> void:
+	crop_data = data
+
 func spawn_physical_crop(grow_index: int) -> void:
 	if grow_index < crop_data.grow_meshes.size():
-		if physical_crop != null:
-			physical_crop.call_deferred("queue_free")
+		if static_body != null:
+			static_body.call_deferred("queue_free")
 		
 		_spawn_with_static_body(crop_data.grow_meshes[grow_index])
 		
@@ -35,11 +36,17 @@ func set_timer(current_time: float) -> void:
 	@warning_ignore("integer_division")
 	var minute: int = int(current_time) / 60
 	var second: int = int(current_time) % 60
-	grow_time.text = str(minute) + ":" + str(second)
+	var second_string: String
+	if second < 10:
+		second_string = "0" + str(second)
+	else:
+		second_string = str(second)
+	
+	grow_time.text = str(minute) + ":" + second_string
 	
 func modulate_red(red: bool) -> void:
 	if red:
-		canvas_modulate.color = Color("ff0000")
+		canvas_modulate.color = Color("ff00ffff")
 	else:
 		canvas_modulate.color = Color("ffffff")
 	
@@ -47,33 +54,36 @@ func modulate_red(red: bool) -> void:
 func allow_harvest() -> void: 
 	bt_player.call_deferred("queue_free")
 	gui_3d_visualizer.call_deferred("queue_free")
+	
 	static_body.set_collision_mask_value(3, true)
 	static_body.set_collision_layer_value(3, true)
+	static_body.set_collision_mask_value(1, false)
+	static_body.set_collision_layer_value(1, false)
+	static_body.set_collision_mask_value(2, true)
+	static_body.set_collision_layer_value(2, true)
+	
 	
 	
 func harvest() -> Crop:
-	animation_player.play("harvest")
-	return crop_data
+	if !animation_player.is_playing():
+		animation_player.play("harvest")
+		Dynamic.total_money += 3
+		return crop_data
+	else:
+		return null
 
-func _find_first_mesh_instance(node: Node) -> MeshInstance3D:
-	if node is MeshInstance3D:
-		return node
-	for child in node.get_children():
-		var result = _find_first_mesh_instance(child)
-		if result:
-			return result
-	return null
 
 func _spawn_with_static_body(packed_scene) -> void:
 	physical_crop = packed_scene.instantiate() as Node3D
 
-	var mesh_instance = _find_first_mesh_instance(physical_crop)
+	var mesh_instance = Kinetic.find_first_mesh_instance(physical_crop)
 	if mesh_instance and mesh_instance.mesh:
 		static_body = StaticBody3D.new()
 		var shape = mesh_instance.mesh.create_convex_shape()
 		var col_shape = CollisionShape3D.new()
 		col_shape.shape = shape
 
-		self.add_child(physical_crop)
-		physical_crop.add_child(static_body)
+		self.add_child(static_body)
+		static_body.add_child(physical_crop)
 		static_body.add_child(col_shape)
+		col_shape.global_position = mesh_instance.global_position

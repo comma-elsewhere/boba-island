@@ -1,9 +1,9 @@
 class_name Player extends CharacterBody3D
 
-@export var dirt_material = StandardMaterial3D
-@export var plant_inside_material = StandardMaterial3D
+@export var spawn_crop: PackedScene
+@export var plant_inside_material: StandardMaterial3D
 
-var mesh_slicer = MeshSlicer.new()
+var mesh_slicer := MeshSlicer.new()
 
 # Movement vars
 var speed
@@ -37,6 +37,7 @@ var is_crouched: bool = false
 @onready var ground_check: ShapeCast3D = %GroundCheck # Should only collide with the dirt layer
 @onready var slicer: Marker3D = %Slicer
 @onready var pointer: RayCast3D = %Pointer
+@onready var hud: PlayerHUD = %PlayerHUD
 
 
 
@@ -47,18 +48,24 @@ func _ready():
 	
  #Crouch
 func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("slice"):
-		#_slice()
-	#if ground_check.is_colliding():
-		#if event.is_action_pressed("interact"):
-			#_remove_dirt()
-		#if event.is_action_pressed("drop"):
-			#_build_dirt()
+	if event.is_action_pressed("interact"):
+		if ground_check.is_colliding():
+			_plant_crop(spawn_crop)
 			
-	if pointer.is_colliding():
-		if event.is_action_pressed("water"):
+		elif pointer.is_colliding():
 			if pointer.get_collider().get_parent().has_method("fill_water"):
 				pointer.get_collider().get_parent().fill_water()
+			
+		else:
+			var new_item = _harvest()
+			if new_item != null:
+				if !hud.add_item(new_item):
+					hud.reject_item(new_item, csg_spawner.global_position)
+				
+			
+	if event.is_action_pressed("drop"):
+		hud.drop_item(csg_spawner.global_position)
+			
 	
 	if event.is_action_pressed("crouch") and !animation.is_playing():
 		if is_crouched and !uncrouch.is_colliding():
@@ -129,39 +136,45 @@ func _on_animation_done(anim: StringName) -> void:
 		is_crouched = !is_crouched
 
 
-func _remove_dirt() -> void:
-	var csg_base = CSGSphere3D.new()
-	csg_base.material = dirt_material
-	get_tree().call_group("Combiner", "subtract_combine", csg_base)
-	csg_base.global_position = csg_spawner.global_position
-	csg_base.global_rotation = csg_spawner.global_rotation
+func _plant_crop(packed_scene: PackedScene) -> void:
+	var new_crop: WorldCrop = packed_scene.instantiate() as WorldCrop
+	if Dynamic.total_money >= new_crop.crop_data.seed_price:
+		Dynamic.total_money -= new_crop.crop_data.seed_price
+		get_tree().current_scene.add_child(new_crop)
+		new_crop.global_position = csg_spawner.global_position
+	else:
+		new_crop.queue_free()
+	
+#func _remove_dirt() -> void:
+	#var csg_base = CSGSphere3D.new()
+	#csg_base.material = dirt_material
+	#get_tree().call_group("Combiner", "subtract_combine", csg_base)
+	#csg_base.global_position = csg_spawner.global_position
+	#csg_base.global_rotation = csg_spawner.global_rotation
+#
+#func _build_dirt() -> void:
+	#var csg_base = CSGSphere3D.new()
+	#csg_base.material = dirt_material
+	#get_tree().call_group("Combiner", "union_combine", csg_base)
+	#csg_base.global_position = csg_spawner.global_position
+	#csg_base.global_rotation = csg_spawner.global_rotation
 
-func _build_dirt() -> void:
-	var csg_base = CSGSphere3D.new()
-	csg_base.material = dirt_material
-	get_tree().call_group("Combiner", "union_combine", csg_base)
-	csg_base.global_position = csg_spawner.global_position
-	csg_base.global_rotation = csg_spawner.global_rotation
-
-func _slice() -> void:
+func _harvest() -> Crop:
 	for body in %SlicerArea.get_overlapping_bodies().duplicate():
-		if body.has_method("return_objects"):
-			var objects: Array = body.return_objects()
-			var mesh_instance: MeshInstance3D = objects[0]
-			#var collision_shape: CollisionShape3D = objects[1]
-			
-			var Transform = Transform3D.IDENTITY
-			Transform.origin = mesh_instance.to_local((slicer.global_transform.origin))
-			Transform.basis.x = mesh_instance.to_local((slicer.global_transform.basis.x+body.global_position))
-			Transform.basis.y = mesh_instance.to_local((slicer.global_transform.basis.y+body.global_position))
-			Transform.basis.z = mesh_instance.to_local((slicer.global_transform.basis.z+body.global_position))
-			
-			var meshes = mesh_slicer.slice_mesh(Transform,mesh_instance.mesh,plant_inside_material)
+		var mesh_instance: MeshInstance3D = Kinetic.find_first_mesh_instance(body)
+		
+		var Transform = Transform3D.IDENTITY
+		Transform.origin = mesh_instance.to_local((slicer.global_transform.origin))
+		Transform.basis.x = mesh_instance.to_local((slicer.global_transform.basis.x+body.global_position))
+		Transform.basis.y = mesh_instance.to_local((slicer.global_transform.basis.y+body.global_position))
+		Transform.basis.z = mesh_instance.to_local((slicer.global_transform.basis.z+body.global_position))
+		
+		var meshes = mesh_slicer.slice_mesh(Transform,mesh_instance.mesh,plant_inside_material)
 
-			mesh_instance.mesh = meshes[0]
-			
-			##generate collision
-			#if len(meshes[0].get_faces()) > 2:
-				#collision_shape.shape = meshes[0].create_convex_shape()
-				
-			body.death_animation()
+		mesh_instance.mesh = meshes[0]
+		
+		if body.get_parent().has_method("harvest"):
+			return body.get_parent().harvest()
+		else:
+			return null
+	return null
