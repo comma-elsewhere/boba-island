@@ -6,10 +6,10 @@ var total_debt: int = 0
 var daily_earnings: int = 0
 
 # Upgradable variables
-var inventory_space: int = 4
+var inventory_space: int = 5
 var dry_time: float = 3.0
 var moisture_loss: float = 3.0
-var grow_mod: float = 1.0
+var grow_mod: float = 0.1
 
 #Difficulty settings
 var disappoint: int = 1

@@ -100,3 +100,8 @@ water={
 3d_physics/layer_3="MeshSlicer"
 3d_physics/layer_4="RayCast"
 3d_physics/layer_5="Dirt"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true

@@ -14,6 +14,8 @@ func update_hotbar(items: Array[Item]):
 		var item = items[slot.get_index()]
 		if item != null:
 			slot.texture_normal = item.icon
+		else:
+			slot.texture_normal = null
 
 func highlight_slot(slot_index: int):
 	for i in range(slots.size()):

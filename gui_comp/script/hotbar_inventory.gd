@@ -37,9 +37,10 @@ func add_item(item: Item) -> bool:
 
 func drop_item(drop_position: Vector3) -> void:
 	var dropped_item = hotbar_array[selected_slot]
-	_spawn_item(dropped_item, drop_position)
-	hotbar_array[selected_slot] = null
-	_update_display(selected_slot)
+	if dropped_item != null:
+		_spawn_item(dropped_item, drop_position)
+		hotbar_array[selected_slot] = null
+		_update_display(selected_slot)
 	
 func reject_item(item: Item, drop_position: Vector3) -> void:
 	_spawn_item(item, drop_position)

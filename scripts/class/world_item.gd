@@ -32,6 +32,7 @@ func _spawn_item_with_collision(packed_scene) -> Node3D:
 
 		self.add_child(instantiated_scene)
 		self.add_child(col_shape)
-		self.set_collision_mask_value(5,true)
+		self.set_collision_mask_value(5,true) # collides with dirt
+		self.set_collision_layer_value(4, true) # pickup by racyast
 
 	return instantiated_scene

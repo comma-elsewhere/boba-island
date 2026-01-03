@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://6k5dg51rvx2c"]
+[gd_scene load_steps=22 format=3 uid="uid://6k5dg51rvx2c"]
 
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
 [ext_resource type="Material" uid="uid://c346boiwd32lx" path="res://resources/materials/grass.material" id="3_v2daw"]
@@ -105,6 +105,9 @@ _data = {
 &"day_night": SubResource("Animation_m1jft")
 }
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_7j0eo"]
+top_radius = 0.0
+
 [node name="WorldRoot" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -172,3 +175,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.9843137, 0.7529412, 0.22745098, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 4, 0, 0)
+mesh = SubResource("CylinderMesh_7j0eo")

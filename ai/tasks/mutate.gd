@@ -28,9 +28,5 @@ func _tick(_delta: float) -> Status:
 			agent.allow_harvest()
 			return SUCCESS
 
-func _super_cool_math(_percentile_odds: float) -> bool:
-	var coin_flip = [0,1].pick_random()
-	if coin_flip == 0:
-		return true
-	else:
-		return false
+func _super_cool_math(percentile_odds: float) -> bool:
+	return randf_range(0, 100) > percentile_odds

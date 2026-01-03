@@ -55,6 +55,11 @@ func _input(event: InputEvent) -> void:
 		elif pointer.is_colliding():
 			if pointer.get_collider().get_parent().has_method("fill_water"):
 				pointer.get_collider().get_parent().fill_water()
+			elif pointer.get_collider().has_method("pickup"):
+				var new_item = pointer.get_collider().pickup()
+				if new_item != null:
+					if !hud.add_item(new_item):
+						hud.reject_item(new_item, csg_spawner.global_position)
 			
 		else:
 			var new_item = _harvest()
@@ -165,9 +170,17 @@ func _harvest() -> Crop:
 		
 		var Transform = Transform3D.IDENTITY
 		Transform.origin = mesh_instance.to_local((slicer.global_transform.origin))
-		Transform.basis.x = mesh_instance.to_local((slicer.global_transform.basis.x+body.global_position))
-		Transform.basis.y = mesh_instance.to_local((slicer.global_transform.basis.y+body.global_position))
-		Transform.basis.z = mesh_instance.to_local((slicer.global_transform.basis.z+body.global_position))
+		Transform.basis.x = slicer.global_transform.basis.x
+		Transform.basis.y = slicer.global_transform.basis.y
+		Transform.basis.z = slicer.global_transform.basis.z
+		#Transform.basis.x = Vector3(1,0,0)
+		#Transform.basis.y = Vector3(0,1,0)
+		#Transform.basis.z = Vector3(0,0,1)
+		
+		#slicer.rotation
+		#slicer.rotation_degrees
+		#slicer.global_rotation
+		
 		
 		var meshes = mesh_slicer.slice_mesh(Transform,mesh_instance.mesh,plant_inside_material)
 

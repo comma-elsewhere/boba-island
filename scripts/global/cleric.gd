@@ -13,7 +13,7 @@ const MINUTES_PER_HOUR: float = 60
 const WEEKDAYS: Array[String] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 # Change these to your needs
-const INGAME_SPEED := 5.0 # bigger number = faster in game time speed
+const INGAME_SPEED := 2.0 # bigger number = faster in game time speed
 const INITIAL_HOUR := 6.0 # works in 24 hour time
 
 # DO NOT CHANGE THESE EITHER
