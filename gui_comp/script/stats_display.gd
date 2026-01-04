@@ -14,14 +14,8 @@ func _ready() -> void:
 	Cleric.minute_changed.connect(_update_time)
 	
 func _process(_delta: float) -> void:
-	if minute < 10:
-		minute_string = "0" + str(minute)
-	else:
-		minute_string = str(minute)
-	
-		
-	day_time.text = day + ", " + str(hour) + ":" + minute_string
-	money.text = "$%.2f" % (float(Dynamic.total_money)/100)
+	day_time.text = day + ", " + Kinetic.display_time(hour, minute)
+	money.text = Kinetic.display_money(Dynamic.total_money)
 	
 func _update_time():
 	day = Cleric.current_day

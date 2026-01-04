@@ -1,16 +1,9 @@
-[gd_scene load_steps=56 format=3 uid="uid://ddadbc6h0js3d"]
+[gd_scene load_steps=48 format=3 uid="uid://ddadbc6h0js3d"]
 
 [ext_resource type="Script" uid="uid://n4l3njvdde37" path="res://scripts/class/world_crop.gd" id="1_palxt"]
-[ext_resource type="PackedScene" uid="uid://bx1u545sylij2" path="res://scenes/prefab/temp_scenes/crop_planted.tscn" id="2_d7hg7"]
-[ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_gtg64"]
-[ext_resource type="PackedScene" uid="uid://crwh4hrt5orun" path="res://scenes/prefab/temp_scenes/crop_sprouting.tscn" id="3_c3rrn"]
-[ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/crop.gd" id="3_t14ew"]
-[ext_resource type="PackedScene" uid="uid://ohlvkta461fx" path="res://scenes/prefab/temp_scenes/crop_blooming.tscn" id="4_lcnsd"]
+[ext_resource type="Resource" uid="uid://d30x8ug78gwmc" path="res://resources/game_data/crops/cassava.tres" id="2_iki7v"]
 [ext_resource type="Texture2D" uid="uid://bfcgeiw054wjf" path="res://assets/icons/temp_water-droplet.png" id="4_veuov"]
 [ext_resource type="Shader" uid="uid://dv2cahnhcv346" path="res://resources/shaders/crop_watering.gdshader" id="5_hmnpb"]
-[ext_resource type="PackedScene" uid="uid://b0drpbp2ojgao" path="res://scenes/prefab/temp_scenes/crop_harvest.tscn" id="5_iki7v"]
-[ext_resource type="PackedScene" uid="uid://bqcaxfx1ivhsa" path="res://scenes/prefab/temp_scenes/crop_mutant.tscn" id="6_p6vro"]
-[ext_resource type="Texture2D" uid="uid://b5lty58am1ma6" path="res://assets/icons/cassava.png" id="7_w4de5"]
 [ext_resource type="Script" uid="uid://c7oum832eoo8v" path="res://ai/tasks/var_setup.gd" id="12_c3rrn"]
 [ext_resource type="Script" uid="uid://b76cxjdwvwqrr" path="res://ai/tasks/spawn_crop_main.gd" id="13_lcnsd"]
 [ext_resource type="Script" uid="uid://cdbhhom2c3xsm" path="res://ai/tasks/check_water.gd" id="14_3334u"]
@@ -21,18 +14,6 @@
 [ext_resource type="Script" uid="uid://crrybp6yapn6" path="res://ai/tasks/mutate.gd" id="15_p6vro"]
 [ext_resource type="Script" uid="uid://cm31peljhl1lr" path="res://ai/tasks/neglected.gd" id="15_skxbs"]
 [ext_resource type="Script" uid="uid://bn2sg1vc4a30m" path="res://ai/tasks/grow_timer.gd" id="16_3esa8"]
-
-[sub_resource type="Resource" id="Resource_ljs1q"]
-script = ExtResource("3_t14ew")
-grow_meshes = Array[PackedScene]([ExtResource("2_d7hg7"), ExtResource("3_c3rrn"), ExtResource("4_lcnsd"), ExtResource("5_iki7v"), ExtResource("6_p6vro")])
-grow_time = 30.0
-water_max = 60
-water_min = 50
-name = "Crop"
-icon = ExtResource("7_w4de5")
-mesh = ExtResource("2_d7hg7")
-stack_limit = 9
-metadata/_custom_type_script = "uid://c0v8vbpbe4egw"
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_d7hg7"]
 var/grow_time/name = &"grow_time"
@@ -234,7 +215,7 @@ size = Vector2(0.5, 0.5)
 
 [node name="Crop" type="Node3D"]
 script = ExtResource("1_palxt")
-crop_data = SubResource("Resource_ljs1q")
+crop_data = ExtResource("2_iki7v")
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = SubResource("BehaviorTree_c3rrn")

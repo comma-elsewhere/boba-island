@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_iampt")
-name = "Black Tapioca Pearls"
+name = "Tapioca Pearls"
 stack_limit = 9
 metadata/_custom_type_script = "uid://bln87ln83cftx"

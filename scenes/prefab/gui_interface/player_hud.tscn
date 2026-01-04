@@ -10,6 +10,7 @@
 script = ExtResource("1_f2b3q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
 
 [node name="HotbarHUD" type="Control" parent="CanvasLayer"]
 layout_mode = 3

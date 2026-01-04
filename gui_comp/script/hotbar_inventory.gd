@@ -1,18 +1,23 @@
 class_name PlayerHUD extends Node3D
 
+signal close_crafting
+
 @onready var hotbar_display: HBoxContainer = %HotbarContainer
 @onready var pause_menu: PanelContainer = %PauseMenu
 @onready var view_model: Marker3D = %ViewModel
 
 const OFFSET := Vector3(0.5, -0.2, -1.0)
 
+var inventory: Inventory
 var hotbar_array: Array[Item]
 var selected_slot: int = 0
+var gui_open: bool = false
 
 func _ready() -> void:
 	setup()
 	pause_menu.quit_game.connect(quit_game)
 	view_model.position = OFFSET
+	inventory = Inventory.new()
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -26,6 +31,19 @@ func setup() -> void:
 		_create_hotbar_button(i + 1)
 		
 	hotbar_display.get_slots()
+	
+func get_inventory() -> Inventory:
+	inventory.clear_all()
+	for item in hotbar_array:
+		inventory.add_item(item)
+	return inventory
+	
+func return_items(resultant: Inventory) -> void:
+	if resultant != null:
+		hotbar_array.clear()
+		for item in resultant.get_items():
+			if !add_item(item):
+				reject_item(item, view_model.global_position)
 
 func add_item(item: Item) -> bool:
 	for i in Dynamic.inventory_space:
@@ -49,10 +67,14 @@ func quit_game() -> void:
 	get_tree().quit()
 	
 func pause() -> void:
-	if get_tree().paused == false:
-		pause_menu.open()
+	if !gui_open:
+		if get_tree().paused == false:
+			pause_menu.open()
+		else:
+			pause_menu.close()
 	else:
-		pause_menu.close()
+		close_crafting.emit()
+		gui_open = false
 	
 func _spawn_item(item: Item, spawn_position: Vector3) -> void:
 	var interactable = item.interactable.instantiate()

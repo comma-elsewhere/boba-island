@@ -67,7 +67,7 @@ func allow_harvest() -> void:
 func harvest() -> Crop:
 	if !animation_player.is_playing():
 		animation_player.play("harvest")
-		Dynamic.total_money += 3
+		Dynamic.total_money += 100  # TEMP
 		return crop_data
 	else:
 		return null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://6k5dg51rvx2c"]
+[gd_scene load_steps=27 format=3 uid="uid://6k5dg51rvx2c"]
 
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
 [ext_resource type="Material" uid="uid://c346boiwd32lx" path="res://resources/materials/grass.material" id="3_v2daw"]
@@ -6,6 +6,12 @@
 [ext_resource type="Shader" uid="uid://c2j0rugefguwn" path="res://resources/shaders/water.gdshader" id="6_m1jft"]
 [ext_resource type="Texture2D" uid="uid://cn5lvhda5wmfr" path="res://assets/textures/water.jpg" id="7_ipn8i"]
 [ext_resource type="Material" uid="uid://6kqx7xvjsbaf" path="res://resources/materials/watercolor.tres" id="7_m1jft"]
+[ext_resource type="PackedScene" uid="uid://516o65n4jcsn" path="res://scenes/utility/process_machine.tscn" id="7_utkfw"]
+[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/recipe.gd" id="8_vuwh0"]
+[ext_resource type="Resource" uid="uid://dvcgb8xod3jfk" path="res://resources/game_data/recipe_ingredients/sugar_brown.tres" id="9_0glrw"]
+[ext_resource type="Resource" uid="uid://cnkpypbqdv5yp" path="res://resources/game_data/recipe_ingredients/tapioca_pearls.tres" id="10_tyjbu"]
+[ext_resource type="Resource" uid="uid://cpa18nafl67hv" path="res://resources/game_data/recipe_ingredients/puree_strawberry.tres" id="11_ytln1"]
+[ext_resource type="Resource" uid="uid://vb6gdfny004a" path="res://resources/game_data/recipe_ingredients/puree_taro.tres" id="12_80ijt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ttd6"]
 
@@ -67,6 +73,21 @@ radius = 50.0
 flip_faces = true
 size = Vector2(2, 2)
 
+[sub_resource type="Animation" id="Animation_ipn8i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DayNight/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9843137, 0.7529412, 0.22745098, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_m1jft"]
 resource_name = "day_night"
 length = 2.4
@@ -84,29 +105,11 @@ tracks/0/keys = {
 "values": [Color(0.23137255, 0, 0.59607846, 0.39215687), Color(0.9843137, 0.54509807, 0.5803922, 0.21568628), Color(0.9843137, 0.78431374, 0.32941177, 0.09803922), Color(0.8392157, 0.38039216, 1, 0.21568628), Color(0, 0, 0.3882353, 0.39215687)]
 }
 
-[sub_resource type="Animation" id="Animation_ipn8i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DayNight/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.9843137, 0.7529412, 0.22745098, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1jft"]
 _data = {
 &"RESET": SubResource("Animation_ipn8i"),
 &"day_night": SubResource("Animation_m1jft")
 }
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_7j0eo"]
-top_radius = 0.0
 
 [node name="WorldRoot" type="Node3D"]
 
@@ -157,6 +160,7 @@ cast_shadow = 0
 mesh = SubResource("QuadMesh_i4eph")
 
 [node name="DayNight" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="DayNightAnimator" type="AnimationPlayer" parent="DayNight"]
 root_node = NodePath("../..")
@@ -176,6 +180,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.9843137, 0.7529412, 0.22745098, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 4, 0, 0)
-mesh = SubResource("CylinderMesh_7j0eo")
+[node name="ProcessMachine" parent="." instance=ExtResource("7_utkfw")]
+transform = Transform3D(1, 0, 0, 0, -1, -1.509958e-07, 0, 1.509958e-07, -1, 4, 0.3, 0)
+machine_type = "Process"
+available_recipes = Array[ExtResource("8_vuwh0")]([ExtResource("9_0glrw"), ExtResource("10_tyjbu"), ExtResource("11_ytln1"), ExtResource("12_80ijt")])

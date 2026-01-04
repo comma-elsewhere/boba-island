@@ -1,12 +1,12 @@
-class_name Inventory extends Node
+class_name Inventory
 
 var _contents: Array[Item] = []
 
 func add_item(item: Item) -> Item:
-	if !_contents.is_empty():
-		_stack(item)
-	else:
-		_contents.append(item)
+	#if !_contents.is_empty():
+		#_stack(item)
+	#else:
+	_contents.append(item)
 	
 	# If inventory is full it spits back the last thing you put in it after it tries to stack
 	if _contents.size() > 24: # REPLACE WITH GLOBAL VAR
@@ -19,6 +19,10 @@ func remove_item(item: Item) -> void:
 	
 func get_items() -> Array[Item]:
 	return _contents
+	
+func clear_all() -> void:
+	_contents.clear()
+	_contents = []
 	
 func has_all(items: Array[Item]) -> bool:
 	var needed: Array[Item] = items.duplicate()

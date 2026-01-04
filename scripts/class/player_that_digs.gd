@@ -39,8 +39,6 @@ var is_crouched: bool = false
 @onready var pointer: RayCast3D = %Pointer
 @onready var hud: PlayerHUD = %PlayerHUD
 
-
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	animation.animation_finished.connect(_on_animation_done)
@@ -48,35 +46,40 @@ func _ready():
 	
  #Crouch
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
-		if ground_check.is_colliding():
-			_plant_crop(spawn_crop)
-			
-		elif pointer.is_colliding():
-			if pointer.get_collider().get_parent().has_method("fill_water"):
-				pointer.get_collider().get_parent().fill_water()
-			elif pointer.get_collider().has_method("pickup"):
-				var new_item = pointer.get_collider().pickup()
+	if !hud.gui_open:
+		if event.is_action_pressed("interact"):
+			if ground_check.is_colliding():
+				_plant_crop(spawn_crop)
+				
+			elif pointer.is_colliding():
+				if pointer.get_collider().get_parent().has_method("fill_water"):
+					pointer.get_collider().get_parent().fill_water()
+				elif pointer.get_collider().has_method("pickup"):
+					var new_item = pointer.get_collider().pickup()
+					if new_item != null:
+						if !hud.add_item(new_item):
+							hud.reject_item(new_item, csg_spawner.global_position)
+				elif pointer.get_collider().has_method("craft"):
+					hud.gui_open = true
+					pointer.get_collider().craft(hud.get_inventory(), hud)
+					if !pointer.get_collider().craft_closed.has_connections():
+						pointer.get_collider().craft_closed.connect(_update_inventory)
+			else:
+				var new_item = _harvest()
 				if new_item != null:
 					if !hud.add_item(new_item):
 						hud.reject_item(new_item, csg_spawner.global_position)
-			
-		else:
-			var new_item = _harvest()
-			if new_item != null:
-				if !hud.add_item(new_item):
-					hud.reject_item(new_item, csg_spawner.global_position)
+					
 				
-			
-	if event.is_action_pressed("drop"):
-		hud.drop_item(csg_spawner.global_position)
-			
-	
-	if event.is_action_pressed("crouch") and !animation.is_playing():
-		if is_crouched and !uncrouch.is_colliding():
-			animation.play_backwards("crouch")
-		else:
-			animation.play("crouch")
+		if event.is_action_pressed("drop"):
+			hud.drop_item(csg_spawner.global_position)
+				
+		
+		if event.is_action_pressed("crouch") and !animation.is_playing():
+			if is_crouched and !uncrouch.is_colliding():
+				animation.play_backwards("crouch")
+			else:
+				animation.play("crouch")
 			
 # Head rotate and look around
 func _unhandled_input(event):
@@ -90,41 +93,42 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
-	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor() and !is_crouched:
-		velocity.y = JUMP_VELOCITY
-	
-	# Handle Sprint.
-	if Input.is_action_pressed("sprint") and !is_crouched:
-		speed = SPRINT_SPEED
-	elif is_crouched:
-		speed = CROUCH_SPEED
-	else:
-		speed = WALK_SPEED
-
-	# Get the input direction and handle the movement/deceleration.
-	var input_dir = Input.get_vector("left", "right", "forward", "backward")
-	var direction = (head.transform.basis * transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if is_on_floor():
-		if direction:
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
+		
+	if !hud.gui_open:
+		# Handle Jump.
+		if Input.is_action_just_pressed("jump") and is_on_floor() and !is_crouched:
+			velocity.y = JUMP_VELOCITY
+		
+		# Handle Sprint.
+		if Input.is_action_pressed("sprint") and !is_crouched:
+			speed = SPRINT_SPEED
+		elif is_crouched:
+			speed = CROUCH_SPEED
 		else:
-			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
-	else:
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
-	
-	# Head bob
-	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(t_bob)
-	
-	# FOV
-	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
-	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
-	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+			speed = WALK_SPEED
+		
+			# Get the input direction and handle the movement/deceleration.
+		var input_dir = Input.get_vector("left", "right", "forward", "backward")
+		var direction = (head.transform.basis * transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if is_on_floor():
+			if direction:
+				velocity.x = direction.x * speed
+				velocity.z = direction.z * speed
+			else:
+				velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
+				velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+		else:
+			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
+		
+		# Head bob
+		t_bob += delta * velocity.length() * float(is_on_floor())
+		camera.transform.origin = _headbob(t_bob)
+		
+		# FOV
+		var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
+		var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
+		camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	move_and_slide()
 
@@ -191,3 +195,7 @@ func _harvest() -> Crop:
 		else:
 			return null
 	return null
+
+
+func _update_inventory(new_inventory: Inventory) -> void:
+	hud.return_items(new_inventory)
