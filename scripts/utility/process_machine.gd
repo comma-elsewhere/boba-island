@@ -3,12 +3,18 @@ extends StaticBody3D
 signal craft_closed(new_inventory: Inventory)
 
 @export_enum("Process", "Cook", "Mix") var machine_type: String
-@export var available_recipes: Array[Recipe] = []
+@export var recipe_upgrades: RecipeUpgradeGroup
+@export_range(1,6) var upgrade_level: int = 1
 @export var crafting_scene: PackedScene = preload("res://scenes/prefab/gui_interface/crafting_hud.tscn")
 
 @onready var sub_viewport: SubViewport = %SubViewport
 
 var new_crafting_scene = null
+var available_recipes: Array[Recipe] = []
+
+func _ready() -> void:
+	for i in range(upgrade_level):
+		available_recipes.append_array(recipe_upgrades.upgrade(i))
 
 func craft(player_inventory: Inventory, player_hud: PlayerHUD) -> void:
 	if !player_hud.close_crafting.has_connections():

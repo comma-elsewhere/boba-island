@@ -1,6 +1,6 @@
 extends PanelContainer
 
-const NEW_GAME := ""
+const NEW_GAME := "res://scenes/level/world_root.tscn"
 
 
 func _on_start_button_button_up() -> void:

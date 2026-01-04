@@ -6,6 +6,8 @@ signal close_crafting
 @onready var pause_menu: PanelContainer = %PauseMenu
 @onready var view_model: Marker3D = %ViewModel
 
+const MAIN_MENU := "res://scenes/level/main_menu.tscn"
+
 const OFFSET := Vector3(0.5, -0.2, -1.0)
 
 var inventory: Inventory
@@ -64,7 +66,7 @@ func reject_item(item: Item, drop_position: Vector3) -> void:
 	_spawn_item(item, drop_position)
 	
 func quit_game() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file(MAIN_MENU)
 	
 func pause() -> void:
 	if !gui_open:

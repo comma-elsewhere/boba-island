@@ -69,13 +69,27 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Fullscreen"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-text = "Fullscreen Mode"
+text = "Fullscreen"
 
 [node name="CheckButton2" type="CheckButton" parent="VBoxContainer/Fullscreen"]
 layout_mode = 2
 size_flags_horizontal = 2
 
+[node name="VSync" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSync"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "V-Sync Mode"
+
+[node name="CheckBox3" type="CheckButton" parent="VBoxContainer/VSync"]
+layout_mode = 2
+size_flags_horizontal = 2
+button_pressed = true
+
 [connection signal="value_changed" from="VBoxContainer/Volume/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="toggled" from="VBoxContainer/Mute/CheckBox1" to="." method="_on_check_box_1_toggled"]
 [connection signal="item_selected" from="VBoxContainer/Resolution/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="toggled" from="VBoxContainer/Fullscreen/CheckButton2" to="." method="_on_check_button_2_toggled"]
+[connection signal="toggled" from="VBoxContainer/VSync/CheckBox3" to="." method="_on_check_box_3_toggled"]

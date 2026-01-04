@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8dcqquuf7srh"]
+[gd_scene load_steps=4 format=3 uid="uid://b8dcqquuf7srh"]
 
 [ext_resource type="Script" uid="uid://c02be7rjfyhmn" path="res://gui_comp/script/main_menu.gd" id="1_nhkf3"]
 [ext_resource type="Script" uid="uid://wnlnltffpy0p" path="res://gui_comp/script/menu_contents.gd" id="2_eaxye"]
+[ext_resource type="PackedScene" uid="uid://cuu8oj5rbrit0" path="res://gui_comp/options_menu.tscn" id="3_nfgcl"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("main_panel", "saved_panel", "options_panel", "saved_button", "options_button")]
 layout_mode = 3
@@ -42,7 +43,7 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "game title"
+text = "Boba Island"
 
 [node name="MenuContents" type="PanelContainer" parent="ScreenMargins"]
 layout_mode = 2
@@ -77,6 +78,7 @@ text = "New Game"
 [node name="ContinueButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+disabled = true
 text = "Continue"
 
 [node name="OptionsButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
@@ -92,11 +94,16 @@ text = "Quit to Desktop"
 [node name="SavedMenu" type="VBoxContainer" parent="ScreenMargins/MenuContents/MarginContainer"]
 visible = false
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="PageLabel" type="Label" parent="ScreenMargins/MenuContents/MarginContainer/SavedMenu"]
 layout_mode = 2
-text = "Save Files"
+text = "Start from Save?"
 horizontal_alignment = 1
+
+[node name="SavedButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/SavedMenu"]
+layout_mode = 2
+text = "Last Save"
 
 [node name="BackButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/SavedMenu"]
 custom_minimum_size = Vector2(150, 0)
@@ -104,13 +111,16 @@ layout_mode = 2
 text = "Back to Main"
 
 [node name="OptionsMenu" type="VBoxContainer" parent="ScreenMargins/MenuContents/MarginContainer"]
-visible = false
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="PageLabel" type="Label" parent="ScreenMargins/MenuContents/MarginContainer/OptionsMenu"]
 layout_mode = 2
 text = "Options"
 horizontal_alignment = 1
+
+[node name="OptionsMenu" parent="ScreenMargins/MenuContents/MarginContainer/OptionsMenu" instance=ExtResource("3_nfgcl")]
+layout_mode = 2
 
 [node name="BackButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/OptionsMenu"]
 custom_minimum_size = Vector2(150, 0)

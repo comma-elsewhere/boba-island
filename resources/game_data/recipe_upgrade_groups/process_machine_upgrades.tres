@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RecipeUpgradeGroup" load_steps=7 format=3 uid="uid://cfoou3oklaqqf"]
+
+[ext_resource type="Script" uid="uid://dan11yi86ysne" path="res://scripts/resource/recipe_upgrade.gd" id="1_aty5p"]
+[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/recipe.gd" id="2_qbna2"]
+[ext_resource type="Resource" uid="uid://dvcgb8xod3jfk" path="res://resources/game_data/recipe_ingredients/sugar_brown.tres" id="3_ftsol"]
+[ext_resource type="Resource" uid="uid://cnkpypbqdv5yp" path="res://resources/game_data/recipe_ingredients/tapioca_pearls.tres" id="4_tpo2r"]
+[ext_resource type="Resource" uid="uid://cpa18nafl67hv" path="res://resources/game_data/recipe_ingredients/puree_strawberry.tres" id="5_e5mc2"]
+[ext_resource type="Resource" uid="uid://vb6gdfny004a" path="res://resources/game_data/recipe_ingredients/puree_taro.tres" id="6_2dl4q"]
+
+[resource]
+script = ExtResource("1_aty5p")
+upgrade_0 = Array[ExtResource("2_qbna2")]([ExtResource("3_ftsol")])
+upgrade_1 = Array[ExtResource("2_qbna2")]([ExtResource("4_tpo2r")])
+upgrade_2 = Array[ExtResource("2_qbna2")]([ExtResource("5_e5mc2")])
+upgrade_3 = Array[ExtResource("2_qbna2")]([ExtResource("6_2dl4q")])
+metadata/_custom_type_script = "uid://dan11yi86ysne"

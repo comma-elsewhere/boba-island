@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Boba Island"
-run/main_scene="uid://6k5dg51rvx2c"
+run/main_scene="uid://b8dcqquuf7srh"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,12 @@ Cleric="*res://scripts/global/cleric.gd"
 Dynamic="*res://scripts/global/dynamic.gd"
 Static="*res://scripts/global/static.gd"
 Kinetic="*res://scripts/global/kinetic.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
 
 [input]
 
