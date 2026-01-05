@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DrinkRecipe" load_steps=7 format=3 uid="uid://dcsnce6d4r5ml"]
 
-[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_ab3km"]
-[ext_resource type="Script" uid="uid://ca0n2j172o6jl" path="res://scripts/resource/drink_recipe.gd" id="2_3qfj0"]
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_ab3km"]
+[ext_resource type="Script" uid="uid://ca0n2j172o6jl" path="res://scripts/resource/items_and_recipes/drink_recipe.gd" id="2_3qfj0"]
 [ext_resource type="Resource" uid="uid://ce5rur8rsgv1n" path="res://resources/game_data/drinks/no_boba/strawberry_black.tres" id="2_qphy3"]
 [ext_resource type="Resource" uid="uid://db3yuj54ic2xe" path="res://resources/game_data/ingredients/milk.tres" id="3_53thg"]
 [ext_resource type="Resource" uid="uid://dbwi81yciqm5x" path="res://resources/game_data/ingredients/puree_strawberry.tres" id="4_4vqxr"]

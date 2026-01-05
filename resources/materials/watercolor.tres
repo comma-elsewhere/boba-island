@@ -3,8 +3,10 @@
 [ext_resource type="Shader" uid="uid://di6svailsy25h" path="res://resources/shaders/watercolor_texture.gdshader" id="1_fd126"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_m1jft"]
-frequency = 0.5
-domain_warp_enabled = true
+noise_type = 5
+frequency = 0.25
+fractal_type = 0
+fractal_weighted_strength = 0.51
 domain_warp_type = 1
 domain_warp_fractal_type = 2
 
@@ -13,10 +15,11 @@ width = 1024
 height = 1024
 noise = SubResource("FastNoiseLite_m1jft")
 in_3d_space = true
+normalize = false
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_fd126")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_ipn8i")
-shader_parameter/damper = 250.0
+shader_parameter/damper = 200.0
 shader_parameter/color_intensity = 2.999999955296

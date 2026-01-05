@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RecipeUpgradeGroup" load_steps=29 format=3 uid="uid://ddne8iogyrhns"]
 
-[ext_resource type="Script" uid="uid://dan11yi86ysne" path="res://scripts/resource/recipe_upgrade.gd" id="1_vyxib"]
-[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/recipe.gd" id="2_5ry0f"]
+[ext_resource type="Script" uid="uid://dan11yi86ysne" path="res://scripts/resource/items_and_recipes/recipe_upgrade.gd" id="1_vyxib"]
+[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/items_and_recipes/recipe.gd" id="2_5ry0f"]
 [ext_resource type="Resource" uid="uid://bjqt78gg7ugae" path="res://resources/game_data/recipe_drinks/no boba/plain_black.tres" id="3_1rwen"]
 [ext_resource type="Resource" uid="uid://e7ep4vh3me85" path="res://resources/game_data/recipe_drinks/no boba/plain_green.tres" id="4_dlejt"]
 [ext_resource type="Resource" uid="uid://cney7wjjuvulw" path="res://resources/game_data/recipe_drinks/no boba/plain_oolong.tres" id="5_0st2n"]

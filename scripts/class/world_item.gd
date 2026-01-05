@@ -12,27 +12,14 @@ func pickup() -> Item:
 	call_deferred("queue_free")
 	return item_data
 
-func _find_first_mesh_instance(node: Node) -> MeshInstance3D:
-	if node is MeshInstance3D:
-		return node
-	for child in node.get_children():
-		var result = _find_first_mesh_instance(child)
-		if result:
-			return result
-	return null
-
 func _spawn_item_with_collision(packed_scene) -> Node3D:
 	var instantiated_scene = packed_scene.instantiate()
-
-	var mesh_instance = _find_first_mesh_instance(instantiated_scene)
-	if mesh_instance and mesh_instance.mesh:
-		var shape = mesh_instance.mesh.create_convex_shape()
-		var col_shape = CollisionShape3D.new()
-		col_shape.shape = shape
+	var mesh_instance = Kinetic.find_first_mesh_instance(instantiated_scene)
+	if Kinetic.mesh_to_collision(mesh_instance, self):
 
 		self.add_child(instantiated_scene)
-		self.add_child(col_shape)
 		self.set_collision_mask_value(5,true) # collides with dirt
 		self.set_collision_layer_value(4, true) # pickup by racyast
 
-	return instantiated_scene
+		return instantiated_scene
+	return null

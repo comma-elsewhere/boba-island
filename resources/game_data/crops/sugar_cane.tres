@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Crop" load_steps=3 format=3 uid="uid://yxg8m560ssfp"]
 
 [ext_resource type="Texture2D" uid="uid://bpbv7m4osqwfd" path="res://assets/icons/sugar_cane.png" id="1_nsp7e"]
-[ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/crop.gd" id="1_tsr8t"]
+[ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/items_and_recipes/crop.gd" id="1_tsr8t"]
 
 [resource]
 script = ExtResource("1_tsr8t")

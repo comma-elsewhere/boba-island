@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DrinkRecipe" load_steps=7 format=3 uid="uid://muxmrrk5cefp"]
 
-[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_ernqn"]
-[ext_resource type="Script" uid="uid://ca0n2j172o6jl" path="res://scripts/resource/drink_recipe.gd" id="2_jdo62"]
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_ernqn"]
+[ext_resource type="Script" uid="uid://ca0n2j172o6jl" path="res://scripts/resource/items_and_recipes/drink_recipe.gd" id="2_jdo62"]
 [ext_resource type="Resource" uid="uid://dg3swjpnq8bav" path="res://resources/game_data/drinks/no_boba/milk_matcha.tres" id="2_yvqbt"]
 [ext_resource type="Resource" uid="uid://becxnuwetlie2" path="res://resources/game_data/ingredients/matcha_powder.tres" id="3_t05du"]
 [ext_resource type="Resource" uid="uid://db3yuj54ic2xe" path="res://resources/game_data/ingredients/milk.tres" id="4_vbayx"]

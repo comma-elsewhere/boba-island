@@ -75,15 +75,7 @@ func harvest() -> Crop:
 
 func _spawn_with_static_body(packed_scene) -> void:
 	physical_crop = packed_scene.instantiate() as Node3D
-
 	var mesh_instance = Kinetic.find_first_mesh_instance(physical_crop)
-	if mesh_instance and mesh_instance.mesh:
-		static_body = StaticBody3D.new()
-		var shape = mesh_instance.mesh.create_convex_shape()
-		var col_shape = CollisionShape3D.new()
-		col_shape.shape = shape
-
-		self.add_child(static_body)
-		static_body.add_child(physical_crop)
-		static_body.add_child(col_shape)
-		col_shape.global_position = mesh_instance.global_position
+	static_body = Kinetic.mesh_to_static_body(mesh_instance, self)
+	static_body.add_child(physical_crop)
+	static_body.get_child(0).global_position = mesh_instance.global_position

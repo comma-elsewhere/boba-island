@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://vb6gdfny004a"]
 
-[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_fveen"]
-[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/recipe.gd" id="2_jve64"]
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_fveen"]
+[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/items_and_recipes/recipe.gd" id="2_jve64"]
 [ext_resource type="Resource" uid="uid://ondr30glbdiq" path="res://resources/game_data/crops/taro.tres" id="2_nymoi"]
 [ext_resource type="Resource" uid="uid://bshj6d4uajaa3" path="res://resources/game_data/ingredients/puree_taro.tres" id="3_cc276"]
 

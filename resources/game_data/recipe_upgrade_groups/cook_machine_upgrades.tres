@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RecipeUpgradeGroup" load_steps=5 format=3 uid="uid://fnw81gfwi5n4"]
 
-[ext_resource type="Script" uid="uid://dan11yi86ysne" path="res://scripts/resource/recipe_upgrade.gd" id="1_iysl2"]
-[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/recipe.gd" id="2_ejn8q"]
+[ext_resource type="Script" uid="uid://dan11yi86ysne" path="res://scripts/resource/items_and_recipes/recipe_upgrade.gd" id="1_iysl2"]
+[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/items_and_recipes/recipe.gd" id="2_ejn8q"]
 [ext_resource type="Resource" uid="uid://cg1k3opfacdxc" path="res://resources/game_data/recipe_ingredients/sugar_syrup.tres" id="3_xduuq"]
 [ext_resource type="Resource" uid="uid://dn4s7mqah2mkv" path="res://resources/game_data/recipe_ingredients/boba.tres" id="4_humvw"]
 

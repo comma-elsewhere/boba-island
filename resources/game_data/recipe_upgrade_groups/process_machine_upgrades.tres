@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RecipeUpgradeGroup" load_steps=7 format=3 uid="uid://cfoou3oklaqqf"]
 
-[ext_resource type="Script" uid="uid://dan11yi86ysne" path="res://scripts/resource/recipe_upgrade.gd" id="1_aty5p"]
-[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/recipe.gd" id="2_qbna2"]
+[ext_resource type="Script" uid="uid://dan11yi86ysne" path="res://scripts/resource/items_and_recipes/recipe_upgrade.gd" id="1_aty5p"]
+[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/items_and_recipes/recipe.gd" id="2_qbna2"]
 [ext_resource type="Resource" uid="uid://dvcgb8xod3jfk" path="res://resources/game_data/recipe_ingredients/sugar_brown.tres" id="3_ftsol"]
 [ext_resource type="Resource" uid="uid://cnkpypbqdv5yp" path="res://resources/game_data/recipe_ingredients/tapioca_pearls.tres" id="4_tpo2r"]
 [ext_resource type="Resource" uid="uid://cpa18nafl67hv" path="res://resources/game_data/recipe_ingredients/puree_strawberry.tres" id="5_e5mc2"]

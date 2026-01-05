@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://cnkpypbqdv5yp"]
 
-[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/item.gd" id="1_45eut"]
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_45eut"]
 [ext_resource type="Resource" uid="uid://d30x8ug78gwmc" path="res://resources/game_data/crops/cassava.tres" id="2_cdfys"]
-[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/recipe.gd" id="2_te3vj"]
+[ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/items_and_recipes/recipe.gd" id="2_te3vj"]
 [ext_resource type="Resource" uid="uid://dob22kpua6k0t" path="res://resources/game_data/ingredients/tapioca_pearls.tres" id="5_lmjli"]
 
 [resource]

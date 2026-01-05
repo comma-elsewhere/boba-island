@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bx1u545sylij2" path="res://scenes/prefab/temp_scenes/crop_planted.tscn" id="1_gqrd4"]
 [ext_resource type="Texture2D" uid="uid://b5lty58am1ma6" path="res://assets/icons/cassava.png" id="1_ikgxp"]
-[ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/crop.gd" id="1_yxbix"]
+[ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/items_and_recipes/crop.gd" id="1_yxbix"]
 [ext_resource type="PackedScene" uid="uid://crwh4hrt5orun" path="res://scenes/prefab/temp_scenes/crop_sprouting.tscn" id="2_fqido"]
 [ext_resource type="PackedScene" uid="uid://ohlvkta461fx" path="res://scenes/prefab/temp_scenes/crop_blooming.tscn" id="3_i1xqv"]
 [ext_resource type="PackedScene" uid="uid://b0drpbp2ojgao" path="res://scenes/prefab/temp_scenes/crop_harvest.tscn" id="4_twqvw"]
