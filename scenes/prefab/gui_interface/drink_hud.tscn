@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcsxnqd8vhk4c"]
+
+[ext_resource type="Script" uid="uid://cmaf8inrxla2w" path="res://scripts/manager/drink_hud.gd" id="1_v5vx8"]
+[ext_resource type="PackedScene" uid="uid://b1twp35u2qexl" path="res://gui_comp/item_grid.tscn" id="3_6b2lx"]
+
+[node name="DrinkHUD" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v5vx8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Crafting!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Recipes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="RecipeTitle" type="Label" parent="VBoxContainer/HBoxContainer/Recipes"]
+layout_mode = 2
+text = "Recipes"
+horizontal_alignment = 1
+
+[node name="RecipeList" type="ItemList" parent="VBoxContainer/HBoxContainer/Recipes"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Ingredients"
+
+[node name="IngredientsContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("3_6b2lx")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="TeaBase" type="OptionButton" parent="VBoxContainer/HBoxContainer/HBoxContainer/IngredientsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text_overrun_behavior = 3
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Result"
+
+[node name="ResultsContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("3_6b2lx")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+columns = 3
+
+[node name="BottomText" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CraftingButton" type="Button" parent="VBoxContainer/HBoxContainer/HBoxContainer/BottomText"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Mix!"
+
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/Recipes/RecipeList" to="." method="_on_recipe_list_item_selected"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/HBoxContainer/BottomText/CraftingButton" to="." method="_on_crafting_button_button_up"]

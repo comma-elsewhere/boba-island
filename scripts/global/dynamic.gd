@@ -2,6 +2,7 @@ extends Node
 
 #Save and load
 var load_game: bool = false
+var drink_order: DrinkRecipe = null
 
 # Financial variables
 var total_money: int = 100
