@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TeaBase" load_steps=12 format=3 uid="uid://d4d0fknlwjwam"]
+
+[ext_resource type="Script" uid="uid://dghhhrcb6bayb" path="res://scripts/resource/items_and_recipes/tea_base.gd" id="1_iawkp"]
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="2_em1ds"]
+[ext_resource type="Resource" uid="uid://da3br6nenjksm" path="res://resources/game_data/tea/black_assam.tres" id="3_id5qh"]
+[ext_resource type="Resource" uid="uid://dler2wmvwaarm" path="res://resources/game_data/tea/black_ceylon.tres" id="4_xwohb"]
+[ext_resource type="Resource" uid="uid://c30i4sq2iynhh" path="res://resources/game_data/tea/black_chai.tres" id="5_y8h54"]
+[ext_resource type="Resource" uid="uid://e5fj4qcw1j11" path="res://resources/game_data/tea/black_earlgrey.tres" id="6_dobub"]
+[ext_resource type="Resource" uid="uid://c7p4inqmgbfg7" path="res://resources/game_data/tea/green_hojicha.tres" id="7_2m6au"]
+[ext_resource type="Resource" uid="uid://cdcw34iyxefmk" path="res://resources/game_data/tea/green_jasmine.tres" id="8_wfvb0"]
+[ext_resource type="Resource" uid="uid://rpncj70g58ht" path="res://resources/game_data/tea/green_mint.tres" id="9_uku1f"]
+[ext_resource type="Resource" uid="uid://075757210ju5" path="res://resources/game_data/tea/green_sencha.tres" id="10_hvm81"]
+[ext_resource type="Resource" uid="uid://bfvxhjsl3t15w" path="res://resources/game_data/tea/oolong.tres" id="11_4tp57"]
+
+[resource]
+script = ExtResource("1_iawkp")
+tea_array = Array[ExtResource("2_em1ds")]([ExtResource("3_id5qh"), ExtResource("4_xwohb"), ExtResource("5_y8h54"), ExtResource("6_dobub"), ExtResource("7_2m6au"), ExtResource("8_wfvb0"), ExtResource("9_uku1f"), ExtResource("10_hvm81"), ExtResource("11_4tp57")])
+metadata/_custom_type_script = "uid://dghhhrcb6bayb"

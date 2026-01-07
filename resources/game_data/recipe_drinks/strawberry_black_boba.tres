@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DrinkRecipe" load_steps=9 format=3 uid="uid://bcwr386me622l"]
+
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_ysqli"]
+[ext_resource type="Resource" uid="uid://8ro3okhrpfwh" path="res://resources/game_data/ingredients/boba.tres" id="2_v01ga"]
+[ext_resource type="Resource" uid="uid://db3yuj54ic2xe" path="res://resources/game_data/ingredients/milk.tres" id="3_tr445"]
+[ext_resource type="Resource" uid="uid://dbwi81yciqm5x" path="res://resources/game_data/ingredients/puree_strawberry.tres" id="4_jyfa3"]
+[ext_resource type="Resource" uid="uid://bd8k4jlboxvqc" path="res://resources/game_data/ingredients/sugar_syrup.tres" id="5_ohr77"]
+[ext_resource type="Script" uid="uid://ca0n2j172o6jl" path="res://scripts/resource/items_and_recipes/drink_recipe.gd" id="6_bl11i"]
+[ext_resource type="Resource" uid="uid://tuphra88387p" path="res://resources/game_data/drinks/strawberry_black_boba.tres" id="6_rst50"]
+[ext_resource type="Resource" uid="uid://b14dy0q36wheb" path="res://resources/game_data/tea/tea_base_expanded.tres" id="8_2sits"]
+
+[resource]
+script = ExtResource("6_bl11i")
+tea_base = ExtResource("8_2sits")
+result = ExtResource("6_rst50")
+ingredients = Array[ExtResource("1_ysqli")]([ExtResource("2_v01ga"), ExtResource("3_tr445"), ExtResource("4_jyfa3"), ExtResource("5_ohr77")])
+metadata/_custom_type_script = "uid://ca0n2j172o6jl"

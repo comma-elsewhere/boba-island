@@ -1,5 +1,8 @@
 extends Node
 
+# Enum
+enum TEA {ASSAM, CEYLON, CHAI, EARL_GREY, HOJICHA, JASMINE, MINT, SENCHA, OOLONG, MATCHA, TARO}
+
 # Peaceful mode settings
 const PEACEFUL_DISAPPOINT := 0
 const PEACEFUL_NEGLECT := 0

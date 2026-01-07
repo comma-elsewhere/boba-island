@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdp4b2op1gor0"]
+
+[ext_resource type="Script" uid="uid://den6u2anmb0lv" path="res://scripts/manager/drink_orders.gd" id="1_058xe"]
+[ext_resource type="Resource" uid="uid://ddne8iogyrhns" path="res://resources/game_data/recipe_upgrade_groups/drink_machine_upgrades.tres" id="2_68eaa"]
+
+[node name="DrinkOrders" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_058xe")
+drinks = ExtResource("2_68eaa")

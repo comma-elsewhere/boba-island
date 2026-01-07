@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TeaBase" load_steps=14 format=3 uid="uid://b14dy0q36wheb"]
+
+[ext_resource type="Script" uid="uid://dghhhrcb6bayb" path="res://scripts/resource/items_and_recipes/tea_base.gd" id="1_d2hj5"]
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="2_7mumy"]
+[ext_resource type="Resource" uid="uid://da3br6nenjksm" path="res://resources/game_data/tea/black_assam.tres" id="3_2iwcj"]
+[ext_resource type="Resource" uid="uid://dler2wmvwaarm" path="res://resources/game_data/tea/black_ceylon.tres" id="4_vi0bg"]
+[ext_resource type="Resource" uid="uid://c30i4sq2iynhh" path="res://resources/game_data/tea/black_chai.tres" id="5_k66kk"]
+[ext_resource type="Resource" uid="uid://e5fj4qcw1j11" path="res://resources/game_data/tea/black_earlgrey.tres" id="6_s61wr"]
+[ext_resource type="Resource" uid="uid://c7p4inqmgbfg7" path="res://resources/game_data/tea/green_hojicha.tres" id="7_rvgpq"]
+[ext_resource type="Resource" uid="uid://cdcw34iyxefmk" path="res://resources/game_data/tea/green_jasmine.tres" id="8_iabga"]
+[ext_resource type="Resource" uid="uid://rpncj70g58ht" path="res://resources/game_data/tea/green_mint.tres" id="9_vdvqu"]
+[ext_resource type="Resource" uid="uid://075757210ju5" path="res://resources/game_data/tea/green_sencha.tres" id="10_wkcel"]
+[ext_resource type="Resource" uid="uid://bfvxhjsl3t15w" path="res://resources/game_data/tea/oolong.tres" id="11_te836"]
+[ext_resource type="Resource" uid="uid://becxnuwetlie2" path="res://resources/game_data/ingredients/matcha_powder.tres" id="12_7s1nm"]
+[ext_resource type="Resource" uid="uid://bshj6d4uajaa3" path="res://resources/game_data/ingredients/puree_taro.tres" id="13_8mgcj"]
+
+[resource]
+script = ExtResource("1_d2hj5")
+tea_array = Array[ExtResource("2_7mumy")]([ExtResource("3_2iwcj"), ExtResource("4_vi0bg"), ExtResource("5_k66kk"), ExtResource("6_s61wr"), ExtResource("7_rvgpq"), ExtResource("8_iabga"), ExtResource("9_vdvqu"), ExtResource("10_wkcel"), ExtResource("11_te836"), ExtResource("12_7s1nm"), ExtResource("13_8mgcj")])
+metadata/_custom_type_script = "uid://dghhhrcb6bayb"

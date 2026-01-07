@@ -1,5 +1,8 @@
 extends Node
 
+#Save and load
+var load_game: bool = false
+
 # Financial variables
 var total_money: int = 100
 var total_debt: int = 1000000
@@ -12,14 +15,19 @@ var seed_spent: int = 0
 
 # Upgradable variables
 var inventory_space: int = 6
-var moisture_loss: float = 3.0
-var grow_mod: float = 1.0
+var moisture_loss: float = 5.0
+var grow_mod: float = 3.0
 var crop_yield: int = 1
 var process_speed: float = 1.0
 var cook_speed: float = 1.0
 var mix_speed: float = 1.0
-var new_tea: int = 0
-var new_crop: int = 0
+var new_tea: int = 3 # Min 3, Max 11
+var new_crop: int = 0 # Min 0, Max 2
+
+# Recipe Upgrade tracking - minimum 1
+var processor: int = 1 # Max 4
+var cooker: int = 1 # Max 2
+var mixer: int = 4 # Max 4
 
 #Difficulty/Danger settings
 var difficulty_setting: int = 1

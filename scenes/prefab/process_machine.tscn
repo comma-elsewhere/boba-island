@@ -10,7 +10,7 @@ points = PackedVector3Array(0.43647996, -1.0158731, 0.30942434, -0.5158731, -1.0
 material = ExtResource("2_n053f")
 top_radius = 0.0
 
-[node name="ProcessMachine" type="StaticBody3D"]
+[node name="ProcessMachine" type="StaticBody3D" groups=["GameEvent"]]
 collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_un0w0")
@@ -35,5 +35,6 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 unique_name_in_owner = true
 transparent_bg = true
-size = Vector2i(1152, 648)
+handle_input_locally = false
+size = Vector2i(1280, 720)
 render_target_update_mode = 4

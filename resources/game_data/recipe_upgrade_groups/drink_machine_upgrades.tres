@@ -1,40 +1,18 @@
-[gd_resource type="Resource" script_class="RecipeUpgradeGroup" load_steps=29 format=3 uid="uid://ddne8iogyrhns"]
+[gd_resource type="Resource" script_class="RecipeUpgradeGroup" load_steps=9 format=3 uid="uid://ddne8iogyrhns"]
 
 [ext_resource type="Script" uid="uid://dan11yi86ysne" path="res://scripts/resource/items_and_recipes/recipe_upgrade.gd" id="1_vyxib"]
 [ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/items_and_recipes/recipe.gd" id="2_5ry0f"]
-[ext_resource type="Resource" uid="uid://bjqt78gg7ugae" path="res://resources/game_data/recipe_drinks/no boba/plain_black.tres" id="3_1rwen"]
-[ext_resource type="Resource" uid="uid://e7ep4vh3me85" path="res://resources/game_data/recipe_drinks/no boba/plain_green.tres" id="4_dlejt"]
-[ext_resource type="Resource" uid="uid://cney7wjjuvulw" path="res://resources/game_data/recipe_drinks/no boba/plain_oolong.tres" id="5_0st2n"]
-[ext_resource type="Resource" uid="uid://dx5pcg7q8tanu" path="res://resources/game_data/recipe_drinks/boba/plain_black_boba.tres" id="6_iu6sk"]
-[ext_resource type="Resource" uid="uid://ckg3gvpyt8xws" path="res://resources/game_data/recipe_drinks/boba/plain_green_boba.tres" id="7_r7cxx"]
-[ext_resource type="Resource" uid="uid://n44cm8p0f0cw" path="res://resources/game_data/recipe_drinks/boba/plain_oolong_boba.tres" id="8_0l6ep"]
-[ext_resource type="Resource" uid="uid://c8u2wukt12bsl" path="res://resources/game_data/recipe_drinks/boba/milk_black_boba.tres" id="9_pfrjh"]
-[ext_resource type="Resource" uid="uid://drn83jsvqovyd" path="res://resources/game_data/recipe_drinks/boba/milk_green_boba.tres" id="10_aabta"]
-[ext_resource type="Resource" uid="uid://wniyj1ibybcn" path="res://resources/game_data/recipe_drinks/boba/milk_oolong_boba.tres" id="11_xhycy"]
-[ext_resource type="Resource" uid="uid://b23vr0j8htp8y" path="res://resources/game_data/recipe_drinks/no boba/milk_black.tres" id="12_brmt0"]
-[ext_resource type="Resource" uid="uid://bxdxvj0u5c4cd" path="res://resources/game_data/recipe_drinks/no boba/milk_green.tres" id="13_45go4"]
-[ext_resource type="Resource" uid="uid://bboykqx6ruwot" path="res://resources/game_data/recipe_drinks/no boba/milk_oolong.tres" id="14_0rk4w"]
-[ext_resource type="Resource" uid="uid://bcwr386me622l" path="res://resources/game_data/recipe_drinks/boba/strawberry_black_boba.tres" id="15_7w1tv"]
-[ext_resource type="Resource" uid="uid://cfy5fl8e51r1k" path="res://resources/game_data/recipe_drinks/boba/strawberry_green_boba.tres" id="16_mc5n4"]
-[ext_resource type="Resource" uid="uid://2wk4xr3ahgr7" path="res://resources/game_data/recipe_drinks/boba/strawberry_oolong_boba.tres" id="17_ufnkb"]
-[ext_resource type="Resource" uid="uid://dcsnce6d4r5ml" path="res://resources/game_data/recipe_drinks/no boba/strawberry_black.tres" id="18_phype"]
-[ext_resource type="Resource" uid="uid://uwlfpjdcqntn" path="res://resources/game_data/recipe_drinks/no boba/strawberry_green.tres" id="19_sb3al"]
-[ext_resource type="Resource" uid="uid://blta4ikii6wcf" path="res://resources/game_data/recipe_drinks/no boba/strawberry_oolong.tres" id="20_kdc6b"]
-[ext_resource type="Resource" uid="uid://ua4g5unijhfl" path="res://resources/game_data/recipe_drinks/boba/milk_matcha_boba.tres" id="21_ocybp"]
-[ext_resource type="Resource" uid="uid://cllh37p86dm0n" path="res://resources/game_data/recipe_drinks/boba/strawberry_matcha_boba.tres" id="22_4xoq5"]
-[ext_resource type="Resource" uid="uid://muxmrrk5cefp" path="res://resources/game_data/recipe_drinks/no boba/milk_matcha.tres" id="23_hdiv0"]
-[ext_resource type="Resource" uid="uid://cf7tk4f6xv865" path="res://resources/game_data/recipe_drinks/no boba/strawberry_matcha.tres" id="24_aauup"]
-[ext_resource type="Resource" uid="uid://b27n1sdgn0lec" path="res://resources/game_data/recipe_drinks/boba/milk_taro_boba.tres" id="25_3aeea"]
-[ext_resource type="Resource" uid="uid://c441piv762lq3" path="res://resources/game_data/recipe_drinks/boba/strawberry_taro_boba.tres" id="26_pj16a"]
-[ext_resource type="Resource" uid="uid://ceixitcb7r37i" path="res://resources/game_data/recipe_drinks/no boba/milk_taro.tres" id="27_cyu8y"]
-[ext_resource type="Resource" uid="uid://rm8olw2ttyhl" path="res://resources/game_data/recipe_drinks/no boba/strawberry_taro.tres" id="28_mkpxa"]
+[ext_resource type="Resource" uid="uid://bjqt78gg7ugae" path="res://resources/game_data/recipe_drinks/plain_black.tres" id="3_4u137"]
+[ext_resource type="Resource" uid="uid://dx5pcg7q8tanu" path="res://resources/game_data/recipe_drinks/plain_black_boba.tres" id="4_23qip"]
+[ext_resource type="Resource" uid="uid://b23vr0j8htp8y" path="res://resources/game_data/recipe_drinks/milk_black.tres" id="5_1wgy1"]
+[ext_resource type="Resource" uid="uid://c8u2wukt12bsl" path="res://resources/game_data/recipe_drinks/milk_black_boba.tres" id="6_ncd3f"]
+[ext_resource type="Resource" uid="uid://dcsnce6d4r5ml" path="res://resources/game_data/recipe_drinks/strawberry_black.tres" id="7_vpapt"]
+[ext_resource type="Resource" uid="uid://bcwr386me622l" path="res://resources/game_data/recipe_drinks/strawberry_black_boba.tres" id="8_ichcs"]
 
 [resource]
 script = ExtResource("1_vyxib")
-upgrade_0 = Array[ExtResource("2_5ry0f")]([ExtResource("3_1rwen"), ExtResource("4_dlejt"), ExtResource("5_0st2n")])
-upgrade_1 = Array[ExtResource("2_5ry0f")]([ExtResource("6_iu6sk"), ExtResource("7_r7cxx"), ExtResource("8_0l6ep")])
-upgrade_2 = Array[ExtResource("2_5ry0f")]([ExtResource("9_pfrjh"), ExtResource("10_aabta"), ExtResource("11_xhycy"), ExtResource("12_brmt0"), ExtResource("13_45go4"), ExtResource("14_0rk4w")])
-upgrade_3 = Array[ExtResource("2_5ry0f")]([ExtResource("15_7w1tv"), ExtResource("16_mc5n4"), ExtResource("17_ufnkb"), ExtResource("18_phype"), ExtResource("19_sb3al"), ExtResource("20_kdc6b")])
-upgrade_4 = Array[ExtResource("2_5ry0f")]([ExtResource("21_ocybp"), ExtResource("22_4xoq5"), ExtResource("23_hdiv0"), ExtResource("24_aauup")])
-upgrade_5 = Array[ExtResource("2_5ry0f")]([ExtResource("25_3aeea"), ExtResource("26_pj16a"), ExtResource("27_cyu8y"), ExtResource("28_mkpxa")])
+upgrade_0 = Array[ExtResource("2_5ry0f")]([ExtResource("3_4u137")])
+upgrade_1 = Array[ExtResource("2_5ry0f")]([ExtResource("4_23qip")])
+upgrade_2 = Array[ExtResource("2_5ry0f")]([ExtResource("5_1wgy1"), ExtResource("6_ncd3f")])
+upgrade_3 = Array[ExtResource("2_5ry0f")]([ExtResource("7_vpapt"), ExtResource("8_ichcs")])
 metadata/_custom_type_script = "uid://dan11yi86ysne"

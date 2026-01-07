@@ -213,7 +213,7 @@ resource_local_to_scene = true
 material = SubResource("ShaderMaterial_un1pu")
 size = Vector2(0.5, 0.5)
 
-[node name="Crop" type="Node3D"]
+[node name="Crop" type="Node3D" groups=["GameEvent"]]
 script = ExtResource("1_palxt")
 crop_data = ExtResource("2_iki7v")
 

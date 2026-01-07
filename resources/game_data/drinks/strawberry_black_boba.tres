@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=3 format=3 uid="uid://tuphra88387p"]
+
+[ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/items_and_recipes/drink.gd" id="1_111i8"]
+[ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_rk0uj"]
+
+[resource]
+script = ExtResource("1_111i8")
+name = "Strawberry Boba Milk Tea"
+metadata/_custom_type_script = "uid://bburi43myo1eb"

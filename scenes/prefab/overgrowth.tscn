@@ -28,7 +28,7 @@ _data = {
 &"harvest": SubResource("Animation_2qfuk")
 }
 
-[node name="Overgrowth" type="Node3D"]
+[node name="Overgrowth" type="Node3D" groups=["GameEvent"]]
 script = ExtResource("1_pfhtm")
 weed_array = Array[PackedScene]([ExtResource("3_qnmuy"), ExtResource("4_xlnl6")])
 

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DrinkRecipe" load_steps=6 format=3 uid="uid://bjqt78gg7ugae"]
+
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_kogjc"]
+[ext_resource type="Resource" uid="uid://bhytjs67i5mk3" path="res://resources/game_data/drinks/plain_black.tres" id="2_2grmw"]
+[ext_resource type="Script" uid="uid://ca0n2j172o6jl" path="res://scripts/resource/items_and_recipes/drink_recipe.gd" id="2_kddie"]
+[ext_resource type="Resource" uid="uid://bd8k4jlboxvqc" path="res://resources/game_data/ingredients/sugar_syrup.tres" id="3_121ea"]
+[ext_resource type="Resource" uid="uid://d4d0fknlwjwam" path="res://resources/game_data/tea/tea_base.tres" id="5_1cqgv"]
+
+[resource]
+script = ExtResource("2_kddie")
+result = ExtResource("2_2grmw")
+ingredients = Array[ExtResource("1_kogjc")]([ExtResource("3_121ea")])
+metadata/_custom_type_script = "uid://ca0n2j172o6jl"

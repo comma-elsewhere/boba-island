@@ -76,6 +76,7 @@ layout_mode = 2
 text = "New Game"
 
 [node name="ContinueButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 disabled = true
@@ -130,5 +131,6 @@ text = "Back to Main"
 
 [connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/MainVBox/StartButton" to="ScreenMargins/MenuContents" method="_on_start_button_button_up"]
 [connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/MainVBox/QuitButton" to="ScreenMargins/MenuContents" method="_on_quit_button_button_up"]
+[connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/SavedMenu/SavedButton" to="ScreenMargins/MenuContents" method="_on_saved_button_button_up"]
 [connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/SavedMenu/BackButton" to="." method="_on_back_button_button_up"]
 [connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/OptionsMenu/BackButton" to="." method="_on_back_button_button_up"]

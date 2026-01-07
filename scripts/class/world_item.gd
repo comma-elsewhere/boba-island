@@ -3,7 +3,8 @@ class_name WorldItem extends RigidBody3D
 @export var item_data: Item
 
 func _ready():
-	_spawn_item_with_collision(item_data.mesh)
+	if item_data:
+		_spawn_item_with_collision(item_data.mesh)
 	
 func set_data(data) -> void:
 	item_data = data
@@ -23,3 +24,21 @@ func _spawn_item_with_collision(packed_scene) -> Node3D:
 
 		return instantiated_scene
 	return null
+
+#func on_save(save_data: Array[SavedData]) -> void:
+	#var my_data = SavedItem.new()
+	#my_data.position = global_position
+	#my_data.scene_file_path = scene_file_path
+	#my_data.data = item_data
+	#
+	#save_data.append(my_data)
+#
+#func on_preload() -> void:
+	#get_parent().remove_child(self)
+	#queue_free()
+#
+#func on_load(save_data: SavedData) -> void:
+	#var my_data: SavedItem = save_data as SavedItem
+	#global_position = my_data.position
+	#item_data = my_data.data
+	#_spawn_item_with_collision(item_data.mesh)
