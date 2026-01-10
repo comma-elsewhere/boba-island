@@ -5,5 +5,6 @@
 
 [resource]
 script = ExtResource("1_vldwv")
+drink_type = 2
 name = "Milk Tea"
 metadata/_custom_type_script = "uid://bburi43myo1eb"

@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ndftidq3rsgc"]
+
+[ext_resource type="Shader" uid="uid://cov324kihi20c" path="res://resources/shaders/chromatic_blur.gdshader" id="1_h5ols"]
+
+[resource]
+shader = ExtResource("1_h5ols")
+shader_parameter/lod = 0.0
+shader_parameter/displace_r = 0.0
+shader_parameter/displace_b = 0.0

@@ -3,10 +3,12 @@ extends Control
 @export var drinks: RecipeUpgradeGroup
 
 var available_drinks: Array[Recipe]
+var order_generator: OrderGen
 
 func _ready() -> void:
+	order_generator = OrderGen.new()
 	get_available_drinks()
-	Dynamic.drink_order = pick_rand_drink()
+	#var new_order: String = order_generator.make_order(pick_rand_drink().result)
 
 func get_available_drinks() -> void:
 	available_drinks.clear()

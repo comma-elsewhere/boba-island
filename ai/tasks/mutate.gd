@@ -10,7 +10,7 @@ func _tick(_delta: float) -> Status:
 	
 		agent.mutated = _super_cool_math(chance)
 		
-		if agent.mutated:
+		if !agent.mutated:
 			index += 1
 			blackboard.set_var("grow_index", index)
 			if index > agent.crop_data.grow_meshes.size():
@@ -29,4 +29,5 @@ func _tick(_delta: float) -> Status:
 			return SUCCESS
 
 func _super_cool_math(percentile_odds: float) -> bool:
-	return randf_range(0, 100) > percentile_odds
+	print(percentile_odds)
+	return randf_range(0, 100) < percentile_odds

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bwijg6lsih103" path="res://gui_comp/script/hotbar_container.gd" id="3_xcoxm"]
 [ext_resource type="Script" uid="uid://bmn1dpl5s5tf5" path="res://scripts/utility/view_model.gd" id="5_jdtkk"]
 
-[node name="PlayerHUD" type="Node3D"]
+[node name="PlayerHUD" type="Node3D" groups=["Lighting"]]
 script = ExtResource("1_f2b3q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

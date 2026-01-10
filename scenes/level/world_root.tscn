@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://6k5dg51rvx2c"]
+[gd_scene load_steps=24 format=3 uid="uid://6k5dg51rvx2c"]
 
+[ext_resource type="Script" uid="uid://dmgan4c1aqq32" path="res://scripts/manager/lighting.gd" id="1_utkfw"]
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
 [ext_resource type="Material" uid="uid://c346boiwd32lx" path="res://resources/materials/grass.material" id="3_v2daw"]
 [ext_resource type="Script" uid="uid://hewmp0eu4iwx" path="res://scripts/manager/day_night.gd" id="5_adc38"]
@@ -119,10 +120,11 @@ _data = {
 environment = SubResource("Environment_22t8h")
 compositor = SubResource("Compositor_2ut7i")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." groups=["Lighting"]]
 transform = Transform3D(-4.371139e-08, 0.64278764, 0.76604444, 0, -0.76604444, 0.64278764, 1, 2.809714e-08, 3.3484866e-08, 0, 10, 0)
 light_color = Color(1, 1, 0.76862746, 1)
 shadow_enabled = true
+script = ExtResource("1_utkfw")
 
 [node name="Player" parent="." instance=ExtResource("1_x1yw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -14)

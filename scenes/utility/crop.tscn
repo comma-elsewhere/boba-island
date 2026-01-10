@@ -1,7 +1,6 @@
-[gd_scene load_steps=48 format=3 uid="uid://ddadbc6h0js3d"]
+[gd_scene load_steps=47 format=3 uid="uid://ddadbc6h0js3d"]
 
 [ext_resource type="Script" uid="uid://n4l3njvdde37" path="res://scripts/class/world_crop.gd" id="1_palxt"]
-[ext_resource type="Resource" uid="uid://d30x8ug78gwmc" path="res://resources/game_data/crops/cassava.tres" id="2_iki7v"]
 [ext_resource type="Texture2D" uid="uid://bfcgeiw054wjf" path="res://assets/icons/temp_water-droplet.png" id="4_veuov"]
 [ext_resource type="Shader" uid="uid://dv2cahnhcv346" path="res://resources/shaders/crop_watering.gdshader" id="5_hmnpb"]
 [ext_resource type="Script" uid="uid://c7oum832eoo8v" path="res://ai/tasks/var_setup.gd" id="12_c3rrn"]
@@ -215,7 +214,6 @@ size = Vector2(0.5, 0.5)
 
 [node name="Crop" type="Node3D" groups=["GameEvent"]]
 script = ExtResource("1_palxt")
-crop_data = ExtResource("2_iki7v")
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = SubResource("BehaviorTree_c3rrn")

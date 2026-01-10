@@ -1,5 +1,6 @@
 class_name Crop extends Item
 
+@export var mutation_scene: PackedScene = preload("res://scenes/prefab/gui_interface/mandrake_encounter.tscn")
 @export var grow_meshes: Array[PackedScene]
 @export var seed_price: int = 1
 @export var grow_time: float = 5.0

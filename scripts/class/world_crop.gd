@@ -50,8 +50,10 @@ func modulate_red(red: bool) -> void:
 	
 func allow_harvest() -> void: 
 	crop_state = STATE.CAN_HARVEST
-	bt_player.call_deferred("queue_free")
-	gui_3d_visualizer.call_deferred("queue_free")
+	if bt_player:
+		bt_player.call_deferred("queue_free")
+	if gui_3d_visualizer:
+		gui_3d_visualizer.call_deferred("queue_free")
 	
 	static_body.set_collision_mask_value(3, true)
 	static_body.set_collision_layer_value(3, true)
@@ -61,13 +63,17 @@ func allow_harvest() -> void:
 	static_body.set_collision_layer_value(2, true)
 
 func harvest() -> Crop:
-	if !animation_player.is_playing():
+	if mutated:
+		var mutation: CanvasLayer = crop_data.mutation_scene.instantiate() as CanvasLayer
+		mutation.encounter_end.connect(_encounter_success)
+		get_tree().current_scene.add_child(mutation)
+		return null
+		
+	elif !animation_player.is_playing():
 		crop_state = STATE.HARVESTED
 		animation_player.play("harvest")
-		Dynamic.total_money += 100  # TEMP
 		return crop_data
-	else:
-		return null
+	else: return null
 
 func _spawn_with_static_body(packed_scene) -> void:
 	physical_crop = packed_scene.instantiate() as Node3D
@@ -76,6 +82,15 @@ func _spawn_with_static_body(packed_scene) -> void:
 	static_body.add_child(physical_crop)
 	static_body.get_child(0).global_position = mesh_instance.global_position
 
+func _encounter_success(success: bool) -> void:
+	if success:
+		mutated = false
+		spawn_physical_crop(crop_data.grow_meshes.size()-2)
+		allow_harvest()
+	else:
+		crop_state = STATE.HARVESTED
+		animation_player.play("harvest")
+		
 
 func on_save(save_data: Array[SavedData]) -> void:
 	if crop_state != STATE.HARVESTED:

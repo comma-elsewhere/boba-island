@@ -2,6 +2,9 @@ class_name PlayerHUD extends Node3D
 
 signal close_crafting
 
+@export var fill: Array[Item] = []
+
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var hotbar_display: HBoxContainer = %HotbarContainer
 @onready var pause_menu: PanelContainer = %PauseMenu
 @onready var view_model: Marker3D = %ViewModel
@@ -21,6 +24,9 @@ func _ready() -> void:
 	view_model.position = OFFSET
 	inventory = Inventory.new()
 	
+	for item in fill:
+		add_item(item)
+	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		pause()
@@ -33,6 +39,18 @@ func setup() -> void:
 		_create_hotbar_button(i + 1)
 		
 	hotbar_display.get_slots()
+	
+func plant_crop(pos: Vector3) -> bool:
+	var selected = hotbar_array[selected_slot]
+	if selected != null and selected.has_method("am_seed"):
+		var new_crop: WorldCrop = selected.crop_scene.instantiate() as WorldCrop
+		new_crop.crop_data = selected.crop_data
+		get_tree().current_scene.add_child(new_crop)
+		new_crop.global_position = pos
+		erase_selected()
+		return true
+	else: 
+		return false
 	
 func get_inventory() -> Inventory:
 	inventory.clear_all()
@@ -55,6 +73,12 @@ func add_item(item: Item) -> bool:
 			return true
 	return false
 
+func erase_selected() -> void:
+	var remove_item = hotbar_array[selected_slot]
+	if remove_item != null:
+		hotbar_array[selected_slot] = null
+		_update_display(selected_slot)
+
 func drop_item(drop_position: Vector3) -> void:
 	var dropped_item = hotbar_array[selected_slot]
 	if dropped_item != null:
@@ -69,14 +93,23 @@ func quit_game() -> void:
 	get_tree().change_scene_to_file(MAIN_MENU)
 	
 func pause() -> void:
-	if !gui_open:
-		if get_tree().paused == false:
-			pause_menu.open()
+	if canvas_layer.visible:
+		if !gui_open:
+			if get_tree().paused == false:
+				pause_menu.open()
+			else:
+				pause_menu.close()
 		else:
-			pause_menu.close()
+			close_crafting.emit()
+			gui_open = false
+	
+func mutant_encounter(active: bool) -> void:
+	canvas_layer.visible = !active
+	
+	if !canvas_layer.visible:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
-		close_crafting.emit()
-		gui_open = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _spawn_item(item: Item, spawn_position: Vector3) -> void:
 	var interactable = item.interactable.instantiate()

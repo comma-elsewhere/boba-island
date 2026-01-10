@@ -1,6 +1,5 @@
 class_name Player extends CharacterBody3D
 
-@export var spawn_crop: PackedScene
 @export var plant_inside_material: StandardMaterial3D
 
 var mesh_slicer := MeshSlicer.new()
@@ -49,7 +48,7 @@ func _input(event: InputEvent) -> void:
 	if !hud.gui_open:
 		if event.is_action_pressed("interact"):
 			if ground_check.is_colliding():
-				_plant_crop(spawn_crop)
+				hud.plant_crop(csg_spawner.global_position)
 				
 			elif pointer.is_colliding():
 				if pointer.get_collider().get_parent().has_method("fill_water"):
@@ -143,16 +142,6 @@ func _headbob(time) -> Vector3:
 func _on_animation_done(anim: StringName) -> void:
 	if anim == "crouch":
 		is_crouched = !is_crouched
-
-
-func _plant_crop(packed_scene: PackedScene) -> void:
-	var new_crop: WorldCrop = packed_scene.instantiate() as WorldCrop
-	if Dynamic.total_money >= new_crop.crop_data.seed_price:
-		Dynamic.total_money -= new_crop.crop_data.seed_price
-		get_tree().current_scene.add_child(new_crop)
-		new_crop.global_position = csg_spawner.global_position
-	else:
-		new_crop.queue_free()
 	
 #func _remove_dirt() -> void:
 	#var csg_base = CSGSphere3D.new()

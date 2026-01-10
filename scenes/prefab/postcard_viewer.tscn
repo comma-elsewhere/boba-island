@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://4qoviebs8pn6"]
+
+[ext_resource type="Texture2D" uid="uid://cr4qwww4peatn" path="res://assets/textures/temp_postcard.png" id="1_x1mol"]
+
+[node name="PostcardViewer" type="SubViewportContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+gui_disable_input = true
+size = Vector2i(315, 210)
+size_2d_override = Vector2i(630, 420)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Postcard" type="Sprite2D" parent="SubViewport"]
+unique_name_in_owner = true
+texture = ExtResource("1_x1mol")
+centered = false

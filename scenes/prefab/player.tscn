@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0b3clifjliac"]
+[gd_scene load_steps=14 format=3 uid="uid://d0b3clifjliac"]
 
 [ext_resource type="Script" uid="uid://dnepsi6c0l41w" path="res://scripts/class/player_that_digs.gd" id="1_72ieh"]
 [ext_resource type="PackedScene" uid="uid://blhd62dvlvboc" path="res://scenes/prefab/gui_interface/player_hud.tscn" id="2_t63vk"]
-[ext_resource type="PackedScene" uid="uid://ddadbc6h0js3d" path="res://scenes/utility/crop.tscn" id="2_vuuqm"]
 [ext_resource type="Material" uid="uid://b8tpkwagy3eer" path="res://resources/materials/plant_insides.material" id="3_emxo5"]
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="4_emxo5"]
+[ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="5_x3577"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_22t8h"]
 
@@ -106,7 +107,6 @@ size = Vector3(1, 0.1, 1)
 collision_layer = 2
 collision_mask = 19
 script = ExtResource("1_72ieh")
-spawn_crop = ExtResource("2_vuuqm")
 plant_inside_material = ExtResource("3_emxo5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -166,3 +166,5 @@ hit_from_inside = true
 
 [node name="PlayerHUD" parent="Head/Camera3D" instance=ExtResource("2_t63vk")]
 unique_name_in_owner = true
+process_mode = 3
+fill = Array[ExtResource("4_emxo5")]([ExtResource("5_x3577"), ExtResource("5_x3577"), ExtResource("5_x3577")])

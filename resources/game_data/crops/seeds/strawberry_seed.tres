@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=5 format=3 uid="uid://dv3sjdeuv8x4p"]
+
+[ext_resource type="PackedScene" uid="uid://ddadbc6h0js3d" path="res://scenes/utility/crop.tscn" id="1_f6nmi"]
+[ext_resource type="Resource" uid="uid://360c740binkf" path="res://resources/game_data/crops/strawberry.tres" id="1_v1thk"]
+[ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_v1thk"]
+[ext_resource type="Script" uid="uid://bsoorundtclwe" path="res://scripts/resource/items_and_recipes/seed.gd" id="3_f0elg"]
+
+[resource]
+script = ExtResource("3_f0elg")
+crop_data = ExtResource("1_v1thk")
+name = "Strawberry Seeds"
+metadata/_custom_type_script = "uid://bsoorundtclwe"
