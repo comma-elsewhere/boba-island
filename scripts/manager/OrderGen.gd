@@ -23,16 +23,16 @@ const GEN: Dictionary = {
 	"ASSAM" : [
 		["breakfast"],
 		["invigorating", "strong"],
-		["molasses", "corn flakes"],
+		["dark chocolate", "cereal"],
 		["an earthy flavor"],
 		["mahogany"],
-		["waking up"]
+		["digestion"]
 	],
 	"CEYLON" : [
 		["energy"],
 		["robust", "full-bodied"],
 		["citrus", "warm spices"],
-		["smooth finish"],
+		["a smooth finish"],
 		["copper and gold"],
 		["tiredness"]
 	],
@@ -40,15 +40,15 @@ const GEN: Dictionary = {
 		["relaxation"],
 		["sweet and spicy", "comforting"],
 		["autumn", "warm spices"],
-		["strong smell"],
+		["a cozy smell"],
 		["caramel"],
 		["pain"]
 	],
 	"EARL_GREY" : [
 		["inflammation"],
 		["zesty", "floral"],
-		["citrus", "perfume"],
-		["smoky flavor"],
+		["citrus", "fruit"],
+		["a smoky flavor"],
 		["dark amber"],
 		["skin health"]
 	],
@@ -56,47 +56,47 @@ const GEN: Dictionary = {
 		["mindfulness"],
 		["earthy", "smooth"],
 		["toasted rice", "roasted nuts"],
-		["smoky flavor"],
+		["a smoky flavor"],
 		["amber"],
 		["anxiety"]
 	],
 	"JASMINE" : [
 		["relaxation"],
-		["crisp", "refreshing"],
-		["fresh flowers", "perfume"],
-		["enchanting flavor"],
+		["floral", "calming"],
+		["honey", "vanilla"],
+		["a delicate flavor"],
 		["pale gold"],
 		["anxiety"]
 	],
 	"MINT" : [
 		["the heat"],
 		["balanced", "refreshing"],
-		["toothpaste", "summer"],
-		["cooling flavor"],
+		["candy canes", "summer"],
+		["a cooling flavor"],
 		["light green-gold"],
 		["nausea"]
 	],
 	"SENCHA" : [
 		["mindfulness"],
 		["balanced", "vegetal"],
-		["spinach", "resin"],
-		["smooth finish"],
+		["fresh greens", "a forest"],
+		["a smooth finish"],
 		["jade"],
 		["focus"]
 	],
 	"OOLONG" : [
 		[""],
-		["", ""],
-		["", ""],
-		[""],
+		["nutty", "comforting"],
+		["pastries", "honey"],
+		["a complex flavor"],
 		[""],
 		[""]
 	],
 	"MATCHA" : [
 		["energy"],
 		["earthy", "balanced"],
-		["spinach", "roasted nuts"],
-		["complex flavor"],
+		["fresh greens", "roasted nuts"],
+		["a complex flavor"],
 		["vivid emerald"],
 		["focus"]
 	],
@@ -113,11 +113,8 @@ const GEN: Dictionary = {
 func make_order(order: Drink) -> String:
 	var flavor_key := _get_flavor(order.tea_flavor)
 	var drink_type := _get_type(order.drink_type)
-	var pick_array: Array[int] = [0,1,2,3,4,5]
-	var index_1 = pick_array.pick_random()
-	pick_array.erase(index_1)
-	var index_2 = pick_array.pick_random()
-	pick_array.erase(index_2)
+	var index_1 = [0,3,4,5].pick_random()
+	var index_2 = [1,2].pick_random()
 	return WANT.pick_random() + drink_type + THAT + GEN["KEY"][index_1][0] + GEN[flavor_key][index_1].pick_random() + AND + GEN["KEY"][index_2][0] + GEN[flavor_key][index_2].pick_random() + "."
 	
 func _get_type(drink_type: int) -> String:

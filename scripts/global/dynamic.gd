@@ -16,14 +16,14 @@ var seed_spent: int = 0
 
 # Upgradable variables
 var inventory_space: int = 6
-var moisture_loss: float = 5.0
+var moisture_loss: float = 6.0
 var grow_mod: float = 2.0
 var crop_yield: int = 1
 var process_speed: float = 1.0
 var cook_speed: float = 1.0
 var mix_speed: float = 1.0
-var new_tea: int = 3 # Min 3, Max 11
-var new_crop: int = 0 # Min 0, Max 2
+var new_tea: int = 11 # Min 3, Max 11
+var new_crop: int = 2 # Min 0, Max 2
 
 # Recipe Upgrade tracking - minimum 1
 var processor: int = 1 # Max 4

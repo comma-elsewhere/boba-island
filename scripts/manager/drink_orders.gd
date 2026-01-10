@@ -8,7 +8,11 @@ var order_generator: OrderGen
 func _ready() -> void:
 	order_generator = OrderGen.new()
 	get_available_drinks()
-	#var new_order: String = order_generator.make_order(pick_rand_drink().result)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		var new_order: String = order_generator.make_order(pick_rand_drink().result)
+		print(new_order)
 
 func get_available_drinks() -> void:
 	available_drinks.clear()

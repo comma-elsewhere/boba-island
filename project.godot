@@ -21,6 +21,7 @@ Cleric="*res://scripts/global/cleric.gd"
 Dynamic="*res://scripts/global/dynamic.gd"
 Static="*res://scripts/global/static.gd"
 Kinetic="*res://scripts/global/kinetic.gd"
+Shaker="*res://addons/shaker/src/Shaker.gd"
 
 [display]
 
@@ -28,6 +29,10 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/shaker/plugin.cfg")
 
 [global_group]
 

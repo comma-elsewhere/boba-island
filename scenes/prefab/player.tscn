@@ -1,10 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0b3clifjliac"]
+[gd_scene load_steps=21 format=3 uid="uid://d0b3clifjliac"]
 
 [ext_resource type="Script" uid="uid://dnepsi6c0l41w" path="res://scripts/class/player_that_digs.gd" id="1_72ieh"]
 [ext_resource type="PackedScene" uid="uid://blhd62dvlvboc" path="res://scenes/prefab/gui_interface/player_hud.tscn" id="2_t63vk"]
 [ext_resource type="Material" uid="uid://b8tpkwagy3eer" path="res://resources/materials/plant_insides.material" id="3_emxo5"]
+[ext_resource type="Script" uid="uid://dx61e603u0ox2" path="res://scripts/utility/camera_3d.gd" id="3_x3577"]
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="4_emxo5"]
 [ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="5_x3577"]
+[ext_resource type="Script" uid="uid://clls85kmjfpf5" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="7_eklxm"]
+[ext_resource type="Script" uid="uid://d4maeuwhpdt85" path="res://addons/shaker/data/Vector3/BaseShakerType3D.gd" id="8_octyv"]
+[ext_resource type="Script" uid="uid://bn6mmvstgwt75" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="9_bdjfl"]
+[ext_resource type="Script" uid="uid://bni0jrcydsw6r" path="res://addons/shaker/data/Vector3/ShakerTypeBrownianShake3D.gd" id="9_sm572"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_22t8h"]
 
@@ -103,6 +108,16 @@ radius = 0.1
 [sub_resource type="BoxShape3D" id="BoxShape3D_72ieh"]
 size = Vector3(1, 0.1, 1)
 
+[sub_resource type="Resource" id="Resource_ob2so"]
+script = ExtResource("9_sm572")
+amplitude = Vector3(0.1, 0.5, 0.5)
+metadata/_custom_type_script = "uid://bni0jrcydsw6r"
+
+[sub_resource type="Resource" id="Resource_l8smq"]
+script = ExtResource("9_bdjfl")
+PositionShake = Array[ExtResource("8_octyv")]([SubResource("Resource_ob2so")])
+metadata/_custom_type_script = "uid://bn6mmvstgwt75"
+
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 19
@@ -129,7 +144,9 @@ libraries = {
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
+[node name="Camera3D" type="Camera3D" parent="Head" groups=["Lighting"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5806595e-09, 4.4936314e-08, 5.2183168e-08)
+script = ExtResource("3_x3577")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Head/Camera3D"]
 transform = Transform3D(-0.99999994, 0, -8.7422784e-08, 0, 1, 0, 8.742277e-08, 0, -1.0000001, 0, 0, 0)
@@ -167,4 +184,15 @@ hit_from_inside = true
 [node name="PlayerHUD" parent="Head/Camera3D" instance=ExtResource("2_t63vk")]
 unique_name_in_owner = true
 process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5806595e-09, 4.4936314e-08, 5.2183168e-08)
 fill = Array[ExtResource("4_emxo5")]([ExtResource("5_x3577"), ExtResource("5_x3577"), ExtResource("5_x3577")])
+
+[node name="CameraShaker" type="Node3D" parent="Head/Camera3D" node_paths=PackedStringArray("Targets")]
+unique_name_in_owner = true
+script = ExtResource("7_eklxm")
+custom_target = true
+Targets = [NodePath(".."), NodePath("../PlayerHUD")]
+intensity = 0.5
+duration = 1.0
+shakerPreset = SubResource("Resource_l8smq")
+metadata/_custom_type_script = "uid://clls85kmjfpf5"
