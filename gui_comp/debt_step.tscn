@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvj76y5d1ey6m"]
+
+[ext_resource type="Script" uid="uid://br260gsntc0am" path="res://gui_comp/script/debt_step.gd" id="1_tl2ey"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tl2ey"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2g6n"]
+bg_color = Color(0.34117648, 0.5803922, 0.3137255, 1)
+
+[node name="DebtStep" type="ProgressBar"]
+custom_minimum_size = Vector2(0, 50)
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_tl2ey")
+theme_override_styles/fill = SubResource("StyleBoxFlat_a2g6n")
+step = 1.0
+show_percentage = false
+script = ExtResource("1_tl2ey")

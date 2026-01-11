@@ -1,0 +1,211 @@
+[gd_scene load_steps=4 format=3 uid="uid://bho636j158u2y"]
+
+[ext_resource type="Script" uid="uid://cwthf7bpmhw2g" path="res://gui_comp/script/debt_progress.gd" id="1_2xqwm"]
+[ext_resource type="PackedScene" uid="uid://dvj76y5d1ey6m" path="res://gui_comp/debt_step.tscn" id="1_lcw3d"]
+[ext_resource type="PackedScene" uid="uid://62hslqp15ytv" path="res://gui_comp/upgrade_button.tscn" id="2_2xqwm"]
+
+[node name="EndDay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="DailyRecap" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/DailyRecap"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+layout_mode = 2
+text = "Daily Recap"
+horizontal_alignment = 1
+
+[node name="CropsHarvested" type="HBoxContainer" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/CropsHarvested"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Crops Harvested:"
+horizontal_alignment = 1
+
+[node name="CropNumbers" type="Label" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/CropsHarvested"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "XX"
+
+[node name="OrdersFilled" type="HBoxContainer" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/OrdersFilled"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Orders Filled:"
+horizontal_alignment = 1
+
+[node name="OrderNumbers" type="Label" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/OrdersFilled"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "XX"
+
+[node name="MoneyFromOrders" type="HBoxContainer" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/MoneyFromOrders"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="OrderMoney" type="Label" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/MoneyFromOrders"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+$XX"
+
+[node name="TipsEarned" type="HBoxContainer" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/TipsEarned"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Tips Earned:"
+horizontal_alignment = 1
+
+[node name="TipMoney" type="Label" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/TipsEarned"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+$XX"
+
+[node name="TotalEarnings" type="HBoxContainer" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/TotalEarnings"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Total Earnings:"
+horizontal_alignment = 1
+
+[node name="TotalMoney" type="Label" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/TotalEarnings"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "$XX"
+
+[node name="PayDebtOption" type="HBoxContainer" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/PayDebtOption"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="PayButton" type="Button" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/PayDebtOption/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Pay Debt"
+
+[node name="PaymentOptions" type="OptionButton" parent="PanelContainer/VBoxContainer/DailyRecap/VBoxContainer/PayDebtOption"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 5
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "$5.00"
+popup/item_1/id = 1
+popup/item_2/text = "$10.00"
+popup/item_2/id = 2
+popup/item_3/text = "$20.00"
+popup/item_3/id = 3
+popup/item_4/text = "$50.00"
+popup/item_4/id = 4
+
+[node name="UpgradeProgress" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="DebtProgress" type="HBoxContainer" parent="PanelContainer/VBoxContainer/UpgradeProgress"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("1_2xqwm")
+
+[node name="DebtStep1" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+layout_mode = 2
+
+[node name="UpgradeButton1" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+layout_mode = 2
+
+[node name="DebtStep2" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+layout_mode = 2
+
+[node name="UpgradeButton2" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+layout_mode = 2
+
+[node name="DebtStep3" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+layout_mode = 2
+
+[node name="UpgradeButton3" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+layout_mode = 2
+
+[node name="DebtStep4" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+layout_mode = 2
+
+[node name="UpgradeButton4" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+layout_mode = 2
+
+[node name="DebtStep5" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+layout_mode = 2
+
+[node name="UpgradeButton5" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+layout_mode = 2
+
+[node name="DebtStep6" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+layout_mode = 2
+
+[node name="UpgradeButton6" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+layout_mode = 2
+
+[node name="DebtStep7" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+layout_mode = 2
+
+[node name="UpgradeButton7" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+layout_mode = 2
+
+[node name="DebtStep8" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+layout_mode = 2
+
+[node name="UpgradeButton8" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+layout_mode = 2
+
+[node name="DebtStep9" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+layout_mode = 2
+
+[node name="UpgradeButton9" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+layout_mode = 2
+
+[node name="DebtStep10" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+layout_mode = 2
+
+[node name="UpgradeButton10" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+layout_mode = 2
