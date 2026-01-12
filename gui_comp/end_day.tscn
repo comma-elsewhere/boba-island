@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bho636j158u2y"]
+[gd_scene load_steps=6 format=3 uid="uid://bho636j158u2y"]
 
 [ext_resource type="Script" uid="uid://cwthf7bpmhw2g" path="res://gui_comp/script/debt_progress.gd" id="1_2xqwm"]
 [ext_resource type="PackedScene" uid="uid://dvj76y5d1ey6m" path="res://gui_comp/debt_step.tscn" id="1_lcw3d"]
+[ext_resource type="Script" uid="uid://dwru4ah1nxg8i" path="res://gui_comp/script/end_day.gd" id="1_rpi5i"]
 [ext_resource type="PackedScene" uid="uid://62hslqp15ytv" path="res://gui_comp/upgrade_button.tscn" id="2_2xqwm"]
+
+[sub_resource type="Curve" id="Curve_rpi5i"]
+_data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="EndDay" type="Control"]
 layout_mode = 3
@@ -11,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rpi5i")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -127,7 +133,7 @@ layout_mode = 2
 alignment = 1
 selected = 0
 allow_reselect = true
-item_count = 5
+item_count = 6
 popup/item_0/text = "None"
 popup/item_0/id = 0
 popup/item_1/text = "$5.00"
@@ -138,6 +144,8 @@ popup/item_3/text = "$20.00"
 popup/item_3/id = 3
 popup/item_4/text = "$50.00"
 popup/item_4/id = 4
+popup/item_5/text = "$100.00"
+popup/item_5/id = 5
 
 [node name="UpgradeProgress" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -149,6 +157,7 @@ theme_override_constants/margin_right = 20
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("1_2xqwm")
+curve = SubResource("Curve_rpi5i")
 
 [node name="DebtStep1" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
 layout_mode = 2

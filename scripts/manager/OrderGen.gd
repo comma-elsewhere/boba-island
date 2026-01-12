@@ -18,22 +18,22 @@ const GEN: Dictionary = {
 		["reminds me of "],
 		["has "],
 		["is the color of "],
-		["helps with "]
+		["is good for "]
 	],
 	"ASSAM" : [
 		["breakfast"],
 		["invigorating", "strong"],
 		["dark chocolate", "cereal"],
 		["an earthy flavor"],
-		["mahogany"],
-		["digestion"]
+		["copper"],
+		["tiredness"]
 	],
 	"CEYLON" : [
 		["energy"],
 		["robust", "full-bodied"],
 		["citrus", "warm spices"],
 		["a smooth finish"],
-		["copper and gold"],
+		["gold"],
 		["tiredness"]
 	],
 	"CHAI" : [
@@ -47,10 +47,10 @@ const GEN: Dictionary = {
 	"EARL_GREY" : [
 		["inflammation"],
 		["zesty", "floral"],
-		["citrus", "fruit"],
+		["citrus", "fresh fruit"],
 		["a smoky flavor"],
-		["dark amber"],
-		["skin health"]
+		["amber"],
+		["staying healthy"]
 	],
 	"HOJICHA" : [
 		["mindfulness"],
@@ -65,48 +65,48 @@ const GEN: Dictionary = {
 		["floral", "calming"],
 		["honey", "vanilla"],
 		["a delicate flavor"],
-		["pale gold"],
+		["gold"],
 		["anxiety"]
 	],
 	"MINT" : [
-		["the heat"],
+		["immunity"],
 		["balanced", "refreshing"],
 		["candy canes", "summer"],
 		["a cooling flavor"],
-		["light green-gold"],
-		["nausea"]
+		["orange jade"],
+		["digestion"]
 	],
 	"SENCHA" : [
 		["mindfulness"],
-		["balanced", "vegetal"],
+		["balanced", "sweet"],
 		["fresh greens", "a forest"],
 		["a smooth finish"],
-		["jade"],
+		["green jade"],
 		["focus"]
 	],
 	"OOLONG" : [
-		[""],
+		["inflammation"],
 		["nutty", "comforting"],
 		["pastries", "honey"],
 		["a complex flavor"],
-		[""],
-		[""]
+		["copper"],
+		["staying healthy"]
 	],
 	"MATCHA" : [
 		["energy"],
 		["earthy", "balanced"],
 		["fresh greens", "roasted nuts"],
 		["a complex flavor"],
-		["vivid emerald"],
+		["opaque jade"],
 		["focus"]
 	],
 	"TARO" : [
-		[""],
-		["", ""],
-		["", ""],
-		[""],
-		[""],
-		[""]
+		["dessert"],
+		["sweet", "nutty"],
+		["vanilla", "fresh cookies"],
+		["a creamy flavor"],
+		["lavender jade"],
+		["digestion"]
 	],
 }
 

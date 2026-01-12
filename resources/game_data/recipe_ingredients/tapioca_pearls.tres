@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://cnkpypbqdv5yp"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://cnkpypbqdv5yp"]
 
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_45eut"]
 [ext_resource type="Resource" uid="uid://d30x8ug78gwmc" path="res://resources/game_data/crops/cassava.tres" id="2_cdfys"]
+[ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="2_kpeo8"]
 [ext_resource type="Script" uid="uid://7gyba1jv1uqa" path="res://scripts/resource/items_and_recipes/recipe.gd" id="2_te3vj"]
 [ext_resource type="Resource" uid="uid://dob22kpua6k0t" path="res://resources/game_data/ingredients/tapioca_pearls.tres" id="5_lmjli"]
 
 [resource]
 script = ExtResource("2_te3vj")
-result = ExtResource("5_lmjli")
-ingredients = Array[ExtResource("1_45eut")]([ExtResource("2_cdfys"), ExtResource("2_cdfys"), ExtResource("2_cdfys")])
+result = Array[ExtResource("1_45eut")]([ExtResource("5_lmjli"), ExtResource("2_kpeo8"), ExtResource("2_kpeo8")])
+ingredients = Array[ExtResource("1_45eut")]([ExtResource("2_cdfys"), ExtResource("2_cdfys")])
 metadata/_custom_type_script = "uid://7gyba1jv1uqa"

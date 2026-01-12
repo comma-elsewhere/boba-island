@@ -8,6 +8,6 @@
 
 [resource]
 script = ExtResource("2_kddie")
-result = ExtResource("2_2grmw")
+result = Array[ExtResource("1_kogjc")]([ExtResource("2_2grmw")])
 ingredients = Array[ExtResource("1_kogjc")]([ExtResource("3_121ea")])
 metadata/_custom_type_script = "uid://ca0n2j172o6jl"

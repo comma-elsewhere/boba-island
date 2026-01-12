@@ -22,7 +22,7 @@ func open(recipes: Array[Recipe], inventory: Inventory) -> void:
 	recipe_list.clear()
 		
 	for recipe in recipes:
-		var index = recipe_list.add_item(recipe.result.name)
+		var index = recipe_list.add_item(recipe.result[0].name)
 		recipe_list.set_item_metadata(index, recipe)
 		
 	if !recipes.is_empty():
@@ -38,7 +38,7 @@ func _on_recipe_list_item_selected(index: int) -> void:
 	var recipe: Recipe = recipe_list.get_item_metadata(index)
 	_selected_recipe = recipe
 	ingredients_container.display(recipe.ingredients)
-	results_container.display([recipe.result])
+	results_container.display(recipe.result)
 	_enable_crafting()
 	crafting_button.disabled = crafting_check.has(0)
 
@@ -54,6 +54,7 @@ func _on_crafting_button_button_up() -> void:
 	for item in _selected_recipe.ingredients:
 		_inventory.remove_item(item)
 		
-	_inventory.add_item(_selected_recipe.result)
+	for item in _selected_recipe.result:
+		_inventory.add_item(item)
 		
 	crafting_button.disabled = not _inventory.has_all(_selected_recipe.ingredients)

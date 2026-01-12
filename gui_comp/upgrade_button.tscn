@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://62hslqp15ytv"]
+[gd_scene load_steps=6 format=3 uid="uid://62hslqp15ytv"]
 
 [ext_resource type="Script" uid="uid://ie0lmb56yaj4" path="res://gui_comp/script/upgrade_button.gd" id="1_4d8ft"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4d8ft"]
-bg_color = Color(0.4890017, 0.65276986, 0.45805824, 1)
+bg_color = Color(1, 0.8784314, 0.45882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40co8"]
+bg_color = Color(0.59607846, 0.81960785, 0.45882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l68km"]
+bg_color = Color(1, 0.8414744, 0.32330787, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_movtd"]
 bg_color = Color(0.71819615, 0.7847415, 0.7179429, 1)
@@ -11,6 +17,8 @@ bg_color = Color(0.71819615, 0.7847415, 0.7179429, 1)
 [node name="UpgradeButton" type="MenuButton"]
 custom_minimum_size = Vector2(30, 50)
 theme_override_styles/normal = SubResource("StyleBoxFlat_4d8ft")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_40co8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l68km")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_movtd")
 flat = false
 switch_on_hover = true

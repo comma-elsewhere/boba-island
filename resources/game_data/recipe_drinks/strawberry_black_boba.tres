@@ -12,6 +12,6 @@
 [resource]
 script = ExtResource("6_bl11i")
 tea_base = ExtResource("8_2sits")
-result = ExtResource("6_rst50")
+result = Array[ExtResource("1_ysqli")]([ExtResource("6_rst50")])
 ingredients = Array[ExtResource("1_ysqli")]([ExtResource("2_v01ga"), ExtResource("3_tr445"), ExtResource("4_jyfa3"), ExtResource("5_ohr77")])
 metadata/_custom_type_script = "uid://ca0n2j172o6jl"

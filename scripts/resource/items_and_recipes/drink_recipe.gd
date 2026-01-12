@@ -5,7 +5,7 @@ class_name DrinkRecipe extends Recipe
 func check_tea_base(potential_tea: Item) -> bool:
 	var tea_index: int = tea_base.tea_array.find(potential_tea)
 	if tea_index > -1:
-		result.set_tea_flavor(tea_index)
+		result[0].set_tea_flavor(tea_index)
 		return true
 	else:
 		return false

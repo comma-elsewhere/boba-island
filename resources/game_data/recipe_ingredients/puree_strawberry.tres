@@ -7,6 +7,6 @@
 
 [resource]
 script = ExtResource("2_ebc6w")
-result = ExtResource("3_a7ajb")
-ingredients = Array[ExtResource("1_x77an")]([ExtResource("2_165oa"), ExtResource("2_165oa")])
+result = Array[ExtResource("1_x77an")]([ExtResource("3_a7ajb"), ExtResource("3_a7ajb")])
+ingredients = Array[ExtResource("1_x77an")]([ExtResource("2_165oa")])
 metadata/_custom_type_script = "uid://7gyba1jv1uqa"

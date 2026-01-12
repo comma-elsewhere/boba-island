@@ -5,14 +5,13 @@ var load_game: bool = false
 var drink_order: DrinkRecipe = null
 
 # Financial variables
-var total_money: int = 100
-var total_debt: int = 1000000
+var total_money: int = 1000000
+var total_debt: int = 1010000
+
 var today_earned: int = 0
 var orders_filled: int = 0
 var tips_earned: int = 0
-var misc_earned: int = 0
-var upgrade_spent: int = 0
-var seed_spent: int = 0
+var crops_harvested: int = 0
 
 # Upgradable variables
 var inventory_space: int = 6

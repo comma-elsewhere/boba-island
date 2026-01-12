@@ -7,6 +7,6 @@
 
 [resource]
 script = ExtResource("2_jve64")
-result = ExtResource("3_cc276")
-ingredients = Array[ExtResource("1_fveen")]([ExtResource("2_nymoi"), ExtResource("2_nymoi")])
+result = Array[ExtResource("1_fveen")]([ExtResource("3_cc276"), ExtResource("3_cc276")])
+ingredients = Array[ExtResource("1_fveen")]([ExtResource("2_nymoi")])
 metadata/_custom_type_script = "uid://7gyba1jv1uqa"

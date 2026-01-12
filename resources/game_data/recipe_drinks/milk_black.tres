@@ -10,6 +10,6 @@
 [resource]
 script = ExtResource("2_kamko")
 tea_base = ExtResource("6_ihq1f")
-result = ExtResource("2_cxy1u")
+result = Array[ExtResource("1_rrvrj")]([ExtResource("2_cxy1u")])
 ingredients = Array[ExtResource("1_rrvrj")]([ExtResource("2_ihq1f"), ExtResource("3_bmfn1")])
 metadata/_custom_type_script = "uid://ca0n2j172o6jl"
