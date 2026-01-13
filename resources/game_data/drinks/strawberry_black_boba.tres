@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=3 format=3 uid="uid://tuphra88387p"]
+[gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://tuphra88387p"]
 
 [ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/items_and_recipes/drink.gd" id="1_111i8"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_rk0uj"]
+[ext_resource type="Texture2D" uid="uid://dxsuyv6w1sxwi" path="res://assets/icons/starwberry.png" id="1_uq0ty"]
+[ext_resource type="PackedScene" uid="uid://crwh4hrt5orun" path="res://scenes/prefab/temp_scenes/crop_sprouting.tscn" id="3_b0py3"]
 
 [resource]
 script = ExtResource("1_111i8")
 drink_type = 5
 name = "Strawberry Boba Milk Tea"
+icon = ExtResource("1_uq0ty")
+mesh = ExtResource("3_b0py3")
 metadata/_custom_type_script = "uid://bburi43myo1eb"

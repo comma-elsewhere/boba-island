@@ -1,7 +1,7 @@
-extends Control
+class_name DrinkOrders extends Control
 
 signal drink_ordered(drink: Drink)
-signal drink_served(intended_drink: Drink)
+signal drink_served
 
 @export var drinks: RecipeUpgradeGroup
 @export var tourist_ratio: int = 1
@@ -11,15 +11,23 @@ signal drink_served(intended_drink: Drink)
 @onready var serve_drink_button: Button = %ServeDrinkButton
 @onready var next_dialogue_button: Button = %NextDialogueButton
 
+const ORDER_COMPLETE := "Order Completed!"
+const CORRECT_DRINK := "Correct Drink! Customer paid "
+const LOVED_TEA := "\n And they loved the tea! So they tipped an extra "
+const LIKED_TEA := "\n And they tipped an extra "
+const WRONG_TEA := "\n But they didn't care for the tea..."
+
 const MIN_WAIT := 1.0
 const MAX_WAIT := 2.0
 
 var available_drinks: Array[Recipe]
 var order_generator: OrderGen
 var regular_generator: NpcGen
-var tourist_odds: Array[int] = []
+var tourist_odds: Array[int] = [1,2,3]
 var current_order: Drink
 var current_dialogue: Array = []
+
+var awaiting_customer: bool = false
 
 func _ready() -> void:
 	order_generator = OrderGen.new()
@@ -28,9 +36,20 @@ func _ready() -> void:
 	_set_tourist_odds()
 	_get_available_drinks()
 	activate_serve_button(false)
-	serve_drink_button.button_up.connect(_serve_drink)
-	next_dialogue_button.button_up.connect(_continue_dialogue)
+	serve_drink_button.button_up.connect(serve_drink)
+	next_dialogue_button.button_up.connect(continue_dialogue)
 		
+func finish_order(paid: int, tipped: int) -> void:
+	awaiting_customer = true
+	next_dialogue_button.disabled = false
+	customer_name.text = ORDER_COMPLETE
+	if tipped < 1:
+		order_text.text = CORRECT_DRINK + Kinetic.display_money(paid) + WRONG_TEA
+	elif tipped < float(Dynamic.starting_tip)/2:
+		order_text.text = CORRECT_DRINK + Kinetic.display_money(paid) + LIKED_TEA + Kinetic.display_money(tipped)
+	else:
+		order_text.text = CORRECT_DRINK + Kinetic.display_money(paid) + LOVED_TEA + Kinetic.display_money(tipped)
+	
 func generate_new_order() -> String:
 	var npc_or_tourist: int = tourist_odds.pick_random()
 	if npc_or_tourist > 0:
@@ -47,24 +66,32 @@ func activate_serve_button(active: bool) -> void:
 	serve_drink_button.visible = active
 	
 func _activate_dialogue() -> String:
+	awaiting_customer = false
 	if current_dialogue.is_empty():
 		return regular_generator.generic_order(current_order)
 	else:
 		if current_dialogue.size() > 1:
 			next_dialogue_button.disabled = false
+		else:
+			next_dialogue_button.disabled = true
 		return current_dialogue.pop_front()
 		
-func _continue_dialogue() -> void:
-	order_text.text = current_dialogue.pop_front()
-	
+func continue_dialogue() -> void:
+	if awaiting_customer:
+		_reset_labels()
+		$NextCustomerTimer.start(randf_range(MIN_WAIT, MAX_WAIT))
+		next_dialogue_button.disabled = true
+	else:
+		order_text.text = current_dialogue.pop_front()
+		
 	if current_dialogue.is_empty():
 		next_dialogue_button.disabled = true
+		
 	
-func _serve_drink() -> void:
-	drink_served.emit(current_order)
-	_reset_labels()
+func serve_drink() -> void:
+	drink_served.emit()
+	#_reset_labels()
 	activate_serve_button(false)
-	$NextCustomerTimer.start(randf_range(MIN_WAIT, MAX_WAIT))
 
 func _get_available_drinks() -> void:
 	available_drinks.clear()
@@ -104,7 +131,6 @@ func _rand_available_flavor(max_range: int) -> int:
 func _on_next_customer_timer_timeout() -> void:
 	order_text.text = generate_new_order()
 	drink_ordered.emit(current_order)
-	activate_serve_button(true)
 
 func on_save(save_data: Array[SavedData]) -> void:
 	var my_data: SavedGUI = SavedGUI.new()

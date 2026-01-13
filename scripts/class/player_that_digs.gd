@@ -63,6 +63,8 @@ func _input(event: InputEvent) -> void:
 					pointer.get_collider().craft(hud.get_inventory(), hud)
 					if !pointer.get_collider().craft_closed.has_connections():
 						pointer.get_collider().craft_closed.connect(_update_inventory)
+				elif pointer.get_collider().get_parent().has_method("on_click"):
+					pointer.get_collider().get_parent().on_click()
 			else:
 				var new_item = _harvest()
 				if new_item != null:

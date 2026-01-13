@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dnvr6he28bx8b"]
 
 [ext_resource type="Script" uid="uid://bneo2ejsqm2jm" path="res://scripts/minigame/mandrake_encounter.gd" id="1_w0cl6"]
-[ext_resource type="PackedScene" uid="uid://4qoviebs8pn6" path="res://scenes/prefab/postcard_viewer.tscn" id="2_yl048"]
+[ext_resource type="PackedScene" uid="uid://4qoviebs8pn6" path="res://scenes/prefab/gui_interface/postcard_viewer.tscn" id="2_yl048"]
 [ext_resource type="Material" uid="uid://ndftidq3rsgc" path="res://resources/materials/memory_postcard.tres" id="3_w0cl6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl048"]

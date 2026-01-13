@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=3 format=3 uid="uid://bhytjs67i5mk3"]
+[gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://bhytjs67i5mk3"]
 
 [ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/items_and_recipes/drink.gd" id="1_1l2xj"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_md2y7"]
+[ext_resource type="Texture2D" uid="uid://bfcgeiw054wjf" path="res://assets/icons/temp_water-droplet.png" id="1_nodr7"]
+[ext_resource type="PackedScene" uid="uid://crwh4hrt5orun" path="res://scenes/prefab/temp_scenes/crop_sprouting.tscn" id="3_1qdaf"]
 
 [resource]
 script = ExtResource("1_1l2xj")
 name = "Plain Tea"
+icon = ExtResource("1_nodr7")
+mesh = ExtResource("3_1qdaf")
 metadata/_custom_type_script = "uid://bburi43myo1eb"

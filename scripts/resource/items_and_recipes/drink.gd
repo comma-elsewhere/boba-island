@@ -2,7 +2,7 @@ class_name Drink extends Item
 
 @export_enum("Black", "Green", "Oolong", "Taro", "Matcha") var tea_type: String = ""
 @export_enum("Plain", "Boba", "Milk", "Milk Boba", "Strawberry Milk", "Strawberry Boba") var drink_type: int
-@export var price: int = 0
+@export var price_multiplier: float = 1
 var tea_flavor: int
 
 func get_drink_name() -> String:

@@ -5,9 +5,11 @@ var load_game: bool = false
 var tutorial_progress: Array[int] = []
 var books_collected: Array[bool] = []
 
+var tea_quality: float = 0.0
+
 # Financial variables
 # consistent through game
-var total_money: int = 10000000
+var total_money: int = 1000
 var total_debt: int = 1010000
 # adjusted daily
 var today_earned: int = 0
@@ -16,7 +18,7 @@ var tips_earned: int = 0
 var crops_harvested: int = 0
 
 # Upgradable variables
-var inventory_space: int = 3 # Min 3, Max 9 --> 5, 7, 9 --> +2 three times
+var inventory_space: int = 9 # Min 3, Max 9 --> 5, 7, 9 --> +2 three times
 var moisture_loss: float = 8.0 # Min 0.5, Max 8.0 --> 5.5, 3.0, 0.5 --> -2.5 three times
 var grow_mod: float = 4.0 # Min 0.5, Max 4.0 --> 2.0, 1.0, 0.5 --> /2 three times
 var crop_yield: int = 1 # Min 1, Max 4 --> 2, 3, 4 --> +1 three times ---> need inventory upgrade

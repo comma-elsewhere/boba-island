@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://n4l3njvdde37" path="res://scripts/class/world_crop.gd" id="1_palxt"]
 [ext_resource type="Texture2D" uid="uid://bfcgeiw054wjf" path="res://assets/icons/temp_water-droplet.png" id="4_veuov"]
-[ext_resource type="Shader" uid="uid://dv2cahnhcv346" path="res://resources/shaders/crop_watering.gdshader" id="5_hmnpb"]
 [ext_resource type="Script" uid="uid://c7oum832eoo8v" path="res://ai/tasks/var_setup.gd" id="12_c3rrn"]
+[ext_resource type="Shader" uid="uid://dv2cahnhcv346" path="res://resources/shaders/viewport_y-billboard.gdshader" id="13_iki7v"]
 [ext_resource type="Script" uid="uid://b76cxjdwvwqrr" path="res://ai/tasks/spawn_crop_main.gd" id="13_lcnsd"]
 [ext_resource type="Script" uid="uid://cdbhhom2c3xsm" path="res://ai/tasks/check_water.gd" id="14_3334u"]
 [ext_resource type="Script" uid="uid://cj1xthmy1t6hc" path="res://ai/tasks/set_mutate_chance.gd" id="14_iki7v"]
@@ -198,18 +198,18 @@ region = Rect2(258, 161, 465, 561)
 [sub_resource type="SphereShape3D" id="SphereShape3D_3esa8"]
 radius = 0.3
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0c1ba"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_p6vro"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_un1pu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4de5"]
 resource_local_to_scene = true
-render_priority = 2
-shader = ExtResource("5_hmnpb")
-shader_parameter/viewport_texture = SubResource("ViewportTexture_0c1ba")
+render_priority = 1
+shader = ExtResource("13_iki7v")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_p6vro")
 
 [sub_resource type="QuadMesh" id="QuadMesh_s0l26"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_un1pu")
+material = SubResource("ShaderMaterial_w4de5")
 size = Vector2(0.5, 0.5)
 
 [node name="Crop" type="Node3D" groups=["GameEvent"]]

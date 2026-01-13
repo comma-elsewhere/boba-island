@@ -21,7 +21,9 @@ func _spawn_item_with_collision(packed_scene) -> Node3D:
 		self.add_child(instantiated_scene)
 		self.set_collision_mask_value(5,true) # collides with dirt
 		self.set_collision_layer_value(4, true) # pickup by racyast
-
+		if item_data.has_method("get_drink_name"):
+			self.set_collision_layer_value(6, true) # detected by drinkzone area
+			
 		return instantiated_scene
 	return null
 

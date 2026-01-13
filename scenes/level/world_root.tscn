@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://6k5dg51rvx2c"]
+[gd_scene load_steps=29 format=3 uid="uid://6k5dg51rvx2c"]
 
 [ext_resource type="Script" uid="uid://dmgan4c1aqq32" path="res://scripts/manager/lighting.gd" id="1_utkfw"]
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
@@ -9,6 +9,11 @@
 [ext_resource type="Material" uid="uid://6kqx7xvjsbaf" path="res://resources/materials/watercolor.tres" id="7_m1jft"]
 [ext_resource type="PackedScene" uid="uid://d0g8ltwp1y6oo" path="res://scenes/prefab/overgrowth.tscn" id="9_utkfw"]
 [ext_resource type="PackedScene" uid="uid://c0y2e6yqp6vgf" path="res://scenes/manager/saver_loader.tscn" id="10_jksdq"]
+[ext_resource type="PackedScene" uid="uid://1cehb2otnn10" path="res://scenes/prefab/gui_interface/drink_order_3D.tscn" id="10_wc1lk"]
+[ext_resource type="PackedScene" uid="uid://516o65n4jcsn" path="res://scenes/prefab/process_machine.tscn" id="11_tyjbu"]
+[ext_resource type="Resource" uid="uid://fnw81gfwi5n4" path="res://resources/game_data/recipe_upgrade_groups/cook_machine_upgrades.tres" id="12_ytln1"]
+[ext_resource type="Resource" uid="uid://ddne8iogyrhns" path="res://resources/game_data/recipe_upgrade_groups/drink_machine_upgrades.tres" id="13_80ijt"]
+[ext_resource type="PackedScene" uid="uid://dcsxnqd8vhk4c" path="res://scenes/prefab/gui_interface/drink_hud.tscn" id="14_x74xb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ttd6"]
 
@@ -44,7 +49,7 @@ adjustment_saturation = 1.2
 [sub_resource type="Compositor" id="Compositor_2ut7i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m1jft"]
-render_priority = 1
+render_priority = 2
 shader = ExtResource("6_m1jft")
 shader_parameter/slide_speed = 0.3
 shader_parameter/wobble_speed = 1.0
@@ -126,9 +131,6 @@ light_color = Color(1, 1, 0.76862746, 1)
 shadow_enabled = true
 script = ExtResource("1_utkfw")
 
-[node name="Player" parent="." instance=ExtResource("1_x1yw8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -14)
-
 [node name="Ocean" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 metadata/_edit_group_ = true
@@ -159,6 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 shape = SubResource("CylinderShape3D_ipn8i")
 
 [node name="PostProcessing" type="MeshInstance3D" parent="."]
+visible = false
 material_override = ExtResource("7_m1jft")
 cast_shadow = 0
 extra_cull_margin = 16384.0
@@ -332,4 +335,21 @@ transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25
 
 [node name="SaverLoader" parent="." node_paths=PackedStringArray("world_root", "player") groups=["SaverLoader"] instance=ExtResource("10_jksdq")]
 world_root = NodePath("..")
-player = NodePath("../Player")
+player = NodePath("")
+
+[node name="DrinkZone3D" parent="." instance=ExtResource("10_wc1lk")]
+transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, -26, 0, -5)
+
+[node name="Cooker" parent="." instance=ExtResource("11_tyjbu")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -19, 0, -4)
+machine_type = 1
+recipe_upgrades = ExtResource("12_ytln1")
+
+[node name="Mixer" parent="." instance=ExtResource("11_tyjbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4, 1, -2.9)
+machine_type = 2
+recipe_upgrades = ExtResource("13_80ijt")
+crafting_scene = ExtResource("14_x74xb")
+
+[node name="Player" parent="." instance=ExtResource("1_x1yw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -13)
