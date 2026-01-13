@@ -1,9 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://bho636j158u2y"]
+[gd_scene load_steps=20 format=3 uid="uid://bho636j158u2y"]
 
 [ext_resource type="Script" uid="uid://cwthf7bpmhw2g" path="res://gui_comp/script/debt_progress.gd" id="1_2xqwm"]
 [ext_resource type="PackedScene" uid="uid://dvj76y5d1ey6m" path="res://gui_comp/debt_step.tscn" id="1_lcw3d"]
 [ext_resource type="Script" uid="uid://dwru4ah1nxg8i" path="res://gui_comp/script/end_day.gd" id="1_rpi5i"]
 [ext_resource type="PackedScene" uid="uid://62hslqp15ytv" path="res://gui_comp/upgrade_button.tscn" id="2_2xqwm"]
+[ext_resource type="Script" uid="uid://beju210n5wnii" path="res://scripts/resource/other/upgrade.gd" id="3_c3bjc"]
+[ext_resource type="Resource" uid="uid://0bcmct77xdm8" path="res://resources/game_data/upgrades/inventory_default.tres" id="4_dqjbo"]
+[ext_resource type="Resource" uid="uid://cgx230cgn76sm" path="res://resources/game_data/upgrades/grow_speed_default.tres" id="5_qkakj"]
+[ext_resource type="Resource" uid="uid://fxyq4hijjnqu" path="res://resources/game_data/upgrades/processor_default.tres" id="6_pi3m8"]
+[ext_resource type="Resource" uid="uid://c3nxcvu6e1q2q" path="res://resources/game_data/upgrades/mixer_default.tres" id="7_ufubd"]
+[ext_resource type="Resource" uid="uid://dyhscisj1xikf" path="res://resources/game_data/upgrades/moisture_default.tres" id="8_p7tj2"]
+[ext_resource type="Resource" uid="uid://b2s3wvteno308" path="res://resources/game_data/upgrades/crop_yield_default.tres" id="9_nrgbc"]
+[ext_resource type="Resource" uid="uid://c11qp8mx7njmg" path="res://resources/game_data/upgrades/cooker.tres" id="10_dfypt"]
+[ext_resource type="Resource" uid="uid://cqdxrebamyf2t" path="res://resources/game_data/upgrades/moisture.tres" id="11_0x1nf"]
+[ext_resource type="Resource" uid="uid://baitydc1s5t3w" path="res://resources/game_data/upgrades/crop_yield.tres" id="12_1g8yo"]
+[ext_resource type="Resource" uid="uid://dgic4v27q04uy" path="res://resources/game_data/upgrades/inventory.tres" id="13_14hid"]
+[ext_resource type="Resource" uid="uid://c80ie80fo50rf" path="res://resources/game_data/upgrades/mixer.tres" id="14_lshww"]
+[ext_resource type="Resource" uid="uid://1g6hc8axix8q" path="res://resources/game_data/upgrades/processor.tres" id="15_44gid"]
+[ext_resource type="Resource" uid="uid://knknrbsrfhja" path="res://resources/game_data/upgrades/grow_speed.tres" id="16_mm705"]
 
 [sub_resource type="Curve" id="Curve_rpi5i"]
 _data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -158,6 +172,16 @@ unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("1_2xqwm")
 curve = SubResource("Curve_rpi5i")
+upgrade_0 = Array[ExtResource("3_c3bjc")]([ExtResource("4_dqjbo"), ExtResource("5_qkakj")])
+upgrade_1 = Array[ExtResource("3_c3bjc")]([ExtResource("6_pi3m8"), ExtResource("7_ufubd")])
+upgrade_2 = Array[ExtResource("3_c3bjc")]([ExtResource("8_p7tj2"), ExtResource("5_qkakj")])
+upgrade_3 = Array[ExtResource("3_c3bjc")]([ExtResource("9_nrgbc"), ExtResource("6_pi3m8")])
+upgrade_4 = Array[ExtResource("3_c3bjc")]([ExtResource("10_dfypt"), ExtResource("11_0x1nf")])
+upgrade_5 = Array[ExtResource("3_c3bjc")]([ExtResource("12_1g8yo"), ExtResource("13_14hid")])
+upgrade_6 = Array[ExtResource("3_c3bjc")]([ExtResource("10_dfypt"), ExtResource("14_lshww")])
+upgrade_7 = Array[ExtResource("3_c3bjc")]([ExtResource("15_44gid"), ExtResource("12_1g8yo")])
+upgrade_8 = Array[ExtResource("3_c3bjc")]([ExtResource("16_mm705"), ExtResource("10_dfypt")])
+upgrade_9 = Array[ExtResource("3_c3bjc")]([ExtResource("11_0x1nf"), ExtResource("14_lshww")])
 
 [node name="DebtStep1" parent="PanelContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
 layout_mode = 2

@@ -11,6 +11,6 @@
 script = ExtResource("1_aty5p")
 upgrade_0 = Array[ExtResource("2_qbna2")]([ExtResource("3_ftsol")])
 upgrade_1 = Array[ExtResource("2_qbna2")]([ExtResource("4_tpo2r")])
-upgrade_2 = Array[ExtResource("2_qbna2")]([ExtResource("5_e5mc2")])
-upgrade_3 = Array[ExtResource("2_qbna2")]([ExtResource("6_2dl4q")])
+upgrade_2 = Array[ExtResource("2_qbna2")]([ExtResource("6_2dl4q")])
+upgrade_3 = Array[ExtResource("2_qbna2")]([ExtResource("5_e5mc2")])
 metadata/_custom_type_script = "uid://dan11yi86ysne"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://cqdxrebamyf2t"]
+
+[ext_resource type="Script" uid="uid://beju210n5wnii" path="res://scripts/resource/other/upgrade.gd" id="1_y602w"]
+
+[resource]
+script = ExtResource("1_y602w")
+upgrade_name = "Decrease Moisture Loss (1/4 slower)"
+aspect_one = 2
+metadata/_custom_type_script = "uid://beju210n5wnii"

@@ -1,30 +1,118 @@
 extends Control
 
+signal drink_ordered(drink: Drink)
+signal drink_served(intended_drink: Drink)
+
 @export var drinks: RecipeUpgradeGroup
+@export var tourist_ratio: int = 1
+
+@onready var customer_name: Label = %CustomerName
+@onready var order_text: Label = %OrderText
+@onready var serve_drink_button: Button = %ServeDrinkButton
+@onready var next_dialogue_button: Button = %NextDialogueButton
+
+const MIN_WAIT := 1.0
+const MAX_WAIT := 2.0
 
 var available_drinks: Array[Recipe]
 var order_generator: OrderGen
+var regular_generator: NpcGen
+var tourist_odds: Array[int] = []
+var current_order: Drink
+var current_dialogue: Array = []
 
 func _ready() -> void:
 	order_generator = OrderGen.new()
-	get_available_drinks()
+	regular_generator = NpcGen.new()
+	_reset_labels()
+	_set_tourist_odds()
+	_get_available_drinks()
+	activate_serve_button(false)
+	serve_drink_button.button_up.connect(_serve_drink)
+	next_dialogue_button.button_up.connect(_continue_dialogue)
+		
+func generate_new_order() -> String:
+	var npc_or_tourist: int = tourist_odds.pick_random()
+	if npc_or_tourist > 0:
+		customer_name.text = regular_generator.get_name(npc_or_tourist)
+		current_dialogue = regular_generator.get_dialogue(npc_or_tourist)
+		current_order = regular_generator.get_order(npc_or_tourist)
+		return _activate_dialogue()
+	else:
+		customer_name.text = "Tourist:"
+		current_order = _pick_rand_drink().result[0]
+		return order_generator.make_order(current_order)
+		
+func activate_serve_button(active: bool) -> void:
+	serve_drink_button.visible = active
+	
+func _activate_dialogue() -> String:
+	if current_dialogue.is_empty():
+		return regular_generator.generic_order(current_order)
+	else:
+		if current_dialogue.size() > 1:
+			next_dialogue_button.disabled = false
+		return current_dialogue.pop_front()
+		
+func _continue_dialogue() -> void:
+	order_text.text = current_dialogue.pop_front()
+	
+	if current_dialogue.is_empty():
+		next_dialogue_button.disabled = true
+	
+func _serve_drink() -> void:
+	drink_served.emit(current_order)
+	_reset_labels()
+	activate_serve_button(false)
+	$NextCustomerTimer.start(randf_range(MIN_WAIT, MAX_WAIT))
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
-		var new_order: String = order_generator.make_order(pick_rand_drink().result)
-		print(new_order)
-
-func get_available_drinks() -> void:
+func _get_available_drinks() -> void:
 	available_drinks.clear()
 	for i in range(Dynamic.mixer):
 		var index: String = "upgrade_" + str(i)
 		for j in drinks[index]:
 			available_drinks.append(j)
 	
-func pick_rand_drink() -> Recipe:
+func _pick_rand_drink() -> Recipe:
 	var rand_drink: Recipe = available_drinks.pick_random()
-	if rand_drink.result.name == "Tea" or rand_drink.result.name == "Boba Tea":
-		rand_drink.result.set_tea_flavor(randi_range(0,8))
+	var flavor: int
+	if rand_drink.result[0].name == "Plain Tea" or rand_drink.result[0].name == "Boba Tea":
+		flavor = _rand_available_flavor(9)
 	else:
-		rand_drink.result.set_tea_flavor(randi_range(0,10))
+		flavor = _rand_available_flavor(11)
+	rand_drink.result[0].set_tea_flavor(flavor)
 	return rand_drink
+
+func _set_tourist_odds() -> void:
+	var new_odds: int = tourist_odds.size() + tourist_ratio
+	tourist_odds.resize(new_odds)
+
+func _reset_labels() -> void:
+	order_text.text = ""
+	customer_name.text = ""
+	current_order = null
+
+func _rand_available_flavor(max_range: int) -> int:
+	var available_flavors: Array[int] = Dynamic.unlocked_tea.duplicate()
+	available_flavors.resize(max_range)
+	print(available_flavors)
+	var check_flavor: int = 0
+	while check_flavor == 0:
+		check_flavor = available_flavors.pick_random()
+	return available_flavors.find(check_flavor)
+
+func _on_next_customer_timer_timeout() -> void:
+	order_text.text = generate_new_order()
+	drink_ordered.emit(current_order)
+	activate_serve_button(true)
+
+func on_save(save_data: Array[SavedData]) -> void:
+	var my_data: SavedGUI = SavedGUI.new()
+	my_data.npc_story_progress.append_array(regular_generator.get_progress())
+	
+	save_data.append(my_data)
+
+func on_load(save_data: SavedData) -> void:
+	var my_data: SavedGUI = save_data as SavedGUI
+	
+	regular_generator.set_progress(my_data.npc_story_progress)

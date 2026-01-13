@@ -11,10 +11,13 @@ extends Control
 
 var _selected_payment: int = 0
 
+var debt_paid: bool = false
+
 func _ready() -> void:
 	_set_labels()
 	pay_button.button_up.connect(_pay_debt)
 	payment_options.item_selected.connect(_select_payment)
+	debt_progress.debt_paid.connect(_debt_paid)
 
 func _set_labels() -> void:
 	crop_numbers.text = str(Dynamic.crops_harvested)
@@ -57,3 +60,8 @@ func _select_payment(index: int) -> void:
 	
 func _update_debt_progress(amount_paid: int) -> void:
 	debt_progress.pay_debt(amount_paid)
+
+func _debt_paid() -> void:
+	debt_paid = true
+	payment_options.disabled = true
+	pay_button.disabled = true

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://knknrbsrfhja"]
+
+[ext_resource type="Script" uid="uid://beju210n5wnii" path="res://scripts/resource/other/upgrade.gd" id="1_dsmk1"]
+
+[resource]
+script = ExtResource("1_dsmk1")
+upgrade_name = "Increase Grow Speed (x2 speed)"
+aspect_one = 3
+metadata/_custom_type_script = "uid://beju210n5wnii"

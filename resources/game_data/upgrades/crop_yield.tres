@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://baitydc1s5t3w"]
+
+[ext_resource type="Script" uid="uid://beju210n5wnii" path="res://scripts/resource/other/upgrade.gd" id="1_0x55a"]
+
+[resource]
+script = ExtResource("1_0x55a")
+upgrade_name = "Increase Crop Yield (+1 crop per harvest)"
+aspect_one = 4
+metadata/_custom_type_script = "uid://beju210n5wnii"

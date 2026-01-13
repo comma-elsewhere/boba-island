@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://1g6hc8axix8q"]
+
+[ext_resource type="Script" uid="uid://beju210n5wnii" path="res://scripts/resource/other/upgrade.gd" id="1_v861q"]
+
+[resource]
+script = ExtResource("1_v861q")
+upgrade_name = "Increase Processor Speed (x2 speed)"
+aspect_one = 5
+metadata/_custom_type_script = "uid://beju210n5wnii"

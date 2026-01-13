@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://dgic4v27q04uy"]
+
+[ext_resource type="Script" uid="uid://beju210n5wnii" path="res://scripts/resource/other/upgrade.gd" id="1_lnpvy"]
+
+[resource]
+script = ExtResource("1_lnpvy")
+upgrade_name = "Expand Inventory (+2 Slots)"
+aspect_one = 1
+metadata/_custom_type_script = "uid://beju210n5wnii"
