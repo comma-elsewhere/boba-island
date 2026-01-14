@@ -60,9 +60,9 @@ func _input(event: InputEvent) -> void:
 							hud.reject_item(new_item, csg_spawner.global_position)
 				elif pointer.get_collider().has_method("craft"):
 					hud.gui_open = true
-					pointer.get_collider().craft(hud.get_inventory(), hud)
-					if !pointer.get_collider().craft_closed.has_connections():
-						pointer.get_collider().craft_closed.connect(_update_inventory)
+					pointer.get_collider().craft(hud)
+					#if !pointer.get_collider().craft_closed.has_connections():
+						#pointer.get_collider().craft_closed.connect()
 				elif pointer.get_collider().get_parent().has_method("on_click"):
 					pointer.get_collider().get_parent().on_click()
 			else:
@@ -188,5 +188,5 @@ func _harvest() -> Crop:
 	return null
 
 
-func _update_inventory(new_inventory: Inventory) -> void:
-	hud.return_items(new_inventory)
+#func _update_inventory(new_inventory: Inventory) -> void:
+	#hud.return_items(new_inventory)

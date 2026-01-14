@@ -8,16 +8,15 @@ class_name CraftingHUD extends PanelContainer
 @onready var results_container: ItemGrid = %ResultsContainer
 @onready var crafting_button: Button = %CraftingButton
 
+@onready var player: Player = get_tree().get_first_node_in_group("Player")
 
-var _inventory: Inventory
+var recipes: Array[Recipe] = []
+
 var _selected_recipe: Recipe
 
-# Pass through current available recipes and current inventory
-func open(recipes: Array[Recipe], inventory: Inventory) -> void:
-	show()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
-	_inventory = inventory
+func _ready() -> void:
+	recipe_list.item_selected.connect(_on_recipe_list_item_selected)
+	crafting_button.button_up.connect(_on_crafting_button_button_up)
 	
 	recipe_list.clear()
 		
@@ -29,7 +28,14 @@ func open(recipes: Array[Recipe], inventory: Inventory) -> void:
 		recipe_list.select(0)
 		_on_recipe_list_item_selected(0)
 		
-# Returns updated invetory on close()
+func set_recipes(new_recipes: Array[Recipe]) -> void:
+	recipes.clear()
+	recipes = new_recipes
+	
+func open() -> void:
+	show()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 func close() -> void:
 	hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -43,18 +49,18 @@ func _on_recipe_list_item_selected(index: int) -> void:
 	crafting_button.disabled = crafting_check.has(0)
 
 func _enable_crafting() -> bool:
-	if not _inventory.has_all(_selected_recipe.ingredients):
-		crafting_check[0] = 1
+	if not player.hud.get_inventory().has_all(_selected_recipe.ingredients):
+		crafting_check[0] = 0
 		return true
 	else:
-		crafting_check[0] = 0
+		crafting_check[0] = 1
 		return false
 
 func _on_crafting_button_button_up() -> void:
 	for item in _selected_recipe.ingredients:
-		_inventory.remove_item(item)
+		player.hud.remove_item(item)
 		
 	for item in _selected_recipe.result:
-		_inventory.add_item(item)
+		player.hud.add_item(item)
 		
-	crafting_button.disabled = not _inventory.has_all(_selected_recipe.ingredients)
+	crafting_button.disabled = not player.hud.get_inventory().has_all(_selected_recipe.ingredients)

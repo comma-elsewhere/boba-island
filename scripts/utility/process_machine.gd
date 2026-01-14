@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-signal craft_closed(new_inventory: Inventory)
+signal craft_closed
 
 @export_enum("Process", "Cook", "Mix") var machine_type: int = 0
 @export var recipe_upgrades: RecipeUpgradeGroup
@@ -26,15 +26,16 @@ func add_recipes() -> void:
 	for i in range(upgrade_level):
 		available_recipes.append_array(recipe_upgrades.upgrade(i))
 
-func craft(player_inventory: Inventory, player_hud: PlayerHUD) -> void:
+func craft(player_hud: PlayerHUD) -> void:
 	if !player_hud.close_crafting.has_connections():
 		player_hud.close_crafting.connect(_close)
 	new_crafting_scene = crafting_scene.instantiate()
+	new_crafting_scene.set_recipes(available_recipes)
 	sub_viewport.add_child(new_crafting_scene)
-	new_crafting_scene.open(available_recipes, player_inventory)
+	new_crafting_scene.open()
 	
 func _close() -> void:
 	if new_crafting_scene != null:
-		var new_inventory = new_crafting_scene.close()
+		new_crafting_scene.close()
 		new_crafting_scene.call_deferred("queue_free")
-		craft_closed.emit(new_inventory)
+		craft_closed.emit()

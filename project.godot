@@ -39,6 +39,7 @@ enabled=PackedStringArray("res://addons/shaker/plugin.cfg")
 GameEvent=""
 SaverLoader=""
 Lighting=""
+Player=""
 
 [input]
 

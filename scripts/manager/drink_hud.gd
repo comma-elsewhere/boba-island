@@ -1,16 +1,19 @@
 extends CraftingHUD
 
+@export var tea_base: TeaBase
+
 @onready var tea_list: OptionButton = %TeaBase
 
 var tea_array: Array[Item] = []
 
-func _ready() -> void:
+func open() -> void:
+	super()
 	_populate_tea_items()
 	tea_list.item_selected.connect(_check_tea)
 	
 func _populate_tea_items() -> void:
-	for tea in Dynamic.drink_order.tea_base.tea_array:
-		if _inventory.has(tea):
+	for tea in tea_base.tea_array:
+		if player.hud.hotbar_array.has(tea):
 			tea_array.append(tea)
 	
 	if tea_array.is_empty():

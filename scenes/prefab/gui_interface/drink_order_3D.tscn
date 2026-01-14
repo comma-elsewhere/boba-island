@@ -60,15 +60,12 @@ size_2d_override = Vector2i(1000, 500)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
-follow_viewport_enabled = true
-
-[node name="DrinkOrders" parent="SubViewport/CanvasLayer" instance=ExtResource("1_hfier")]
+[node name="DrinkOrders" parent="SubViewport" instance=ExtResource("1_hfier")]
 unique_name_in_owner = true
 offset_left = -500.0
 offset_right = 500.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
-[connection signal="drink_ordered" from="SubViewport/CanvasLayer/DrinkOrders" to="." method="_on_drink_orders_drink_ordered"]
-[connection signal="drink_served" from="SubViewport/CanvasLayer/DrinkOrders" to="." method="_on_drink_orders_drink_served"]
+[connection signal="drink_ordered" from="SubViewport/DrinkOrders" to="." method="_on_drink_orders_drink_ordered"]
+[connection signal="drink_served" from="SubViewport/DrinkOrders" to="." method="_on_drink_orders_drink_served"]

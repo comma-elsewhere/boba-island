@@ -73,9 +73,15 @@ func add_item(item: Item) -> bool:
 			return true
 	return false
 
+func remove_item(item: Item) -> void:
+	for i in hotbar_array:
+		if i == item:
+			hotbar_array.erase(i)
+			return
+
 func erase_selected() -> void:
-	var remove_item = hotbar_array[selected_slot]
-	if remove_item != null:
+	var item = hotbar_array[selected_slot]
+	if item != null:
 		hotbar_array[selected_slot] = null
 		_update_display(selected_slot)
 

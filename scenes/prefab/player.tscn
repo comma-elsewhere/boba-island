@@ -1,21 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://d0b3clifjliac"]
+[gd_scene load_steps=19 format=3 uid="uid://d0b3clifjliac"]
 
 [ext_resource type="Script" uid="uid://dnepsi6c0l41w" path="res://scripts/class/player_that_digs.gd" id="1_72ieh"]
 [ext_resource type="PackedScene" uid="uid://blhd62dvlvboc" path="res://scenes/prefab/gui_interface/player_hud.tscn" id="2_t63vk"]
 [ext_resource type="Material" uid="uid://b8tpkwagy3eer" path="res://resources/materials/plant_insides.material" id="3_emxo5"]
 [ext_resource type="Script" uid="uid://dx61e603u0ox2" path="res://scripts/utility/camera_3d.gd" id="3_x3577"]
-[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="4_emxo5"]
-[ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="5_x3577"]
-[ext_resource type="Resource" uid="uid://p4nn0yctaadq" path="res://resources/game_data/drinks/milk_black.tres" id="6_2v2me"]
-[ext_resource type="Resource" uid="uid://bgq6bq5vpxc83" path="res://resources/game_data/drinks/milk_black_boba.tres" id="7_5q2mw"]
 [ext_resource type="Script" uid="uid://clls85kmjfpf5" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="7_eklxm"]
 [ext_resource type="Script" uid="uid://d4maeuwhpdt85" path="res://addons/shaker/data/Vector3/BaseShakerType3D.gd" id="8_octyv"]
-[ext_resource type="Resource" uid="uid://bhytjs67i5mk3" path="res://resources/game_data/drinks/plain_black.tres" id="8_vg2fa"]
 [ext_resource type="Script" uid="uid://bn6mmvstgwt75" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="9_bdjfl"]
-[ext_resource type="Resource" uid="uid://movqr2bvm2b7" path="res://resources/game_data/drinks/plain_black_boba.tres" id="9_oq628"]
 [ext_resource type="Script" uid="uid://bni0jrcydsw6r" path="res://addons/shaker/data/Vector3/ShakerTypeBrownianShake3D.gd" id="9_sm572"]
-[ext_resource type="Resource" uid="uid://ce5rur8rsgv1n" path="res://resources/game_data/drinks/strawberry_black.tres" id="10_37wxj"]
-[ext_resource type="Resource" uid="uid://tuphra88387p" path="res://resources/game_data/drinks/strawberry_black_boba.tres" id="11_isfnt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_22t8h"]
 
@@ -124,7 +116,7 @@ script = ExtResource("9_bdjfl")
 PositionShake = Array[ExtResource("8_octyv")]([SubResource("Resource_ob2so")])
 metadata/_custom_type_script = "uid://bn6mmvstgwt75"
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 19
 script = ExtResource("1_72ieh")
@@ -191,7 +183,6 @@ hit_from_inside = true
 unique_name_in_owner = true
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5806595e-09, 4.4936314e-08, 5.2183168e-08)
-fill = Array[ExtResource("4_emxo5")]([ExtResource("6_2v2me"), ExtResource("7_5q2mw"), ExtResource("8_vg2fa"), ExtResource("9_oq628"), ExtResource("10_37wxj"), ExtResource("11_isfnt"), ExtResource("5_x3577")])
 
 [node name="CameraShaker" type="Node3D" parent="Head/Camera3D" node_paths=PackedStringArray("Targets")]
 unique_name_in_owner = true

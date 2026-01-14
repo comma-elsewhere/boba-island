@@ -2,22 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://dolgr51ei36y2" path="res://scenes/prefab/gui_interface/pause_menu.tscn" id="1_4wev0"]
 [ext_resource type="Script" uid="uid://ctk5uv2035svm" path="res://gui_comp/script/hotbar_inventory.gd" id="1_f2b3q"]
-[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="2_w4q1l"]
+[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="2_ncydl"]
 [ext_resource type="Script" uid="uid://otsnq1800gab" path="res://gui_comp/script/stats_display.gd" id="3_f2b3q"]
-[ext_resource type="Resource" uid="uid://dob22kpua6k0t" path="res://resources/game_data/ingredients/tapioca_pearls.tres" id="3_ncydl"]
+[ext_resource type="Resource" uid="uid://dob22kpua6k0t" path="res://resources/game_data/ingredients/tapioca_pearls.tres" id="3_w4q1l"]
 [ext_resource type="Script" uid="uid://bwijg6lsih103" path="res://gui_comp/script/hotbar_container.gd" id="3_xcoxm"]
-[ext_resource type="Resource" uid="uid://ci5dp6oig4qsx" path="res://resources/game_data/ingredients/sugar_brown.tres" id="4_w4q1l"]
-[ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="5_32his"]
+[ext_resource type="Resource" uid="uid://ci5dp6oig4qsx" path="res://resources/game_data/ingredients/sugar_brown.tres" id="4_32his"]
+[ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="5_dghie"]
 [ext_resource type="Script" uid="uid://bmn1dpl5s5tf5" path="res://scripts/utility/view_model.gd" id="5_jdtkk"]
-[ext_resource type="Resource" uid="uid://075757210ju5" path="res://resources/game_data/tea/green_sencha.tres" id="6_dghie"]
-[ext_resource type="Resource" uid="uid://dler2wmvwaarm" path="res://resources/game_data/tea/black_ceylon.tres" id="7_cxkhe"]
+[ext_resource type="Resource" uid="uid://075757210ju5" path="res://resources/game_data/tea/green_sencha.tres" id="6_cxkhe"]
+[ext_resource type="Resource" uid="uid://dler2wmvwaarm" path="res://resources/game_data/tea/black_ceylon.tres" id="7_rs3pv"]
 
 [node name="PlayerHUD" type="Node3D" groups=["Lighting"]]
 script = ExtResource("1_f2b3q")
-fill = Array[ExtResource("2_w4q1l")]([ExtResource("3_ncydl"), ExtResource("4_w4q1l"), ExtResource("4_w4q1l"), ExtResource("5_32his"), ExtResource("5_32his"), ExtResource("6_dghie"), ExtResource("6_dghie"), ExtResource("7_cxkhe"), ExtResource("7_cxkhe")])
+fill = Array[ExtResource("2_ncydl")]([ExtResource("3_w4q1l"), ExtResource("4_32his"), ExtResource("4_32his"), ExtResource("5_dghie"), ExtResource("5_dghie"), ExtResource("6_cxkhe"), ExtResource("7_rs3pv")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 5
+visible = false
 
 [node name="HotbarHUD" type="Control" parent="CanvasLayer"]
 layout_mode = 3
