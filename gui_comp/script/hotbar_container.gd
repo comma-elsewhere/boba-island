@@ -10,12 +10,12 @@ func get_slots():
 		slot.pressed.connect(_select_slot.bind(slot.get_index()))
 
 func update_hotbar(items: Array[Item]):
-	for slot in slots:
-		var item = items[slot.get_index()]
+	for i in len(items):
+		var item = items[i]
 		if item != null:
-			slot.texture_normal = item.icon
+			slots[i].texture_normal = item.icon
 		else:
-			slot.texture_normal = null
+			slots[i].texture_normal = null
 
 func highlight_slot(slot_index: int):
 	for i in range(slots.size()):

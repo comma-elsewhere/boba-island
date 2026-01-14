@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://d30x8ug78gwmc" path="res://resources/game_data/crops/cassava.tres" id="1_cls4e"]
 [ext_resource type="PackedScene" uid="uid://ddadbc6h0js3d" path="res://scenes/utility/crop.tscn" id="1_mtid7"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_1ga5n"]
-[ext_resource type="Texture2D" uid="uid://dvwg0qembtom4" path="res://assets/icons/temp_no-sign.png" id="3_qtalm"]
+[ext_resource type="Texture2D" uid="uid://dpgjwdpflyssd" path="res://assets/icons/Cassava_seed.png" id="3_cls4e"]
 [ext_resource type="Script" uid="uid://bsoorundtclwe" path="res://scripts/resource/items_and_recipes/seed.gd" id="3_vjwmn"]
 [ext_resource type="PackedScene" uid="uid://bx1u545sylij2" path="res://scenes/prefab/temp_scenes/crop_planted.tscn" id="5_t38xv"]
 
@@ -11,6 +11,6 @@
 script = ExtResource("3_vjwmn")
 crop_data = ExtResource("1_cls4e")
 name = "Cassava Cutting"
-icon = ExtResource("3_qtalm")
+icon = ExtResource("3_cls4e")
 mesh = ExtResource("5_t38xv")
 metadata/_custom_type_script = "uid://bsoorundtclwe"

@@ -1,7 +1,5 @@
 class_name PlayerHUD extends Node3D
 
-signal close_crafting
-
 @export var fill: Array[Item] = []
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
@@ -35,7 +33,7 @@ func setup() -> void:
 	for child in hotbar_display.get_children():
 		child.queue_free()
 	for i in Dynamic.inventory_space:
-		hotbar_array.append( null )
+		hotbar_array.append(null)
 		_create_hotbar_button(i + 1)
 		
 	hotbar_display.get_slots()
@@ -63,10 +61,10 @@ func return_items(resultant: Inventory) -> void:
 		hotbar_array.clear()
 		for item in resultant.get_items():
 			if !add_item(item):
-				reject_item(item, view_model.global_position)
+				reject_item(item)
 
 func add_item(item: Item) -> bool:
-	for i in Dynamic.inventory_space:
+	for i in len(hotbar_array):
 		if hotbar_array[i] == null:
 			hotbar_array[i] = item
 			_update_display(i)
@@ -74,9 +72,10 @@ func add_item(item: Item) -> bool:
 	return false
 
 func remove_item(item: Item) -> void:
-	for i in hotbar_array:
-		if i == item:
-			hotbar_array.erase(i)
+	for i in len(hotbar_array):
+		if hotbar_array[i] == item:
+			hotbar_array.erase(hotbar_array[i])
+			_update_display(i)
 			return
 
 func erase_selected() -> void:
@@ -92,8 +91,8 @@ func drop_item(drop_position: Vector3) -> void:
 		hotbar_array[selected_slot] = null
 		_update_display(selected_slot)
 	
-func reject_item(item: Item, drop_position: Vector3) -> void:
-	_spawn_item(item, drop_position)
+func reject_item(item: Item) -> void:
+	_spawn_item(item, view_model.global_position)
 	
 func quit_game() -> void:
 	get_tree().change_scene_to_file(MAIN_MENU)
@@ -106,12 +105,11 @@ func pause() -> void:
 			else:
 				pause_menu.close()
 		else:
-			close_crafting.emit()
+			# Group call "close" on gui group 
 			gui_open = false
 	
 func mutant_encounter(active: bool) -> void:
 	canvas_layer.visible = !active
-	
 	if !canvas_layer.visible:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
@@ -128,7 +126,6 @@ func _update_display(index: int) -> void:
 	hotbar_display.highlight_slot(index)
 	view_model.update_held_item(hotbar_array[index])
 	
-
 func _on_hotbar_container_slot_selected(index: int) -> void:
 	selected_slot = clamp(index, 0, Dynamic.inventory_space - 1)
 	_update_display(selected_slot)

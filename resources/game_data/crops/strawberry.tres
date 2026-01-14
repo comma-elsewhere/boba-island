@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="Crop" load_steps=2 format=3 uid="uid://360c740binkf"]
+[gd_resource type="Resource" script_class="Crop" load_steps=5 format=3 uid="uid://360c740binkf"]
 
 [ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/items_and_recipes/crop.gd" id="1_p6fj8"]
+[ext_resource type="Texture2D" uid="uid://dxsuyv6w1sxwi" path="res://assets/icons/starwberry.png" id="1_vmi7m"]
+[ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_5j5dp"]
+[ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/prefab/gui_interface/mandrake_encounter.tscn" id="3_pognc"]
 
 [resource]
 script = ExtResource("1_p6fj8")
 name = "Strawberries"
+icon = ExtResource("1_vmi7m")
 stack_limit = 9
 metadata/_custom_type_script = "uid://c0v8vbpbe4egw"

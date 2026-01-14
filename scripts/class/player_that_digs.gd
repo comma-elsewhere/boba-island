@@ -57,10 +57,10 @@ func _input(event: InputEvent) -> void:
 					var new_item = pointer.get_collider().pickup()
 					if new_item != null:
 						if !hud.add_item(new_item):
-							hud.reject_item(new_item, csg_spawner.global_position)
+							hud.reject_item(new_item)
 				elif pointer.get_collider().has_method("craft"):
 					hud.gui_open = true
-					pointer.get_collider().craft(hud)
+					pointer.get_collider().craft()
 					#if !pointer.get_collider().craft_closed.has_connections():
 						#pointer.get_collider().craft_closed.connect()
 				elif pointer.get_collider().get_parent().has_method("on_click"):
@@ -69,7 +69,7 @@ func _input(event: InputEvent) -> void:
 				var new_item = _harvest()
 				if new_item != null:
 					if !hud.add_item(new_item):
-						hud.reject_item(new_item, csg_spawner.global_position)
+						hud.reject_item(new_item)
 					
 				
 		if event.is_action_pressed("drop"):

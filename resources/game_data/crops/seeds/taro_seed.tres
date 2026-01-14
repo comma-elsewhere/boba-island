@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Seed" load_steps=5 format=3 uid="uid://chedclappraxa"]
+[gd_resource type="Resource" script_class="Seed" load_steps=6 format=3 uid="uid://chedclappraxa"]
 
 [ext_resource type="PackedScene" uid="uid://ddadbc6h0js3d" path="res://scenes/utility/crop.tscn" id="1_pjx31"]
 [ext_resource type="Resource" uid="uid://ondr30glbdiq" path="res://resources/game_data/crops/taro.tres" id="1_vatqn"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_vatqn"]
+[ext_resource type="Texture2D" uid="uid://cupjqjvdcy2jf" path="res://assets/icons/Taro_seed.png" id="3_750ng"]
 [ext_resource type="Script" uid="uid://bsoorundtclwe" path="res://scripts/resource/items_and_recipes/seed.gd" id="3_vcfof"]
 
 [resource]
 script = ExtResource("3_vcfof")
 crop_data = ExtResource("1_vatqn")
 name = "Taro Cutting"
+icon = ExtResource("3_750ng")
 metadata/_custom_type_script = "uid://bsoorundtclwe"

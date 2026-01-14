@@ -3,7 +3,7 @@ class_name WorldItem extends RigidBody3D
 @export var item_data: Item
 
 func _ready():
-	if item_data:
+	if item_data.mesh:
 		_spawn_item_with_collision(item_data.mesh)
 	
 func set_data(data) -> void:
@@ -26,6 +26,9 @@ func _spawn_item_with_collision(packed_scene) -> Node3D:
 			
 		return instantiated_scene
 	return null
+
+# None of the below is functional right now and I couldn't care less
+# It's a feature not a bug
 
 #func on_save(save_data: Array[SavedData]) -> void:
 	#var my_data = SavedItem.new()

@@ -8,13 +8,14 @@ class_name CraftingHUD extends PanelContainer
 @onready var results_container: ItemGrid = %ResultsContainer
 @onready var crafting_button: Button = %CraftingButton
 
-@onready var player: Player = get_tree().get_first_node_in_group("Player")
+var player: Player
 
 var recipes: Array[Recipe] = []
 
 var _selected_recipe: Recipe
 
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("Player")
 	recipe_list.item_selected.connect(_on_recipe_list_item_selected)
 	crafting_button.button_up.connect(_on_crafting_button_button_up)
 	
@@ -27,6 +28,8 @@ func _ready() -> void:
 	if !recipes.is_empty():
 		recipe_list.select(0)
 		_on_recipe_list_item_selected(0)
+		_enable_crafting()
+		crafting_button.disabled = crafting_check.has(0)
 		
 func set_recipes(new_recipes: Array[Recipe]) -> void:
 	recipes.clear()
@@ -35,6 +38,7 @@ func set_recipes(new_recipes: Array[Recipe]) -> void:
 func open() -> void:
 	show()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	crafting_check[0] = 0
 	
 func close() -> void:
 	hide()
@@ -51,16 +55,14 @@ func _on_recipe_list_item_selected(index: int) -> void:
 func _enable_crafting() -> bool:
 	if not player.hud.get_inventory().has_all(_selected_recipe.ingredients):
 		crafting_check[0] = 0
-		return true
+		return false
 	else:
 		crafting_check[0] = 1
-		return false
+		return true
 
 func _on_crafting_button_button_up() -> void:
 	for item in _selected_recipe.ingredients:
 		player.hud.remove_item(item)
-		
-	for item in _selected_recipe.result:
-		player.hud.add_item(item)
-		
-	crafting_button.disabled = not player.hud.get_inventory().has_all(_selected_recipe.ingredients)
+	
+	# Signal to parent that a craft has been selected and pass through this as pending 
+	#   _selected_recipe.result

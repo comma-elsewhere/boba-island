@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bagj53dbno131" path="res://gui_comp/script/slot_item.gd" id="1_7yorr"]
 
 [node name="SlotItem" type="PanelContainer"]
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(150, 150)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
