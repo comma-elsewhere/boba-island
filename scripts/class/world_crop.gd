@@ -30,7 +30,7 @@ func spawn_physical_crop(grow_index: int) -> void:
 		
 		_spawn_with_static_body(crop_data.grow_meshes[grow_index])
 		
-func fill_water() -> void:
+func on_click() -> void:
 	water_bar.value = water_bar.max_value
 		
 func reduce_water(current_water: float) -> void:

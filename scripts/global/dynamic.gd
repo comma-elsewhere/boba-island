@@ -1,41 +1,50 @@
 extends Node
 
-#Save and load
+#Save and load + progress indicators
 var load_game: bool = false
+# ---Progress: save as Array[Array]---
 var tutorial_progress: Array[int] = []
-var books_collected: Array[bool] = []
+var unlocked_book: Array[int] = []
+var unlocked_tea: Array[int] = []
+var unlocked_crop: Array[int] =  []
 
-var tea_quality: float = 0.0
+# Options menu settings, save
+var mouse_sensitivity: float = 0.004
+# --- Accessibility: save as Array[bool]---
+var camera_shake: bool = true
+var headbob: bool = true
+var reticle: bool = true
+
+# reset on every drink order, no save
+var tea_quality: float = 1.0 
+var tea_flavor: int
 
 # Financial variables
-# consistent through game
+# consistent through game --- Just save these two as Array[int]
 var total_money: int = 1000
 var total_debt: int = 1010000
-# adjusted daily
+# adjusted and reset daily, no save
 var today_earned: int = 0
 var orders_filled: int = 0
 var tips_earned: int = 0
 var crops_harvested: int = 0
 
-# Upgradable variables
+# Upgradable variables --- there's no easy way to save these, gotta make a func -- save as Array
 var inventory_space: int = 9 # Min 3, Max 9 --> 5, 7, 9 --> +2 three times
 var moisture_loss: float = 8.0 # Min 0.5, Max 8.0 --> 5.5, 3.0, 0.5 --> -2.5 three times
-var grow_mod: float = 4.0 # Min 0.5, Max 4.0 --> 2.0, 1.0, 0.5 --> /2 three times
+var grow_mod: float = 1.0 # Min 0.5, Max 4.0 --> 2.0, 1.0, 0.5 --> /2 three times
 var crop_yield: int = 1 # Min 1, Max 4 --> 2, 3, 4 --> +1 three times ---> need inventory upgrade
 var process_speed: float = 2.0 # Min 0.25, Max 2.0 --> 1.0, 0.5, 0.25 --> /2 three times
 var cook_speed: float = 2.0 # Min 0.25, Max 2.0 --> "" ""
 var mix_speed: float = 2.0 # Min 0.25, Max 2.0 --> "" ""
 
-var unlocked_tea: Array[int] = [] # Min 3, Max 10 + Taro --> 4, 6, 8, 10 ---> +2 Included in first four upgrades
-var new_crop: int = 2 # Min 0, Max 2 ---> Included in first four upgrades
-
-# Recipe Upgrade tracking - minimum 1
+# Recipe Upgrade tracking - minimum 1 --- Save and load as recipe_upgrade: array[int]
 var processor: int = 4 # Max 4
 var cooker: int = 2 # Max 2
 var mixer: int = 4 # Max 4
 
-#Difficulty/Danger settings
-# set by play on new game setup screen
+#Difficulty settings -- Save as Array[int]
+# set by play on new game setup screen -- needs to be saved and loaded
 var difficulty_setting: int = 1
 var danger_setting: int = 1
 # set dynamically in code upon load
@@ -49,17 +58,22 @@ var disappoint: int = 1
 var neglect: int = 1
 var forget: int = 1
 
+# MOVE ALL THIS TO A ONE-TIME SETUP SCREEN ON FIRST LOAD
 func _ready() -> void:
-# TEMPORARY UNTIL SETUP SCREEN ON LOAD
 	# initialize progress indicators
-	books_collected.resize(Static.NUMBER_OF_BOOKS)
+	unlocked_book.resize(Static.NUMBER_OF_BOOKS)
 	unlocked_tea.resize(Static.NUMBER_OF_TEAS)
-	# Set starter teas
+	unlocked_crop.resize(Static.NUMBER_OF_CROPS)
+	# Set starter things
+	unlocked_crop[Static.CROP.SUGAR_CANE] = Static.CROP.SUGAR_CANE + 1
 	unlocked_tea[Static.TEA.CEYLON] = Static.TEA.CEYLON + 1
 	unlocked_tea[Static.TEA.SENCHA] = Static.TEA.SENCHA + 1
 	# Set difficulty levels
 	_set_danger(Static.SET.HARD)
 	_set_difficulty(Static.SET.LIGHT)
+	
+	# (temp removed for playtesting purposes)
+	#total_money = starting_money 
 
 
 func _set_difficulty(setting_id: int) -> void:

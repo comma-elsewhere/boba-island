@@ -16,9 +16,15 @@ func save_game() -> void:
 		saved_game.player_inventory.append(item)
 	
 	saved_game.player_position = player.global_position
-	saved_game.financial_variables = _get_finances()
-	saved_game.upgrade_variables = _get_upgrades()
-	saved_game.diff_danger_variables = _get_diff_danger()
+	
+	saved_game.options = _get_options()
+	saved_game.accessibility = _get_access()
+	saved_game.progress = _get_progress()
+	saved_game.finances = _get_finances()
+	saved_game.player_upgrades = _get_player_upgrades()
+	saved_game.recipe_upgrades = _get_recipe_upgrades()
+	saved_game.difficulty = _get_difficulty()
+	
 	get_tree().call_group("GameEvent", "on_save", saved_game.saved_data)
 	
 	ResourceSaver.save(saved_game, "user://savedata.res")
@@ -27,10 +33,13 @@ func load_game() -> void:
 	var saved_game = load("user://savedata.res")
 	
 	get_tree().call_group("GameEvent","on_preload")
-	
-	_set_finances(saved_game.financial_variables)
-	_set_upgrades(saved_game.upgrade_variables)
-	_set_diff_danger(saved_game.diff_danger_variables)
+	_set_options(saved_game.options)
+	_set_access(saved_game.accessibility)
+	_set_progress(saved_game.progress) 
+	_set_finances(saved_game.finances) 
+	_set_player_upgrades(saved_game.player_upgrades) 
+	_set_recipe_upgrades(saved_game.recipe_upgrades) 
+	_set_difficulty(saved_game.difficulty) 
 	player.global_position = saved_game.player_position
 	
 	for item in saved_game.player_inventory:
@@ -44,73 +53,59 @@ func load_game() -> void:
 		world_root.add_child.call_deferred(instantiate_item)
 		instantiate_item.call_deferred("on_load", item)
 	
-
-func _set_finances(data_array: Array) -> void:
-	data_array[0] = Dynamic.total_money
-	data_array[1] = Dynamic.total_debt
-	data_array[2] = Dynamic.today_earned
-	data_array[3] = Dynamic.orders_filled
-	data_array[4] = Dynamic.tips_earned
-	data_array[5] = Dynamic.misc_earned
-	data_array[6] = Dynamic.upgrade_spent
-	data_array[7] = Dynamic.seed_spent
-
-func _set_upgrades(data_array: Array) -> void:
-	data_array[0] = Dynamic.inventory_space
-	data_array[1] = Dynamic.moisture_loss
-	data_array[2] = Dynamic.grow_mod
-	data_array[3] = Dynamic.crop_yield
-	data_array[4] = Dynamic.process_speed
-	data_array[5] = Dynamic.cook_speed
-	data_array[6] = Dynamic.mix_speed
-	data_array[7] = Dynamic.new_tea
-	data_array[8] = Dynamic.new_crop
-
-func _set_diff_danger(data_array: Array) -> void:
-	data_array[0] = Dynamic.difficulty_setting
-	data_array[1] = Dynamic.danger_setting
-	data_array[2] = Dynamic.starting_money
-	data_array[3] = Dynamic.starting_tip
-	data_array[4] = Dynamic.upgrade_cost
-	data_array[5] = Dynamic.seed_cost
-	data_array[6] = Dynamic.disappoint
-	data_array[7] = Dynamic.neglect
-	data_array[8] = Dynamic.forget
-
-func _get_finances() -> Array:
-	var finance_array: Array = []
-	finance_array.append(Dynamic.total_money)
-	finance_array.append(Dynamic.total_debt)
-	finance_array.append(Dynamic.today_earned)
-	finance_array.append(Dynamic.orders_filled)
-	finance_array.append(Dynamic.tips_earned)
-	finance_array.append(Dynamic.misc_earned)
-	finance_array.append(Dynamic.upgrade_spent)
-	finance_array.append(Dynamic.seed_spent)
-	return finance_array
+func _get_options() -> Array[float]:
+	return [Dynamic.mouse_sensitivity]
 	
-func _get_upgrades() -> Array:
-	var upgrade_array: Array = []
-	upgrade_array.append(Dynamic.inventory_space)
-	upgrade_array.append(Dynamic.moisture_loss)
-	upgrade_array.append(Dynamic.grow_mod)
-	upgrade_array.append(Dynamic.crop_yield)
-	upgrade_array.append(Dynamic.process_speed)
-	upgrade_array.append(Dynamic.cook_speed)
-	upgrade_array.append(Dynamic.mix_speed)
-	upgrade_array.append(Dynamic.new_tea)
-	upgrade_array.append(Dynamic.new_crop)
-	return upgrade_array
+func _set_options(options: Array[float]) -> void:
+	Dynamic.mouse_sensitivity = options[0]
 	
-func _get_diff_danger() -> Array:
-	var dd_array: Array = []
-	dd_array.append(Dynamic.difficulty_setting)
-	dd_array.append(Dynamic.danger_setting)
-	dd_array.append(Dynamic.starting_money)
-	dd_array.append(Dynamic.starting_tip)
-	dd_array.append(Dynamic.upgrade_cost)
-	dd_array.append(Dynamic.seed_cost)
-	dd_array.append(Dynamic.disappoint)
-	dd_array.append(Dynamic.neglect)
-	dd_array.append(Dynamic.forget)
-	return dd_array
+func _get_access() -> Array[bool]:
+	return [Dynamic.camera_shake, Dynamic.headbob, Dynamic.reticle]
+	
+func _set_access(access: Array[bool]) -> void:
+	Dynamic.camera_shake = access[0]
+	Dynamic.headbob = access[1]
+	Dynamic.reticle = access[2]
+	
+func _get_progress() -> Array[Array]:
+	return [Dynamic.tutorial_progress, Dynamic.unlocked_book, Dynamic.unlocked_tea, Dynamic.unlocked_crop]
+	
+func _set_progress(progress: Array[Array]) -> void:
+	Dynamic.tutorial_progress = progress[0]
+	Dynamic.unlocked_book = progress[1]
+	Dynamic.unlocked_tea = progress[2]
+	Dynamic.unlocked_crop = progress[3]
+	
+func _get_finances() -> Array[int]:
+	return [Dynamic.total_money, Dynamic.total_debt]
+	
+func _set_finances(finances: Array[int]) -> void:
+	Dynamic.total_money = finances[0]
+	Dynamic.total_debt = finances[1]
+	
+func _get_player_upgrades() -> Array:
+	return [Dynamic.inventory_space, Dynamic.moisture_loss, Dynamic.grow_mod, Dynamic.crop_yield, Dynamic.process_speed, Dynamic.cook_speed, Dynamic.mix_speed]
+	
+func _set_player_upgrades(upgrades: Array) -> void:
+	Dynamic.inventory_space = upgrades[0]
+	Dynamic.moisture_loss = upgrades[1]
+	Dynamic.grow_mod = upgrades[2]
+	Dynamic.crop_yield = upgrades[3]
+	Dynamic.process_speed = upgrades[4]
+	Dynamic.cook_speed = upgrades[5]
+	Dynamic.mix_speed = upgrades[6]
+
+func _get_recipe_upgrades() -> Array[int]:
+	return [Dynamic.processor, Dynamic.cooker, Dynamic.mixer]
+
+func _set_recipe_upgrades(upgrades: Array[int]) -> void:
+	Dynamic.processor = upgrades[0]
+	Dynamic.cooker = upgrades[1]
+	Dynamic.mixer = upgrades[2]
+	
+func _get_difficulty() -> Array[int]:
+	return [Dynamic.difficulty_setting, Dynamic.danger_setting]
+	
+func _set_difficulty(difficulty: Array[int]) -> void:
+	Dynamic.difficulty_setting = difficulty[0]
+	Dynamic.danger_setting = difficulty[1]

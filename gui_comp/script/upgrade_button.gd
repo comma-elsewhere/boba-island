@@ -2,10 +2,10 @@ class_name UpgradeButton extends MenuButton
 
 signal upgrade_selected
 
-const DEFAULT_ONE := ["New ingredient: Milk", "New ingredient: Matcha Powder", "New tea: Oolong"]
-const DEFAULT_TWO := ["New crop: Taro", "New tea: Moroccan Mint", "New tea: Masala Chai"]
-const DEFAULT_THREE := ["New crop: Strawberry", "New tea: Assam Black", "New tea: Jasmine Green"]
-const DEFAULT_FOUR := ["Inventory Upgrade", "New tea: Earl Grey", "New tea: Hojicha"]
+const DEFAULT_ONE := ["New crop: Cassava (Tapioca)", "New ingredient: Matcha Powder", "New tea: Oolong"]
+const DEFAULT_TWO := ["New ingredient: Milk", "New tea: Moroccan Mint", "New tea: Masala Chai"]
+const DEFAULT_THREE := ["New crop: Taro", "New tea: Assam Black", "New tea: Jasmine Green"]
+const DEFAULT_FOUR := ["New crop: Strawberries", "New tea: Earl Grey", "New tea: Hojicha"]
 
 var self_index: int
 

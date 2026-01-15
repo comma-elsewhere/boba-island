@@ -105,6 +105,7 @@ func pause() -> void:
 				pause_menu.open()
 			else:
 				pause_menu.close()
+				%Reticle.update_visible()
 		else:
 			get_tree().call_group("GUI_Event", "close")
 			

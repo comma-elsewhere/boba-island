@@ -11,8 +11,6 @@ const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
 const JUMP_VELOCITY = 4.8
 
-const SENSITIVITY = 0.004 # Can be a globally controlled var
-
 #bob variables
 const BOB_FREQ = 2.4
 const BOB_AMP = 0.08
@@ -51,30 +49,24 @@ func _input(event: InputEvent) -> void:
 				hud.plant_crop(csg_spawner.global_position)
 				
 			elif pointer.is_colliding():
-				if pointer.get_collider().get_parent().has_method("fill_water"):
-					pointer.get_collider().get_parent().fill_water()
-				elif pointer.get_collider().has_method("pickup"):
+				#if pointer.get_collider().get_parent().has_method("fill_water"):
+					#pointer.get_collider().get_parent().fill_water()
+				if pointer.get_collider().has_method("pickup"):
 					var new_item = pointer.get_collider().pickup()
-					if new_item != null:
-						if !hud.add_item(new_item):
-							hud.reject_item(new_item)
+					_add_to_inventory(new_item)
 				elif pointer.get_collider().get_parent().has_method("pickup_array"):
 					var item_array = pointer.get_collider().get_parent().pickup_array()
-					for item in item_array:
-						if !hud.add_item(item):
-							hud.reject_item(item)
-				elif pointer.get_collider().has_method("craft"):
+					for new_item in item_array:
+						_add_to_inventory(new_item)
+				elif pointer.get_collider().has_method("init_gui_scene"):
 					hud.gui_open = true
-					pointer.get_collider().craft()
-					#if !pointer.get_collider().craft_closed.has_connections():
-						#pointer.get_collider().craft_closed.connect()
+					pointer.get_collider().init_gui_scene()
 				elif pointer.get_collider().get_parent().has_method("on_click"):
 					pointer.get_collider().get_parent().on_click()
+			
 			else:
 				var new_item = _harvest()
-				if new_item != null:
-					if !hud.add_item(new_item):
-						hud.reject_item(new_item)
+				_add_to_inventory(new_item)
 					
 				
 		if event.is_action_pressed("drop"):
@@ -90,8 +82,8 @@ func _input(event: InputEvent) -> void:
 # Head rotate and look around
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
+		head.rotate_y(-event.relative.x * Dynamic.mouse_sensitivity)
+		camera.rotate_x(-event.relative.y * Dynamic.mouse_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(90))
 			
 # Handle movement
@@ -128,8 +120,9 @@ func _physics_process(delta):
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 		
 		# Head bob
-		t_bob += delta * velocity.length() * float(is_on_floor())
-		camera.transform.origin = _headbob(t_bob)
+		if Dynamic.headbob:
+			t_bob += delta * velocity.length() * float(is_on_floor())
+			camera.transform.origin = _headbob(t_bob)
 		
 		# FOV
 		var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
@@ -192,6 +185,12 @@ func _harvest() -> Crop:
 			return null
 	return null
 
+func _add_to_inventory(new_item: Item) -> void:
+	if new_item != null:
+		if !hud.add_item(new_item):
+			hud.reject_item(new_item)
+	else:
+		return
 
 #func _update_inventory(new_inventory: Inventory) -> void:
 	#hud.return_items(new_inventory)

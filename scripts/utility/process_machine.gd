@@ -32,7 +32,7 @@ func add_recipes() -> void:
 	for i in range(upgrade_level):
 		available_recipes.append_array(recipe_upgrades.upgrade(i))
 
-func craft() -> void:
+func init_gui_scene() -> void:
 	if wait_time.is_stopped():
 		new_crafting_scene = crafting_scene.instantiate()
 		new_crafting_scene.set_recipes(available_recipes)

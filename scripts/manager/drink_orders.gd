@@ -23,7 +23,7 @@ const MAX_WAIT := 2.0
 var available_drinks: Array[Recipe]
 var order_generator: OrderGen
 var regular_generator: NpcGen
-var tourist_odds: Array[int] = [1,2,3]
+var tourist_odds: Array[int] = []
 var current_order: Drink
 var current_dialogue: Array = []
 

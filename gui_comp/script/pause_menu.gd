@@ -14,7 +14,7 @@ func _ready() -> void:
 	return_button.button_up.connect(_toggle_options.bind(false))
 	options_button.button_up.connect(_toggle_options.bind(true))
 	save_button.button_up.connect(_save)
-	resume_button.button_up.connect(close)
+	resume_button.button_up.connect(get_parent().get_parent().pause)
 	quit_button.button_up.connect(_quit)
 
 # Call from parent HUD when pause button is pressed while unpaused

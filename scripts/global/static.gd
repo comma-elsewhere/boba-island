@@ -3,11 +3,13 @@ extends Node
 # Enum
 enum TEA {ASSAM, CEYLON, CHAI, EARL_GREY, HOJICHA, JASMINE, MINT, SENCHA, OOLONG, MATCHA, TARO}
 enum SET {LIGHT, MEDIUM, HARD}
+enum CROP {SUGAR_CANE, CASSAVA, TARO, STRAWBERRY}
 enum BOOKS {}
 
 # General
 const NUMBER_OF_TEAS := 11
 const NUMBER_OF_BOOKS := 0
+const NUMBER_OF_CROPS := 4
 
 # Peaceful mode settings
 const PEACEFUL_DISAPPOINT := 0

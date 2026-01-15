@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://vn8on6ytbkx"]
+
+[ext_resource type="Script" uid="uid://beju210n5wnii" path="res://scripts/resource/other/upgrade.gd" id="1_pgl3w"]
+
+[resource]
+script = ExtResource("1_pgl3w")
+upgrade_name = "Increase Mixer Speed (x2 speed)"
+aspect_one = 8
+aspect_two = 7
+aspect_three = 1
+metadata/_custom_type_script = "uid://beju210n5wnii"

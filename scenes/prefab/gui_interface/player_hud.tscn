@@ -1,19 +1,27 @@
-[gd_scene load_steps=11 format=3 uid="uid://blhd62dvlvboc"]
+[gd_scene load_steps=9 format=3 uid="uid://blhd62dvlvboc"]
 
 [ext_resource type="PackedScene" uid="uid://dolgr51ei36y2" path="res://scenes/prefab/gui_interface/pause_menu.tscn" id="1_4wev0"]
 [ext_resource type="Script" uid="uid://ctk5uv2035svm" path="res://gui_comp/script/hotbar_inventory.gd" id="1_f2b3q"]
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="2_ncydl"]
 [ext_resource type="Script" uid="uid://otsnq1800gab" path="res://gui_comp/script/stats_display.gd" id="3_f2b3q"]
+[ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="3_jdtkk"]
 [ext_resource type="Script" uid="uid://bwijg6lsih103" path="res://gui_comp/script/hotbar_container.gd" id="3_xcoxm"]
-[ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="5_dghie"]
 [ext_resource type="Script" uid="uid://bmn1dpl5s5tf5" path="res://scripts/utility/view_model.gd" id="5_jdtkk"]
-[ext_resource type="Resource" uid="uid://075757210ju5" path="res://resources/game_data/tea/green_sencha.tres" id="6_cxkhe"]
-[ext_resource type="Resource" uid="uid://dler2wmvwaarm" path="res://resources/game_data/tea/black_ceylon.tres" id="6_ilf32"]
-[ext_resource type="Resource" uid="uid://yxg8m560ssfp" path="res://resources/game_data/crops/sugar_cane.tres" id="7_w4q1l"]
+
+[sub_resource type="GDScript" id="GDScript_xcoxm"]
+resource_name = "Reticle"
+script/source = "extends ColorRect
+
+func _ready() -> void:
+	update_visible()
+	
+func update_visible() -> void:
+	visible = Dynamic.reticle
+"
 
 [node name="PlayerHUD" type="Node3D" groups=["GUI_Event", "Lighting"]]
 script = ExtResource("1_f2b3q")
-fill = Array[ExtResource("2_ncydl")]([ExtResource("6_cxkhe"), ExtResource("5_dghie"), ExtResource("7_w4q1l"), ExtResource("7_w4q1l"), ExtResource("6_ilf32"), ExtResource("6_cxkhe")])
+fill = Array[ExtResource("2_ncydl")]([ExtResource("3_jdtkk"), ExtResource("3_jdtkk"), ExtResource("3_jdtkk")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -59,7 +67,8 @@ layout_mode = 2
 [node name="Money" type="Label" parent="CanvasLayer/HotbarHUD/StatsDisplay"]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HotbarHUD"]
+[node name="Reticle" type="ColorRect" parent="CanvasLayer/HotbarHUD"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
 anchors_preset = 8
@@ -74,7 +83,8 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 1, 1, 0.78431374)
+color = Color(0, 0, 0, 0.78431374)
+script = SubResource("GDScript_xcoxm")
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("1_4wev0")]
 unique_name_in_owner = true

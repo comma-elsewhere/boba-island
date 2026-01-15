@@ -69,30 +69,37 @@ func _default(index: int) -> void:
 			2: _default_three()
 			3: _default_four()
 
+# UNLOCK CASSAVA, MATCHA, OOLONG
 func _default_one() -> void:
-	print("ONE")
-	Dynamic.mixer = 3
+	Dynamic.unlocked_crop[Static.CROP.CASSAVA] = Static.CROP.CASSAVA + 1
 	Dynamic.unlocked_tea[Static.TEA.MATCHA] = Static.TEA.MATCHA + 1
 	Dynamic.unlocked_tea[Static.TEA.OOLONG] = Static.TEA.OOLONG + 1
 	
+	Dynamic.cooker = 2 # adds boba
+	Dynamic.mixer = 2 # adds plain boba tea
+	Dynamic.processor = 2 # adds tapioca pearls
 	
+# UNLOCK MILK, MATCHA, OOLONG
 func _default_two() -> void:
-	print("TWO")
-	Dynamic.new_crop = 1
-	Dynamic.unlocked_tea[Static.TEA.TARO] = Static.TEA.TARO + 1
 	Dynamic.unlocked_tea[Static.TEA.MINT] = Static.TEA.MINT + 1
 	Dynamic.unlocked_tea[Static.TEA.CHAI] = Static.TEA.CHAI + 1
 	
+	Dynamic.mixer = 3 # adds milk teas
 	
+# UNLOCK TARO, ASSAM, JASMINE
 func _default_three() -> void:
-	print("TRHEE")
-	Dynamic.new_crop = 2
+	Dynamic.unlocked_crop[Static.CROP.TARO] = Static.CROP.TARO + 1
+	Dynamic.unlocked_tea[Static.TEA.TARO] = Static.TEA.TARO + 1
 	Dynamic.unlocked_tea[Static.TEA.ASSAM] = Static.TEA.ASSAM + 1
 	Dynamic.unlocked_tea[Static.TEA.JASMINE] = Static.TEA.JASMINE + 1
 	
+	Dynamic.processor = 3 # adds taro puree
 	
+#UNLOCK STRAWBERRIES, EARL GREY, HOJICHA
 func _default_four() -> void:
-	print("FOUR")
-	_inventory()
+	Dynamic.unlocked_crop[Static.CROP.STRAWBERRY] = Static.CROP.STRAWBERRY + 1
 	Dynamic.unlocked_tea[Static.TEA.EARL_GREY] = Static.TEA.EARL_GREY + 1
 	Dynamic.unlocked_tea[Static.TEA.HOJICHA] = Static.TEA.HOJICHA + 1
+	
+	Dynamic.mixer = 4 # adds strawberry drinks
+	Dynamic.processor = 4 # adds strawberry puree
