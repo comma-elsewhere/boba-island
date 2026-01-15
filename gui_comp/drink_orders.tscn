@@ -25,6 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_058xe")
 drinks = ExtResource("2_68eaa")
+tourist_ratio = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1

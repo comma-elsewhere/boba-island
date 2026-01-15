@@ -351,11 +351,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -13)
 transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -23, 0, -5)
 
 [node name="Mixer" parent="." instance=ExtResource("11_tyjbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.39999998, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -12)
 machine_type = 2
 recipe_upgrades = ExtResource("13_80ijt")
 crafting_scene = ExtResource("14_x74xb")
 
 [node name="Processor" parent="." instance=ExtResource("11_tyjbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.3, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -6)
 recipe_upgrades = ExtResource("13_0glrw")

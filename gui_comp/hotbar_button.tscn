@@ -5,7 +5,7 @@
 [sub_resource type="Shortcut" id="Shortcut_aspxw"]
 
 [node name="HotbarButton" type="TextureButton"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 shortcut = SubResource("Shortcut_aspxw")
 ignore_texture_size = true
 stretch_mode = 5

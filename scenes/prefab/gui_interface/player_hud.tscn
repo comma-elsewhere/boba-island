@@ -8,12 +8,12 @@
 [ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="5_dghie"]
 [ext_resource type="Script" uid="uid://bmn1dpl5s5tf5" path="res://scripts/utility/view_model.gd" id="5_jdtkk"]
 [ext_resource type="Resource" uid="uid://075757210ju5" path="res://resources/game_data/tea/green_sencha.tres" id="6_cxkhe"]
-[ext_resource type="Resource" uid="uid://d30x8ug78gwmc" path="res://resources/game_data/crops/cassava.tres" id="6_ncydl"]
+[ext_resource type="Resource" uid="uid://dler2wmvwaarm" path="res://resources/game_data/tea/black_ceylon.tres" id="6_ilf32"]
 [ext_resource type="Resource" uid="uid://yxg8m560ssfp" path="res://resources/game_data/crops/sugar_cane.tres" id="7_w4q1l"]
 
 [node name="PlayerHUD" type="Node3D" groups=["GUI_Event", "Lighting"]]
 script = ExtResource("1_f2b3q")
-fill = Array[ExtResource("2_ncydl")]([ExtResource("6_cxkhe"), ExtResource("5_dghie"), ExtResource("5_dghie"), ExtResource("6_ncydl"), ExtResource("7_w4q1l"), ExtResource("7_w4q1l"), ExtResource("6_ncydl")])
+fill = Array[ExtResource("2_ncydl")]([ExtResource("6_cxkhe"), ExtResource("5_dghie"), ExtResource("7_w4q1l"), ExtResource("7_w4q1l"), ExtResource("6_ilf32"), ExtResource("6_cxkhe")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2

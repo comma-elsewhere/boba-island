@@ -6,6 +6,7 @@ extends StaticBody3D
 
 @onready var canvas_layer: CanvasLayer = %GUI_Parent
 @onready var wait_time: Timer = %WaitTime
+@onready var shaker: ShakerComponent3D = %ShakerComponent3D
 
 const PROCESS := 3.0
 const COOK := 2.0
@@ -52,6 +53,7 @@ func _craft_pending(result: Array[Item]) -> void:
 	pending_result = result
 	%ItemTexture.texture = result[0].icon
 	%WaitTime.start(_return_time())
+	shaker.play_shake()
 
 func _enable_display(enable: bool) -> void:
 	%IconDisplay.visible = enable
@@ -65,7 +67,7 @@ func _return_time() -> float:
 		0: time = PROCESS * Dynamic.process_speed
 		1: time = COOK * Dynamic.cook_speed
 		2: time = MIX * Dynamic.mix_speed
-	print(time)
+	shaker.duration = time
 	return time
 
 func _on_wait_time_timeout() -> void:

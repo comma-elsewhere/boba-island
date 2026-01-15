@@ -1,16 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://516o65n4jcsn"]
+[gd_scene load_steps=16 format=3 uid="uid://516o65n4jcsn"]
 
 [ext_resource type="Script" uid="uid://cgiwewpcymgdx" path="res://scripts/utility/process_machine.gd" id="1_un0w0"]
-[ext_resource type="Material" uid="uid://b8tpkwagy3eer" path="res://resources/materials/plant_insides.material" id="2_n053f"]
+[ext_resource type="Script" uid="uid://clls85kmjfpf5" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="2_ongrt"]
 [ext_resource type="Shader" uid="uid://dv2cahnhcv346" path="res://resources/shaders/viewport_y-billboard.gdshader" id="3_3ix07"]
+[ext_resource type="Script" uid="uid://d4maeuwhpdt85" path="res://addons/shaker/data/Vector3/BaseShakerType3D.gd" id="3_hescf"]
 [ext_resource type="Texture2D" uid="uid://dvwg0qembtom4" path="res://assets/icons/temp_no-sign.png" id="4_27507"]
+[ext_resource type="Script" uid="uid://dlykoqiifgl50" path="res://addons/shaker/data/Vector3/ShakerTypeSineWave3D.gd" id="4_e82m1"]
+[ext_resource type="Script" uid="uid://bn6mmvstgwt75" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="5_guwhl"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wc1lk"]
-points = PackedVector3Array(0.43647996, -1.0158731, 0.30942434, -0.5158731, -1.0158731, 0.1507843, 0.0237287, 1.0158731, 0.0237287, 0.1507843, -1.0158731, -0.5158731, -0.16649579, -0.9206101, 0.4999565, 0.4999565, -0.9840524, -0.19828533, -0.29344884, -0.9840524, -0.45219144, -0.039542735, 0.9840524, -0.039542735, 0.18247129, -0.9522318, 0.4999565, -0.42050445, -1.0158731, 0.34121388, 0.37300342, -0.9522318, -0.3887149, 0.4999565, -0.8569689, 0.08720523, -0.48398098, -0.9522318, -0.22997232, -0.039542735, 0.9206101, 0.055518236, 0.055518236, 0.9206101, -0.039542735, -0.1348088, -0.9522318, -0.5158731, 0.0237287, -0.9840524, 0.53174603, -0.5158731, -0.9206101, -0.071229726, 0.37300342, -0.7300842, 0.30942434, -0.35702792, -0.9522318, 0.4046904, -0.45219144, -1.0158731, -0.29344884, 0.08720523, -0.9206101, -0.5158731, 0.21426083, -0.9206101, -0.48398098, 0.055518236, 0.8887895, 0.055518236, -0.42050445, -0.9206101, -0.32523838, -0.45219144, -0.9206101, 0.27773735, -0.48398098, -0.79352653, 0.08720523, 0.30942434, -0.9522318, 0.43647996, 0.4999565, -0.9522318, 0.18247129, 0.4999565, -0.8569689, -0.071229726, 0.4999565, -1.0158731, -0.19828533, -0.19828533, -1.0158731, 0.4999565)
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ix07"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_7j0eo"]
-material = ExtResource("2_n053f")
-top_radius = 0.0
+[sub_resource type="BoxMesh" id="BoxMesh_27507"]
+
+[sub_resource type="Resource" id="Resource_bbce8"]
+script = ExtResource("4_e82m1")
+frequency = Vector3(0.2, 0.5, 0.2)
+amplitude = Vector3(0.2, 0.5, 0.2)
+BlendingMode = 4
+metadata/_custom_type_script = "uid://dlykoqiifgl50"
+
+[sub_resource type="Resource" id="Resource_14ru7"]
+script = ExtResource("5_guwhl")
+ScaleShake = Array[ExtResource("3_hescf")]([SubResource("Resource_bbce8")])
+metadata/_custom_type_script = "uid://bn6mmvstgwt75"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_27507"]
 radius = 0.3
@@ -35,11 +47,19 @@ collision_mask = 9
 script = ExtResource("1_un0w0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_wc1lk")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_3ix07")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CylinderMesh_7j0eo")
+transform = Transform3D(1.0675436, 0, 0, 0, 0.947287, 0, 0, 0, 0.9956277, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_27507")
 skeleton = NodePath("../..")
+
+[node name="ShakerComponent3D" type="Node3D" parent="MeshInstance3D"]
+unique_name_in_owner = true
+script = ExtResource("2_ongrt")
+shakerPreset = SubResource("Resource_14ru7")
+metadata/_custom_type_script = "uid://clls85kmjfpf5"
 
 [node name="GUI_Parent" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

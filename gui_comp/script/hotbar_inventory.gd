@@ -64,7 +64,8 @@ func return_items(resultant: Inventory) -> void:
 				reject_item(item)
 
 func add_item(item: Item) -> bool:
-	for i in len(hotbar_array):
+	hotbar_array.resize(Dynamic.inventory_space)
+	for i in range(Dynamic.inventory_space):
 		if hotbar_array[i] == null:
 			hotbar_array[i] = item
 			_update_display(i)
@@ -83,7 +84,7 @@ func erase_selected() -> void:
 	if item != null:
 		hotbar_array[selected_slot] = null
 		_update_display(selected_slot)
-
+	
 func drop_item(drop_position: Vector3) -> void:
 	var dropped_item = hotbar_array[selected_slot]
 	if dropped_item != null:
