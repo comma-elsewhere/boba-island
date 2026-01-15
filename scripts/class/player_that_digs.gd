@@ -58,6 +58,11 @@ func _input(event: InputEvent) -> void:
 					if new_item != null:
 						if !hud.add_item(new_item):
 							hud.reject_item(new_item)
+				elif pointer.get_collider().get_parent().has_method("pickup_array"):
+					var item_array = pointer.get_collider().get_parent().pickup_array()
+					for item in item_array:
+						if !hud.add_item(item):
+							hud.reject_item(item)
 				elif pointer.get_collider().has_method("craft"):
 					hud.gui_open = true
 					pointer.get_collider().craft()

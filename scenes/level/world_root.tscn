@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://6k5dg51rvx2c"]
+[gd_scene load_steps=30 format=3 uid="uid://6k5dg51rvx2c"]
 
 [ext_resource type="Script" uid="uid://dmgan4c1aqq32" path="res://scripts/manager/lighting.gd" id="1_utkfw"]
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0g8ltwp1y6oo" path="res://scenes/prefab/overgrowth.tscn" id="9_utkfw"]
 [ext_resource type="PackedScene" uid="uid://c0y2e6yqp6vgf" path="res://scenes/manager/saver_loader.tscn" id="10_jksdq"]
 [ext_resource type="PackedScene" uid="uid://1cehb2otnn10" path="res://scenes/prefab/gui_interface/drink_order_3D.tscn" id="10_wc1lk"]
+[ext_resource type="Resource" uid="uid://fnw81gfwi5n4" path="res://resources/game_data/recipe_upgrade_groups/cook_machine_upgrades.tres" id="10_ytln1"]
 [ext_resource type="PackedScene" uid="uid://516o65n4jcsn" path="res://scenes/prefab/process_machine.tscn" id="11_tyjbu"]
 [ext_resource type="Resource" uid="uid://cfoou3oklaqqf" path="res://resources/game_data/recipe_upgrade_groups/process_machine_upgrades.tres" id="13_0glrw"]
 [ext_resource type="Resource" uid="uid://ddne8iogyrhns" path="res://resources/game_data/recipe_upgrade_groups/drink_machine_upgrades.tres" id="13_80ijt"]
@@ -339,9 +340,9 @@ transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25
 world_root = NodePath("..")
 
 [node name="Cooker" parent="." instance=ExtResource("11_tyjbu")]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -16, 0, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -9)
 machine_type = 1
-recipe_upgrades = ExtResource("13_80ijt")
+recipe_upgrades = ExtResource("10_ytln1")
 
 [node name="Player" parent="." instance=ExtResource("1_x1yw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -13)
@@ -350,11 +351,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -13)
 transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -23, 0, -5)
 
 [node name="Mixer" parent="." instance=ExtResource("11_tyjbu")]
-transform = Transform3D(-1, 8.742278e-08, 0, 8.742278e-08, 1, -8.742278e-08, -7.642742e-15, -8.742278e-08, -1, -14, 1, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.39999998, -12)
 machine_type = 2
 recipe_upgrades = ExtResource("13_80ijt")
 crafting_scene = ExtResource("14_x74xb")
 
 [node name="Processor" parent="." instance=ExtResource("11_tyjbu")]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -13, 1, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.3, -6)
 recipe_upgrades = ExtResource("13_0glrw")

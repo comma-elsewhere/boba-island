@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://d30x8ug78gwmc" path="res://resources/game_data/crops/cassava.tres" id="6_ncydl"]
 [ext_resource type="Resource" uid="uid://yxg8m560ssfp" path="res://resources/game_data/crops/sugar_cane.tres" id="7_w4q1l"]
 
-[node name="PlayerHUD" type="Node3D" groups=["Lighting"]]
+[node name="PlayerHUD" type="Node3D" groups=["GUI_Event", "Lighting"]]
 script = ExtResource("1_f2b3q")
 fill = Array[ExtResource("2_ncydl")]([ExtResource("6_cxkhe"), ExtResource("5_dghie"), ExtResource("5_dghie"), ExtResource("6_ncydl"), ExtResource("7_w4q1l"), ExtResource("7_w4q1l"), ExtResource("6_ncydl")])
 

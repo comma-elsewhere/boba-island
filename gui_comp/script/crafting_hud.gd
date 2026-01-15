@@ -1,5 +1,7 @@
 class_name CraftingHUD extends PanelContainer
 
+signal craft_pending(result: Array[Item])
+
 @export var crafting_item: PackedScene
 @export var crafting_check: Array[int] = [0]
 
@@ -64,5 +66,5 @@ func _on_crafting_button_button_up() -> void:
 	for item in _selected_recipe.ingredients:
 		player.hud.remove_item(item)
 	
-	# Signal to parent that a craft has been selected and pass through this as pending 
-	#   _selected_recipe.result
+	craft_pending.emit(_selected_recipe.result)
+	get_tree().call_group("GUI_Event", "close")

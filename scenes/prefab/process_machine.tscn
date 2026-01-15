@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://516o65n4jcsn"]
+[gd_scene load_steps=11 format=3 uid="uid://516o65n4jcsn"]
 
 [ext_resource type="Script" uid="uid://cgiwewpcymgdx" path="res://scripts/utility/process_machine.gd" id="1_un0w0"]
 [ext_resource type="Material" uid="uid://b8tpkwagy3eer" path="res://resources/materials/plant_insides.material" id="2_n053f"]
+[ext_resource type="Shader" uid="uid://dv2cahnhcv346" path="res://resources/shaders/viewport_y-billboard.gdshader" id="3_3ix07"]
+[ext_resource type="Texture2D" uid="uid://dvwg0qembtom4" path="res://assets/icons/temp_no-sign.png" id="4_27507"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wc1lk"]
 points = PackedVector3Array(0.43647996, -1.0158731, 0.30942434, -0.5158731, -1.0158731, 0.1507843, 0.0237287, 1.0158731, 0.0237287, 0.1507843, -1.0158731, -0.5158731, -0.16649579, -0.9206101, 0.4999565, 0.4999565, -0.9840524, -0.19828533, -0.29344884, -0.9840524, -0.45219144, -0.039542735, 0.9840524, -0.039542735, 0.18247129, -0.9522318, 0.4999565, -0.42050445, -1.0158731, 0.34121388, 0.37300342, -0.9522318, -0.3887149, 0.4999565, -0.8569689, 0.08720523, -0.48398098, -0.9522318, -0.22997232, -0.039542735, 0.9206101, 0.055518236, 0.055518236, 0.9206101, -0.039542735, -0.1348088, -0.9522318, -0.5158731, 0.0237287, -0.9840524, 0.53174603, -0.5158731, -0.9206101, -0.071229726, 0.37300342, -0.7300842, 0.30942434, -0.35702792, -0.9522318, 0.4046904, -0.45219144, -1.0158731, -0.29344884, 0.08720523, -0.9206101, -0.5158731, 0.21426083, -0.9206101, -0.48398098, 0.055518236, 0.8887895, 0.055518236, -0.42050445, -0.9206101, -0.32523838, -0.45219144, -0.9206101, 0.27773735, -0.48398098, -0.79352653, 0.08720523, 0.30942434, -0.9522318, 0.43647996, 0.4999565, -0.9522318, 0.18247129, 0.4999565, -0.8569689, -0.071229726, 0.4999565, -1.0158731, -0.19828533, -0.19828533, -1.0158731, 0.4999565)
@@ -10,7 +12,24 @@ points = PackedVector3Array(0.43647996, -1.0158731, 0.30942434, -0.5158731, -1.0
 material = ExtResource("2_n053f")
 top_radius = 0.0
 
-[node name="ProcessMachine" type="StaticBody3D" groups=["GameEvent"]]
+[sub_resource type="SphereShape3D" id="SphereShape3D_27507"]
+radius = 0.3
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_27507"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4de5"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("3_3ix07")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_27507")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ok6gk"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_w4de5")
+size = Vector2(0.5, 0.5)
+
+[node name="ProcessMachine" type="StaticBody3D" groups=["GUI_Event", "GameEvent"]]
 collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_un0w0")
@@ -22,6 +41,49 @@ shape = SubResource("ConvexPolygonShape3D_wc1lk")
 mesh = SubResource("CylinderMesh_7j0eo")
 skeleton = NodePath("../..")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="GUI_Parent" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 layer = 3
+
+[node name="IconDisplay" type="StaticBody3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IconDisplay"]
+unique_name_in_owner = true
+shape = SubResource("SphereShape3D_27507")
+
+[node name="GUI_3DVisualizer" type="MeshInstance3D" parent="IconDisplay"]
+mesh = SubResource("QuadMesh_ok6gk")
+skeleton = NodePath("../..")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemTexture" type="TextureRect" parent="SubViewport/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_27507")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WaitTime" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="WaitTime" to="." method="_on_wait_time_timeout"]

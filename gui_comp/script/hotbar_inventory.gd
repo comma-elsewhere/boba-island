@@ -105,8 +105,10 @@ func pause() -> void:
 			else:
 				pause_menu.close()
 		else:
-			# Group call "close" on gui group 
-			gui_open = false
+			get_tree().call_group("GUI_Event", "close")
+			
+func close() -> void:
+	gui_open = false
 	
 func mutant_encounter(active: bool) -> void:
 	canvas_layer.visible = !active
