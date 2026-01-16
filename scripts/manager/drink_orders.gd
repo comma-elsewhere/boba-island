@@ -13,8 +13,8 @@ signal drink_served
 
 const ORDER_COMPLETE := "Order Completed!"
 const CORRECT_DRINK := "Correct Drink! Customer paid "
-const LOVED_TEA := "\n And they loved the tea! So they tipped an extra "
-const LIKED_TEA := "\n And they tipped an extra "
+#const LOVED_TEA := "\n And they loved the tea! So they tipped an extra "
+const LOVED_TEA := "\n And they tipped an extra "
 const WRONG_TEA := "\n But they didn't care for the tea..."
 
 const MIN_WAIT := 1.0
@@ -40,13 +40,14 @@ func _ready() -> void:
 	next_dialogue_button.button_up.connect(continue_dialogue)
 		
 func finish_order(paid: int, tipped: int) -> void:
+	Dynamic.total_money += paid + tipped
 	awaiting_customer = true
 	next_dialogue_button.disabled = false
 	customer_name.text = ORDER_COMPLETE
 	if tipped < 1:
 		order_text.text = CORRECT_DRINK + Kinetic.display_money(paid) + WRONG_TEA
-	elif tipped < float(Dynamic.starting_tip)/2:
-		order_text.text = CORRECT_DRINK + Kinetic.display_money(paid) + LIKED_TEA + Kinetic.display_money(tipped)
+	#elif tipped <= float(Dynamic.starting_tip)/2:
+		#order_text.text = CORRECT_DRINK + Kinetic.display_money(paid) + LIKED_TEA + Kinetic.display_money(tipped)
 	else:
 		order_text.text = CORRECT_DRINK + Kinetic.display_money(paid) + LOVED_TEA + Kinetic.display_money(tipped)
 	
@@ -122,7 +123,6 @@ func _reset_labels() -> void:
 func _rand_available_flavor(max_range: int) -> int:
 	var available_flavors: Array[int] = Dynamic.unlocked_tea.duplicate()
 	available_flavors.resize(max_range)
-	print(available_flavors)
 	var check_flavor: int = 0
 	while check_flavor == 0:
 		check_flavor = available_flavors.pick_random()

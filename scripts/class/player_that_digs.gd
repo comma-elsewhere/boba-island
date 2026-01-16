@@ -197,7 +197,7 @@ func _add_to_inventory(new_item: Item) -> void:
 		return
 
 func _cam_switch(priority: int) -> void:
-	phantom_camera.priority = priority
+	#phantom_camera.priority = priority
 	if priority < 1:
 		hud.canvas_layer.hide()
 	else:

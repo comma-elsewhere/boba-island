@@ -69,3 +69,28 @@ func get_tea_color(tea: int) -> Color:
 		Static.TEA.WATER: tea_color = _water_color
 		Static.TEA.EMPTY: tea_color = _empty_color
 	return tea_color
+
+func get_flavor_num(item_name: String) -> int:
+	if item_name == "Assam":
+		return Static.TEA.ASSAM
+	elif item_name == "Ceylon":
+		return Static.TEA.CEYLON
+	elif item_name == "Chai":
+		return Static.TEA.CHAI
+	elif item_name == "Earl Grey":
+		return Static.TEA.EARL_GREY
+	elif item_name == "Hojicha":
+		return Static.TEA.HOJICHA
+	elif item_name == "Jasmine":
+		return Static.TEA.JASMINE
+	elif item_name == "Moroccan Mint":
+		return Static.TEA.MINT
+	elif item_name == "Sencha":
+		return Static.TEA.SENCHA
+	elif item_name == "Oolong":
+		return Static.TEA.OOLONG
+	elif item_name == "Matcha Powder":
+		return Static.TEA.MATCHA
+	elif item_name == "Taro Puree":
+		return Static.TEA.TARO
+	else: return 0

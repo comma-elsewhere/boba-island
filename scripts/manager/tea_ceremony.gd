@@ -40,8 +40,7 @@ var current_tea: Tea = null
 
 func _ready() -> void:
 	canvas_layer.hide()
-	%ResultsDisplay.hide()
-	
+
 	again_button.button_up.connect(_restart)
 	done_button.button_up.connect(_complete)
 	
@@ -60,6 +59,7 @@ func _init_state_machine() -> void:
 	limbo_hsm.initialize(self)
 	
 func start_ceremony() -> void:
+	%ResultsDisplay.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	heat_slider.max_value = HEAT
 	brew_timer.start(BREW)
@@ -103,3 +103,5 @@ func _complete() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	cam_switch.emit()
 	
+	heat_slider.value = heat_slider.min_value
+	current_tea = null

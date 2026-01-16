@@ -31,17 +31,17 @@ var crops_harvested: int = 0
 
 # Upgradable variables --- there's no easy way to save these, gotta make a func -- save as Array
 var inventory_space: int = 9 # Min 3, Max 9 --> 5, 7, 9 --> +2 three times
-var moisture_loss: float = 8.0 # Min 0.5, Max 8.0 --> 5.5, 3.0, 0.5 --> -2.5 three times
-var grow_mod: float = 1.0 # Min 0.5, Max 4.0 --> 2.0, 1.0, 0.5 --> /2 three times
+var moisture_loss: float = 5.0 # Min 0.5, Max 8.0 --> 5.5, 3.0, 0.5 --> -2.5 three times
+var grow_mod: float = 2.0 # Min 0.5, Max 4.0 --> 2.0, 1.0, 0.5 --> /2 three times
 var crop_yield: int = 1 # Min 1, Max 4 --> 2, 3, 4 --> +1 three times ---> need inventory upgrade
-var process_speed: float = 2.0 # Min 0.25, Max 2.0 --> 1.0, 0.5, 0.25 --> /2 three times
-var cook_speed: float = 2.0 # Min 0.25, Max 2.0 --> "" ""
+var process_speed: float = 4.0 # Min 0.25, Max 2.0 --> 1.0, 0.5, 0.25 --> /2 three times
+var cook_speed: float = 4.0 # Min 0.25, Max 2.0 --> "" ""
 var mix_speed: float = 2.0 # Min 0.25, Max 2.0 --> "" ""
 
 # Recipe Upgrade tracking - minimum 1 --- Save and load as recipe_upgrade: array[int]
-var processor: int = 4 # Max 4
-var cooker: int = 2 # Max 2
-var mixer: int = 4 # Max 4
+var processor: int = 1 # Max 4
+var cooker: int = 1 # Max 2
+var mixer: int = 1 # Max 4
 
 #Difficulty settings -- Save as Array[int]
 # set by play on new game setup screen -- needs to be saved and loaded
@@ -66,11 +66,15 @@ func _ready() -> void:
 	unlocked_crop.resize(Static.NUMBER_OF_CROPS)
 	# Set starter things
 	unlocked_crop[Static.CROP.SUGAR_CANE] = Static.CROP.SUGAR_CANE + 1
-	unlocked_tea[Static.TEA.CEYLON] = Static.TEA.CEYLON + 1
-	unlocked_tea[Static.TEA.SENCHA] = Static.TEA.SENCHA + 1
+	#unlocked_tea[Static.TEA.CEYLON] = Static.TEA.CEYLON + 1
+	#unlocked_tea[Static.TEA.SENCHA] = Static.TEA.SENCHA + 1
+	unlocked_tea[Static.TEA.CHAI] = Static.TEA.CHAI + 1
+	unlocked_tea[Static.TEA.MINT] = Static.TEA.MINT + 1
+	unlocked_tea[Static.TEA.JASMINE] = Static.TEA.JASMINE + 1
+	unlocked_tea[Static.TEA.OOLONG] = Static.TEA.OOLONG + 1
 	# Set difficulty levels
-	_set_danger(Static.SET.HARD)
-	_set_difficulty(Static.SET.LIGHT)
+	_set_danger(Static.SET.MEDIUM)
+	_set_difficulty(Static.SET.MEDIUM)
 	
 	# (temp removed for playtesting purposes)
 	#total_money = starting_money 

@@ -56,5 +56,7 @@ func _check_tea(index: int) -> void:
 	if item == null:
 		crafting_check[1] = 0
 	else:
+		_selected_recipe.result[0].quality = item.quality
+		_selected_recipe.result[0].tea_flavor = Kinetic.get_flavor_num(item.name)
 		crafting_check[1] = 1
 	print(crafting_check)

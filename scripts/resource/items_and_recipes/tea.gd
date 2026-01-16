@@ -13,7 +13,6 @@ func set_quality(temp: float, time: float) -> Array[int]:
 	
 	quality = float(_get_points(absf(diff_temp)) + _get_points(absf(diff_time))) / 2 / 100
 	quality = clampf(quality, 0, 1)
-	print(quality)
 	
 	var results: Array[int] = []
 	results.append(_high_or_low(diff_temp))
@@ -21,25 +20,7 @@ func set_quality(temp: float, time: float) -> Array[int]:
 	return results
 	
 func get_flavor_num() -> int:
-	if name == "Assam":
-		return Static.TEA.ASSAM
-	elif name == "Ceylon":
-		return Static.TEA.CEYLON
-	elif name == "Chai":
-		return Static.TEA.CHAI
-	elif name == "Earl Grey":
-		return Static.TEA.EARL_GREY
-	elif name == "Hojicha":
-		return Static.TEA.HOJICHA
-	elif name == "Jasmine":
-		return Static.TEA.JASMINE
-	elif name == "Moroccan Mint":
-		return Static.TEA.MINT
-	elif name == "Sencha":
-		return Static.TEA.SENCHA
-	elif name == "Oolong":
-		return Static.TEA.OOLONG
-	else: return 0
+	return Kinetic.get_flavor_num(name)
 	
 func _get_points(distance: float) -> int:
 	if distance <= TOLERANCES.PERFECT:

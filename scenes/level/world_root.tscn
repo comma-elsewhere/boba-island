@@ -9,7 +9,7 @@
 [ext_resource type="Material" uid="uid://6kqx7xvjsbaf" path="res://resources/materials/watercolor.tres" id="7_m1jft"]
 [ext_resource type="PackedScene" uid="uid://d0g8ltwp1y6oo" path="res://scenes/prefab/overgrowth.tscn" id="9_utkfw"]
 [ext_resource type="PackedScene" uid="uid://c0y2e6yqp6vgf" path="res://scenes/manager/saver_loader.tscn" id="10_jksdq"]
-[ext_resource type="PackedScene" uid="uid://1cehb2otnn10" path="res://scenes/prefab/gui_interface/drink_order_3D.tscn" id="10_wc1lk"]
+[ext_resource type="PackedScene" uid="uid://1cehb2otnn10" path="res://scenes/prefab/drink_order_3D.tscn" id="10_wc1lk"]
 [ext_resource type="Resource" uid="uid://fnw81gfwi5n4" path="res://resources/game_data/recipe_upgrade_groups/cook_machine_upgrades.tres" id="10_ytln1"]
 [ext_resource type="PackedScene" uid="uid://516o65n4jcsn" path="res://scenes/prefab/process_machine.tscn" id="11_tyjbu"]
 [ext_resource type="Resource" uid="uid://cfoou3oklaqqf" path="res://resources/game_data/recipe_upgrade_groups/process_machine_upgrades.tres" id="13_0glrw"]

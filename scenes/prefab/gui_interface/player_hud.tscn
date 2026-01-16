@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ctk5uv2035svm" path="res://gui_comp/script/hotbar_inventory.gd" id="1_f2b3q"]
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="2_ncydl"]
 [ext_resource type="Script" uid="uid://otsnq1800gab" path="res://gui_comp/script/stats_display.gd" id="3_f2b3q"]
-[ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="3_jdtkk"]
+[ext_resource type="Resource" uid="uid://bav1oqtqeh1s7" path="res://resources/game_data/crops/seeds/sugar_seed.tres" id="3_jdtkk"]
 [ext_resource type="Script" uid="uid://bwijg6lsih103" path="res://gui_comp/script/hotbar_container.gd" id="3_xcoxm"]
 [ext_resource type="Script" uid="uid://bmn1dpl5s5tf5" path="res://scripts/utility/view_model.gd" id="5_jdtkk"]
 
@@ -21,7 +21,7 @@ func update_visible() -> void:
 
 [node name="PlayerHUD" type="Node3D" groups=["GUI_Event", "Lighting"]]
 script = ExtResource("1_f2b3q")
-fill = Array[ExtResource("2_ncydl")]([ExtResource("3_jdtkk"), ExtResource("3_jdtkk"), ExtResource("3_jdtkk")])
+fill = Array[ExtResource("2_ncydl")]([ExtResource("3_jdtkk"), ExtResource("3_jdtkk"), ExtResource("3_jdtkk"), ExtResource("3_jdtkk")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2

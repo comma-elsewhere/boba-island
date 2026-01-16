@@ -35,9 +35,9 @@ func _calc_paid() -> int:
 func _calc_tipped() -> int:
 	var tip: float
 	if served_drink.tea_flavor == ordered_drink.tea_flavor:
-		tip = Dynamic.starting_tip * Dynamic.tea_quality
-	elif served_drink.tea_type == ordered_drink.tea_type:
-		tip = Dynamic.starting_tip * Dynamic.tea_quality /2
+		tip = Dynamic.starting_tip * served_drink.quality
+	#elif served_drink.tea_type == ordered_drink.tea_type:
+		#tip = Dynamic.starting_tip * served_drink.quality /2
 	else:
 		tip = 0
 	return int(tip)
@@ -49,7 +49,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		_check_drinks()
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	"exit"
+	#"exit"
 	drink_bodies.erase(body)
 	drinks_in_area.erase(body.item_data)
 	if !drinks_in_area.is_empty() and ordered_drink != null:
