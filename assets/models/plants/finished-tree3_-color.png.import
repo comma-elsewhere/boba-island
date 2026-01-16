@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm43x22ms00yu"
-path.s3tc="res://.godot/imported/plant-style2_-Color (5).png-7680fab680c9f6518ba1287276b403ab.s3tc.ctex"
+uid="uid://cdp8j8vi2owr6"
+path.s3tc="res://.godot/imported/finished-tree3_-color.png-b51b761b18647e53b891708da13e104f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "a514c8399b07ed21d3d06345a5d54a2b"
+"md5": "5ce6fa55d604c743254ceae285a5e966"
 }
 
 [deps]
 
-source_file="res://assets/models/plant-style2_-Color (5).png"
-dest_files=["res://.godot/imported/plant-style2_-Color (5).png-7680fab680c9f6518ba1287276b403ab.s3tc.ctex"]
+source_file="res://assets/models/plants/finished-tree3_-color.png"
+dest_files=["res://.godot/imported/finished-tree3_-color.png-b51b761b18647e53b891708da13e104f.s3tc.ctex"]
 
 [params]
 

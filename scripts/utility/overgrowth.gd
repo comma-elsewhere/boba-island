@@ -57,7 +57,6 @@ func on_save(save_data: Array[SavedData]) -> void:
 	my_data.weed_index = weed_index
 	
 	save_data.append(my_data)
-	print("saved")
 
 func on_preload() -> void:
 	get_parent().remove_child(self)

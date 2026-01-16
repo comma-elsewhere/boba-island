@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://diy8yjj62qmfh"
-path="res://.godot/imported/plant-style1.glb-49def43b495bbd353fb2f5e0593c9826.scn"
+uid="uid://dvjsrwxxejqrf"
+path="res://.godot/imported/finished-tree3.glb-bd8123dbae030935a101a619bc468ad3.scn"
 
 [deps]
 
-source_file="res://assets/models/plant-style1.glb"
-dest_files=["res://.godot/imported/plant-style1.glb-49def43b495bbd353fb2f5e0593c9826.scn"]
+source_file="res://assets/models/plants/finished-tree3.glb"
+dest_files=["res://.godot/imported/finished-tree3.glb-bd8123dbae030935a101a619bc468ad3.scn"]
 
 [params]
 
@@ -17,7 +17,7 @@ nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
-nodes/root_scale=0.3
+nodes/root_scale=0.5
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true

@@ -6,6 +6,8 @@
 
 [resource]
 script = ExtResource("1_nvs8k")
-name = "Morrocan Mint"
+perfect_temp = 60.0
+perfect_time = 30.0
+name = "Moroccan Mint"
 icon = ExtResource("1_gnx2d")
 metadata/_custom_type_script = "uid://mlslmml4ade1"

@@ -1,0 +1,492 @@
+[gd_scene load_steps=32 format=3 uid="uid://dre3kgeqhjprj"]
+
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_klhyc"]
+[ext_resource type="Script" uid="uid://byt25khsg8eat" path="res://scripts/manager/tea_ceremony.gd" id="1_s5ry1"]
+[ext_resource type="Resource" uid="uid://d4d0fknlwjwam" path="res://resources/game_data/tea/tea_base.tres" id="2_onml7"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_s5ry1"]
+[ext_resource type="ArrayMesh" uid="uid://slv84ptkkpu8" path="res://resources/meshes/gaiwan_saucer.res" id="4_a44tk"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_ke5ej"]
+[ext_resource type="Script" uid="uid://5b8gxdrv785j" path="res://gui_comp/script/item_grid.gd" id="5_fenig"]
+[ext_resource type="ArrayMesh" uid="uid://byino4t1ews7h" path="res://resources/meshes/gaiwan_bowl.res" id="5_mmnsu"]
+[ext_resource type="ArrayMesh" uid="uid://gp1x2prfo5hk" path="res://resources/meshes/gaiwan_lid.res" id="6_ke5ej"]
+[ext_resource type="Script" uid="uid://ciheweoo3c4sg" path="res://scripts/utility/gaiwan_bowl.gd" id="6_mmnsu"]
+[ext_resource type="PackedScene" uid="uid://cef8yale2ppkg" path="res://gui_comp/tea_slot.tscn" id="6_onml7"]
+[ext_resource type="Script" uid="uid://b3roaed6mfj5w" path="res://ai/state_machine/select_state.gd" id="9_xwmcu"]
+[ext_resource type="Script" uid="uid://bfnnpn3p8us6y" path="res://ai/state_machine/boil_state.gd" id="10_hrorc"]
+[ext_resource type="Script" uid="uid://bl6byg1pm6you" path="res://ai/state_machine/water_state.gd" id="11_mrrbr"]
+[ext_resource type="Script" uid="uid://b5foyo8m2tjta" path="res://ai/state_machine/can_brew_state.gd" id="12_t23s3"]
+[ext_resource type="Script" uid="uid://1ks533x46ali" path="res://ai/state_machine/tea_state.gd" id="13_fenig"]
+[ext_resource type="Script" uid="uid://c68vuhidt8dj" path="res://ai/state_machine/brewing_state.gd" id="14_fenig"]
+[ext_resource type="AudioStream" uid="uid://0urjxs7j6rik" path="res://assets/sound effects/temp/WaterPour.ogg" id="15_t23s3"]
+[ext_resource type="AudioStream" uid="uid://b6tgn2ywmh4ld" path="res://assets/sound effects/ChinawareBeat.ogg" id="16_fenig"]
+
+[sub_resource type="Resource" id="Resource_oapsv"]
+script = ExtResource("2_s5ry1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klhyc"]
+bg_color = Color(1, 0.2788584, 0.16067943, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5ry1"]
+bg_color = Color(1.0569379, 0.4369558, 0.32949224, 1)
+
+[sub_resource type="Animation" id="Animation_xwmcu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GaiwanLid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, -0.90000004, -0.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GaiwanLid:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.03490659, 9.801869e-10, -0.13962635)]
+}
+
+[sub_resource type="Animation" id="Animation_ke5ej"]
+resource_name = "add_water"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GaiwanBowl")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.76666665),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_water"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PositionalAudio/PourWaterSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_k2u1m"]
+resource_name = "end_mix"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GaiwanLid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.5, 0, 0.2), Vector3(-0.35, 0, -0.2), Vector3(-0.2021429, -0.29571426, -0.5642857), Vector3(0.1, -0.90000004, -0.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GaiwanLid:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.6457718, 0, -0.13962634), Vector3(-0.5235988, 0, -0.13962634), Vector3(-0.36302853, 4.2682915e-09, -0.13962634), Vector3(-0.03490659, 9.801869e-10, -0.13962635)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PositionalAudio/ClinkingSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8n4mt"]
+resource_name = "mix_loop"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GaiwanLid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.53, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.50000006, 0, 0.19999999), Vector3(-0.50000006, -0.2, 0.59999996), Vector3(-0.5, -0.15, 0.4), Vector3(-0.50000006, 0, 0.19999999)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GaiwanLid:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.53, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.645772, -7.58598e-09, -0.13962632), Vector3(-0.645772, -7.401499e-10, -0.13962635), Vector3(-0.2967061, 1.7007892e-08, -0.1396264), Vector3(-0.645772, -7.58598e-09, -0.13962632)]
+}
+
+[sub_resource type="Animation" id="Animation_3pgja"]
+resource_name = "pour_tea"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GaiwanBowl")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.73333335),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_empty"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PositionalAudio/PourTeaSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7eet5"]
+resource_name = "mix_tea"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GaiwanLid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.34, 0.51, 0.72, 0.94, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.1, -0.90000004, -0.7), Vector3(0.1, -0.20000005, -0.59999996), Vector3(-0.40000004, -0.20000005, -0.29999998), Vector3(-0.50000006, -0.100000046, 0.100000024), Vector3(-0.50000006, -2.2351742e-08, 0.20000002), Vector3(-0.50000006, 0, 0.19999999)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GaiwanLid:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.34, 0.51, 0.72, 0.94, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.03490659, 9.801869e-10, -0.13962635), Vector3(-0.20943955, 1.0445174e-09, -0.13962634), Vector3(-0.20943956, 5.0504156e-09, -0.13962635), Vector3(-0.47123894, 2.9920882e-10, -0.13962634), Vector3(-0.5585055, 7.573508e-09, -0.13962635), Vector3(-0.645772, -7.58598e-09, -0.13962632)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PositionalAudio/ClinkingSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hrorc"]
+_data = {
+&"RESET": SubResource("Animation_xwmcu"),
+&"add_water": SubResource("Animation_ke5ej"),
+&"end_mix": SubResource("Animation_k2u1m"),
+&"mix_loop": SubResource("Animation_8n4mt"),
+&"pour_tea": SubResource("Animation_3pgja"),
+&"start_mix": SubResource("Animation_7eet5")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x74xb"]
+radius = 1.0
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_onml7"]
+
+[node name="TeaCeremony" type="Node3D"]
+script = ExtResource("1_s5ry1")
+tea_base = ExtResource("2_onml7")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.35112333, 0.9363287, 0, -0.9363287, 0.35112333, 0, 2, 0.75)
+script = ExtResource("1_klhyc")
+priority = 1
+look_at_mode = 2
+look_at_target = NodePath("../TeaSet")
+tween_resource = SubResource("Resource_oapsv")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Camera3D" type="Camera3D" parent="PhantomCamera3D"]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000005, -2.9802322e-08, 0, 2.9802322e-08, 1.0000005, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PhantomCamera3D/Camera3D"]
+unique_name_in_owner = true
+
+[node name="Control" type="Control" parent="PhantomCamera3D/Camera3D/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1008.0
+offset_bottom = 500.0
+grow_horizontal = 0
+
+[node name="GaiwanButton" type="Button" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+flat = true
+
+[node name="TeapotButton" type="Button" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+flat = true
+
+[node name="HeatSlider" type="VSlider" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 400)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_klhyc")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_s5ry1")
+tick_count = 12
+ticks_position = 3
+
+[node name="TeaContainer" type="GridContainer" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+columns = 2
+script = ExtResource("5_fenig")
+slot_item = ExtResource("6_onml7")
+
+[node name="TeacupButton" type="Button" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+flat = true
+
+[node name="ResultsDisplay" type="VBoxContainer" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="QualityLabels" type="HBoxContainer" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay/QualityLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Tea Quality:"
+
+[node name="Quality" type="Label" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay/QualityLabels"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "100/100"
+
+[node name="Control" type="Control" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TempLabels" type="HBoxContainer" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay/TempLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Temperature: "
+
+[node name="Temperature" type="Label" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay/TempLabels"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Great!"
+
+[node name="TimeLabels" type="HBoxContainer" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay/TimeLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Steep Time:"
+
+[node name="Time" type="Label" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay/TimeLabels"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Great!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay"]
+layout_mode = 2
+
+[node name="AgainButton" type="Button" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Try Again"
+
+[node name="DoneButton" type="Button" parent="PhantomCamera3D/Camera3D/CanvasLayer/Control/ResultsDisplay/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Finish"
+
+[node name="PhantomCameraHost" type="Node" parent="PhantomCamera3D/Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("4_ke5ej")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="TeaSet" type="Node3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TeaSet"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_hrorc")
+}
+
+[node name="TeaLeavesParticles" type="GPUParticles3D" parent="TeaSet"]
+unique_name_in_owner = true
+visible = false
+emitting = false
+
+[node name="GaiwanSaucer" type="MeshInstance3D" parent="TeaSet"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.3, 0, -0.3)
+mesh = ExtResource("4_a44tk")
+
+[node name="GaiwanBowl" type="MeshInstance3D" parent="TeaSet"]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.3, -0.1, -0.3)
+mesh = ExtResource("5_mmnsu")
+script = ExtResource("6_mmnsu")
+
+[node name="GaiwanLid" type="MeshInstance3D" parent="TeaSet"]
+transform = Transform3D(0.495134, 0.06958653, 4.897948e-10, -0.06954417, 0.4948322, 0.017449746, 0.0024285354, -0.017279923, 0.49969533, 0.1, -0.90000004, -0.7)
+mesh = ExtResource("6_ke5ej")
+
+[node name="RaycastCollisionBody" type="StaticBody3D" parent="."]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RaycastCollisionBody"]
+shape = SubResource("SphereShape3D_x74xb")
+
+[node name="LimboHSM" type="LimboHSM" parent="."]
+blackboard_plan = SubResource("BlackboardPlan_onml7")
+
+[node name="SelectState" type="LimboState" parent="LimboHSM"]
+script = ExtResource("9_xwmcu")
+
+[node name="BoilState" type="LimboState" parent="LimboHSM"]
+script = ExtResource("10_hrorc")
+
+[node name="WaterState" type="LimboState" parent="LimboHSM"]
+script = ExtResource("11_mrrbr")
+
+[node name="CanBrewState" type="LimboState" parent="LimboHSM"]
+script = ExtResource("12_t23s3")
+
+[node name="BrewingState" type="LimboState" parent="LimboHSM"]
+script = ExtResource("14_fenig")
+
+[node name="TeaState" type="LimboState" parent="LimboHSM"]
+script = ExtResource("13_fenig")
+
+[node name="PositionalAudio" type="Node3D" parent="."]
+
+[node name="PourWaterSound" type="AudioStreamPlayer3D" parent="PositionalAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.39999998, -0.3)
+stream = ExtResource("15_t23s3")
+
+[node name="ClinkingSound" type="AudioStreamPlayer3D" parent="PositionalAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.7, -0.3)
+stream = ExtResource("16_fenig")
+attenuation_model = 3
+volume_db = -5.0
+max_db = 0.0
+
+[node name="PourTeaSound" type="AudioStreamPlayer3D" parent="PositionalAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+stream = ExtResource("15_t23s3")
+
+[node name="BrewTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

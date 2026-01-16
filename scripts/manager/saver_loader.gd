@@ -33,6 +33,7 @@ func load_game() -> void:
 	var saved_game = load("user://savedata.res")
 	
 	get_tree().call_group("GameEvent","on_preload")
+	
 	_set_options(saved_game.options)
 	_set_access(saved_game.accessibility)
 	_set_progress(saved_game.progress) 
@@ -40,14 +41,13 @@ func load_game() -> void:
 	_set_player_upgrades(saved_game.player_upgrades) 
 	_set_recipe_upgrades(saved_game.recipe_upgrades) 
 	_set_difficulty(saved_game.difficulty) 
+	
 	player.global_position = saved_game.player_position
 	
 	for item in saved_game.player_inventory:
 		player.hud.add_item(item)
 	
 	for item in saved_game.saved_data:
-		print(item.position)
-		print(item.scene_file_path)
 		var load_item = load(item.scene_file_path) as PackedScene
 		var instantiate_item = load_item.instantiate()
 		world_root.add_child.call_deferred(instantiate_item)

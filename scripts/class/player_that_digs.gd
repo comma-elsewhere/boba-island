@@ -27,7 +27,8 @@ var gravity = 9.8
 var is_crouched: bool = false
 
 @onready var head: Node3D = $Head
-@onready var camera: Camera3D = $Head/Camera3D
+@onready var camera: Camera3D = %Camera3D
+@onready var phantom_camera: PhantomCamera3D = %PhantomCamera3D
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var uncrouch: ShapeCast3D = $UncrouchCheck
 @onready var csg_spawner: Marker3D = %CSGSpawner
@@ -49,8 +50,11 @@ func _input(event: InputEvent) -> void:
 				hud.plant_crop(csg_spawner.global_position)
 				
 			elif pointer.is_colliding():
-				#if pointer.get_collider().get_parent().has_method("fill_water"):
-					#pointer.get_collider().get_parent().fill_water()
+				if pointer.get_collider().get_parent().has_signal("cam_switch"):
+					if !pointer.get_collider().get_parent().has_connections("cam_switch"):
+						pointer.get_collider().get_parent().cam_switch.connect(_cam_switch.bind(2))
+					_cam_switch(0)
+					pointer.get_collider().get_parent().start_ceremony()
 				if pointer.get_collider().has_method("pickup"):
 					var new_item = pointer.get_collider().pickup()
 					_add_to_inventory(new_item)
@@ -79,13 +83,13 @@ func _input(event: InputEvent) -> void:
 			else:
 				animation.play("crouch")
 			
-# Head rotate and look around
+ #Head rotate and look around
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		head.rotate_y(-event.relative.x * Dynamic.mouse_sensitivity)
 		camera.rotate_x(-event.relative.y * Dynamic.mouse_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(90))
-			
+		
 # Handle movement
 func _physics_process(delta):
 	# Add the gravity.
@@ -191,6 +195,13 @@ func _add_to_inventory(new_item: Item) -> void:
 			hud.reject_item(new_item)
 	else:
 		return
+
+func _cam_switch(priority: int) -> void:
+	phantom_camera.priority = priority
+	if priority < 1:
+		hud.canvas_layer.hide()
+	else:
+		hud.canvas_layer.show()
 
 #func _update_inventory(new_inventory: Inventory) -> void:
 	#hud.return_items(new_inventory)

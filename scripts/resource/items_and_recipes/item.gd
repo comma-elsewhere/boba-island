@@ -7,3 +7,5 @@ class_name Item extends Resource
 
 @export_range(1,9) var stack_limit: int = 1
 @export_range(1,9) var amount: int = 1
+
+var quality: float = 1

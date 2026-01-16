@@ -22,6 +22,7 @@ Dynamic="*res://scripts/global/dynamic.gd"
 Static="*res://scripts/global/static.gd"
 Kinetic="*res://scripts/global/kinetic.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [display]
 
@@ -32,7 +33,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/shaker/plugin.cfg")
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
 [global_group]
 

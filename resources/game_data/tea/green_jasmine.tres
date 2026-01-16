@@ -6,6 +6,8 @@
 
 [resource]
 script = ExtResource("1_jewcy")
+perfect_temp = 55.0
+perfect_time = 20.0
 name = "Jasmine"
 icon = ExtResource("1_rqeh4")
 metadata/_custom_type_script = "uid://mlslmml4ade1"

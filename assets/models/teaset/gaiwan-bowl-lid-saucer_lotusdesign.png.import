@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdp8j8vi2owr6"
-path.s3tc="res://.godot/imported/finished-tree3_-color.png-c05d2cbb23e6dcf4a074f2f0db4af970.s3tc.ctex"
+uid="uid://j01y841afofg"
+path.s3tc="res://.godot/imported/gaiwan-bowl-lid-saucer_lotusdesign.png-083345fdef6ad56a116c7e221a0fc382.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "5ce6fa55d604c743254ceae285a5e966"
+"md5": "446a6dcd2d08d3549c039df0dc1b5efc"
 }
 
 [deps]
 
-source_file="res://assets/models/finished-tree3_-color.png"
-dest_files=["res://.godot/imported/finished-tree3_-color.png-c05d2cbb23e6dcf4a074f2f0db4af970.s3tc.ctex"]
+source_file="res://assets/models/teaset/gaiwan-bowl-lid-saucer_lotusdesign.png"
+dest_files=["res://.godot/imported/gaiwan-bowl-lid-saucer_lotusdesign.png-083345fdef6ad56a116c7e221a0fc382.s3tc.ctex"]
 
 [params]
 

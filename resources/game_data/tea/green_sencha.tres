@@ -6,6 +6,8 @@
 
 [resource]
 script = ExtResource("1_0jgty")
+perfect_temp = 40.0
+perfect_time = 30.0
 name = "Sencha"
 icon = ExtResource("1_s1sye")
 metadata/_custom_type_script = "uid://mlslmml4ade1"

@@ -6,6 +6,8 @@
 
 [resource]
 script = ExtResource("1_id4gh")
+perfect_temp = 70.0
+perfect_time = 45.0
 name = "Earl Grey"
 icon = ExtResource("1_0rp02")
 metadata/_custom_type_script = "uid://mlslmml4ade1"

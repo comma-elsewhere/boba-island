@@ -1,4 +1,14 @@
 extends Node
+var _empty_color: Color = Color("9fb8c600")
+var _water_color: Color = Color("6aaec654")
+var _gold_color: Color = Color("a86407cc")
+var _copper_color: Color = Color("a84e07cc")
+var _amber_color: Color = Color("8b3807d9")
+var _caramel_color: Color = Color("fba670e1")
+var _orange_jade: Color = Color("ff8f488a")
+var _green_jade: Color = Color("00a548aa")
+var _opaque_jade: Color = Color("008e54f1")
+var _lavender_jade: Color = Color("8381c6")
 
 func find_first_mesh_instance(node: Node) -> MeshInstance3D:
 	if node is MeshInstance3D:
@@ -41,3 +51,21 @@ func display_time(hour: int, minute: int) -> String:
 	
 func display_money(money: int) -> String:
 	return "$%.2f" % (float(money)/100)
+
+func get_tea_color(tea: int) -> Color:
+	var tea_color: Color
+	match tea:
+		Static.TEA.ASSAM: tea_color = _copper_color
+		Static.TEA.CEYLON: tea_color = _gold_color
+		Static.TEA.CHAI: tea_color = _caramel_color
+		Static.TEA.EARL_GREY: tea_color = _amber_color
+		Static.TEA.HOJICHA: tea_color = _amber_color
+		Static.TEA.JASMINE: tea_color = _gold_color
+		Static.TEA.MINT: tea_color = _orange_jade
+		Static.TEA.SENCHA: tea_color = _green_jade
+		Static.TEA.OOLONG: tea_color = _copper_color
+		Static.TEA.MATCHA: tea_color = _opaque_jade
+		Static.TEA.TARO: tea_color = _lavender_jade
+		Static.TEA.WATER: tea_color = _water_color
+		Static.TEA.EMPTY: tea_color = _empty_color
+	return tea_color

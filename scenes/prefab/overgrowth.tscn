@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://d0g8ltwp1y6oo"]
 
 [ext_resource type="Script" uid="uid://cbdoadclgpkpl" path="res://scripts/utility/overgrowth.gd" id="1_pfhtm"]
-[ext_resource type="PackedScene" uid="uid://diy8yjj62qmfh" path="res://assets/models/plant-style1.glb" id="3_qnmuy"]
-[ext_resource type="PackedScene" uid="uid://b72mpqp0h5j5x" path="res://assets/models/plant-style2.glb" id="4_xlnl6"]
+[ext_resource type="PackedScene" uid="uid://diy8yjj62qmfh" path="res://assets/models/plants/plant-style1.glb" id="3_qnmuy"]
+[ext_resource type="PackedScene" uid="uid://b72mpqp0h5j5x" path="res://assets/models/plants/plant-style2.glb" id="4_xlnl6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4n7e"]
 
