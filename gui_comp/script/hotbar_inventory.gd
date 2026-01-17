@@ -105,11 +105,14 @@ func pause() -> void:
 		else:
 			pause_menu.close()
 			%Reticle.update_visible()
+			print("unpause")
 	else:
 		get_tree().call_group("GUI_Event", "close")
+		print("call_close")
 			
 func close() -> void:
 	gui_open = false
+	hotbar_display.show()
 	
 func mutant_encounter(active: bool) -> void:
 	canvas_layer.visible = !active

@@ -46,10 +46,6 @@ func _ready() -> void:
 	
 	_init_state_machine() # One-time setup
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
-		_abort()
-
 func _init_state_machine() -> void:
 	#State machine transitions
 	limbo_hsm.add_transition(select_state, boil_state, "proceed_to_boil")
@@ -63,13 +59,9 @@ func _init_state_machine() -> void:
 	limbo_hsm.initialize(self)
 	
 func start_ceremony() -> void:
-	%ResultsDisplay.hide()
-	%TeapotLid.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	heat_slider.max_value = HEAT
-	brew_timer.start(BREW)
-	brew_timer.paused = true
 	canvas_layer.show()
+	_setup()
 	#Start the state machine
 	limbo_hsm.set_active(true)
 	
@@ -78,6 +70,9 @@ func finish_ceremony() -> void:
 	var temp = heat_slider.value / 2.5
 	var results = current_tea.set_quality(temp, time)
 	_display_results(results, current_tea.quality)
+
+func close() -> void:
+	_abort()
 
 func _display_results(results: Array[int], quality: float) -> void:
 	quality_label.text = str(int(quality * 100)) + "/100"
@@ -93,18 +88,13 @@ func _set_label_text(strings: Array[String], result: int) -> String:
 	return "Unknown"
 
 func _restart() -> void:
-	%ResultsDisplay.hide()
-	%TeapotLid.show()
-	current_tea = null
-	brew_timer.start(BREW)
-	brew_timer.paused = true
-	heat_slider.value = heat_slider.min_value
+	_setup()
 	limbo_hsm.change_active_state(select_state)
 
 func _complete() -> void:
 	var player: Player = get_tree().get_first_node_in_group("Player") as Player
 	player.hud.add_item(current_tea)
-	_abort()
+	get_tree().call_group("GUI_Event", "close")
 
 func _abort() -> void:
 	limbo_hsm.set_active(false)
@@ -115,4 +105,13 @@ func _abort() -> void:
 	current_tea = null
 	
 	cam_switch.emit()
+	
+func _setup() -> void:
+	%ResultsDisplay.hide()
+	%TeapotLid.show()
+	%TeapotPot.set_water()
+	current_tea = null
+	brew_timer.start(BREW)
+	brew_timer.paused = true
+	heat_slider.value = heat_slider.min_value
 	

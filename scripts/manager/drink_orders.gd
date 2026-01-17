@@ -123,6 +123,9 @@ func _reset_labels() -> void:
 func _rand_available_flavor(max_range: int) -> int:
 	var available_flavors: Array = Dynamic.unlocked_tea.duplicate()
 	available_flavors.resize(max_range)
+	for i in len(available_flavors):
+		if available_flavors[i] == null:
+			available_flavors[i] = 0
 	var check_flavor: int = 0
 	while check_flavor == 0:
 		check_flavor = available_flavors.pick_random()

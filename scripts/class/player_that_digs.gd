@@ -197,14 +197,10 @@ func _add_to_inventory(new_item: Item) -> void:
 		return
 
 func _cam_switch(layer: int) -> void:
-	if layer < 2:
-		phantom_camera_host.set_host_layers_value(2, false)
-	else:
-		phantom_camera_host.set_host_layers_value(2, true)
-	#if priority < 1:
-		#hud.canvas_layer.hide()
-	#else:
-		#hud.canvas_layer.show()
-
-#func _update_inventory(new_inventory: Inventory) -> void:
-	#hud.return_items(new_inventory)
+	phantom_camera_host.set_host_layers(layer)
+	
+	if layer == 1:
+		hud.gui_open = true
+		hud.hotbar_display.hide()
+	elif layer == 2:
+		camera.rotation = Vector3.ZERO

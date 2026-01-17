@@ -42,6 +42,7 @@ func init_gui_scene() -> void:
 
 func close() -> void:
 	if new_crafting_scene != null:
+		print("close")
 		new_crafting_scene.close()
 		new_crafting_scene.call_deferred("queue_free")
 

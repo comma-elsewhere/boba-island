@@ -215,5 +215,5 @@ unique_name_in_owner = true
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("11_sm572")
-host_layers = 7
+host_layers = 2
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
