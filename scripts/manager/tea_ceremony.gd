@@ -46,6 +46,10 @@ func _ready() -> void:
 	
 	_init_state_machine() # One-time setup
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		_abort()
+
 func _init_state_machine() -> void:
 	#State machine transitions
 	limbo_hsm.add_transition(select_state, boil_state, "proceed_to_boil")
@@ -98,10 +102,15 @@ func _restart() -> void:
 func _complete() -> void:
 	var player: Player = get_tree().get_first_node_in_group("Player") as Player
 	player.hud.add_item(current_tea)
+	_abort()
+
+func _abort() -> void:
 	limbo_hsm.set_active(false)
 	canvas_layer.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	cam_switch.emit()
 	
 	heat_slider.value = heat_slider.min_value
 	current_tea = null
+	
+	cam_switch.emit()
+	

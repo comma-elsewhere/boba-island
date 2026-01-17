@@ -3,10 +3,10 @@ extends Node
 #Save and load + progress indicators
 var load_game: bool = false
 # ---Progress: save as Array[Array]---
-var tutorial_progress: Array[int] = []
-var unlocked_book: Array[int] = []
-var unlocked_tea: Array[int] = []
-var unlocked_crop: Array[int] =  []
+var tutorial_progress: Array = [0]
+var unlocked_book: Array = [0]
+var unlocked_tea: Array = []
+var unlocked_crop: Array =  []
 
 # Options menu settings, save
 var mouse_sensitivity: float = 0.004

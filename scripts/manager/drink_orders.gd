@@ -121,7 +121,7 @@ func _reset_labels() -> void:
 	current_order = null
 
 func _rand_available_flavor(max_range: int) -> int:
-	var available_flavors: Array[int] = Dynamic.unlocked_tea.duplicate()
+	var available_flavors: Array = Dynamic.unlocked_tea.duplicate()
 	available_flavors.resize(max_range)
 	var check_flavor: int = 0
 	while check_flavor == 0:

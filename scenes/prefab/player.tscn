@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d0b3clifjliac"]
+[gd_scene load_steps=22 format=3 uid="uid://d0b3clifjliac"]
 
 [ext_resource type="Script" uid="uid://dnepsi6c0l41w" path="res://scripts/class/player_that_digs.gd" id="1_72ieh"]
 [ext_resource type="PackedScene" uid="uid://blhd62dvlvboc" path="res://scenes/prefab/gui_interface/player_hud.tscn" id="2_t63vk"]
@@ -7,11 +7,8 @@
 [ext_resource type="Script" uid="uid://dx61e603u0ox2" path="res://scripts/utility/camera_3d.gd" id="3_x3577"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_sm572"]
 [ext_resource type="Script" uid="uid://clls85kmjfpf5" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="7_eklxm"]
-[ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="7_l8smq"]
 [ext_resource type="Script" uid="uid://d4maeuwhpdt85" path="res://addons/shaker/data/Vector3/BaseShakerType3D.gd" id="8_octyv"]
-[ext_resource type="Resource" uid="uid://bav1oqtqeh1s7" path="res://resources/game_data/crops/seeds/sugar_seed.tres" id="8_psnur"]
 [ext_resource type="Script" uid="uid://bn6mmvstgwt75" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="9_bdjfl"]
-[ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="9_gumar"]
 [ext_resource type="Script" uid="uid://bni0jrcydsw6r" path="res://addons/shaker/data/Vector3/ShakerTypeBrownianShake3D.gd" id="9_sm572"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_22t8h"]
@@ -202,7 +199,6 @@ hit_from_inside = true
 unique_name_in_owner = true
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5806595e-09, 4.4936314e-08, 5.2183168e-08)
-fill = Array[ExtResource("7_l8smq")]([ExtResource("8_psnur"), ExtResource("8_psnur"), ExtResource("8_psnur"), ExtResource("8_psnur"), ExtResource("9_gumar"), ExtResource("9_gumar")])
 
 [node name="CameraShaker" type="Node3D" parent="Head/PhantomCamera3D/Camera3D" node_paths=PackedStringArray("Targets")]
 unique_name_in_owner = true

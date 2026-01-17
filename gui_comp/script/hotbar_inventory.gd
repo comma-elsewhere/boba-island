@@ -26,7 +26,7 @@ func _ready() -> void:
 		add_item(item)
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") and canvas_layer.visible:
 		pause()
 	
 func setup() -> void:
@@ -99,15 +99,14 @@ func quit_game() -> void:
 	get_tree().change_scene_to_file(MAIN_MENU)
 	
 func pause() -> void:
-	if canvas_layer.visible:
-		if !gui_open:
-			if get_tree().paused == false:
-				pause_menu.open()
-			else:
-				pause_menu.close()
-				%Reticle.update_visible()
+	if !gui_open:
+		if get_tree().paused == false:
+			pause_menu.open()
 		else:
-			get_tree().call_group("GUI_Event", "close")
+			pause_menu.close()
+			%Reticle.update_visible()
+	else:
+		get_tree().call_group("GUI_Event", "close")
 			
 func close() -> void:
 	gui_open = false

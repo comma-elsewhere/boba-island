@@ -44,6 +44,7 @@ func load_game() -> void:
 	
 	player.global_position = saved_game.player_position
 	
+	player.hud.hotbar_array.clear()
 	for item in saved_game.player_inventory:
 		player.hud.add_item(item)
 	
