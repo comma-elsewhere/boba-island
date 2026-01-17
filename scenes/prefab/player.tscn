@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d0b3clifjliac"]
+[gd_scene load_steps=23 format=3 uid="uid://d0b3clifjliac"]
 
 [ext_resource type="Script" uid="uid://dnepsi6c0l41w" path="res://scripts/class/player_that_digs.gd" id="1_72ieh"]
 [ext_resource type="PackedScene" uid="uid://blhd62dvlvboc" path="res://scenes/prefab/gui_interface/player_hud.tscn" id="2_t63vk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://d4maeuwhpdt85" path="res://addons/shaker/data/Vector3/BaseShakerType3D.gd" id="8_octyv"]
 [ext_resource type="Script" uid="uid://bn6mmvstgwt75" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="9_bdjfl"]
 [ext_resource type="Script" uid="uid://bni0jrcydsw6r" path="res://addons/shaker/data/Vector3/ShakerTypeBrownianShake3D.gd" id="9_sm572"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_sm572"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_22t8h"]
 
@@ -148,7 +149,6 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="PhantomCamera3D" type="Node3D" parent="Head"]
-unique_name_in_owner = true
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -4.0266976e-05, 0, 4.9371323e-05)
 visible = false
 script = ExtResource("3_bdjfl")
@@ -209,3 +209,11 @@ intensity = 0.5
 duration = 1.0
 shakerPreset = SubResource("Resource_l8smq")
 metadata/_custom_type_script = "uid://clls85kmjfpf5"
+
+[node name="PhantomCameraHost" type="Node" parent="Head/PhantomCamera3D/Camera3D"]
+unique_name_in_owner = true
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("11_sm572")
+host_layers = 7
+metadata/_custom_type_script = "uid://bd046eokvcnu2"

@@ -28,7 +28,7 @@ var is_crouched: bool = false
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = %Camera3D
-@onready var phantom_camera: PhantomCamera3D = %PhantomCamera3D
+@onready var phantom_camera_host: PhantomCameraHost = %PhantomCameraHost
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var uncrouch: ShapeCast3D = $UncrouchCheck
 @onready var csg_spawner: Marker3D = %CSGSpawner
@@ -53,7 +53,7 @@ func _input(event: InputEvent) -> void:
 				if pointer.get_collider().get_parent().has_signal("cam_switch"):
 					if !pointer.get_collider().get_parent().has_connections("cam_switch"):
 						pointer.get_collider().get_parent().cam_switch.connect(_cam_switch.bind(2))
-					_cam_switch(0)
+					_cam_switch(1)
 					pointer.get_collider().get_parent().start_ceremony()
 				if pointer.get_collider().has_method("pickup"):
 					var new_item = pointer.get_collider().pickup()
@@ -196,12 +196,15 @@ func _add_to_inventory(new_item: Item) -> void:
 	else:
 		return
 
-func _cam_switch(priority: int) -> void:
-	#phantom_camera.priority = priority
-	if priority < 1:
-		hud.canvas_layer.hide()
+func _cam_switch(layer: int) -> void:
+	if layer < 2:
+		phantom_camera_host.set_host_layers_value(2, false)
 	else:
-		hud.canvas_layer.show()
+		phantom_camera_host.set_host_layers_value(2, true)
+	#if priority < 1:
+		#hud.canvas_layer.hide()
+	#else:
+		#hud.canvas_layer.show()
 
 #func _update_inventory(new_inventory: Inventory) -> void:
 	#hud.return_items(new_inventory)

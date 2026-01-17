@@ -64,6 +64,7 @@ func _init_state_machine() -> void:
 	
 func start_ceremony() -> void:
 	%ResultsDisplay.hide()
+	%TeapotLid.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	heat_slider.max_value = HEAT
 	brew_timer.start(BREW)
@@ -93,6 +94,7 @@ func _set_label_text(strings: Array[String], result: int) -> String:
 
 func _restart() -> void:
 	%ResultsDisplay.hide()
+	%TeapotLid.show()
 	current_tea = null
 	brew_timer.start(BREW)
 	brew_timer.paused = true
