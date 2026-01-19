@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bmbki50dhrcij"]
 
-[ext_resource type="ArrayMesh" uid="uid://drxad1exkkbvx" path="res://resources/meshes/cassava_planted.res" id="1_wm188"]
+[ext_resource type="ArrayMesh" uid="uid://vl5rvkhmceiy" path="res://resources/meshes/cassava_planted.res" id="1_wm188"]
 
 [node name="CassavaPlanted3d" type="Node3D"]
 

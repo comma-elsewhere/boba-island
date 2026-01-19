@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ef7sbfbyws1y"]
 
-[ext_resource type="ArrayMesh" uid="uid://k36eviq8rou1" path="res://resources/meshes/cassava_blooming.res" id="1_gq8vp"]
+[ext_resource type="ArrayMesh" uid="uid://jyiorsfhd6oa" path="res://resources/meshes/cassava_blooming.res" id="1_gq8vp"]
 
 [node name="CassavaBlooming3d" type="Node3D"]
 

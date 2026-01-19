@@ -14,11 +14,11 @@ func _ready() -> void:
 	else:
 		_set_difficulty(1)
 		_set_danger(1)
+		_resize_progress_indicators()
 		game_settings.show()
 		done_button.button_up.connect(_play_load_anim)
 		diificulty_list.item_selected.connect(_set_difficulty)
 		danger_list.item_selected.connect(_set_danger)
-		_resize_progress_indicators()
 
 func _play_load_anim() -> void:
 	game_settings.hide()
