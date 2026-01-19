@@ -1,7 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bhkqowqmtstqe"]
 
-[ext_resource type="PackedScene" uid="uid://bx1u545sylij2" path="res://scenes/prefab/temp_scenes/crop_planted.tscn" id="1_yyp1i"]
+[ext_resource type="ArrayMesh" uid="uid://if4f5dqwexn0" path="res://resources/meshes/taro_planted.res" id="1_yyp1i"]
 
 [node name="Taro" type="Node3D"]
 
-[node name="CropPlanted" parent="." instance=ExtResource("1_yyp1i")]
+[node name="TaroPlanted" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_yyp1i")

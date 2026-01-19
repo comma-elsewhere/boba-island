@@ -6,16 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://dmfj0vu6cvpb8" path="res://scenes/prefab/crops/strawberry_2.tscn" id="2_0whib"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_5j5dp"]
 [ext_resource type="PackedScene" uid="uid://b72rs7jf1eewf" path="res://scenes/prefab/crops/strawberry_3.tscn" id="3_780o6"]
-[ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/prefab/gui_interface/mandrake_encounter.tscn" id="3_pognc"]
+[ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/utility/mandrake_encounter.tscn" id="3_pognc"]
 [ext_resource type="PackedScene" uid="uid://dg05p8yk746uj" path="res://scenes/prefab/crops/strawberry_4.tscn" id="4_j8bmf"]
 [ext_resource type="PackedScene" uid="uid://b54u1s3qihrqy" path="res://scenes/prefab/crops/strawberry_5.tscn" id="5_jg0ya"]
 
 [resource]
 script = ExtResource("1_p6fj8")
 grow_meshes = Array[PackedScene]([ExtResource("1_6h7kv"), ExtResource("2_0whib"), ExtResource("3_780o6"), ExtResource("4_j8bmf"), ExtResource("5_jg0ya")])
-grow_time = 10.0
-water_max = 40
-water_min = 40
+water_max = 1
+water_min = 1
 name = "Strawberries"
 icon = ExtResource("1_vmi7m")
 stack_limit = 9

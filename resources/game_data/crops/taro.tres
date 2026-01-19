@@ -6,16 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://b0q22wifq25hw" path="res://scenes/prefab/crops/taro_2.tscn" id="2_4rgvw"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_46442"]
 [ext_resource type="PackedScene" uid="uid://dap33q5kdjrbc" path="res://scenes/prefab/crops/taro_3.tscn" id="3_6tmhq"]
-[ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/prefab/gui_interface/mandrake_encounter.tscn" id="3_gpaun"]
+[ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/utility/mandrake_encounter.tscn" id="3_gpaun"]
 [ext_resource type="PackedScene" uid="uid://bvubfd7w25u6p" path="res://scenes/prefab/crops/taro_4.tscn" id="4_33cel"]
 [ext_resource type="PackedScene" uid="uid://ce6jji1oedc7f" path="res://scenes/prefab/crops/taro_5.tscn" id="5_mwpp1"]
 
 [resource]
 script = ExtResource("1_yffod")
 grow_meshes = Array[PackedScene]([ExtResource("1_qyvtu"), ExtResource("2_4rgvw"), ExtResource("3_6tmhq"), ExtResource("4_33cel"), ExtResource("5_mwpp1")])
-grow_time = 8.0
-water_max = 30
-water_min = 30
+water_max = 1
+water_min = 1
 name = "Taro Root"
 icon = ExtResource("1_mrssq")
 stack_limit = 9

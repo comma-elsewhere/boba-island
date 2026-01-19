@@ -47,7 +47,8 @@ func _input(event: InputEvent) -> void:
 	if !hud.gui_open:
 		if event.is_action_pressed("interact"):
 			if ground_check.is_colliding():
-				hud.plant_crop(csg_spawner.global_position)
+				if hud.plant_crop(csg_spawner.global_position):
+					%PlantSound.play(0.16)
 				
 			elif pointer.is_colliding():
 				if pointer.get_collider().get_parent().has_signal("cam_switch"):
@@ -67,6 +68,8 @@ func _input(event: InputEvent) -> void:
 					pointer.get_collider().init_gui_scene()
 				elif pointer.get_collider().get_parent().has_method("on_click"):
 					pointer.get_collider().get_parent().on_click()
+					if pointer.get_collider().get_parent().has_method("reduce_water"):
+						%WaterSound.play()
 			
 			else:
 				var new_item = _harvest()
@@ -180,8 +183,10 @@ func _harvest() -> Crop:
 		
 		
 		var meshes = mesh_slicer.slice_mesh(Transform,mesh_instance.mesh,plant_inside_material)
-
+		
 		mesh_instance.mesh = meshes[0]
+		
+		%HarvestSound.play()
 		
 		if body.get_parent().has_method("harvest"):
 			return body.get_parent().harvest()

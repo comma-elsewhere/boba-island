@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1he7ubugw02"
+path="res://.godot/imported/WetSound.mp3-809a2751e0d56fb7b7d9f9fff58c1c0a.mp3str"
+
+[deps]
+
+source_file="res://assets/sound effects/WetSound.mp3"
+dest_files=["res://.godot/imported/WetSound.mp3-809a2751e0d56fb7b7d9f9fff58c1c0a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

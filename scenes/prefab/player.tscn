@@ -1,12 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://d0b3clifjliac"]
+[gd_scene load_steps=26 format=3 uid="uid://d0b3clifjliac"]
 
 [ext_resource type="Script" uid="uid://dnepsi6c0l41w" path="res://scripts/class/player_that_digs.gd" id="1_72ieh"]
-[ext_resource type="PackedScene" uid="uid://blhd62dvlvboc" path="res://scenes/prefab/gui_interface/player_hud.tscn" id="2_t63vk"]
+[ext_resource type="PackedScene" uid="uid://blhd62dvlvboc" path="res://scenes/utility/player_hud.tscn" id="2_t63vk"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_bdjfl"]
 [ext_resource type="Material" uid="uid://b8tpkwagy3eer" path="res://resources/materials/plant_insides.material" id="3_emxo5"]
 [ext_resource type="Script" uid="uid://dx61e603u0ox2" path="res://scripts/utility/camera_3d.gd" id="3_x3577"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_sm572"]
+[ext_resource type="AudioStream" uid="uid://ds4c05j76rde1" path="res://assets/sound effects/SplatSound.ogg" id="6_psnur"]
 [ext_resource type="Script" uid="uid://clls85kmjfpf5" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="7_eklxm"]
+[ext_resource type="AudioStream" uid="uid://bxi7xgjwx3p4i" path="res://assets/sound effects/CrackSound.mp3" id="7_l8smq"]
+[ext_resource type="AudioStream" uid="uid://b1he7ubugw02" path="res://assets/sound effects/WetSound.mp3" id="7_psnur"]
 [ext_resource type="Script" uid="uid://d4maeuwhpdt85" path="res://addons/shaker/data/Vector3/BaseShakerType3D.gd" id="8_octyv"]
 [ext_resource type="Script" uid="uid://bn6mmvstgwt75" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="9_bdjfl"]
 [ext_resource type="Script" uid="uid://bni0jrcydsw6r" path="res://addons/shaker/data/Vector3/ShakerTypeBrownianShake3D.gd" id="9_sm572"]
@@ -138,6 +141,7 @@ shape = SubResource("CapsuleShape3D_elu5t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_7ttd6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -188,6 +192,24 @@ shape = SubResource("BoxShape3D_72ieh")
 unique_name_in_owner = true
 transform = Transform3D(0.8660255, 0, 0.5000001, -0.43301275, -0.5000001, 0.7500002, 0.25000006, -0.8660255, -0.43301284, 0, 0, 0)
 rotation_order = 0
+
+[node name="HarvestSound" type="AudioStreamPlayer3D" parent="Head/PhantomCamera3D/Camera3D/SpringArm3D/SlicerArea/Slicer"]
+unique_name_in_owner = true
+stream = ExtResource("6_psnur")
+
+[node name="WaterSound" type="AudioStreamPlayer3D" parent="Head/PhantomCamera3D/Camera3D/SpringArm3D/SlicerArea/Slicer"]
+unique_name_in_owner = true
+stream = ExtResource("7_psnur")
+volume_db = -9.0
+unit_size = 3.0
+max_db = -6.0
+
+[node name="PlantSound" type="AudioStreamPlayer3D" parent="Head/PhantomCamera3D/Camera3D/SpringArm3D/SlicerArea/Slicer"]
+unique_name_in_owner = true
+stream = ExtResource("7_l8smq")
+volume_db = -6.0
+max_db = 0.0
+pitch_scale = 0.9
 
 [node name="Pointer" type="RayCast3D" parent="Head/PhantomCamera3D/Camera3D"]
 unique_name_in_owner = true

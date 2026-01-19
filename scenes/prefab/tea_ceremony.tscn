@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dre3kgeqhjprj"]
+[gd_scene load_steps=39 format=3 uid="uid://dre3kgeqhjprj"]
 
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_klhyc"]
 [ext_resource type="Script" uid="uid://byt25khsg8eat" path="res://scripts/manager/tea_ceremony.gd" id="1_s5ry1"]
@@ -20,8 +20,10 @@
 [ext_resource type="Script" uid="uid://1ks533x46ali" path="res://ai/state_machine/tea_state.gd" id="13_fenig"]
 [ext_resource type="ArrayMesh" uid="uid://ddnrt1g6ybjxj" path="res://resources/meshes/teapot_pot.res" id="13_sd7o3"]
 [ext_resource type="Script" uid="uid://c68vuhidt8dj" path="res://ai/state_machine/brewing_state.gd" id="14_fenig"]
-[ext_resource type="AudioStream" uid="uid://0urjxs7j6rik" path="res://assets/sound effects/temp/WaterPour.ogg" id="15_t23s3"]
+[ext_resource type="AudioStream" uid="uid://0urjxs7j6rik" path="res://assets/sound effects/WaterPour.ogg" id="15_t23s3"]
 [ext_resource type="AudioStream" uid="uid://b6tgn2ywmh4ld" path="res://assets/sound effects/ChinawareBeat.ogg" id="16_fenig"]
+[ext_resource type="Script" uid="uid://n0ur6kd8h0j4" path="res://scripts/utility/control_center.gd" id="21_5c0ax"]
+[ext_resource type="AudioStream" uid="uid://ce5xvrd1crcs8" path="res://assets/sound effects/JuicyClick.ogg" id="24_a0snv"]
 
 [sub_resource type="Resource" id="Resource_oapsv"]
 script = ExtResource("2_s5ry1")
@@ -431,7 +433,7 @@ mesh = ExtResource("5_mmnsu")
 script = ExtResource("6_mmnsu")
 
 [node name="GaiwanLid" type="MeshInstance3D" parent="TeaSet"]
-transform = Transform3D(0.495134, 0.069586515, 4.897948e-10, -0.06954417, 0.49483207, 0.017449746, 0.0024285354, -0.01727992, 0.49969533, 0.1, -0.90000004, -0.7)
+transform = Transform3D(0.495134, 0.06958651, 4.897948e-10, -0.06954417, 0.494832, 0.017449746, 0.0024285354, -0.017279917, 0.49969533, 0.1, -0.90000004, -0.7)
 mesh = ExtResource("6_ke5ej")
 
 [node name="TeapotLid" type="MeshInstance3D" parent="TeaSet"]
@@ -520,6 +522,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("21_5c0ax")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -684,3 +687,8 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_klhyc")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_s5ry1")
 tick_count = 12
 ticks_position = 3
+
+[node name="WetClickPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control"]
+stream = ExtResource("24_a0snv")
+volume_db = -8.5
+pitch_scale = 0.85

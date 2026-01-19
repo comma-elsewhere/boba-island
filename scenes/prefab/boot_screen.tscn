@@ -1,0 +1,228 @@
+[gd_scene load_steps=7 format=3 uid="uid://dt6sa2mc42xi0"]
+
+[ext_resource type="Texture2D" uid="uid://pj0fllbjie1m" path="res://assets/icons/MerakiOmada.png" id="1_8kds6"]
+[ext_resource type="Script" uid="uid://b63cd8r73udqj" path="res://scripts/utility/boot_screen.gd" id="1_hmj8t"]
+
+[sub_resource type="Animation" id="Animation_8kds6"]
+resource_name = "load_game"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logo:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"load_game"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_hmj8t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logo:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5o28x"]
+_data = {
+&"RESET": SubResource("Animation_hmj8t"),
+&"load_game": SubResource("Animation_8kds6")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kds6"]
+
+[node name="BootScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hmj8t")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="TextureRect" parent="Background"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8kds6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_5o28x")
+}
+
+[node name="GameSettings" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="GameSettings"]
+layout_mode = 2
+text = "Select your difficulty levels
+(This cannot be changed later)"
+horizontal_alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="GameSettings"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Difficulty" type="VBoxContainer" parent="GameSettings/HBox"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="GameSettings/HBox/Difficulty"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Finances"
+
+[node name="DiificultyList" type="ItemList" parent="GameSettings/HBox/Difficulty"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+allow_reselect = true
+allow_search = false
+auto_width = true
+auto_height = true
+item_count = 3
+same_column_width = true
+fixed_column_width = 150
+item_0/text = "Silver Spoon"
+item_1/text = "Middle Class"
+item_2/text = "Rock Bottom"
+
+[node name="Danger" type="VBoxContainer" parent="GameSettings/HBox"]
+layout_mode = 2
+
+[node name="Static" type="Label" parent="GameSettings/HBox/Danger"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Danger"
+
+[node name="DangerList" type="ItemList" parent="GameSettings/HBox/Danger"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+allow_reselect = true
+allow_search = false
+auto_width = true
+auto_height = true
+item_count = 3
+same_column_width = true
+fixed_column_width = 150
+item_0/text = "Peaceful"
+item_1/text = "Storymode"
+item_2/text = "Deadly"
+
+[node name="DoneButton" type="Button" parent="GameSettings"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_8kds6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8kds6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8kds6")
+text = "DONE"

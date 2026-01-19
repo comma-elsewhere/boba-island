@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://ctpynxvobxcd3"]
+
+[node name="StorageUnit" type="StaticBody3D"]

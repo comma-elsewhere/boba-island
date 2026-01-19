@@ -9,14 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://m0bwq4uvvt0i" path="res://scenes/prefab/crops/cassava_4.tscn" id="4_v5hv4"]
 [ext_resource type="PackedScene" uid="uid://b31nhi71gdgyu" path="res://scenes/prefab/crops/cassava_5.tscn" id="5_qjnxf"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="7_v5hv4"]
-[ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/prefab/gui_interface/mandrake_encounter.tscn" id="9_v5hv4"]
+[ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/utility/mandrake_encounter.tscn" id="9_v5hv4"]
 
 [resource]
 script = ExtResource("1_yxbix")
 grow_meshes = Array[PackedScene]([ExtResource("1_i1xqv"), ExtResource("2_twqvw"), ExtResource("3_65fkl"), ExtResource("4_v5hv4"), ExtResource("5_qjnxf")])
-grow_time = 10.0
-water_max = 20
-water_min = 20
+water_max = 1
+water_min = 1
 name = "Cassava Root"
 icon = ExtResource("1_ikgxp")
 mesh = ExtResource("1_gqrd4")

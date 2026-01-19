@@ -8,14 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://r0oudy7qc7q2" path="res://scenes/prefab/crops/sugarcane_4.tscn" id="4_gxndl"]
 [ext_resource type="PackedScene" uid="uid://nb7wip0j7y8v" path="res://scenes/prefab/crops/sugarcane_5.tscn" id="5_gmbmo"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="7_80yri"]
-[ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/prefab/gui_interface/mandrake_encounter.tscn" id="8_1tlc0"]
+[ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/utility/mandrake_encounter.tscn" id="8_1tlc0"]
 
 [resource]
 script = ExtResource("1_tsr8t")
 grow_meshes = Array[PackedScene]([ExtResource("1_q7bdb"), ExtResource("2_tpvfb"), ExtResource("3_5l74r"), ExtResource("4_gxndl"), ExtResource("5_gmbmo")])
-grow_time = 12.0
-water_max = 50
-water_min = 50
+water_max = 1
+water_min = 1
 name = "Sugar Cane"
 icon = ExtResource("1_nsp7e")
 stack_limit = 9

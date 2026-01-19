@@ -1,6 +1,6 @@
 extends PanelContainer
 
-const NEW_GAME := "res://scenes/level/world_root.tscn"
+const NEW_GAME := "res://scenes/prefab/boot_screen.tscn"
 
 @onready var continue_button: Button = %ContinueButton
 
