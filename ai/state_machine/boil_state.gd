@@ -8,12 +8,14 @@ func _enter() -> void:
 	teapot_button.button_up.connect(_proceed_to_water)
 	
 	heat_slider.editable = true
+	%SilderContainer.show()
 	teapot_button.disabled = false
 	
 func _proceed_to_water() -> void:
 	get_root().dispatch("proceed_to_water")
 	
 func _exit() -> void:
+	%SilderContainer.hide()
 	heat_slider.editable = false
 	teapot_button.disabled = false
 	teapot_lid.hide()

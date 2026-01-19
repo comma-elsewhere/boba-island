@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="Seed" load_steps=6 format=3 uid="uid://bav1oqtqeh1s7"]
+[gd_resource type="Resource" script_class="Seed" load_steps=7 format=3 uid="uid://bav1oqtqeh1s7"]
 
 [ext_resource type="Resource" uid="uid://yxg8m560ssfp" path="res://resources/game_data/crops/sugar_cane.tres" id="1_drlg2"]
 [ext_resource type="PackedScene" uid="uid://ddadbc6h0js3d" path="res://scenes/utility/crop.tscn" id="1_ejxuh"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_drlg2"]
 [ext_resource type="Texture2D" uid="uid://ddocp4qakew5v" path="res://assets/icons/sugar_cane_seed.png" id="3_amx1h"]
 [ext_resource type="Script" uid="uid://bsoorundtclwe" path="res://scripts/resource/items_and_recipes/seed.gd" id="3_hkm7f"]
+[ext_resource type="PackedScene" uid="uid://23aa8ktejy4y" path="res://scenes/prefab/crops/sugarcane_1.tscn" id="5_amx1h"]
 
 [resource]
 script = ExtResource("3_hkm7f")
 crop_data = ExtResource("1_drlg2")
 name = "Sugar Cane Cutting"
 icon = ExtResource("3_amx1h")
+mesh = ExtResource("5_amx1h")
 metadata/_custom_type_script = "uid://bsoorundtclwe"

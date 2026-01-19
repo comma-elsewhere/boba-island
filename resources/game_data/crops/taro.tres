@@ -1,12 +1,21 @@
-[gd_resource type="Resource" script_class="Crop" load_steps=5 format=3 uid="uid://ondr30glbdiq"]
+[gd_resource type="Resource" script_class="Crop" load_steps=10 format=3 uid="uid://ondr30glbdiq"]
 
 [ext_resource type="Texture2D" uid="uid://b32fwejvnx6ol" path="res://assets/icons/Taro_root.png" id="1_mrssq"]
+[ext_resource type="PackedScene" uid="uid://bhkqowqmtstqe" path="res://scenes/prefab/crops/taro_1.tscn" id="1_qyvtu"]
 [ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/items_and_recipes/crop.gd" id="1_yffod"]
+[ext_resource type="PackedScene" uid="uid://b0q22wifq25hw" path="res://scenes/prefab/crops/taro_2.tscn" id="2_4rgvw"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_46442"]
+[ext_resource type="PackedScene" uid="uid://dap33q5kdjrbc" path="res://scenes/prefab/crops/taro_3.tscn" id="3_6tmhq"]
 [ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/prefab/gui_interface/mandrake_encounter.tscn" id="3_gpaun"]
+[ext_resource type="PackedScene" uid="uid://bvubfd7w25u6p" path="res://scenes/prefab/crops/taro_4.tscn" id="4_33cel"]
+[ext_resource type="PackedScene" uid="uid://ce6jji1oedc7f" path="res://scenes/prefab/crops/taro_5.tscn" id="5_mwpp1"]
 
 [resource]
 script = ExtResource("1_yffod")
+grow_meshes = Array[PackedScene]([ExtResource("1_qyvtu"), ExtResource("2_4rgvw"), ExtResource("3_6tmhq"), ExtResource("4_33cel"), ExtResource("5_mwpp1")])
+grow_time = 8.0
+water_max = 30
+water_min = 30
 name = "Taro Root"
 icon = ExtResource("1_mrssq")
 stack_limit = 9

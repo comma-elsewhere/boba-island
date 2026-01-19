@@ -1,18 +1,19 @@
 [gd_resource type="Resource" script_class="Crop" load_steps=10 format=3 uid="uid://yxg8m560ssfp"]
 
 [ext_resource type="Texture2D" uid="uid://bpbv7m4osqwfd" path="res://assets/icons/sugar_cane.png" id="1_nsp7e"]
-[ext_resource type="PackedScene" uid="uid://bx1u545sylij2" path="res://scenes/prefab/temp_scenes/crop_planted.tscn" id="1_q7bdb"]
+[ext_resource type="PackedScene" uid="uid://23aa8ktejy4y" path="res://scenes/prefab/crops/sugarcane_1.tscn" id="1_q7bdb"]
 [ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/items_and_recipes/crop.gd" id="1_tsr8t"]
-[ext_resource type="PackedScene" uid="uid://crwh4hrt5orun" path="res://scenes/prefab/temp_scenes/crop_sprouting.tscn" id="2_tpvfb"]
-[ext_resource type="PackedScene" uid="uid://ohlvkta461fx" path="res://scenes/prefab/temp_scenes/crop_blooming.tscn" id="3_5l74r"]
-[ext_resource type="PackedScene" uid="uid://b0drpbp2ojgao" path="res://scenes/prefab/temp_scenes/crop_harvest.tscn" id="4_gxndl"]
-[ext_resource type="PackedScene" uid="uid://bqcaxfx1ivhsa" path="res://scenes/prefab/temp_scenes/crop_mutant.tscn" id="5_gmbmo"]
+[ext_resource type="PackedScene" uid="uid://xomro4og7yfo" path="res://scenes/prefab/crops/sugarcane_2.tscn" id="2_tpvfb"]
+[ext_resource type="PackedScene" uid="uid://d212m532qtlld" path="res://scenes/prefab/crops/sugarcane_3.tscn" id="3_5l74r"]
+[ext_resource type="PackedScene" uid="uid://r0oudy7qc7q2" path="res://scenes/prefab/crops/sugarcane_4.tscn" id="4_gxndl"]
+[ext_resource type="PackedScene" uid="uid://nb7wip0j7y8v" path="res://scenes/prefab/crops/sugarcane_5.tscn" id="5_gmbmo"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="7_80yri"]
 [ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/prefab/gui_interface/mandrake_encounter.tscn" id="8_1tlc0"]
 
 [resource]
 script = ExtResource("1_tsr8t")
 grow_meshes = Array[PackedScene]([ExtResource("1_q7bdb"), ExtResource("2_tpvfb"), ExtResource("3_5l74r"), ExtResource("4_gxndl"), ExtResource("5_gmbmo")])
+grow_time = 12.0
 water_max = 50
 water_min = 50
 name = "Sugar Cane"

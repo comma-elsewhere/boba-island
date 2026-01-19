@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d212m532qtlld"]
+
+[ext_resource type="ArrayMesh" uid="uid://bx3jy8owb70ha" path="res://resources/meshes/sugarcane_bloom.res" id="1_tvjck"]
+
+[node name="Sugarcane1" type="Node3D"]
+
+[node name="SugarcaneBloom" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -1.2, 0)
+mesh = ExtResource("1_tvjck")

@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="Seed" load_steps=6 format=3 uid="uid://dv3sjdeuv8x4p"]
+[gd_resource type="Resource" script_class="Seed" load_steps=7 format=3 uid="uid://dv3sjdeuv8x4p"]
 
 [ext_resource type="PackedScene" uid="uid://ddadbc6h0js3d" path="res://scenes/utility/crop.tscn" id="1_f6nmi"]
 [ext_resource type="Resource" uid="uid://360c740binkf" path="res://resources/game_data/crops/strawberry.tres" id="1_v1thk"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_v1thk"]
 [ext_resource type="Texture2D" uid="uid://7nujfsrjhyo4" path="res://assets/icons/Starwberry_seed.png" id="3_bu8nw"]
 [ext_resource type="Script" uid="uid://bsoorundtclwe" path="res://scripts/resource/items_and_recipes/seed.gd" id="3_f0elg"]
+[ext_resource type="PackedScene" uid="uid://cwv31qrkuf2r" path="res://scenes/prefab/crops/strawberry_1.tscn" id="5_bu8nw"]
 
 [resource]
 script = ExtResource("3_f0elg")
 crop_data = ExtResource("1_v1thk")
-name = "Strawberry Seeds"
+name = "Strawberry Sprout"
 icon = ExtResource("3_bu8nw")
+mesh = ExtResource("5_bu8nw")
 metadata/_custom_type_script = "uid://bsoorundtclwe"

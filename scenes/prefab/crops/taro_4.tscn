@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvubfd7w25u6p"]
+
+[ext_resource type="ArrayMesh" uid="uid://bulukmt1b8aat" path="res://resources/meshes/taro_harvest.res" id="1_ox63q"]
+
+[node name="Taro" type="Node3D"]
+
+[node name="TaroHarvest" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_ox63q")

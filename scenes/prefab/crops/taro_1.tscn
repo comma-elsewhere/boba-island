@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhkqowqmtstqe"]
+
+[ext_resource type="PackedScene" uid="uid://bx1u545sylij2" path="res://scenes/prefab/temp_scenes/crop_planted.tscn" id="1_yyp1i"]
+
+[node name="Taro" type="Node3D"]
+
+[node name="CropPlanted" parent="." instance=ExtResource("1_yyp1i")]

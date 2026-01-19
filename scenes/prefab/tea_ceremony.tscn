@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dre3kgeqhjprj"]
+[gd_scene load_steps=37 format=3 uid="uid://dre3kgeqhjprj"]
 
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_klhyc"]
 [ext_resource type="Script" uid="uid://byt25khsg8eat" path="res://scripts/manager/tea_ceremony.gd" id="1_s5ry1"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://cef8yale2ppkg" path="res://gui_comp/tea_slot.tscn" id="6_onml7"]
 [ext_resource type="Script" uid="uid://b3roaed6mfj5w" path="res://ai/state_machine/select_state.gd" id="9_xwmcu"]
 [ext_resource type="Script" uid="uid://bfnnpn3p8us6y" path="res://ai/state_machine/boil_state.gd" id="10_hrorc"]
+[ext_resource type="ArrayMesh" uid="uid://sh6skwh10xbv" path="res://resources/meshes/teaglass_glass.res" id="11_41mnx"]
 [ext_resource type="Script" uid="uid://bl6byg1pm6you" path="res://ai/state_machine/water_state.gd" id="11_mrrbr"]
+[ext_resource type="ArrayMesh" uid="uid://c4jm0rnm6numm" path="res://resources/meshes/teaglass_tea.res" id="11_sd7o3"]
 [ext_resource type="ArrayMesh" uid="uid://d38j1mfkw3s84" path="res://resources/meshes/teapot_lid.res" id="12_41mnx"]
 [ext_resource type="Script" uid="uid://b5foyo8m2tjta" path="res://ai/state_machine/can_brew_state.gd" id="12_t23s3"]
 [ext_resource type="Script" uid="uid://1ks533x46ali" path="res://ai/state_machine/tea_state.gd" id="13_fenig"]
@@ -73,6 +75,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, -5.5879358e-08, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%GaiwanBowl:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.3, -0.3, -0.3)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%GaiwanBowl:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ke5ej"]
@@ -239,6 +265,44 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%TeaglassTea")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_tea"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%GaiwanBowl:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.22, 0.65, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.3, -0.3, -0.3), Vector3(-0.3, 0.19999999, -0.3), Vector3(-0.3, 0.19999999, -0.3), Vector3(-0.3, -0.3, -0.3)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%GaiwanBowl:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.22, 0.65, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.26179937, 0, 0), Vector3(0.26179937, 0, 0), Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_7eet5"]
 resource_name = "mix_tea"
@@ -305,8 +369,22 @@ func set_water() -> void:
 	mesh.surface_get_material(4).albedo_color = Kinetic.get_tea_color(Static.TEA.WATER)
 "
 
+[sub_resource type="GDScript" id="GDScript_sd7o3"]
+resource_name = "TeaglassTea"
+script/source = "extends MeshInstance3D
+
+func _ready() -> void:
+	set_empty()
+
+func set_empty() -> void:
+	mesh.surface_get_material(0).albedo_color = Kinetic.get_tea_color(Static.TEA.EMPTY)
+
+func set_tea() -> void:
+	mesh.surface_get_material(0).albedo_color = Kinetic.get_tea_color(Dynamic.tea_flavor)
+"
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_x74xb"]
-radius = 1.0
+radius = 1.5
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_onml7"]
 
@@ -348,12 +426,12 @@ mesh = ExtResource("4_a44tk")
 
 [node name="GaiwanBowl" type="MeshInstance3D" parent="TeaSet"]
 unique_name_in_owner = true
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.3, -0.3, -0.3)
+transform = Transform3D(0.5, 0, 0, 0, 0.4999999, 0, 0, 0, 0.4999999, -0.3, -0.3, -0.3)
 mesh = ExtResource("5_mmnsu")
 script = ExtResource("6_mmnsu")
 
 [node name="GaiwanLid" type="MeshInstance3D" parent="TeaSet"]
-transform = Transform3D(0.495134, 0.069586515, 4.897948e-10, -0.06954417, 0.4948321, 0.017449746, 0.0024285354, -0.01727992, 0.49969533, 0.1, -0.90000004, -0.7)
+transform = Transform3D(0.495134, 0.069586515, 4.897948e-10, -0.06954417, 0.49483207, 0.017449746, 0.0024285354, -0.01727992, 0.49969533, 0.1, -0.90000004, -0.7)
 mesh = ExtResource("6_ke5ej")
 
 [node name="TeapotLid" type="MeshInstance3D" parent="TeaSet"]
@@ -370,11 +448,24 @@ mesh = ExtResource("13_sd7o3")
 skeleton = NodePath("../..")
 script = SubResource("GDScript_hsp8v")
 
+[node name="TeaglassTea" type="MeshInstance3D" parent="TeaSet"]
+unique_name_in_owner = true
+transform = Transform3D(0.6495192, 0, 0.37500012, 0, 0.7500002, 0, -0.37500012, 0, 0.6495192, 0, 0.35, 0.8)
+mesh = ExtResource("11_sd7o3")
+skeleton = NodePath("../..")
+script = SubResource("GDScript_sd7o3")
+
+[node name="TeaglassGlass" type="MeshInstance3D" parent="TeaSet"]
+transform = Transform3D(0.649519, 0, 0.375, 0, 0.75, 0, -0.375, 0, 0.649519, 0, 0.475, 0.8)
+mesh = ExtResource("11_41mnx")
+skeleton = NodePath("../..")
+
 [node name="RaycastCollisionBody" type="StaticBody3D" parent="."]
 collision_layer = 9
 collision_mask = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RaycastCollisionBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, -0.1)
 shape = SubResource("SphereShape3D_x74xb")
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
@@ -412,7 +503,7 @@ volume_db = -5.0
 max_db = 0.0
 
 [node name="PourTeaSound" type="AudioStreamPlayer3D" parent="PositionalAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.25, 0.5)
 stream = ExtResource("15_t23s3")
 
 [node name="BrewTimer" type="Timer" parent="."]
@@ -455,23 +546,15 @@ size_flags_horizontal = 6
 size_flags_vertical = 0
 flat = true
 
-[node name="HeatSlider" type="VSlider" parent="CanvasLayer/Control/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 400)
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_klhyc")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_s5ry1")
-tick_count = 12
-ticks_position = 3
-
 [node name="TeaContainer" type="GridContainer" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
-columns = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 10
+columns = 3
 script = ExtResource("5_fenig")
 slot_item = ExtResource("6_onml7")
 
@@ -572,3 +655,32 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Finish"
+
+[node name="SilderContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Static" type="Label" parent="CanvasLayer/Control/SilderContainer"]
+layout_mode = 2
+text = "Water Temp."
+
+[node name="HeatSlider" type="VSlider" parent="CanvasLayer/Control/SilderContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 400)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_klhyc")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_s5ry1")
+tick_count = 12
+ticks_position = 3

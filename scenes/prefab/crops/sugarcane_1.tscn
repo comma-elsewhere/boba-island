@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://23aa8ktejy4y"]
+
+[ext_resource type="ArrayMesh" uid="uid://c5b6dr654p55v" path="res://resources/meshes/sugarcane_planted.res" id="1_m8dgg"]
+
+[node name="Sugarcane1" type="Node3D"]
+
+[node name="SugarcanePlanted" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.70000005, 0)
+mesh = ExtResource("1_m8dgg")

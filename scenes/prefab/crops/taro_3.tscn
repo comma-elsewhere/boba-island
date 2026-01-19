@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dap33q5kdjrbc"]
+
+[ext_resource type="ArrayMesh" uid="uid://c5sdqdfryjyhp" path="res://resources/meshes/taro_bloom.res" id="1_2pp86"]
+
+[node name="Taro" type="Node3D"]
+
+[node name="TaroBloom" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_2pp86")

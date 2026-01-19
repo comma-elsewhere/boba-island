@@ -12,14 +12,17 @@ func _enter() -> void:
 	#State specific enabling
 	gaiwan_button.button_up.connect(_on_button_down)
 	gaiwan_button.disabled = false
+	%TeaContainer.show()
+	
 	# Generic disables
 	teacup_button.disabled = true
 	teacup_button.disabled = true
 	heat_slider.editable = false
-	
-	grid_teas.clear()
+	%SilderContainer.hide()
 	
 	# Fill grid with available teas
+	grid_teas.clear()
+	
 	for i in len(agent.tea_base.tea_array):
 		if Dynamic.unlocked_tea[i] != 0:
 			grid_teas.append(agent.tea_base.tea_array[i])
@@ -38,6 +41,7 @@ func _on_button_down() -> void:
 		
 func _exit() -> void:
 	#disable state specifics
+	%TeaContainer.hide()
 	tea_container.activate_children(false)
 	gaiwan_button.disabled = true
 	gaiwan_button.disconnect("button_up", _on_button_down)

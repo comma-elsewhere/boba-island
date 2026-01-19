@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg05p8yk746uj"]
+
+[ext_resource type="ArrayMesh" uid="uid://bcqo83nv54gjt" path="res://resources/meshes/strawberry_harvest.res" id="1_yvmr6"]
+
+[node name="Strawberry" type="Node3D"]
+
+[node name="StrawberryHarvest" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.010232676, 0)
+mesh = ExtResource("1_yvmr6")

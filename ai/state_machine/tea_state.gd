@@ -15,6 +15,7 @@ func _enable_button(anim_name: StringName) -> void:
 		
 		
 func _finish() -> void:
+	%TeaglassTea.set_empty()
 	agent.finish_ceremony()
 	
 	animation_player.disconnect("animation_finished", _enable_button)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://blhd62dvlvboc"]
+[gd_scene load_steps=14 format=3 uid="uid://blhd62dvlvboc"]
 
 [ext_resource type="PackedScene" uid="uid://dolgr51ei36y2" path="res://scenes/prefab/gui_interface/pause_menu.tscn" id="1_4wev0"]
 [ext_resource type="Script" uid="uid://ctk5uv2035svm" path="res://gui_comp/script/hotbar_inventory.gd" id="1_f2b3q"]
@@ -9,6 +9,9 @@
 [ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="4_jdtkk"]
 [ext_resource type="Resource" uid="uid://yxg8m560ssfp" path="res://resources/game_data/crops/sugar_cane.tres" id="5_5woj4"]
 [ext_resource type="Script" uid="uid://bmn1dpl5s5tf5" path="res://scripts/utility/view_model.gd" id="5_jdtkk"]
+[ext_resource type="Resource" uid="uid://chedclappraxa" path="res://resources/game_data/crops/seeds/taro_seed.tres" id="6_w4q1l"]
+[ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="7_32his"]
+[ext_resource type="Resource" uid="uid://dv3sjdeuv8x4p" path="res://resources/game_data/crops/seeds/strawberry_seed.tres" id="8_dghie"]
 
 [sub_resource type="GDScript" id="GDScript_xcoxm"]
 resource_name = "Reticle"
@@ -23,7 +26,7 @@ func update_visible() -> void:
 
 [node name="PlayerHUD" type="Node3D" groups=["GUI_Event", "Lighting"]]
 script = ExtResource("1_f2b3q")
-fill = Array[ExtResource("2_ncydl")]([ExtResource("4_jdtkk"), ExtResource("5_5woj4"), ExtResource("3_jdtkk")])
+fill = Array[ExtResource("2_ncydl")]([ExtResource("4_jdtkk"), ExtResource("5_5woj4"), ExtResource("3_jdtkk"), ExtResource("6_w4q1l"), ExtResource("7_32his"), ExtResource("8_dghie")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
