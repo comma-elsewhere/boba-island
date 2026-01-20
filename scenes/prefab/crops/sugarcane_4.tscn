@@ -5,5 +5,5 @@
 [node name="Sugarcane1" type="Node3D"]
 
 [node name="SugarcaneHarvest" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -1.2, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.75, 0)
 mesh = ExtResource("1_v75aq")

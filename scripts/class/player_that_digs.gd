@@ -73,7 +73,8 @@ func _input(event: InputEvent) -> void:
 			
 			else:
 				var new_item = _harvest()
-				_add_to_inventory(new_item)
+				for i in range(Dynamic.crop_yield):
+					_add_to_inventory(new_item)
 					
 				
 		if event.is_action_pressed("drop"):
@@ -99,7 +100,9 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		
-	if !hud.gui_open:
+	if hud.gui_open:
+		velocity = Vector3.ZERO
+	else:
 		# Handle Jump.
 		if Input.is_action_just_pressed("jump") and is_on_floor() and !is_crouched:
 			velocity.y = JUMP_VELOCITY

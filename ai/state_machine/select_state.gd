@@ -24,7 +24,7 @@ func _enter() -> void:
 	grid_teas.clear()
 	
 	for i in len(agent.tea_base.tea_array):
-		if Dynamic.unlocked_tea[i] != 0:
+		if Dynamic.unlocked_tea[i] != null:
 			grid_teas.append(agent.tea_base.tea_array[i])
 	
 	tea_container.display(grid_teas)

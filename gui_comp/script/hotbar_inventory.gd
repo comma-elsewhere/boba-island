@@ -5,6 +5,7 @@ class_name PlayerHUD extends Node3D
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var hotbar_display: HBoxContainer = %HotbarContainer
 @onready var pause_menu: PanelContainer = %PauseMenu
+@onready var library_interface: Control = %LibraryInterface
 @onready var view_model: Marker3D = %ViewModel
 
 const MAIN_MENU := "res://scenes/level/main_menu.tscn"
@@ -18,6 +19,7 @@ var gui_open: bool = false
 
 func _ready() -> void:
 	setup()
+	library_interface.hide()
 	pause_menu.quit_game.connect(quit_game)
 	view_model.position = OFFSET
 	inventory = Inventory.new()
@@ -28,6 +30,10 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and canvas_layer.visible:
 		pause()
+	if event.is_action_pressed("library") and !pause_menu.visible and canvas_layer.visible:
+		library_interface.visible = !library_interface.visible
+		if library_interface.visible:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 func setup() -> void:
 	for child in hotbar_display.get_children():
@@ -105,10 +111,8 @@ func pause() -> void:
 		else:
 			pause_menu.close()
 			%Reticle.update_visible()
-			print("unpause")
 	else:
 		get_tree().call_group("GUI_Event", "close")
-		print("call_close")
 			
 func close() -> void:
 	gui_open = false
@@ -130,7 +134,7 @@ func _spawn_item(item: Item, spawn_position: Vector3) -> void:
 func _update_display(index: int) -> void:
 	hotbar_display.update_hotbar(hotbar_array)
 	hotbar_display.highlight_slot(index)
-	view_model.update_held_item(hotbar_array[index])
+	#view_model.update_held_item(hotbar_array[index])
 	
 func _on_hotbar_container_slot_selected(index: int) -> void:
 	selected_slot = clamp(index, 0, Dynamic.inventory_space - 1)

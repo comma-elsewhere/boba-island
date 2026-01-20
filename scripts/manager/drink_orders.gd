@@ -11,6 +11,9 @@ signal drink_served
 @onready var serve_drink_button: Button = %ServeDrinkButton
 @onready var next_dialogue_button: Button = %NextDialogueButton
 
+const TEA_NUM := Static.NUMBER_OF_TEAS - 2
+const MILK_NUM := Static.NUMBER_OF_TEAS
+
 const ORDER_COMPLETE := "Order Completed!"
 const CORRECT_DRINK := "Correct Drink! Customer paid "
 #const LOVED_TEA := "\n And they loved the tea! So they tipped an extra "
@@ -28,6 +31,9 @@ var current_order: Drink
 var current_dialogue: Array = []
 
 var awaiting_customer: bool = false
+
+var _unlocked_tea: Array = []
+var _unlocked_milk_tea: Array = []
 
 func _ready() -> void:
 	order_generator = OrderGen.new()
@@ -100,14 +106,22 @@ func _get_available_drinks() -> void:
 		var index: String = "upgrade_" + str(i)
 		for j in drinks[index]:
 			available_drinks.append(j)
+
+	for i in range(TEA_NUM):
+		if Dynamic.unlocked_tea[i] != null:
+				_unlocked_tea.append(Dynamic.unlocked_tea[i])
+				
+	for i in range(MILK_NUM):
+		if Dynamic.unlocked_tea[i] != null:
+			_unlocked_milk_tea.append(Dynamic.unlocked_tea[i])
 	
 func _pick_rand_drink() -> Recipe:
 	var rand_drink: Recipe = available_drinks.pick_random()
 	var flavor: int
 	if rand_drink.result[0].name == "Plain Tea" or rand_drink.result[0].name == "Boba Tea":
-		flavor = _rand_available_flavor(9)
+		flavor = _unlocked_tea.pick_random() -1
 	else:
-		flavor = _rand_available_flavor(11)
+		flavor = _unlocked_milk_tea.pick_random() -1
 	rand_drink.result[0].set_tea_flavor(flavor)
 	return rand_drink
 
@@ -123,11 +137,8 @@ func _reset_labels() -> void:
 func _rand_available_flavor(max_range: int) -> int:
 	var available_flavors: Array = Dynamic.unlocked_tea.duplicate()
 	available_flavors.resize(max_range)
-	for i in len(available_flavors):
-		if available_flavors[i] == null:
-			available_flavors[i] = 0
-	var check_flavor: int = 0
-	while check_flavor == 0:
+	var check_flavor = null
+	while check_flavor == null:
 		check_flavor = available_flavors.pick_random()
 	return available_flavors.find(check_flavor)
 
