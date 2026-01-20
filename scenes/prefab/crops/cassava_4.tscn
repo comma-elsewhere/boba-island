@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://m0bwq4uvvt0i"]
 
-[ext_resource type="ArrayMesh" uid="uid://bxi8eakkkkxl4" path="res://resources/meshes/cassava_harvest.res" id="1_7xrhw"]
+[ext_resource type="ArrayMesh" uid="uid://bhuajp0rg8iww" path="res://resources/meshes/cassava_harvest.res" id="1_7xrhw"]
 
 [node name="Taro" type="Node3D"]
 

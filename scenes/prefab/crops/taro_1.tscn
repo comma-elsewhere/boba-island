@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bhkqowqmtstqe"]
 
-[ext_resource type="ArrayMesh" uid="uid://if4f5dqwexn0" path="res://resources/meshes/taro_planted.res" id="1_yyp1i"]
+[ext_resource type="ArrayMesh" uid="uid://bouta5snm53h5" path="res://resources/meshes/taro_planted.res" id="1_yyp1i"]
 
 [node name="Taro" type="Node3D"]
 

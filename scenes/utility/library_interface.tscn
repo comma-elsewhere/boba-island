@@ -1,4 +1,27 @@
-[gd_scene format=3 uid="uid://mttpxrvsfbud"]
+[gd_scene load_steps=23 format=3 uid="uid://mttpxrvsfbud"]
+
+[ext_resource type="Script" uid="uid://bcilf6csioyox" path="res://scripts/manager/library_interface.gd" id="1_thpff"]
+[ext_resource type="Script" uid="uid://b8ny0ldtqgkd6" path="res://scripts/resource/other/book_entry.gd" id="2_h1sqb"]
+[ext_resource type="Resource" uid="uid://xfnb55pgtcdb" path="res://resources/game_texts/boba_history.res" id="3_bpn7x"]
+[ext_resource type="Resource" uid="uid://0m3s8kri73ak" path="res://resources/game_texts/cassava_process.res" id="4_bsf58"]
+[ext_resource type="Script" uid="uid://d1r1l14nf73s0" path="res://scripts/resource/other/book_of_tea.gd" id="4_y8fun"]
+[ext_resource type="Resource" uid="uid://dg0yef8dq7sti" path="res://resources/game_texts/cult_doctrine.res" id="5_4xtyn"]
+[ext_resource type="Resource" uid="uid://i6o8xbrdej6w" path="res://resources/game_texts/book_of_tea/assam_entry.res" id="5_s6xr7"]
+[ext_resource type="Resource" uid="uid://cqnkcu3wl56kp" path="res://resources/game_texts/cult_flyer.res" id="6_8rkqh"]
+[ext_resource type="Resource" uid="uid://co0oo82m4gt7l" path="res://resources/game_texts/book_of_tea/ceylon_entry.res" id="6_yohpt"]
+[ext_resource type="Resource" uid="uid://bjn4ktx1y2ixs" path="res://resources/game_texts/gongfu.res" id="7_6md0s"]
+[ext_resource type="Resource" uid="uid://b3p6gvw4b26au" path="res://resources/game_texts/book_of_tea/chai_entry.res" id="7_a8tvu"]
+[ext_resource type="Resource" uid="uid://c6hj1ch2dd0vi" path="res://resources/game_texts/book_of_tea/earlgrey_entry.res" id="8_25dfo"]
+[ext_resource type="Resource" uid="uid://bfnkfjgfxyac1" path="res://resources/game_texts/myth.res" id="8_l64xc"]
+[ext_resource type="Resource" uid="uid://dmw2ei4e4s8q5" path="res://resources/game_texts/book_of_tea/hojicha_entry.res" id="9_bsf58"]
+[ext_resource type="Resource" uid="uid://u11rt21a248e" path="res://resources/game_texts/old_letter.res" id="9_ennne"]
+[ext_resource type="Resource" uid="uid://dlir7i7ewuygh" path="res://resources/game_texts/book_of_tea/jasmine_entry.res" id="10_4xtyn"]
+[ext_resource type="Resource" uid="uid://br17j8uv0ydck" path="res://resources/game_texts/unyieldy.res" id="10_h35x4"]
+[ext_resource type="Resource" uid="uid://c6ao7x6qdq1iy" path="res://resources/game_texts/book_of_tea/matcha_entry.res" id="11_8rkqh"]
+[ext_resource type="Resource" uid="uid://ckj1cw48pyx6s" path="res://resources/game_texts/book_of_tea/mint_entry.res" id="12_6md0s"]
+[ext_resource type="Resource" uid="uid://ceh5src0oku8f" path="res://resources/game_texts/book_of_tea/oolong_entry.res" id="13_l64xc"]
+[ext_resource type="Resource" uid="uid://cd2ktbqmtaf2k" path="res://resources/game_texts/book_of_tea/sencha_entry.res" id="14_ennne"]
+[ext_resource type="Resource" uid="uid://c13myy1efyut8" path="res://resources/game_texts/book_of_tea/taro_entry.res" id="15_h35x4"]
 
 [node name="LibraryInterface" type="Control"]
 layout_mode = 3
@@ -7,3 +30,72 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_thpff")
+book_entries = Array[ExtResource("2_h1sqb")]([ExtResource("3_bpn7x"), ExtResource("4_bsf58"), ExtResource("5_4xtyn"), ExtResource("6_8rkqh"), ExtResource("7_6md0s"), ExtResource("8_l64xc"), ExtResource("9_ennne"), ExtResource("10_h35x4")])
+tea_entires = Array[ExtResource("4_y8fun")]([ExtResource("5_s6xr7"), ExtResource("6_yohpt"), ExtResource("7_a8tvu"), ExtResource("8_25dfo"), ExtResource("9_bsf58"), ExtResource("10_4xtyn"), ExtResource("11_8rkqh"), ExtResource("12_6md0s"), ExtResource("13_l64xc"), ExtResource("14_ennne"), ExtResource("15_h35x4")])
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="BookScroll" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+horizontal_scroll_mode = 0
+
+[node name="BookList" type="ItemList" parent="PanelContainer/MarginContainer/HBoxContainer/BookScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_constants/h_separation = 0
+allow_reselect = true
+allow_search = false
+auto_width = true
+auto_height = true
+item_count = 1
+same_column_width = true
+fixed_column_width = 250
+item_0/text = "The Book of Tea"
+
+[node name="TeaList" type="ItemList" parent="PanelContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+allow_reselect = true
+allow_search = false
+auto_width = true
+auto_height = true
+same_column_width = true
+fixed_column_width = 200
+
+[node name="ParagraphScroll" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 2
+size_flags_horizontal = 10
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ParagraphScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ParagraphContents" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ParagraphScroll/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
