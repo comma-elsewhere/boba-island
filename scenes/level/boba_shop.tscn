@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bae4empxna1o"]
+[gd_scene load_steps=63 format=3 uid="uid://bae4empxna1o"]
 
 [ext_resource type="ArrayMesh" uid="uid://1uf24nhkhnty" path="res://resources/meshes/boba_shop/Floor.res" id="1_uah5q"]
 [ext_resource type="Material" uid="uid://dwnh605nsdnn4" path="res://resources/materials/floor_material.material" id="2_1qbsa"]
@@ -39,6 +39,14 @@
 [ext_resource type="PackedScene" uid="uid://dcsxnqd8vhk4c" path="res://scenes/prefab/gui_interface/drink_hud.tscn" id="37_iwl6g"]
 [ext_resource type="Resource" uid="uid://fnw81gfwi5n4" path="res://resources/game_data/recipe_upgrade_groups/cook_machine_upgrades.tres" id="38_8ijwx"]
 [ext_resource type="Resource" uid="uid://cfoou3oklaqqf" path="res://resources/game_data/recipe_upgrade_groups/process_machine_upgrades.tres" id="39_7oo2i"]
+[ext_resource type="PackedScene" uid="uid://jj4cqbvtb1xk" path="res://scenes/prefab/dispenser.tscn" id="40_iwl6g"]
+[ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="41_ui4tw"]
+[ext_resource type="Resource" uid="uid://db3yuj54ic2xe" path="res://resources/game_data/ingredients/milk.tres" id="42_gc0ip"]
+[ext_resource type="Resource" uid="uid://becxnuwetlie2" path="res://resources/game_data/ingredients/matcha_powder.tres" id="43_tm8hb"]
+[ext_resource type="Resource" uid="uid://bav1oqtqeh1s7" path="res://resources/game_data/crops/seeds/sugar_seed.tres" id="44_gc0ip"]
+[ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="45_3np5k"]
+[ext_resource type="Resource" uid="uid://chedclappraxa" path="res://resources/game_data/crops/seeds/taro_seed.tres" id="45_tm8hb"]
+[ext_resource type="Resource" uid="uid://dv3sjdeuv8x4p" path="res://resources/game_data/crops/seeds/strawberry_seed.tres" id="47_hdofh"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0t658"]
 points = PackedVector3Array(0.23295313, 1.1572533, 1.7610378, 0.23295313, 1.1572533, -0.19150358, -0.37011504, 1.1572533, 1.7610378, 0.23295313, -2.3459215, 1.7610378, 0.26797783, -1.7050216, 1.6664305, 0.31534833, -1.8360134, 0.18941018, -0.37011504, 1.1572533, -0.19150358, 0.31534833, -1.8360134, 0.12385401, 0.23295313, -2.3459215, -0.19150358, -0.37011504, -2.3459215, 1.7610378, 0.31534833, -2.2252169, 0.18941018, 0.2641533, -2.2228167, 1.5785127, 0.26797783, -2.1778953, 1.6664305, -0.37011504, -2.3459215, -0.19150358, 0.31534833, -2.2252169, 0.12385401)
@@ -76,14 +84,14 @@ size = Vector3(2.2, 0.5, 1.6)
 [sub_resource type="BoxShape3D" id="BoxShape3D_alrdh"]
 size = Vector3(1.4, 1, 0.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4wiyc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7oo2i"]
 viewport_path = NodePath("DrinkZone3D/SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70253"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("33_70253")
-shader_parameter/viewport_texture = SubResource("ViewportTexture_4wiyc")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_7oo2i")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gy110"]
 material = SubResource("ShaderMaterial_70253")
@@ -94,6 +102,8 @@ orientation = 2
 
 [node name="Primary" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="InteriorWall1" type="MeshInstance3D" parent="Primary"]
 mesh = ExtResource("15_m5j23")
@@ -222,6 +232,8 @@ shape = SubResource("ConvexPolygonShape3D_decg2")
 
 [node name="Exterior" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="WallBack" type="MeshInstance3D" parent="Exterior"]
 mesh = ExtResource("2_lahac")
@@ -274,6 +286,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7.1)
 shape = SubResource("BoxShape3D_du356")
 
 [node name="Lanterns" type="Node3D" parent="."]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="LanternWhite" parent="Lanterns" instance=ExtResource("26_rwsu5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.5, -3)
@@ -294,6 +308,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.1, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.1, -2)
 
 [node name="NoColor" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CashRegister" type="MeshInstance3D" parent="NoColor"]
 transform = Transform3D(-5.4639237e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.4639237e-08, -3.0749996, -0.5, -6.299999)
@@ -351,6 +367,7 @@ skeleton = NodePath("../..")
 [node name="DrinkZone3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.809017, 0.58778524, 0, -0.58778524, 0.809017, 3.9, 2.6985164, -5.1475663)
 script = ExtResource("32_4wiyc")
+metadata/_edit_lock_ = true
 
 [node name="PickupZone" type="Area3D" parent="DrinkZone3D"]
 transform = Transform3D(1, 0, 0, 0, 0.81915206, -0.57357645, 0, 0.57357645, 0.81915206, 2.5000002, 0.37711596, -1.9333348)
@@ -379,7 +396,6 @@ mesh = SubResource("PlaneMesh_gy110")
 [node name="SubViewport" type="SubViewport" parent="DrinkZone3D"]
 gui_embed_subwindows = true
 size = Vector2i(717, 512)
-size_2d_override = Vector2i(717, 512)
 render_target_update_mode = 4
 
 [node name="DrinkOrders" parent="DrinkZone3D/SubViewport" instance=ExtResource("34_gy110")]
@@ -396,21 +412,57 @@ offset_bottom = 256.0
 
 [node name="TeaCeremony" parent="." instance=ExtResource("34_4wiyc")]
 transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -2.956, 2.41, -2.016)
+metadata/_edit_lock_ = true
 
 [node name="DrinkMixer" parent="." instance=ExtResource("35_eeamv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.536684, 2.266161, -4.7854967)
 machine_type = 2
 recipe_upgrades = ExtResource("36_7oo2i")
 crafting_scene = ExtResource("37_iwl6g")
+metadata/_edit_lock_ = true
 
 [node name="Cooker" parent="." instance=ExtResource("35_eeamv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.536684, 2.266161, -2.5112996)
 machine_type = 1
 recipe_upgrades = ExtResource("38_8ijwx")
+metadata/_edit_lock_ = true
 
 [node name="Processer" parent="." instance=ExtResource("35_eeamv")]
 transform = Transform3D(1.625795, 0, 1.1648135, 0, 2, 0, -1.1648135, 0, 1.625795, 6.023893, 0, 5.087975)
 recipe_upgrades = ExtResource("39_7oo2i")
+metadata/_edit_lock_ = true
+
+[node name="StorageAndDispensers" type="Node3D" parent="."]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Water" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.94, 1.42)
+item_data = ExtResource("41_ui4tw")
+
+[node name="Milk" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.94, 2.44)
+item_data = ExtResource("42_gc0ip")
+
+[node name="MatchaPowder" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.15, 1.8)
+item_data = ExtResource("43_tm8hb")
+
+[node name="SugarCaneSeed" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.94, 4.52)
+item_data = ExtResource("44_gc0ip")
+
+[node name="CassavaSeed" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.15, 3.92)
+item_data = ExtResource("45_3np5k")
+
+[node name="TaroSeed" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.15, 5)
+item_data = ExtResource("45_tm8hb")
+
+[node name="StrawberrySeed" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 0.25, 4.08)
+item_data = ExtResource("47_hdofh")
 
 [connection signal="body_entered" from="DrinkZone3D/PickupZone" to="DrinkZone3D" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="DrinkZone3D/PickupZone" to="DrinkZone3D" method="_on_area_3d_body_exited"]

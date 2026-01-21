@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://ctpynxvobxcd3"]
+[gd_scene load_steps=3 format=3 uid="uid://ctpynxvobxcd3"]
 
-[node name="StorageUnit" type="StaticBody3D"]
+[ext_resource type="ArrayMesh" uid="uid://bdl1lbc2ucxg4" path="res://resources/meshes/boba_shop/Crate.res" id="1_mmytf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mmytf"]
+size = Vector3(2.2, 1.25, 2)
+
+[node name="Storage" type="Node3D"]
+
+[node name="StorageUnit" type="StaticBody3D" parent="."]
+collision_layer = 9
+collision_mask = 9
+
+[node name="Crate" type="MeshInstance3D" parent="StorageUnit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15937094, 0)
+mesh = ExtResource("1_mmytf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StorageUnit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.58726805, 0)
+shape = SubResource("BoxShape3D_mmytf")

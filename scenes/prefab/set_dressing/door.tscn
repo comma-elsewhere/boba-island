@@ -1,17 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhxg4sxnl4l64"]
+[gd_scene load_steps=4 format=3 uid="uid://bhxg4sxnl4l64"]
 
 [ext_resource type="ArrayMesh" uid="uid://dku3llltu4pox" path="res://resources/meshes/boba_shop/DoorOutside.res" id="1_t15ld"]
+[ext_resource type="Script" uid="uid://c42wqtgkwg8dq" path="res://scripts/utility/door.gd" id="2_xdddq"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_du356"]
 points = PackedVector3Array(-1.8068421, 3.1521723, -27.06996, -1.6451885, 4.923873, -27.315205, -0.16200733, 4.923873, -27.516293, 0, 4.9130135, -27.516293, 1.8068421, 3.1521723, -27.06996, -1.8068421, 3.1521723, -25.484322, -1.8068421, 7.418955, -27.06996, -1.6451885, 5.115577, -27.315205, -0.16200733, 5.115577, -27.516293, 0.16165364, 4.923873, -27.516293, 1.8068421, 3.1521723, -25.484322, 1.6448348, 4.923873, -27.315205, 1.8068421, 7.418955, -27.06996, -1.8068421, 7.418955, -25.484322, 0, 5.126436, -27.516293, 0.16165364, 5.115577, -27.516293, 1.8068421, 7.418955, -25.484322, 1.6448348, 5.115577, -27.315205)
 
-[node name="DoorInside" type="MeshInstance3D"]
+[node name="Door" type="MeshInstance3D"]
 mesh = ExtResource("1_t15ld")
+script = ExtResource("2_xdddq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 9
+collision_mask = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_du356")
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3, -27.999998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.22, -24)

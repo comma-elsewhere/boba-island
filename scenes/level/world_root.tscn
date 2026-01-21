@@ -154,7 +154,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 4)
 
 [node name="Overgrowth15" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Overgrowth16" parent="Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -16)
@@ -421,7 +421,7 @@ shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
 [node name="BobaShop" parent="." instance=ExtResource("10_wc1lk")]
-transform = Transform3D(0.42261827, 0, 0.90630776, 0, 1, 0, -0.90630776, 0, 0.42261827, -20.1, 0, -8.5)
+transform = Transform3D(0.25357094, 0, 0.54378474, 0, 0.6, 0, -0.54378474, 0, 0.25357094, -20.1, 0, -8.5)
 metadata/_edit_lock_ = true
 
 [node name="PostProcessing" type="MeshInstance3D" parent="."]
@@ -457,3 +457,4 @@ world_root = NodePath("..")
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_x1yw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -11)

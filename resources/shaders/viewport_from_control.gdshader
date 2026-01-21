@@ -9,7 +9,7 @@ uniform sampler2D viewport_texture: hint_default_black;
 void fragment() {
 	vec4 color = texture(viewport_texture, UV);
 	ALBEDO = color.rgb;
-	//ALPHA = color.a;
+	ALPHA = color.a;
 }
 
 //void light() {

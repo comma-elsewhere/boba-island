@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://jj4cqbvtb1xk"]
+
+[ext_resource type="ArrayMesh" uid="uid://bdl1lbc2ucxg4" path="res://resources/meshes/boba_shop/Crate.res" id="1_xccv2"]
+[ext_resource type="Script" uid="uid://jqgw7ktx4nie" path="res://scripts/utility/dispenser.gd" id="1_ybgio"]
+[ext_resource type="Texture2D" uid="uid://dvwg0qembtom4" path="res://assets/icons/temp_no-sign.png" id="2_6xqsl"]
+[ext_resource type="Shader" uid="uid://doqqx7wv7ml5w" path="res://resources/shaders/viewport_from_control.gdshader" id="2_r8bsf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mmytf"]
+size = Vector3(2.2, 1.25, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_r8bsf"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ybgio"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_r8bsf")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_r8bsf")
+
+[sub_resource type="QuadMesh" id="QuadMesh_mmytf"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_ybgio")
+
+[node name="Dispenser" type="StaticBody3D"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_ybgio")
+
+[node name="Crate" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15937094, 0)
+mesh = ExtResource("1_xccv2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.58726805, 0)
+shape = SubResource("BoxShape3D_mmytf")
+
+[node name="MeshItemLabel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 1.01)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_mmytf")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Control" type="Control" parent="SubViewport"]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ItemTexture" type="TextureRect" parent="SubViewport/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6xqsl")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ItemLabel" type="Label" parent="SubViewport/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -19.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "Item Name"
+horizontal_alignment = 1
+vertical_alignment = 2
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="ItemPrice" type="Label" parent="SubViewport/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -512.0
+offset_bottom = 54.0
+grow_horizontal = 0
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "$$$"
+horizontal_alignment = 2
+vertical_alignment = 2
+text_overrun_behavior = 3
+uppercase = true
