@@ -1,0 +1,585 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dsnvn3mfybhsi"
+path="res://.godot/imported/boba-shop-roof-on.glb-291452cd9747379a63991728c6a4fd4f.scn"
+
+[deps]
+
+source_file="res://assets/models/boba-shop-roof-on.glb"
+dest_files=["res://.godot/imported/boba-shop-roof-on.glb-291452cd9747379a63991728c6a4fd4f.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"boba-shop-roof-on_Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_001.res",
+"save_to_file/path": "uid://b810yok5jt61a"
+},
+"boba-shop-roof-on_Cube_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_002.res",
+"save_to_file/path": "uid://h4aughcapw0o"
+},
+"boba-shop-roof-on_Cube_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_003.res",
+"save_to_file/path": "uid://1uf24nhkhnty"
+},
+"boba-shop-roof-on_Cube_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_004.res",
+"save_to_file/path": "uid://b20vriu2u2qkl"
+},
+"boba-shop-roof-on_Cube_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_005.res",
+"save_to_file/path": "uid://cisjk8s5hr3g"
+},
+"boba-shop-roof-on_Cube_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_008.res",
+"save_to_file/path": "uid://md8pptc0s8m3"
+},
+"boba-shop-roof-on_Cube_009": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_009.res",
+"save_to_file/path": "uid://cjoqeqrspp0dp"
+},
+"boba-shop-roof-on_Cube_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_010.res",
+"save_to_file/path": "uid://b5ob0itw5o1yw"
+},
+"boba-shop-roof-on_Cube_011": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_011.res",
+"save_to_file/path": "uid://dwjex2i18elww"
+},
+"boba-shop-roof-on_Cube_012": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/Shelf.res",
+"save_to_file/path": "uid://b6v5cf0pswh04"
+},
+"boba-shop-roof-on_Cube_013": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_013.res",
+"save_to_file/path": "uid://cw5ac7xefuoe4"
+},
+"boba-shop-roof-on_Cube_014": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_014.res",
+"save_to_file/path": "uid://bdl1lbc2ucxg4"
+},
+"boba-shop-roof-on_Cube_015": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_015.res",
+"save_to_file/path": "uid://drdslpwtfot27"
+},
+"boba-shop-roof-on_Cube_016": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_016.res",
+"save_to_file/path": "uid://b5cs38518yyc3"
+},
+"boba-shop-roof-on_Cube_017": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_017.res",
+"save_to_file/path": "uid://b22xjv1plo5u3"
+},
+"boba-shop-roof-on_Cube_018": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_018.res",
+"save_to_file/path": "uid://b7cphjoa3lmcj"
+},
+"boba-shop-roof-on_Cube_019": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_019.res",
+"save_to_file/path": "uid://c2vl1hwmaul5h"
+},
+"boba-shop-roof-on_Cube_022": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_022.res",
+"save_to_file/path": "uid://da2wf5uc0oic1"
+},
+"boba-shop-roof-on_Cube_024": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_024.res",
+"save_to_file/path": "uid://bq7do8f7faqbo"
+},
+"boba-shop-roof-on_Cube_025": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_025.res",
+"save_to_file/path": "uid://clp435hpr3yxq"
+},
+"boba-shop-roof-on_Cube_026": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_026.res",
+"save_to_file/path": "uid://bhpcpq2wrbied"
+},
+"boba-shop-roof-on_Cube_028": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_028.res",
+"save_to_file/path": "uid://1nq7uiswc3np"
+},
+"boba-shop-roof-on_Cube_029": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_029.res",
+"save_to_file/path": "uid://d2eiccqdmbkmj"
+},
+"boba-shop-roof-on_Cube_030": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_030.res",
+"save_to_file/path": "uid://f3s0swqylpya"
+},
+"boba-shop-roof-on_Cube_031": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_031.res",
+"save_to_file/path": "uid://hm2ocj4v13v6"
+},
+"boba-shop-roof-on_Cube_032": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_032.res",
+"save_to_file/path": "uid://ltdee7hrijfm"
+},
+"boba-shop-roof-on_Cube_033": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_033.res",
+"save_to_file/path": "uid://c01qu4cmi0hlf"
+},
+"boba-shop-roof-on_Cube_034": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_034.res",
+"save_to_file/path": "uid://d0tu3je35usey"
+},
+"boba-shop-roof-on_Cube_035": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_035.res",
+"save_to_file/path": "uid://bbb887ybb10i8"
+},
+"boba-shop-roof-on_Cube_036": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_036.res",
+"save_to_file/path": "uid://ca7jrcyupsph"
+},
+"boba-shop-roof-on_Cube_037": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_037.res",
+"save_to_file/path": "uid://d3at03dsteyvt"
+},
+"boba-shop-roof-on_Cube_038": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_038.res",
+"save_to_file/path": "uid://b24bwifc85q2k"
+},
+"boba-shop-roof-on_Cube_039": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_039.res",
+"save_to_file/path": "uid://dku3llltu4pox"
+},
+"boba-shop-roof-on_Cube_040": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_040.res",
+"save_to_file/path": "uid://ciw55p0gh35dn"
+},
+"boba-shop-roof-on_Cube_041": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_041.res",
+"save_to_file/path": "uid://bkwif55atvswr"
+},
+"boba-shop-roof-on_Cube_042": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_042.res",
+"save_to_file/path": "uid://dwjalijlv57o4"
+},
+"boba-shop-roof-on_Cube_043": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_043.res",
+"save_to_file/path": "uid://cwyda3ulbhe5v"
+},
+"boba-shop-roof-on_Cube_044": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_044.res",
+"save_to_file/path": "uid://d12pf65rs1sn7"
+},
+"boba-shop-roof-on_Cube_045": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_045.res",
+"save_to_file/path": "uid://bkvgvcsb1smk7"
+},
+"boba-shop-roof-on_Cube_046": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_046.res",
+"save_to_file/path": "uid://c2kgiwhsdj4rx"
+},
+"boba-shop-roof-on_Cube_047": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_047.res",
+"save_to_file/path": "uid://dnb6axf1gsi5f"
+},
+"boba-shop-roof-on_Cube_048": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_048.res",
+"save_to_file/path": "uid://d181v30s7mtcc"
+},
+"boba-shop-roof-on_Plane": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Plane.res",
+"save_to_file/path": "uid://csyjja8i2jwjf"
+},
+"boba-shop-roof-on_Plane_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Plane_002.res",
+"save_to_file/path": "uid://bjbmitb00cls7"
+},
+"boba-shop-roof-on_Sphere_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_001.res",
+"save_to_file/path": "uid://cfmv4bwfila31"
+},
+"boba-shop-roof-on_Sphere_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_002.res",
+"save_to_file/path": "uid://dvmk1bo1o5evo"
+},
+"boba-shop-roof-on_Sphere_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_003.res",
+"save_to_file/path": "uid://bve3ou05j2va0"
+},
+"boba-shop-roof-on_Sphere_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_004.res",
+"save_to_file/path": "uid://6nohx73d472x"
+},
+"boba-shop-roof-on_Sphere_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_005.res",
+"save_to_file/path": "uid://dbfo2oaryscth"
+},
+"boba-shop-roof-on_Sphere_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_006.res",
+"save_to_file/path": "uid://dv3a51f3duli8"
+},
+"boba-shop-roof-on_Sphere_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_007.res",
+"save_to_file/path": "uid://bx0xd5aqamvtu"
+},
+"boba-shop-roof-on_Sphere_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_008.res",
+"save_to_file/path": "uid://bt6x75ot365d3"
+},
+"boba-shop-roof-on_Sphere_009": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_009.res",
+"save_to_file/path": "uid://dd53c85le8t6n"
+},
+"boba-shop-roof-on_Sphere_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_010.res",
+"save_to_file/path": "uid://ci6kcnrvwcla1"
+},
+"boba-shop-roof-on_Sphere_011": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_011.res",
+"save_to_file/path": "uid://havggk7fyx1o"
+},
+"boba-shop-roof-on_Sphere_012": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_012.res",
+"save_to_file/path": "uid://xov6ms82000e"
+},
+"boba-shop-roof-on_Sphere_013": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_013.res",
+"save_to_file/path": "uid://ctvtuta4dkkmd"
+},
+"boba-shop-roof-on_Sphere_014": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_014.res",
+"save_to_file/path": "uid://cwtlosbs81dc"
+},
+"boba-shop-roof-on_Sphere_015": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_015.res",
+"save_to_file/path": "uid://kjobvohrp4gs"
+},
+"boba-shop-roof-on_Sphere_016": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/boba_shop/boba-shop-roof-on_Sphere_016.res",
+"save_to_file/path": "uid://dc3f2g3kyl5n1"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
