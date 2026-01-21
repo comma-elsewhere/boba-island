@@ -10,6 +10,7 @@
 [resource]
 script = ExtResource("3_f0elg")
 crop_data = ExtResource("1_v1thk")
+price_mod = 2.0
 name = "Strawberry Sprout"
 icon = ExtResource("3_bu8nw")
 mesh = ExtResource("5_bu8nw")

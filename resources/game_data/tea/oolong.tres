@@ -6,7 +6,9 @@
 
 [resource]
 script = ExtResource("1_ndplb")
-perfect_time = 75.0
+tea_id = 2
+perfect_temp = 80.0
+perfect_time = 90.0
 name = "Oolong"
 icon = ExtResource("1_vxusy")
 metadata/_custom_type_script = "uid://mlslmml4ade1"

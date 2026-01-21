@@ -10,6 +10,7 @@
 [resource]
 script = ExtResource("3_vcfof")
 crop_data = ExtResource("1_vatqn")
+price_mod = 3.0
 name = "Taro Cutting"
 icon = ExtResource("3_750ng")
 mesh = ExtResource("5_750ng")

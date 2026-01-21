@@ -2,7 +2,7 @@ class_name Seed extends Item
 
 @export var crop_data: Crop
 @export var crop_scene: PackedScene = preload("res://scenes/utility/crop.tscn")
-@export var price_mod: float = 1.0
+@export_range(0.5, 3.0, 0.5) var price_mod: float = 1.0
 
 func am_seed() -> bool:
 	return true

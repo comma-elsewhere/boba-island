@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_jg41f")
 perfect_temp = 95.0
-perfect_time = 70.0
+perfect_time = 30.0
 name = "Assam"
 icon = ExtResource("1_c8285")
 metadata/_custom_type_script = "uid://mlslmml4ade1"

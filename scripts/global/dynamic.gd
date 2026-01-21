@@ -5,8 +5,8 @@ var load_game: bool = false
 # ---Progress: save as Array[Array]---
 var tutorial_progress: Array = [0]
 var unlocked_book: Array = [1,2,3,4,5,6,7,8,9]
-var unlocked_tea: Array = []
-var unlocked_crop: Array =  []
+var unlocked_tea: Array = [1,2,3,4,5,6,7,8,9,10,11]
+var unlocked_crop: Array =  [1,2,3,4]
 
 # Options menu settings, save
 var mouse_sensitivity: float = 0.004

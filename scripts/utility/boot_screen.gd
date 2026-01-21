@@ -33,9 +33,9 @@ func _resize_progress_indicators() -> void:
 	Dynamic.unlocked_tea.resize(Static.NUMBER_OF_TEAS)
 	Dynamic.unlocked_crop.resize(Static.NUMBER_OF_CROPS)
 	# Set starter things
-	Dynamic.unlocked_crop[Static.CROP.SUGAR_CANE] = Static.CROP.SUGAR_CANE + 1
-	Dynamic.unlocked_tea[Static.TEA.CEYLON] = Static.TEA.CEYLON + 1
-	Dynamic.unlocked_tea[Static.TEA.SENCHA] = Static.TEA.SENCHA + 1
+	#Dynamic.unlocked_crop[Static.CROP.SUGAR_CANE] = Static.CROP.SUGAR_CANE + 1
+	#Dynamic.unlocked_tea[Static.TEA.CEYLON] = Static.TEA.CEYLON + 1
+	#Dynamic.unlocked_tea[Static.TEA.SENCHA] = Static.TEA.SENCHA + 1
 
 func _set_difficulty(setting_id: int) -> void:
 	Dynamic.difficulty_setting = setting_id
@@ -55,6 +55,8 @@ func _set_difficulty(setting_id: int) -> void:
 			Dynamic.starting_tip = Static.HARD_TIP
 			Dynamic.base_price = Static.HARD_PRICE
 			Dynamic.seed_cost = Static.HARD_SEED
+			
+	Dynamic.total_money = Dynamic.starting_money
 			
 func _set_danger(setting_id: int) -> void:
 	Dynamic.danger_setting = setting_id

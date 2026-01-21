@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_0jgty")
+tea_id = 1
 perfect_temp = 40.0
 perfect_time = 30.0
 name = "Sencha"

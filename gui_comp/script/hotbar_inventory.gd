@@ -34,6 +34,8 @@ func _input(event: InputEvent) -> void:
 		library_interface.visible = !library_interface.visible
 		if library_interface.visible:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func setup() -> void:
 	for child in hotbar_display.get_children():

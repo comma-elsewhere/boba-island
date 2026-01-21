@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bae4empxna1o"]
+[gd_scene load_steps=61 format=3 uid="uid://bae4empxna1o"]
 
 [ext_resource type="ArrayMesh" uid="uid://1uf24nhkhnty" path="res://resources/meshes/boba_shop/Floor.res" id="1_uah5q"]
 [ext_resource type="Material" uid="uid://dwnh605nsdnn4" path="res://resources/materials/floor_material.material" id="2_1qbsa"]
@@ -30,8 +30,8 @@
 [ext_resource type="ArrayMesh" uid="uid://b20vriu2u2qkl" path="res://resources/meshes/boba_shop/Roof.res" id="30_m8b4s"]
 [ext_resource type="PackedScene" uid="uid://bhxg4sxnl4l64" path="res://scenes/prefab/set_dressing/door.tscn" id="30_ttpka"]
 [ext_resource type="ArrayMesh" uid="uid://dwjalijlv57o4" path="res://resources/meshes/boba_shop/LongWindow.res" id="31_decg2"]
+[ext_resource type="Material" uid="uid://dclsqrov7a6jt" path="res://resources/materials/control_subviewport_orders.material" id="32_3np5k"]
 [ext_resource type="Script" uid="uid://dqdmygmjbiseu" path="res://scripts/manager/drink_zone.gd" id="32_4wiyc"]
-[ext_resource type="Shader" uid="uid://doqqx7wv7ml5w" path="res://resources/shaders/viewport_from_control.gdshader" id="33_70253"]
 [ext_resource type="PackedScene" uid="uid://dre3kgeqhjprj" path="res://scenes/prefab/tea_ceremony.tscn" id="34_4wiyc"]
 [ext_resource type="PackedScene" uid="uid://cdp4b2op1gor0" path="res://gui_comp/drink_orders.tscn" id="34_gy110"]
 [ext_resource type="PackedScene" uid="uid://516o65n4jcsn" path="res://scenes/prefab/process_machine.tscn" id="35_eeamv"]
@@ -84,17 +84,8 @@ size = Vector3(2.2, 0.5, 1.6)
 [sub_resource type="BoxShape3D" id="BoxShape3D_alrdh"]
 size = Vector3(1.4, 1, 0.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7oo2i"]
-viewport_path = NodePath("DrinkZone3D/SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_70253"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("33_70253")
-shader_parameter/viewport_texture = SubResource("ViewportTexture_7oo2i")
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_gy110"]
-material = SubResource("ShaderMaterial_70253")
+material = ExtResource("32_3np5k")
 size = Vector2(1.4, 1)
 orientation = 2
 
@@ -198,7 +189,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_1qbsa")
 
 [node name="Counter" type="MeshInstance3D" parent="Accent"]
-transform = Transform3D(4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 4.3711385e-08, 1.5000002, -1.2, -7.699999)
+transform = Transform3D(4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 4.3711385e-08, 1.5000002, -2, -7.699999)
 mesh = ExtResource("22_hq5wh")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("7_0nr2e")
@@ -213,7 +204,7 @@ shape = SubResource("ConvexPolygonShape3D_4nhxi")
 shape = SubResource("ConvexPolygonShape3D_iocvq")
 
 [node name="Table" type="MeshInstance3D" parent="Accent"]
-transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -2.7535899, -1.2, -2.6267948)
+transform = Transform3D(0.649519, 0, -0.375, 0, 0.75, 0, 0.375, 0, 0.649519, -2.7535899, -1.2, -2.6267948)
 mesh = ExtResource("18_4nhxi")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_1qbsa")
@@ -312,9 +303,10 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="CashRegister" type="MeshInstance3D" parent="NoColor"]
-transform = Transform3D(-5.4639237e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.4639237e-08, -3.0749996, -0.5, -6.299999)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.4749995, -0.8, -5.999999)
 mesh = ExtResource("23_s7br6")
 skeleton = NodePath("../..")
+metadata/_edit_group_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NoColor/CashRegister"]
 
@@ -365,12 +357,12 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.0
 skeleton = NodePath("../..")
 
 [node name="DrinkZone3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.809017, 0.58778524, 0, -0.58778524, 0.809017, 3.9, 2.6985164, -5.1475663)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9, 2.6985164, -5.1475663)
 script = ExtResource("32_4wiyc")
-metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="PickupZone" type="Area3D" parent="DrinkZone3D"]
-transform = Transform3D(1, 0, 0, 0, 0.81915206, -0.57357645, 0, 0.57357645, 0.81915206, 2.5000002, 0.37711596, -1.9333348)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5000002, -1.622884, -1.9333348)
 collision_layer = 32
 collision_mask = 32
 input_ray_pickable = false
@@ -381,7 +373,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25000012, 0.8000002)
 shape = SubResource("BoxShape3D_sinf0")
 
 [node name="Screen" type="StaticBody3D" parent="DrinkZone3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030502317, 1.4, -0.027876517)
+transform = Transform3D(0.86, 0, 0, 0, 0.6957546, 0.5054953, 0, -0.5054953, 0.6957546, 0.169, -0.029345818, -0.61914027)
 collision_layer = 8
 collision_mask = 8
 
@@ -411,24 +403,24 @@ offset_right = 358.5
 offset_bottom = 256.0
 
 [node name="TeaCeremony" parent="." instance=ExtResource("34_4wiyc")]
-transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -2.956, 2.41, -2.016)
+transform = Transform3D(0.44999996, 0, 0.7794229, 0, 0.9, 0, -0.7794229, 0, 0.44999996, -2.866, 1.8, -2.172)
 metadata/_edit_lock_ = true
 
 [node name="DrinkMixer" parent="." instance=ExtResource("35_eeamv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.536684, 2.266161, -4.7854967)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.536684, 1.4661609, -4.7854967)
 machine_type = 2
 recipe_upgrades = ExtResource("36_7oo2i")
 crafting_scene = ExtResource("37_iwl6g")
 metadata/_edit_lock_ = true
 
 [node name="Cooker" parent="." instance=ExtResource("35_eeamv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.536684, 2.266161, -2.5112996)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.536684, 1.4661609, -2.5112996)
 machine_type = 1
 recipe_upgrades = ExtResource("38_8ijwx")
 metadata/_edit_lock_ = true
 
 [node name="Processer" parent="." instance=ExtResource("35_eeamv")]
-transform = Transform3D(1.625795, 0, 1.1648135, 0, 2, 0, -1.1648135, 0, 1.625795, 6.023893, 0, 5.087975)
+transform = Transform3D(1.5459102, 0, -1.2689214, 0, 2, 0, 1.2689214, 0, 1.5459102, 6.023893, 0, 5.087975)
 recipe_upgrades = ExtResource("39_7oo2i")
 metadata/_edit_lock_ = true
 

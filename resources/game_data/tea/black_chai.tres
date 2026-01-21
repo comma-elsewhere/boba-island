@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_ghhcj")
-perfect_temp = 60.0
+perfect_temp = 95.0
 perfect_time = 85.0
 name = "Chai"
 icon = ExtResource("1_5bawp")

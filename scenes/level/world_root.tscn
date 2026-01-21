@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://6k5dg51rvx2c"]
+[gd_scene load_steps=30 format=3 uid="uid://6k5dg51rvx2c"]
 
 [ext_resource type="Script" uid="uid://dmgan4c1aqq32" path="res://scripts/manager/lighting.gd" id="1_utkfw"]
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0g8ltwp1y6oo" path="res://scenes/utility/overgrowth.tscn" id="9_utkfw"]
 [ext_resource type="PackedScene" uid="uid://c0y2e6yqp6vgf" path="res://scenes/manager/saver_loader.tscn" id="10_jksdq"]
 [ext_resource type="PackedScene" uid="uid://bae4empxna1o" path="res://scenes/level/boba_shop.tscn" id="10_wc1lk"]
+[ext_resource type="Shader" uid="uid://doqqx7wv7ml5w" path="res://resources/shaders/viewport_from_control.gdshader" id="11_wc1lk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ttd6"]
 
@@ -118,6 +119,21 @@ _data = {
 &"day_night": SubResource("Animation_m1jft")
 }
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_vuwh0"]
+viewport_path = NodePath("BobaShop/DrinkZone3D/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0glrw"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("11_wc1lk")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_vuwh0")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tyjbu"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_0glrw")
+size = Vector2(1.4, 1)
+orientation = 2
+
 [node name="WorldRoot" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -143,6 +159,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 10)
 
 [node name="Overgrowth11" parent="Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 7)
+
+[node name="Overgrowth19" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="Overgrowth45" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 1)
+
+[node name="Overgrowth46" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -15)
+
+[node name="Overgrowth49" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -6)
 
 [node name="Overgrowth12" parent="Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 16)
@@ -420,10 +448,6 @@ transform = Transform3D(0.96592593, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.96
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="BobaShop" parent="." instance=ExtResource("10_wc1lk")]
-transform = Transform3D(0.25357094, 0, 0.54378474, 0, 0.6, 0, -0.54378474, 0, 0.25357094, -20.1, 0, -8.5)
-metadata/_edit_lock_ = true
-
 [node name="PostProcessing" type="MeshInstance3D" parent="."]
 visible = false
 material_override = ExtResource("7_m1jft")
@@ -458,3 +482,12 @@ player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_x1yw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -11)
+
+[node name="BobaShop" parent="." instance=ExtResource("10_wc1lk")]
+transform = Transform3D(0.25357094, 0, 0.54378474, 0, 0.6, 0, -0.54378474, 0, 0.25357094, -23.300001, 0, -11.1)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" parent="BobaShop/DrinkZone3D/Screen" index="1"]
+mesh = SubResource("PlaneMesh_tyjbu")
+
+[editable path="BobaShop"]

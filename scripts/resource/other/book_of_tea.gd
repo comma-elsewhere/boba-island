@@ -11,7 +11,7 @@ const SHORT_HIGH := "This tea is prone to bitterness and has a higher caffeine c
 const SHORT_LOW := "This tea has delicate leaves and is prone to bitterness."
 const VERY_LOW := "This tea's leaves are extremely sensitive to high temperatures."
 const VERY_SHORT := "This tea can be very prone to bitterness when steeped too long."
-const NONE := "This tea not require brewing to make boba tea."
+const NONE := "This tea does not require brewing to make boba tea."
 
 func get_brewing_clue() -> String:
 	match brew_clue:

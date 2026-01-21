@@ -8,6 +8,7 @@
 [resource]
 script = ExtResource("1_111i8")
 drink_type = 5
+price_multiplier = 3.5
 name = "Strawberry Boba Milk Tea"
 icon = ExtResource("1_uq0ty")
 mesh = ExtResource("3_b0py3")

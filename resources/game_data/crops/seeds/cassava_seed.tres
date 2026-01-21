@@ -10,6 +10,7 @@
 [resource]
 script = ExtResource("3_vjwmn")
 crop_data = ExtResource("1_cls4e")
+price_mod = 1.5
 name = "Cassava Cutting"
 icon = ExtResource("3_cls4e")
 mesh = ExtResource("5_cls4e")
