@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://xmxetlo2tvop"]
+
+[ext_resource type="ArrayMesh" uid="uid://dv3a51f3duli8" path="res://resources/meshes/boba_shop/LanternHang.res" id="1_uej4w"]
+[ext_resource type="ArrayMesh" uid="uid://cfmv4bwfila31" path="res://resources/meshes/boba_shop/Lantern.res" id="2_ch5pt"]
+
+[node name="LanternWhite" type="Node3D"]
+
+[node name="LanternHang" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = ExtResource("1_uej4w")
+skeleton = NodePath("../..")
+
+[node name="LanternBody" type="MeshInstance3D" parent="."]
+layers = 2
+transparency = 0.1
+cast_shadow = 0
+mesh = ExtResource("2_ch5pt")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+light_color = Color(0.9676589, 1, 1, 1)
+light_cull_mask = 4294967293
+shadow_enabled = true
+omni_range = 9.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://6k5dg51rvx2c"]
+[gd_scene load_steps=26 format=3 uid="uid://6k5dg51rvx2c"]
 
 [ext_resource type="Script" uid="uid://dmgan4c1aqq32" path="res://scripts/manager/lighting.gd" id="1_utkfw"]
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
@@ -9,13 +9,7 @@
 [ext_resource type="Material" uid="uid://6kqx7xvjsbaf" path="res://resources/materials/watercolor.tres" id="7_m1jft"]
 [ext_resource type="PackedScene" uid="uid://d0g8ltwp1y6oo" path="res://scenes/utility/overgrowth.tscn" id="9_utkfw"]
 [ext_resource type="PackedScene" uid="uid://c0y2e6yqp6vgf" path="res://scenes/manager/saver_loader.tscn" id="10_jksdq"]
-[ext_resource type="PackedScene" uid="uid://1cehb2otnn10" path="res://scenes/prefab/drink_order_3D.tscn" id="10_wc1lk"]
-[ext_resource type="Resource" uid="uid://fnw81gfwi5n4" path="res://resources/game_data/recipe_upgrade_groups/cook_machine_upgrades.tres" id="10_ytln1"]
-[ext_resource type="PackedScene" uid="uid://516o65n4jcsn" path="res://scenes/prefab/process_machine.tscn" id="11_tyjbu"]
-[ext_resource type="Resource" uid="uid://cfoou3oklaqqf" path="res://resources/game_data/recipe_upgrade_groups/process_machine_upgrades.tres" id="13_0glrw"]
-[ext_resource type="Resource" uid="uid://ddne8iogyrhns" path="res://resources/game_data/recipe_upgrade_groups/drink_machine_upgrades.tres" id="13_80ijt"]
-[ext_resource type="PackedScene" uid="uid://dcsxnqd8vhk4c" path="res://scenes/prefab/gui_interface/drink_hud.tscn" id="14_x74xb"]
-[ext_resource type="PackedScene" uid="uid://dre3kgeqhjprj" path="res://scenes/prefab/tea_ceremony.tscn" id="16_80ijt"]
+[ext_resource type="PackedScene" uid="uid://bae4empxna1o" path="res://scenes/level/boba_shop.tscn" id="10_wc1lk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ttd6"]
 
@@ -136,9 +130,145 @@ light_color = Color(1, 1, 0.76862746, 1)
 shadow_enabled = true
 script = ExtResource("1_utkfw")
 
+[node name="Weeds" type="Node" parent="."]
+
+[node name="Overgrowth" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -26)
+
+[node name="Overgrowth3" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -20)
+
+[node name="Overgrowth8" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 10)
+
+[node name="Overgrowth11" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 7)
+
+[node name="Overgrowth12" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 16)
+
+[node name="Overgrowth13" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4)
+
+[node name="Overgrowth14" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 4)
+
+[node name="Overgrowth15" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+
+[node name="Overgrowth16" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -16)
+
+[node name="Overgrowth17" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 14)
+
+[node name="Overgrowth18" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 26)
+
+[node name="Overgrowth2" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -27)
+
+[node name="Overgrowth4" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9)
+
+[node name="Overgrowth5" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -24)
+
+[node name="Overgrowth6" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -20)
+
+[node name="Overgrowth7" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -20)
+
+[node name="Overgrowth9" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -23)
+
+[node name="Overgrowth10" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -13)
+
+[node name="Overgrowth41" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 19)
+
+[node name="Overgrowth42" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 13)
+
+[node name="Overgrowth43" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 21)
+
+[node name="Overgrowth44" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 10)
+
+[node name="Overgrowth20" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 5)
+
+[node name="Overgrowth21" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 9)
+
+[node name="Overgrowth22" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
+
+[node name="Overgrowth23" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 21)
+
+[node name="Overgrowth24" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 28)
+
+[node name="Overgrowth25" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 15)
+
+[node name="Overgrowth26" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 17)
+
+[node name="Overgrowth27" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 17)
+
+[node name="Overgrowth28" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 23)
+
+[node name="Overgrowth29" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 21)
+
+[node name="Overgrowth47" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 12)
+
+[node name="Overgrowth30" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 24)
+
+[node name="Overgrowth31" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 22.105988, 0, 9.122635)
+
+[node name="Overgrowth32" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 24.883646, 0, 2.6199722)
+
+[node name="Overgrowth33" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 17.881927, 0, -13.749999)
+
+[node name="Overgrowth34" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 7.7558002, 0, -3.004696)
+
+[node name="Overgrowth35" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 24.056421, 0, -5.883891)
+
+[node name="Overgrowth36" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 16.82807, 0, 5.637867)
+
+[node name="Overgrowth37" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 18.639803, 0, -1.1236134)
+
+[node name="Overgrowth38" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 14.138344, 0, -7.506156)
+
+[node name="Overgrowth39" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 20.90223, 0, -9.904192)
+
+[node name="Overgrowth40" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 11.80777, 0, 2.7920609)
+
+[node name="Overgrowth48" parent="Weeds" instance=ExtResource("9_utkfw")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 5.80777, 0, 2.7920609)
+
 [node name="Ocean" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-visible = false
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -290,6 +420,10 @@ transform = Transform3D(0.96592593, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.96
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
+[node name="BobaShop" parent="." instance=ExtResource("10_wc1lk")]
+transform = Transform3D(0.42261827, 0, 0.90630776, 0, 1, 0, -0.90630776, 0, 0.42261827, -20.1, 0, -8.5)
+metadata/_edit_lock_ = true
+
 [node name="PostProcessing" type="MeshInstance3D" parent="."]
 visible = false
 material_override = ExtResource("7_m1jft")
@@ -299,7 +433,6 @@ mesh = SubResource("QuadMesh_i4eph")
 
 [node name="DayNight" type="CanvasLayer" parent="."]
 layer = 0
-visible = false
 
 [node name="DayNightAnimator" type="AnimationPlayer" parent="DayNight"]
 root_node = NodePath("../..")
@@ -319,176 +452,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.9843137, 0.7529412, 0.22745098, 1)
 
-[node name="Weeds" type="Node" parent="."]
-
-[node name="Overgrowth" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -26)
-
-[node name="Overgrowth2" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -27)
-
-[node name="Overgrowth3" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -16)
-
-[node name="Overgrowth4" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9)
-
-[node name="Overgrowth5" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -24)
-
-[node name="Overgrowth6" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -20)
-
-[node name="Overgrowth7" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -20)
-
-[node name="Overgrowth8" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -14)
-
-[node name="Overgrowth9" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -23)
-
-[node name="Overgrowth10" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -13)
-
-[node name="Overgrowth11" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -8)
-
-[node name="Overgrowth12" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -9)
-
-[node name="Overgrowth13" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, 6)
-
-[node name="Overgrowth14" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 9)
-
-[node name="Overgrowth15" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -1)
-
-[node name="Overgrowth16" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2)
-
-[node name="Overgrowth17" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2)
-
-[node name="Overgrowth18" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 4)
-
-[node name="Overgrowth19" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 1)
-
-[node name="Overgrowth41" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 19)
-
-[node name="Overgrowth42" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 13)
-
-[node name="Overgrowth43" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 21)
-
-[node name="Overgrowth44" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7)
-
-[node name="Overgrowth20" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 5)
-
-[node name="Overgrowth21" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 11)
-
-[node name="Overgrowth22" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
-
-[node name="Overgrowth23" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 21)
-
-[node name="Overgrowth24" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 28)
-
-[node name="Overgrowth25" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 15)
-
-[node name="Overgrowth26" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 17)
-
-[node name="Overgrowth27" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 17)
-
-[node name="Overgrowth28" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 23)
-
-[node name="Overgrowth29" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 17)
-
-[node name="Overgrowth45" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -3)
-
-[node name="Overgrowth46" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 11)
-
-[node name="Overgrowth47" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 12)
-
-[node name="Overgrowth30" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 24)
-
-[node name="Overgrowth31" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 22.105988, 0, 9.122635)
-
-[node name="Overgrowth32" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 24.883646, 0, 2.6199722)
-
-[node name="Overgrowth33" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 17.881927, 0, -13.749999)
-
-[node name="Overgrowth34" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 7.7558002, 0, -3.004696)
-
-[node name="Overgrowth35" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 24.056421, 0, -5.883891)
-
-[node name="Overgrowth36" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 16.82807, 0, 5.637867)
-
-[node name="Overgrowth37" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 18.639803, 0, -1.1236134)
-
-[node name="Overgrowth38" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 14.138344, 0, -7.506156)
-
-[node name="Overgrowth39" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 24.90223, 0, -12.904192)
-
-[node name="Overgrowth40" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 11.80777, 0, 2.7920609)
-
-[node name="Overgrowth48" parent="Weeds" instance=ExtResource("9_utkfw")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 2.8077698, 0, 1.7920609)
-
 [node name="SaverLoader" parent="." node_paths=PackedStringArray("world_root", "player") groups=["SaverLoader"] instance=ExtResource("10_jksdq")]
 world_root = NodePath("..")
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_x1yw8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -13)
-
-[node name="DrinkZone3D" parent="." instance=ExtResource("10_wc1lk")]
-transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -23, 0, -5)
-
-[node name="Processor" parent="." instance=ExtResource("11_tyjbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -18)
-recipe_upgrades = ExtResource("13_0glrw")
-
-[node name="Cooker" parent="." instance=ExtResource("11_tyjbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -7)
-machine_type = 1
-recipe_upgrades = ExtResource("10_ytln1")
-
-[node name="Mixer" parent="." instance=ExtResource("11_tyjbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -12)
-machine_type = 2
-recipe_upgrades = ExtResource("13_80ijt")
-crafting_scene = ExtResource("14_x74xb")
-
-[node name="TeaCeremony" parent="." instance=ExtResource("16_80ijt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -5)

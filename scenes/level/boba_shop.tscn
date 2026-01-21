@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bae4empxna1o"]
+[gd_scene load_steps=55 format=3 uid="uid://bae4empxna1o"]
 
 [ext_resource type="ArrayMesh" uid="uid://1uf24nhkhnty" path="res://resources/meshes/boba_shop/Floor.res" id="1_uah5q"]
 [ext_resource type="Material" uid="uid://dwnh605nsdnn4" path="res://resources/materials/floor_material.material" id="2_1qbsa"]
@@ -21,10 +21,27 @@
 [ext_resource type="ArrayMesh" uid="uid://csyjja8i2jwjf" path="res://resources/meshes/boba_shop/Table.res" id="18_4nhxi"]
 [ext_resource type="ArrayMesh" uid="uid://b5cs38518yyc3" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_016.res" id="18_hq5wh"]
 [ext_resource type="ArrayMesh" uid="uid://b22xjv1plo5u3" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_017.res" id="19_s7br6"]
-[ext_resource type="ArrayMesh" uid="uid://dku3llltu4pox" path="res://resources/meshes/boba_shop/DoorOutside.res" id="21_du356"]
 [ext_resource type="ArrayMesh" uid="uid://c2vl1hwmaul5h" path="res://resources/meshes/boba_shop/Counter.res" id="22_hq5wh"]
 [ext_resource type="ArrayMesh" uid="uid://da2wf5uc0oic1" path="res://resources/meshes/boba_shop/CashRegister.res" id="23_s7br6"]
 [ext_resource type="ArrayMesh" uid="uid://1nq7uiswc3np" path="res://resources/meshes/boba_shop/Bookshelf.res" id="24_hmnru"]
+[ext_resource type="PackedScene" uid="uid://xmxetlo2tvop" path="res://scenes/prefab/set_dressing/lantern_white.tscn" id="26_rwsu5"]
+[ext_resource type="PackedScene" uid="uid://dd02uj78itvs1" path="res://scenes/prefab/set_dressing/lantern_pink.tscn" id="27_0t658"]
+[ext_resource type="ArrayMesh" uid="uid://b6v5cf0pswh04" path="res://resources/meshes/boba_shop/Shelf.res" id="28_0t658"]
+[ext_resource type="ArrayMesh" uid="uid://b20vriu2u2qkl" path="res://resources/meshes/boba_shop/Roof.res" id="30_m8b4s"]
+[ext_resource type="PackedScene" uid="uid://bhxg4sxnl4l64" path="res://scenes/prefab/set_dressing/door.tscn" id="30_ttpka"]
+[ext_resource type="ArrayMesh" uid="uid://dwjalijlv57o4" path="res://resources/meshes/boba_shop/LongWindow.res" id="31_decg2"]
+[ext_resource type="Script" uid="uid://dqdmygmjbiseu" path="res://scripts/manager/drink_zone.gd" id="32_4wiyc"]
+[ext_resource type="Shader" uid="uid://doqqx7wv7ml5w" path="res://resources/shaders/viewport_from_control.gdshader" id="33_70253"]
+[ext_resource type="PackedScene" uid="uid://dre3kgeqhjprj" path="res://scenes/prefab/tea_ceremony.tscn" id="34_4wiyc"]
+[ext_resource type="PackedScene" uid="uid://cdp4b2op1gor0" path="res://gui_comp/drink_orders.tscn" id="34_gy110"]
+[ext_resource type="PackedScene" uid="uid://516o65n4jcsn" path="res://scenes/prefab/process_machine.tscn" id="35_eeamv"]
+[ext_resource type="Resource" uid="uid://ddne8iogyrhns" path="res://resources/game_data/recipe_upgrade_groups/drink_machine_upgrades.tres" id="36_7oo2i"]
+[ext_resource type="PackedScene" uid="uid://dcsxnqd8vhk4c" path="res://scenes/prefab/gui_interface/drink_hud.tscn" id="37_iwl6g"]
+[ext_resource type="Resource" uid="uid://fnw81gfwi5n4" path="res://resources/game_data/recipe_upgrade_groups/cook_machine_upgrades.tres" id="38_8ijwx"]
+[ext_resource type="Resource" uid="uid://cfoou3oklaqqf" path="res://resources/game_data/recipe_upgrade_groups/process_machine_upgrades.tres" id="39_7oo2i"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0t658"]
+points = PackedVector3Array(0.23295313, 1.1572533, 1.7610378, 0.23295313, 1.1572533, -0.19150358, -0.37011504, 1.1572533, 1.7610378, 0.23295313, -2.3459215, 1.7610378, 0.26797783, -1.7050216, 1.6664305, 0.31534833, -1.8360134, 0.18941018, -0.37011504, 1.1572533, -0.19150358, 0.31534833, -1.8360134, 0.12385401, 0.23295313, -2.3459215, -0.19150358, -0.37011504, -2.3459215, 1.7610378, 0.31534833, -2.2252169, 0.18941018, 0.2641533, -2.2228167, 1.5785127, 0.26797783, -2.1778953, 1.6664305, -0.37011504, -2.3459215, -0.19150358, 0.31534833, -2.2252169, 0.12385401)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4nhxi"]
 points = PackedVector3Array(-0.58021784, 2.2997, 0.9896744, -6.9095845, 2.1105347, -0.86548495, -6.6796966, 0.82769996, -0.5906259, -0.5506501, 2.1105347, -0.86548495, -0.87613356, 0.82769996, 0.96382135, -6.645791, 2.270231, 0.85139996, -6.646178, 0.83578914, 0.8515, -0.87613356, 0.82769996, -0.5906259, -0.5506501, 2.3338928, -0.86548495, -6.7192593, 2.2879612, -0.80969995)
@@ -32,122 +49,176 @@ points = PackedVector3Array(-0.58021784, 2.2997, 0.9896744, -6.9095845, 2.110534
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iocvq"]
 points = PackedVector3Array(-2.3754468, 0.82769996, 1.2174908, -0.43853426, 1.9989321, 6.2749844, -0.43853426, 1.6642772, 6.2749844, -2.4467914, 1.9989321, 6.2749844, -0.43853426, 2.3338928, 1.0312023, -2.4028206, 2.2997, 1.1460149, -0.7399, 0.85027415, 6.012896, -0.7399, 0.85027415, 1.2932904, -2.3754468, 0.82769996, 6.088696, -2.4467914, 2.3338928, 3.8204262, -0.43853426, 2.3338928, 3.8204262, -0.43853426, 1.6642772, 3.4857605, -0.43853426, 2.1105347, 1.0312023)
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ygp8d"]
+points = PackedVector3Array(1.476165, 2.5140576, 1.476165, -1.476165, 2.1451252, -1.476165, -0.18556717, 2.1392584, -0.1858, -1.476165, 2.1451252, 1.476165, -1.476165, 2.514017, -1.476165, 1.476165, 2.1450846, -1.476165, 1.476165, 2.1450846, 1.476165, 1.476165, 2.5140576, -1.476165, -1.476165, 2.514017, 1.476165, 0.18556717, 2.1392584, 0.1858)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m8b4s"]
+points = PackedVector3Array(0.1858, 0.14357348, 0.1858, -1.0148635, -0.023065075, -1.0148635, -1.0148635, -0.023065075, 1.0148635, 1.0148635, -0.023065075, -1.0148635, 1.0148635, -0.023065075, 1.0148635, -1.0148635, 0.11530734, -1.0148635, -1.0148635, 0.11530734, 1.0148635, 1.0148635, 0.11530734, -1.0148635, 1.0148635, 0.11530734, 1.0148635, -0.1858, 0.14357348, -0.1858, -0.1858, 0.14357348, 0.1858, 0.1858, 0.14357348, -0.1858)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_decg2"]
+points = PackedVector3Array(0.25214717, 2.189, 0.25214717, -0.24440229, 0.1039, -0.24440229, -0.24440229, 0.1039, 0.24440229, -0.25214717, 2.189, -0.25214717, 0.24440229, 0.1039, -0.24440229, -0.25214717, 2.189, 0.25214717, 0.25214717, 2.189, -0.25214717, 0.24440229, 0.1039, 0.24440229)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_1qbsa"]
 size = Vector3(2.8, 8.400001, 2.6000001)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_du356"]
 size = Vector3(13, 8.8, 0.5)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_du356"]
-points = PackedVector3Array(-1.8068421, 3.1521723, -27.06996, -1.6451885, 4.923873, -27.315205, -0.16200733, 4.923873, -27.516293, 0, 4.9130135, -27.516293, 1.8068421, 3.1521723, -27.06996, -1.8068421, 3.1521723, -25.484322, -1.8068421, 7.418955, -27.06996, -1.6451885, 5.115577, -27.315205, -0.16200733, 5.115577, -27.516293, 0.16165364, 4.923873, -27.516293, 1.8068421, 3.1521723, -25.484322, 1.6448348, 4.923873, -27.315205, 1.8068421, 7.418955, -27.06996, -1.8068421, 7.418955, -25.484322, 0, 5.126436, -27.516293, 0.16165364, 5.115577, -27.516293, 1.8068421, 7.418955, -25.484322, 1.6448348, 5.115577, -27.315205)
-
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rwsu5"]
 points = PackedVector3Array(0.4766035, 2.6726863, 6.256959, 0.15168768, 3.8083324, 6.1098824, 0.12807745, 3.7767181, 6.156725, 0.04048717, 3.8249876, 6.156725, -0.47673586, 2.6726863, 6.256959, 0.4766035, 2.2863753, 6.256959, 0.7015735, 2.2967079, 5.394291, 0.69337726, 2.3150594, 5.4169292, 0.15168768, 3.8083324, 4.985809, 0.063975036, 3.8567562, 6.1098824, -0.5246903, 3.0656285, 6.156725, -0.5481782, 3.0340142, 6.1098824, -0.47673586, 2.2863753, 6.256959, 0.65545404, 2.2812862, 5.394291, 0.7015735, 2.2967079, 4.8519735, 0.12807745, 3.7767181, 4.9389663, 0.063975036, 3.8567562, 4.985809, 0.69337726, 2.3150594, 4.829335, 0.6590017, 2.3924758, 4.829335, 0.512447, 2.722344, 4.829335, 0.4977671, 2.755346, 4.829335, -0.5246903, 3.0656285, 4.9389663, -0.5481782, 3.0340142, 4.985809, -0.47673586, 2.2863753, 4.802426, 0.45189238, 2.2812862, 5.394291, 0.65545404, 2.2812862, 4.8519735, 0.6473801, 2.299638, 4.829335, 0.04048717, 3.8249876, 4.9389663, 0.4766035, 2.6726863, 4.802426, 0.4766035, 2.2863753, 4.802426, -0.47673586, 2.6726863, 4.802426, 0.45189238, 2.2812862, 4.8519735)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0t658"]
-points = PackedVector3Array(0.23295313, 1.1572533, 1.7610378, 0.23295313, 1.1572533, -0.19150358, -0.37011504, 1.1572533, 1.7610378, 0.23295313, -2.3459215, 1.7610378, 0.26797783, -1.7050216, 1.6664305, 0.31534833, -1.8360134, 0.18941018, -0.37011504, 1.1572533, -0.19150358, 0.31534833, -1.8360134, 0.12385401, 0.23295313, -2.3459215, -0.19150358, -0.37011504, -2.3459215, 1.7610378, 0.31534833, -2.2252169, 0.18941018, 0.2641533, -2.2228167, 1.5785127, 0.26797783, -2.1778953, 1.6664305, -0.37011504, -2.3459215, -0.19150358, 0.31534833, -2.2252169, 0.12385401)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4ym88"]
+points = PackedVector3Array(-1.1433178, 1.6657486, -0.39853904, -1.1415234, 1.7637377, -0.40540296, 1.1481553, 1.6657486, -0.39853904, -1.1433178, 1.6657486, 0.409966, -1.1433178, 5.4720488, -0.39853904, 1.1414262, 1.7637377, -0.40540296, -1.1415234, 5.376668, -0.40540296, 1.1481553, 1.6657486, 0.409966, 1.1481553, 5.4720488, -0.39853904, -1.1433178, 5.4720488, 0.409966, 1.1414262, 5.376668, -0.40540296, 1.1481553, 5.4720488, 0.409966)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sinf0"]
+size = Vector3(2.2, 0.5, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_alrdh"]
+size = Vector3(1.4, 1, 0.1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4wiyc"]
+viewport_path = NodePath("DrinkZone3D/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70253"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("33_70253")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_4wiyc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gy110"]
+material = SubResource("ShaderMaterial_70253")
+size = Vector2(1.4, 1)
+orientation = 2
 
 [node name="BobaShop" type="Node3D"]
 
-[node name="InteriorWall" type="Node3D" parent="."]
+[node name="Primary" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
-[node name="InteriorWall1" type="MeshInstance3D" parent="InteriorWall"]
+[node name="InteriorWall1" type="MeshInstance3D" parent="Primary"]
 mesh = ExtResource("15_m5j23")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("16_1qbsa")
 
-[node name="InteriorWall2" type="MeshInstance3D" parent="InteriorWall"]
+[node name="InteriorWall2" type="MeshInstance3D" parent="Primary"]
 mesh = ExtResource("17_du356")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("16_1qbsa")
 
-[node name="InteriorWall3" type="MeshInstance3D" parent="InteriorWall"]
+[node name="InteriorWall3" type="MeshInstance3D" parent="Primary"]
 mesh = ExtResource("18_hq5wh")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("16_1qbsa")
 
-[node name="InteriorWall4" type="MeshInstance3D" parent="InteriorWall"]
+[node name="InteriorWall4" type="MeshInstance3D" parent="Primary"]
 mesh = ExtResource("19_s7br6")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("16_1qbsa")
 
-[node name="Corners" type="Node3D" parent="."]
+[node name="Contrast" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="InteriorCorner1" type="MeshInstance3D" parent="Corners"]
+[node name="Bookshelf" type="MeshInstance3D" parent="Contrast"]
+transform = Transform3D(0.7660444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.7660444, -5.7526584, 1.1999999, -6.0213404)
+mesh = ExtResource("24_hmnru")
+skeleton = NodePath("../..")
+surface_material_override/8 = ExtResource("7_0nr2e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Contrast/Bookshelf"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Contrast/Bookshelf/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0t658")
+
+[node name="Roof" type="MeshInstance3D" parent="Contrast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.70000005, 0)
+mesh = ExtResource("30_m8b4s")
+skeleton = NodePath("../..")
+surface_material_override/1 = ExtResource("7_0nr2e")
+
+[node name="InteriorCorner1" type="MeshInstance3D" parent="Contrast"]
 mesh = ExtResource("13_1qbsa")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("7_0nr2e")
 
-[node name="InteriorCorner2" type="MeshInstance3D" parent="Corners"]
+[node name="InteriorCorner2" type="MeshInstance3D" parent="Contrast"]
 mesh = ExtResource("7_fp557")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("7_0nr2e")
 
-[node name="InteriorCorner3" type="MeshInstance3D" parent="Corners"]
+[node name="InteriorCorner3" type="MeshInstance3D" parent="Contrast"]
 mesh = ExtResource("8_0nr2e")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("7_0nr2e")
 
-[node name="InteriorCorner4" type="MeshInstance3D" parent="Corners"]
+[node name="InteriorCorner4" type="MeshInstance3D" parent="Contrast"]
 mesh = ExtResource("9_c8my1")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("7_0nr2e")
 
-[node name="ExteriorCorner1" type="MeshInstance3D" parent="Corners"]
+[node name="ExteriorCorner1" type="MeshInstance3D" parent="Contrast"]
 mesh = ExtResource("6_hlu8j")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("7_0nr2e")
 
-[node name="ExteriorCorner2" type="MeshInstance3D" parent="Corners"]
+[node name="ExteriorCorner2" type="MeshInstance3D" parent="Contrast"]
 mesh = ExtResource("10_06mdm")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("7_0nr2e")
 
-[node name="ExteriorCorner3" type="MeshInstance3D" parent="Corners"]
+[node name="ExteriorCorner3" type="MeshInstance3D" parent="Contrast"]
 mesh = ExtResource("11_qqrpf")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("7_0nr2e")
 
-[node name="ExteriorCorner4" type="MeshInstance3D" parent="Corners"]
+[node name="ExteriorCorner4" type="MeshInstance3D" parent="Contrast"]
 mesh = ExtResource("12_m5j23")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("7_0nr2e")
 
-[node name="FloorCounter" type="Node3D" parent="."]
+[node name="Accent" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Floor" type="MeshInstance3D" parent="FloorCounter"]
+[node name="Floor" type="MeshInstance3D" parent="Accent"]
 mesh = ExtResource("1_uah5q")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_1qbsa")
 
-[node name="Counter" type="MeshInstance3D" parent="FloorCounter"]
+[node name="Counter" type="MeshInstance3D" parent="Accent"]
 transform = Transform3D(4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 4.3711385e-08, 1.5000002, -1.2, -7.699999)
 mesh = ExtResource("22_hq5wh")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("7_0nr2e")
 surface_material_override/1 = ExtResource("2_1qbsa")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="FloorCounter/Counter"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Accent/Counter"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorCounter/Counter/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Accent/Counter/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_4nhxi")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="FloorCounter/Counter/StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Accent/Counter/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_iocvq")
 
-[node name="Table" type="MeshInstance3D" parent="FloorCounter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1.2, -3)
+[node name="Table" type="MeshInstance3D" parent="Accent"]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -2.7535899, -1.2, -2.6267948)
 mesh = ExtResource("18_4nhxi")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_1qbsa")
 surface_material_override/1 = ExtResource("7_0nr2e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Accent/Table"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Accent/Table/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ygp8d")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Accent/Table/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_m8b4s")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Accent/Table/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_decg2")
 
 [node name="Exterior" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
@@ -198,44 +269,150 @@ shape = SubResource("BoxShape3D_du356")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.7, 3, 0)
 shape = SubResource("BoxShape3D_du356")
 
-[node name="FrontWallCollisionLeft" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
+[node name="WallCollision4" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7.1)
+shape = SubResource("BoxShape3D_du356")
 
-[node name="FrontWallCollisionRight" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
+[node name="Lanterns" type="Node3D" parent="."]
 
-[node name="FrontWallCollisionTop" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
+[node name="LanternWhite" parent="Lanterns" instance=ExtResource("26_rwsu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.5, -3)
 
-[node name="DoorOutside" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.608579e-06, -3.2000003, -18.4)
-mesh = ExtResource("21_du356")
+[node name="LanternWhite2" parent="Lanterns" instance=ExtResource("26_rwsu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 2)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="DoorOutside"]
+[node name="LanternWhite3" parent="Lanterns" instance=ExtResource("26_rwsu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4.5, -4)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorOutside/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_du356")
+[node name="LanternPink" parent="Lanterns" instance=ExtResource("27_0t658")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4.1, 1)
 
-[node name="DoorInside" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.608579e-06, -3.2000003, 32.6)
-mesh = ExtResource("21_du356")
+[node name="LanternPink2" parent="Lanterns" instance=ExtResource("27_0t658")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.1, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="DoorInside"]
+[node name="LanternPink3" parent="Lanterns" instance=ExtResource("27_0t658")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.1, -2)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorInside/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_du356")
+[node name="NoColor" type="Node3D" parent="."]
 
-[node name="CashRegister" type="MeshInstance3D" parent="."]
+[node name="CashRegister" type="MeshInstance3D" parent="NoColor"]
 transform = Transform3D(-5.4639237e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.4639237e-08, -3.0749996, -0.5, -6.299999)
 mesh = ExtResource("23_s7br6")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CashRegister"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NoColor/CashRegister"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CashRegister/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoColor/CashRegister/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_rwsu5")
 
-[node name="Bookshelf" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.90630776, 0, -0.42261827, 0, 1, 0, 0.42261827, 0, 0.90630776, -5.843167, 3, -5.80957)
-mesh = ExtResource("24_hmnru")
+[node name="SeedShelf" type="MeshInstance3D" parent="NoColor"]
+transform = Transform3D(1.9470718e-07, 0, 1, 0, 1, 0, -1, 0, 1.9470718e-07, -7.0339756, -1.6, 4.467949)
+mesh = ExtResource("28_0t658")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bookshelf"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NoColor/SeedShelf"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bookshelf/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_0t658")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoColor/SeedShelf/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_4ym88")
+
+[node name="SupplyShelf" type="MeshInstance3D" parent="NoColor"]
+transform = Transform3D(1.9470718e-07, 0, 1, 0, 1, 0, -1, 0, 1.9470718e-07, -7.033975, -1.6, 1.9679486)
+mesh = ExtResource("28_0t658")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NoColor/SupplyShelf"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoColor/SupplyShelf/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_4ym88")
+
+[node name="StorageShelf" type="MeshInstance3D" parent="NoColor"]
+transform = Transform3D(-1, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -1, -4.833976, -1.6, 6.467949)
+mesh = ExtResource("28_0t658")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NoColor/StorageShelf"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoColor/StorageShelf/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_4ym88")
+
+[node name="LongWindow" type="MeshInstance3D" parent="NoColor"]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, 2.2499988, 1.2, 2.4499989)
+mesh = ExtResource("31_decg2")
+skeleton = NodePath("../..")
+
+[node name="DoorInside" parent="NoColor" instance=ExtResource("30_ttpka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.608579e-06, -3.2000003, 32.6)
+skeleton = NodePath("../..")
+
+[node name="DoorOutside" parent="NoColor" instance=ExtResource("30_ttpka")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.067141e-06, -3.2000003, -18.400002)
+skeleton = NodePath("../..")
+
+[node name="DrinkZone3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.809017, 0.58778524, 0, -0.58778524, 0.809017, 3.9, 2.6985164, -5.1475663)
+script = ExtResource("32_4wiyc")
+
+[node name="PickupZone" type="Area3D" parent="DrinkZone3D"]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, -0.57357645, 0, 0.57357645, 0.81915206, 2.5000002, 0.37711596, -1.9333348)
+collision_layer = 32
+collision_mask = 32
+input_ray_pickable = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DrinkZone3D/PickupZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25000012, 0.8000002)
+shape = SubResource("BoxShape3D_sinf0")
+
+[node name="Screen" type="StaticBody3D" parent="DrinkZone3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030502317, 1.4, -0.027876517)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DrinkZone3D/Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010986328, -1.9073486e-06, 0.049999714)
+shape = SubResource("BoxShape3D_alrdh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DrinkZone3D/Screen"]
+transform = Transform3D(1, 0, 0, 0, 0.9999254, 0.012217001, 0, -0.012217001, 0.9999254, 0, 0, -0.007)
+mesh = SubResource("PlaneMesh_gy110")
+
+[node name="SubViewport" type="SubViewport" parent="DrinkZone3D"]
+gui_embed_subwindows = true
+size = Vector2i(717, 512)
+size_2d_override = Vector2i(717, 512)
+render_target_update_mode = 4
+
+[node name="DrinkOrders" parent="DrinkZone3D/SubViewport" instance=ExtResource("34_gy110")]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -358.5
+offset_top = -256.0
+offset_right = 358.5
+offset_bottom = 256.0
+
+[node name="TeaCeremony" parent="." instance=ExtResource("34_4wiyc")]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -2.956, 2.41, -2.016)
+
+[node name="DrinkMixer" parent="." instance=ExtResource("35_eeamv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.536684, 2.266161, -4.7854967)
+machine_type = 2
+recipe_upgrades = ExtResource("36_7oo2i")
+crafting_scene = ExtResource("37_iwl6g")
+
+[node name="Cooker" parent="." instance=ExtResource("35_eeamv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.536684, 2.266161, -2.5112996)
+machine_type = 1
+recipe_upgrades = ExtResource("38_8ijwx")
+
+[node name="Processer" parent="." instance=ExtResource("35_eeamv")]
+transform = Transform3D(1.625795, 0, 1.1648135, 0, 2, 0, -1.1648135, 0, 1.625795, 6.023893, 0, 5.087975)
+recipe_upgrades = ExtResource("39_7oo2i")
+
+[connection signal="body_entered" from="DrinkZone3D/PickupZone" to="DrinkZone3D" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="DrinkZone3D/PickupZone" to="DrinkZone3D" method="_on_area_3d_body_exited"]
+[connection signal="drink_ordered" from="DrinkZone3D/SubViewport/DrinkOrders" to="DrinkZone3D" method="_on_drink_orders_drink_ordered"]
+[connection signal="drink_served" from="DrinkZone3D/SubViewport/DrinkOrders" to="DrinkZone3D" method="_on_drink_orders_drink_served"]
