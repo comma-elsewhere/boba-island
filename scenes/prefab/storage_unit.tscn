@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctpynxvobxcd3"]
+[gd_scene load_steps=5 format=3 uid="uid://ctpynxvobxcd3"]
 
 [ext_resource type="ArrayMesh" uid="uid://bdl1lbc2ucxg4" path="res://resources/meshes/boba_shop/Crate.res" id="1_mmytf"]
 [ext_resource type="Script" uid="uid://dihxk5suwyd5k" path="res://scripts/utility/storage_unit.gd" id="1_q66w6"]
 [ext_resource type="PackedScene" uid="uid://c50xg2v4jhejc" path="res://scenes/prefab/gui_interface/inventory_hud.tscn" id="2_1ne5r"]
-[ext_resource type="PackedScene" uid="uid://kgbgqvlrgm7l" path="res://gui_comp/slot_item.tscn" id="4_o07cj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mmytf"]
 size = Vector3(2.2, 1.25, 2)
@@ -41,9 +40,6 @@ grow_vertical = 2
 [node name="InventoryHUD" parent="CanvasLayer/Control" instance=ExtResource("2_1ne5r")]
 unique_name_in_owner = true
 layout_mode = 1
-
-[node name="InventoryGrid" parent="CanvasLayer/Control/InventoryHUD" index="0"]
-inventory_item = ExtResource("4_o07cj")
 
 [connection signal="return_item" from="CanvasLayer/Control/InventoryHUD/InventoryGrid" to="." method="_on_inventory_grid_return_item"]
 

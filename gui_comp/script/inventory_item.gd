@@ -38,7 +38,7 @@ func _on_gui_input(event: InputEvent) -> void:
 					_return_to_inventory()
 
 func _return_to_inventory():
-	return_item.emit()
+	return_item.emit(item_data)
 	
 	if item_data.amount <= 1:
 		_clear_display()
@@ -98,7 +98,7 @@ func _pick_item(item: Item) -> void:
 func _make_item_draggable(item: Item) -> void:
 	var new_draggable = DragItem.new()
 	new_draggable.item_data = item
-	get_tree().root.add_child(new_draggable)
+	get_parent().get_parent().add_child(new_draggable)
 	
 	
 func _clear_display() -> void:

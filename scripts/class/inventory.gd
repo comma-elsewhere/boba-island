@@ -1,13 +1,21 @@
 class_name Inventory
 
 var _contents: Array[Item] = []
+var _size: int
 
-func add_item(item: Item) -> void:
+func init_with_empty(size: int) -> void:
+	_size = size
+	_contents.resize(size)
+
+func add_item(item: Item) -> bool:
 	var new_item = item.duplicate()
 	if !_contents.is_empty():
-		_stack(new_item)
+		if _stack(new_item):
+			return true
 	else:
-		_add_to_empty(new_item)
+		if _add_to_empty(new_item):
+			return true
+	return false
 	
 	# If inventory is full it spits back the last thing you put in it after it tries to stack
 	#if _contents.size() > 24: # REPLACE WITH GLOBAL VAR
@@ -59,7 +67,7 @@ func _stack(new_item: Item) -> bool:
 	return false
 
 func _add_to_empty(item: Item) -> bool:
-	for i in range(18):
+	for i in range(_size):
 		if _contents[i] == null:
 			_contents[i] = item
 			return true

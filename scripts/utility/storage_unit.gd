@@ -8,6 +8,7 @@ var _storage_inventory: Inventory
 func _ready() -> void:
 	$CanvasLayer.hide()
 	_storage_inventory = Inventory.new()
+	_storage_inventory.init_with_empty(inventory_hud.inventory_size)
 	player.hud.slot_selected.connect(_store_item)
 
 func init_gui_scene() -> void:
@@ -22,10 +23,10 @@ func _store_item(item: Item) -> void:
 	if item == null:
 		return
 	else:
-		_storage_inventory.add_item(item)
-		player.hud.erase_selected()
-		print(_storage_inventory.get_items())
-		inventory_hud.update_display(_storage_inventory)
+		if _storage_inventory.add_item(item):
+			player.hud.erase_selected()
+			print(_storage_inventory.get_items())
+			inventory_hud.update_display(_storage_inventory)
 	
 func _on_inventory_grid_return_item(item: Item) -> void:
 	_storage_inventory.remove_item(item)

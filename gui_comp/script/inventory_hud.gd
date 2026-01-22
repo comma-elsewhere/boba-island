@@ -2,7 +2,7 @@ extends PanelContainer
 
 @onready var inventory_grid: InventoryGrid = %InventoryGrid
 
-var inventory_size: int = 24 # Can be set to global var for upgradeable-ness
+var inventory_size: int = 18 # Can be set to global var for upgradeable-ness
 var complete_inventory: Array[Item] = []
 
 
@@ -19,8 +19,8 @@ func open(inventory: Inventory) -> void:
 func close() -> Array[Item]:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	for i in len(complete_inventory):
-		complete_inventory.erase(null)
+	#for i in len(complete_inventory):
+		#complete_inventory.erase(null)
 	
 	return complete_inventory
 

@@ -460,9 +460,6 @@ item_data = ExtResource("47_hdofh")
 [node name="StorageUnit" parent="StorageAndDispensers" instance=ExtResource("48_hdofh")]
 transform = Transform3D(-1.5298985e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5298985e-08, -4.41, 1.9399999, 6.55)
 
-[node name="StorageUnit2" parent="StorageAndDispensers" instance=ExtResource("48_hdofh")]
-transform = Transform3D(-1.5298985e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5298985e-08, -5.285, 1.9399999, 6.55)
-
 [connection signal="body_entered" from="DrinkZone3D/PickupZone" to="DrinkZone3D" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="DrinkZone3D/PickupZone" to="DrinkZone3D" method="_on_area_3d_body_exited"]
 [connection signal="drink_ordered" from="DrinkZone3D/SubViewport/DrinkOrders" to="DrinkZone3D" method="_on_drink_orders_drink_ordered"]
