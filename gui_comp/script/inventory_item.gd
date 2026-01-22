@@ -1,5 +1,7 @@
 extends SlotItem
 
+signal return_item(item: Item)
+
 signal item_taken(idx: int)
 signal item_placed(item: Item, idx: int)
 
@@ -33,8 +35,17 @@ func _on_gui_input(event: InputEvent) -> void:
 					_stack_one(held_item, item_data)
 			else:
 				if item_data:
-					_split()
+					_return_to_inventory()
 
+func _return_to_inventory():
+	return_item.emit()
+	
+	if item_data.amount <= 1:
+		_clear_display()
+		item_taken.emit(index)
+	else:
+		item_data.amount -= 1
+		_update_amount_label()
 
 func _stack_one(held_item: DragItem, current_item: Item) -> void:
 	var sum_amount = held_item.item_data.amount + 1

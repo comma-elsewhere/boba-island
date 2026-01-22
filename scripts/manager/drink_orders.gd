@@ -123,7 +123,7 @@ func _pick_rand_drink() -> Recipe:
 	else:
 		flavor = _unlocked_milk_tea.pick_random() -1
 	rand_drink.result[0].set_tea_flavor(flavor)
-	return rand_drink
+	return rand_drink.duplicate()
 
 func _set_tourist_odds() -> void:
 	var new_odds: int = tourist_odds.size() + tourist_ratio

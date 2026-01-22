@@ -13,4 +13,5 @@ crop_data = ExtResource("1_drlg2")
 name = "Sugar Cane Cutting"
 icon = ExtResource("3_amx1h")
 mesh = ExtResource("5_amx1h")
+stack_limit = 9
 metadata/_custom_type_script = "uid://bsoorundtclwe"

@@ -97,7 +97,7 @@ func _restart() -> void:
 
 func _complete() -> void:
 	var player: Player = get_tree().get_first_node_in_group("Player") as Player
-	player.hud.add_item(current_tea)
+	player.hud.add_item(current_tea.duplicate())
 	get_tree().call_group("GUI_Event", "close")
 
 func _abort() -> void:

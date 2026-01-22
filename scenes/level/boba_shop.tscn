@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bae4empxna1o"]
+[gd_scene load_steps=62 format=3 uid="uid://bae4empxna1o"]
 
 [ext_resource type="ArrayMesh" uid="uid://1uf24nhkhnty" path="res://resources/meshes/boba_shop/Floor.res" id="1_uah5q"]
 [ext_resource type="Material" uid="uid://dwnh605nsdnn4" path="res://resources/materials/floor_material.material" id="2_1qbsa"]
@@ -47,6 +47,7 @@
 [ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="45_3np5k"]
 [ext_resource type="Resource" uid="uid://chedclappraxa" path="res://resources/game_data/crops/seeds/taro_seed.tres" id="45_tm8hb"]
 [ext_resource type="Resource" uid="uid://dv3sjdeuv8x4p" path="res://resources/game_data/crops/seeds/strawberry_seed.tres" id="47_hdofh"]
+[ext_resource type="PackedScene" uid="uid://ctpynxvobxcd3" path="res://scenes/prefab/storage_unit.tscn" id="48_hdofh"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0t658"]
 points = PackedVector3Array(0.23295313, 1.1572533, 1.7610378, 0.23295313, 1.1572533, -0.19150358, -0.37011504, 1.1572533, 1.7610378, 0.23295313, -2.3459215, 1.7610378, 0.26797783, -1.7050216, 1.6664305, 0.31534833, -1.8360134, 0.18941018, -0.37011504, 1.1572533, -0.19150358, 0.31534833, -1.8360134, 0.12385401, 0.23295313, -2.3459215, -0.19150358, -0.37011504, -2.3459215, 1.7610378, 0.31534833, -2.2252169, 0.18941018, 0.2641533, -2.2228167, 1.5785127, 0.26797783, -2.1778953, 1.6664305, -0.37011504, -2.3459215, -0.19150358, 0.31534833, -2.2252169, 0.12385401)
@@ -455,6 +456,12 @@ item_data = ExtResource("45_tm8hb")
 [node name="StrawberrySeed" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 0.25, 4.08)
 item_data = ExtResource("47_hdofh")
+
+[node name="StorageUnit" parent="StorageAndDispensers" instance=ExtResource("48_hdofh")]
+transform = Transform3D(-1.5298985e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5298985e-08, -4.41, 1.9399999, 6.55)
+
+[node name="StorageUnit2" parent="StorageAndDispensers" instance=ExtResource("48_hdofh")]
+transform = Transform3D(-1.5298985e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5298985e-08, -5.285, 1.9399999, 6.55)
 
 [connection signal="body_entered" from="DrinkZone3D/PickupZone" to="DrinkZone3D" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="DrinkZone3D/PickupZone" to="DrinkZone3D" method="_on_area_3d_body_exited"]

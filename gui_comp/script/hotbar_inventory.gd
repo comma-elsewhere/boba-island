@@ -1,5 +1,7 @@
 class_name PlayerHUD extends Node3D
 
+signal slot_selected(slot_item: Item)
+
 @export var fill: Array[Item] = []
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
@@ -141,6 +143,7 @@ func _update_display(index: int) -> void:
 func _on_hotbar_container_slot_selected(index: int) -> void:
 	selected_slot = clamp(index, 0, Dynamic.inventory_space - 1)
 	_update_display(selected_slot)
+	slot_selected.emit(hotbar_array[selected_slot])
 
 func _create_hotbar_button(keybind: int) -> void:
 	var new_button = HotbarButton.new()
