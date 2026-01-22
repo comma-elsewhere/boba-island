@@ -18,48 +18,75 @@ grow_vertical = 2
 script = ExtResource("1_nubm1")
 crafting_item = ExtResource("2_7jus8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Crafting!"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Recipes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Recipes" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="RecipeTitle" type="Label" parent="VBoxContainer/HBoxContainer/Recipes"]
+[node name="RecipeTitle" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Recipes"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Recipes"
 horizontal_alignment = 1
 
-[node name="RecipeList" type="ItemList" parent="VBoxContainer/HBoxContainer/Recipes"]
+[node name="RecipeList" type="ItemList" parent="MarginContainer/VBoxContainer/HBoxContainer/Recipes"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 allow_reselect = true
 
-[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="IngredientsContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("3_jmc1r")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Static" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Ingredients Needed"
+
+[node name="IngredientsContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_jmc1r")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 6
 
-[node name="ResultsContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("3_jmc1r")]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Static" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Results"
+
+[node name="ResultsContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("3_jmc1r")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -67,19 +94,20 @@ size_flags_vertical = 3
 mouse_filter = 2
 columns = 6
 
-[node name="BottomText" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="BottomText" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="CraftingButton" type="Button" parent="VBoxContainer/HBoxContainer/HBoxContainer/BottomText"]
+[node name="CraftingButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/BottomText"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 60)
+custom_minimum_size = Vector2(200, 120)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_vq8b6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vq8b6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vq8b6")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_3t70w")
-text = "Craft!"
+text = "Create!"

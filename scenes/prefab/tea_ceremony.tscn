@@ -433,7 +433,7 @@ mesh = ExtResource("5_mmnsu")
 script = ExtResource("6_mmnsu")
 
 [node name="GaiwanLid" type="MeshInstance3D" parent="TeaSet"]
-transform = Transform3D(0.495134, 0.0695865, 4.897948e-10, -0.06954417, 0.49483198, 0.017449746, 0.0024285354, -0.017279916, 0.49969533, 0.1, -0.90000004, -0.7)
+transform = Transform3D(0.495134, 0.0695865, 4.897948e-10, -0.06954417, 0.49483195, 0.017449746, 0.0024285354, -0.017279916, 0.49969533, 0.1, -0.90000004, -0.7)
 mesh = ExtResource("6_ke5ej")
 
 [node name="TeapotLid" type="MeshInstance3D" parent="TeaSet"]

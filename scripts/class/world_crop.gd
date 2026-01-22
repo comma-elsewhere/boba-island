@@ -5,7 +5,7 @@ class_name WorldCrop extends Node3D
 @onready var water_bar: TextureProgressBar = %WaterBar
 @onready var grow_time: Label = %GrowTime
 @onready var canvas_modulate: CanvasModulate = %CanvasModulate
-@onready var gui_3d_visualizer: MeshInstance3D = %GUI_3DVisualizer
+@onready var water_visualizer: StaticBody3D = %WaterVisualizer
 @onready var bt_player: BTPlayer = $BTPlayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -52,8 +52,8 @@ func allow_harvest() -> void:
 	crop_state = STATE.CAN_HARVEST
 	if bt_player:
 		bt_player.call_deferred("queue_free")
-	if gui_3d_visualizer:
-		gui_3d_visualizer.call_deferred("queue_free")
+	if water_visualizer:
+		water_visualizer.call_deferred("queue_free")
 	
 	static_body.set_collision_mask_value(3, true)
 	static_body.set_collision_layer_value(3, true)
@@ -79,8 +79,10 @@ func _spawn_with_static_body(packed_scene) -> void:
 	physical_crop = packed_scene.instantiate() as Node3D
 	var mesh_instance = Kinetic.find_first_mesh_instance(physical_crop)
 	static_body = Kinetic.mesh_to_static_body(mesh_instance, self)
-	static_body.add_child(physical_crop)
-	static_body.get_child(0).global_position = mesh_instance.global_position
+	add_child(physical_crop)
+	static_body.scale = mesh_instance.scale
+	static_body.global_position = mesh_instance.global_position
+	physical_crop.reparent(static_body)
 
 func _encounter_success(success: bool) -> void:
 	if success:

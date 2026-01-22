@@ -66,8 +66,12 @@ func start_ceremony() -> void:
 	limbo_hsm.set_active(true)
 	
 func finish_ceremony() -> void:
-	var time = (BREW - brew_timer.time_left) * 10
-	var temp = heat_slider.value / 2.5
+	var time = (BREW - brew_timer.time_left) / BREW * 100.0
+	var temp = heat_slider.value / HEAT * 100.0
+	print(current_tea.perfect_time)
+	print(time)
+	print(current_tea.perfect_temp)
+	print(temp)
 	var results = current_tea.set_quality(temp, time)
 	_display_results(results, current_tea.quality)
 
@@ -114,4 +118,5 @@ func _setup() -> void:
 	brew_timer.start(BREW)
 	brew_timer.paused = true
 	heat_slider.value = heat_slider.min_value
+	heat_slider.max_value = HEAT
 	
