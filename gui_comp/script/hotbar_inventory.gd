@@ -14,7 +14,7 @@ const MAIN_MENU := "res://scenes/level/main_menu.tscn"
 
 const OFFSET := Vector3(0.5, -0.2, -1.0)
 
-var inventory: Inventory
+var inventory: InventoryCraft
 var hotbar_array: Array[Item]
 var selected_slot: int = 0
 var gui_open: bool = false
@@ -24,7 +24,7 @@ func _ready() -> void:
 	library_interface.hide()
 	pause_menu.quit_game.connect(quit_game)
 	view_model.position = OFFSET
-	inventory = Inventory.new()
+	inventory = InventoryCraft.new()
 	
 	for item in fill:
 		add_item(item)
@@ -60,13 +60,13 @@ func plant_crop(pos: Vector3) -> bool:
 	else: 
 		return false
 	
-func get_inventory() -> Inventory:
+func get_inventory() -> InventoryCraft:
 	inventory.clear_all()
 	for item in hotbar_array:
 		inventory.add_item(item)
 	return inventory
 	
-func return_items(resultant: Inventory) -> void:
+func return_items(resultant: InventoryCraft) -> void:
 	if resultant != null:
 		hotbar_array.clear()
 		for item in resultant.get_items():
@@ -95,15 +95,15 @@ func erase_selected() -> void:
 		hotbar_array[selected_slot] = null
 		_update_display(selected_slot)
 	
-func drop_item(drop_position: Vector3) -> void:
+func drop_item(_drop_position: Vector3) -> void:
 	var dropped_item = hotbar_array[selected_slot]
 	if dropped_item != null:
-		_spawn_item(dropped_item, drop_position)
+		_spawn_item(dropped_item)
 		hotbar_array[selected_slot] = null
 		_update_display(selected_slot)
 	
 func reject_item(item: Item) -> void:
-	_spawn_item(item, view_model.global_position)
+	_spawn_item(item)
 	
 func quit_game() -> void:
 	get_tree().change_scene_to_file(MAIN_MENU)
@@ -129,16 +129,16 @@ func mutant_encounter(active: bool) -> void:
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-func _spawn_item(item: Item, spawn_position: Vector3) -> void:
+func _spawn_item(item: Item) -> void:
 	var interactable = item.interactable.instantiate()
 	interactable.set_data(item)
 	get_tree().current_scene.add_child(interactable)
-	interactable.global_position = spawn_position
+	interactable.global_position = get_tree().get_first_node_in_group("Player").csg_spawner.global_position
 	
 func _update_display(index: int) -> void:
 	hotbar_display.update_hotbar(hotbar_array)
 	hotbar_display.highlight_slot(index)
-	#view_model.update_held_item(hotbar_array[index])
+	view_model.update_held_item(hotbar_array[index])
 	
 func _on_hotbar_container_slot_selected(index: int) -> void:
 	selected_slot = clamp(index, 0, Dynamic.inventory_space - 1)

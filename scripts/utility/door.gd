@@ -5,3 +5,4 @@ extends MeshInstance3D
 
 func on_click() -> void:
 	player.global_position = marker_3d.global_position
+	$DoorSound.play(0.07)

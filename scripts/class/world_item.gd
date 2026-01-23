@@ -17,12 +17,18 @@ func _spawn_item_with_collision(packed_scene) -> Node3D:
 	var instantiated_scene = packed_scene.instantiate()
 	var mesh_instance = Kinetic.find_first_mesh_instance(instantiated_scene)
 	if Kinetic.mesh_to_collision(mesh_instance, self):
-
-		self.add_child(instantiated_scene)
-		self.set_collision_mask_value(5,true) # collides with dirt
-		self.set_collision_layer_value(4, true) # pickup by racyast
+		
+		scale = mesh_instance.scale
+		add_child(instantiated_scene)
+		mesh_instance.global_position = Vector3.ZERO
+		mesh_instance.scale = Vector3.ONE
+		set_collision_layer_value(1, true)
+		set_collision_mask_value(1, true)
+		set_collision_mask_value(5,true) # collides with dirt
+		set_collision_layer_value(4, true) # pickup by racyast
+		set_collision_mask_value(4, true)
 		if item_data.has_method("get_drink_name"):
-			self.set_collision_layer_value(6, true) # detected by drinkzone area
+			set_collision_layer_value(6, true) # detected by drinkzone area
 			
 		return instantiated_scene
 	return null

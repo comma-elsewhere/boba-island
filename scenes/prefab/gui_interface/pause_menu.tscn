@@ -60,6 +60,7 @@ text = "Options"
 
 [node name="SaveButton" type="Button" parent="PauseMenu"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Save Game"

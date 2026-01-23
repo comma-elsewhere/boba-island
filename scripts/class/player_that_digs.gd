@@ -56,7 +56,7 @@ func _input(event: InputEvent) -> void:
 						pointer.get_collider().get_parent().cam_switch.connect(_cam_switch.bind(2))
 					_cam_switch(1)
 					pointer.get_collider().get_parent().start_ceremony()
-				if pointer.get_collider().has_method("pickup"):
+				elif pointer.get_collider().has_method("pickup"):
 					var new_item = pointer.get_collider().pickup()
 					_add_to_inventory(new_item)
 				elif pointer.get_collider().get_parent().has_method("pickup_array"):
@@ -73,8 +73,10 @@ func _input(event: InputEvent) -> void:
 			
 			else:
 				var new_item = _harvest()
-				for i in range(Dynamic.crop_yield):
-					_add_to_inventory(new_item)
+				if new_item != null:
+					for i in range(Dynamic.crop_yield):
+						_add_to_inventory(new_item)
+						Dynamic.crops_harvested += 1
 					
 				
 		if event.is_action_pressed("drop"):
@@ -198,11 +200,11 @@ func _harvest() -> Crop:
 	return null
 
 func _add_to_inventory(new_item: Item) -> void:
-	if new_item != null:
+	if new_item == null:
+		return
+	else:
 		if !hud.add_item(new_item):
 			hud.reject_item(new_item)
-	else:
-		return
 
 func _cam_switch(layer: int) -> void:
 	phantom_camera_host.set_host_layers(layer)

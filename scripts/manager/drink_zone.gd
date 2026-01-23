@@ -26,15 +26,16 @@ func _check_drinks() -> void:
 
 func _erase_drink(drink: Drink) -> void:
 	var index = drinks_in_area.find(drink)
-	drink_bodies.pop_at(index).call_deferred("queue_free")
-	drinks_in_area.remove_at(index)
+	if index >= 0:
+		drink_bodies.pop_at(index).call_deferred("queue_free")
+		drinks_in_area.remove_at(index)
 
 func _calc_paid() -> int:
 	return int(Dynamic.base_price * ordered_drink.price_multiplier)
 	
 func _calc_tipped() -> int:
 	var tip: float
-	if served_drink.tea_flavor == ordered_drink.tea_flavor:
+	if served_drink.tea_flavor == Dynamic.tea_flavor:
 		tip = Dynamic.starting_tip * served_drink.quality
 	#elif served_drink.tea_type == ordered_drink.tea_type:
 		#tip = Dynamic.starting_tip * served_drink.quality /2

@@ -6,22 +6,6 @@ var _size: int
 func init_with_empty(size: int) -> void:
 	_size = size
 	_contents.resize(size)
-
-func add_item(item: Item) -> bool:
-	var new_item = item.duplicate()
-	if !_contents.is_empty():
-		if _stack(new_item):
-			return true
-	else:
-		if _add_to_empty(new_item):
-			return true
-	return false
-	
-	# If inventory is full it spits back the last thing you put in it after it tries to stack
-	#if _contents.size() > 24: # REPLACE WITH GLOBAL VAR
-		#return _contents.pop_back()
-	#else:
-		#return null
 	
 func remove_item(item: Item) -> void:
 	_contents.erase(item)
@@ -34,10 +18,20 @@ func clear_all() -> void:
 	_contents = []
 	
 func has_all(items: Array[Item]) -> bool:
-	var needed: Array[Item] = items.duplicate()
+	var needed: Array[String] = []
+	var available: Array[String] = []
 	
-	for available in _contents:
-		needed.erase(available)
+	for i in _contents:
+		available.append(i.name)
+		
+	for i in items:
+		needed.append(i.name)
+		
+	for item_available in available:
+		needed.erase(item_available)
+		
+	print(available)
+	print(needed)
 		
 	return needed.is_empty()
 	

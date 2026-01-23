@@ -1,5 +1,7 @@
 extends Control
 
+signal save_game
+
 @onready var crop_numbers: Label = %CropNumbers
 @onready var order_numbers: Label = %OrderNumbers
 @onready var order_money: Label = %OrderMoney
@@ -8,25 +10,30 @@ extends Control
 @onready var pay_button: Button = %PayButton
 @onready var payment_options: OptionButton = %PaymentOptions
 @onready var debt_progress: DebtProgress = %DebtProgress
+@onready var finish_button: Button = %FinishButton
+
 
 var _selected_payment: int = 0
 
 var debt_paid: bool = false
 
 func _ready() -> void:
-	_set_labels()
 	pay_button.button_up.connect(_pay_debt)
 	payment_options.item_selected.connect(_select_payment)
 	debt_progress.debt_paid.connect(_debt_paid)
+	finish_button.button_up.connect(_save_and_finish)
 
-func _set_labels() -> void:
+func set_labels() -> void:
 	crop_numbers.text = str(Dynamic.crops_harvested)
 	order_numbers.text = str(Dynamic.orders_filled)
 	order_money.text = Kinetic.display_money(Dynamic.today_earned)
 	tip_money.text = Kinetic.display_money(Dynamic.tips_earned)
-	
-	Dynamic.total_money += Dynamic.today_earned + Dynamic.tips_earned
 	_update_money()
+	
+func _save_and_finish() -> void:
+	get_tree().call_group("SaverLoader", "save_game")
+	_reset_globals()
+	save_game.emit()
 	
 func _update_money() -> void:	
 	total_money.text = Kinetic.display_money(Dynamic.total_money)

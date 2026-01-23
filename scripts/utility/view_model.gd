@@ -16,5 +16,5 @@ func _show_item(item_data: Item) -> void:
 
 func update_held_item(new_item: Item) -> void:
 	_clear_item()
-	if new_item != null:
+	if new_item != null and new_item.mesh != null:
 		_show_item(new_item)

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://t2umiaj41a6d"]
+
+[ext_resource type="Script" uid="uid://bk3r8g25wy7a6" path="res://scripts/utility/save_bookshelf.gd" id="1_0tfk1"]
+[ext_resource type="ArrayMesh" uid="uid://1nq7uiswc3np" path="res://resources/meshes/boba_shop/Bookshelf.res" id="1_t2jxi"]
+[ext_resource type="Material" uid="uid://dl1aqd7kxxn72" path="res://resources/materials/building_contrast.material" id="2_0tfk1"]
+[ext_resource type="PackedScene" uid="uid://bho636j158u2y" path="res://gui_comp/end_day.tscn" id="4_c7it2"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0t658"]
+points = PackedVector3Array(0.23295313, 1.1572533, 1.7610378, 0.23295313, 1.1572533, -0.19150358, -0.37011504, 1.1572533, 1.7610378, 0.23295313, -2.3459215, 1.7610378, 0.26797783, -1.7050216, 1.6664305, 0.31534833, -1.8360134, 0.18941018, -0.37011504, 1.1572533, -0.19150358, 0.31534833, -1.8360134, 0.12385401, 0.23295313, -2.3459215, -0.19150358, -0.37011504, -2.3459215, 1.7610378, 0.31534833, -2.2252169, 0.18941018, 0.2641533, -2.2228167, 1.5785127, 0.26797783, -2.1778953, 1.6664305, -0.37011504, -2.3459215, -0.19150358, 0.31534833, -2.2252169, 0.12385401)
+
+[node name="SaveShelf" type="StaticBody3D"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_0tfk1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_0t658")
+
+[node name="Bookshelf" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("1_t2jxi")
+skeleton = NodePath("../..")
+surface_material_override/8 = ExtResource("2_0tfk1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 6
+
+[node name="EndDay" parent="CanvasLayer" instance=ExtResource("4_c7it2")]
+unique_name_in_owner = true
+metadata/_edit_use_anchors_ = true

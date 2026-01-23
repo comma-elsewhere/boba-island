@@ -46,6 +46,9 @@ func _ready() -> void:
 	next_dialogue_button.button_up.connect(continue_dialogue)
 		
 func finish_order(paid: int, tipped: int) -> void:
+	Dynamic.orders_filled += 1
+	Dynamic.today_earned += paid
+	Dynamic.tips_earned += tipped
 	Dynamic.total_money += paid + tipped
 	awaiting_customer = true
 	next_dialogue_button.disabled = false
@@ -93,7 +96,6 @@ func continue_dialogue() -> void:
 		
 	if current_dialogue.is_empty():
 		next_dialogue_button.disabled = true
-		
 	
 func serve_drink() -> void:
 	drink_served.emit()
@@ -123,6 +125,7 @@ func _pick_rand_drink() -> Recipe:
 	else:
 		flavor = _unlocked_milk_tea.pick_random() -1
 	rand_drink.result[0].set_tea_flavor(flavor)
+	Dynamic.tea_flavor = flavor
 	return rand_drink.duplicate()
 
 func _set_tourist_odds() -> void:

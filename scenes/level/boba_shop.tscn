@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bae4empxna1o"]
+[gd_scene load_steps=61 format=3 uid="uid://bae4empxna1o"]
 
 [ext_resource type="ArrayMesh" uid="uid://1uf24nhkhnty" path="res://resources/meshes/boba_shop/Floor.res" id="1_uah5q"]
 [ext_resource type="Material" uid="uid://dwnh605nsdnn4" path="res://resources/materials/floor_material.material" id="2_1qbsa"]
@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cisjk8s5hr3g" path="res://resources/meshes/boba_shop/WallFront.res" id="3_xaiee"]
 [ext_resource type="ArrayMesh" uid="uid://d181v30s7mtcc" path="res://resources/meshes/boba_shop/WallLeft.res" id="4_0esjs"]
 [ext_resource type="ArrayMesh" uid="uid://dnb6axf1gsi5f" path="res://resources/meshes/boba_shop/WallRight.res" id="5_wnjol"]
+[ext_resource type="PackedScene" uid="uid://t2umiaj41a6d" path="res://scenes/prefab/save_bookshelf.tscn" id="6_hdofh"]
 [ext_resource type="ArrayMesh" uid="uid://md8pptc0s8m3" path="res://resources/meshes/boba_shop/ExteriorCorner.res" id="6_hlu8j"]
 [ext_resource type="Material" uid="uid://dl1aqd7kxxn72" path="res://resources/materials/building_contrast.material" id="7_0nr2e"]
 [ext_resource type="ArrayMesh" uid="uid://ltdee7hrijfm" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_032.res" id="7_fp557"]
@@ -23,7 +24,6 @@
 [ext_resource type="ArrayMesh" uid="uid://b22xjv1plo5u3" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_017.res" id="19_s7br6"]
 [ext_resource type="ArrayMesh" uid="uid://c2vl1hwmaul5h" path="res://resources/meshes/boba_shop/Counter.res" id="22_hq5wh"]
 [ext_resource type="ArrayMesh" uid="uid://da2wf5uc0oic1" path="res://resources/meshes/boba_shop/CashRegister.res" id="23_s7br6"]
-[ext_resource type="ArrayMesh" uid="uid://1nq7uiswc3np" path="res://resources/meshes/boba_shop/Bookshelf.res" id="24_hmnru"]
 [ext_resource type="PackedScene" uid="uid://xmxetlo2tvop" path="res://scenes/prefab/set_dressing/lantern_white.tscn" id="26_rwsu5"]
 [ext_resource type="PackedScene" uid="uid://dd02uj78itvs1" path="res://scenes/prefab/set_dressing/lantern_pink.tscn" id="27_0t658"]
 [ext_resource type="ArrayMesh" uid="uid://b6v5cf0pswh04" path="res://resources/meshes/boba_shop/Shelf.res" id="28_0t658"]
@@ -48,9 +48,6 @@
 [ext_resource type="Resource" uid="uid://chedclappraxa" path="res://resources/game_data/crops/seeds/taro_seed.tres" id="45_tm8hb"]
 [ext_resource type="Resource" uid="uid://dv3sjdeuv8x4p" path="res://resources/game_data/crops/seeds/strawberry_seed.tres" id="47_hdofh"]
 [ext_resource type="PackedScene" uid="uid://ctpynxvobxcd3" path="res://scenes/prefab/storage_unit.tscn" id="48_hdofh"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0t658"]
-points = PackedVector3Array(0.23295313, 1.1572533, 1.7610378, 0.23295313, 1.1572533, -0.19150358, -0.37011504, 1.1572533, 1.7610378, 0.23295313, -2.3459215, 1.7610378, 0.26797783, -1.7050216, 1.6664305, 0.31534833, -1.8360134, 0.18941018, -0.37011504, 1.1572533, -0.19150358, 0.31534833, -1.8360134, 0.12385401, 0.23295313, -2.3459215, -0.19150358, -0.37011504, -2.3459215, 1.7610378, 0.31534833, -2.2252169, 0.18941018, 0.2641533, -2.2228167, 1.5785127, 0.26797783, -2.1778953, 1.6664305, -0.37011504, -2.3459215, -0.19150358, 0.31534833, -2.2252169, 0.12385401)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4nhxi"]
 points = PackedVector3Array(-0.58021784, 2.2997, 0.9896744, -6.9095845, 2.1105347, -0.86548495, -6.6796966, 0.82769996, -0.5906259, -0.5506501, 2.1105347, -0.86548495, -0.87613356, 0.82769996, 0.96382135, -6.645791, 2.270231, 0.85139996, -6.646178, 0.83578914, 0.8515, -0.87613356, 0.82769996, -0.5906259, -0.5506501, 2.3338928, -0.86548495, -6.7192593, 2.2879612, -0.80969995)
@@ -122,16 +119,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Bookshelf" type="MeshInstance3D" parent="Contrast"]
+[node name="Bookshelf" parent="Contrast" instance=ExtResource("6_hdofh")]
 transform = Transform3D(0.7660444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.7660444, -5.7526584, 1.1999999, -6.0213404)
-mesh = ExtResource("24_hmnru")
-skeleton = NodePath("../..")
-surface_material_override/8 = ExtResource("7_0nr2e")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Contrast/Bookshelf"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Contrast/Bookshelf/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_0t658")
 
 [node name="Roof" type="MeshInstance3D" parent="Contrast"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.70000005, 0)
@@ -244,6 +233,7 @@ mesh = ExtResource("5_wnjol")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Exterior"]
+collision_mask = 3
 
 [node name="CornerCollision" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2000003, 3, 6.8)
