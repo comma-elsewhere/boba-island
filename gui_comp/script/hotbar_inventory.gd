@@ -3,12 +3,12 @@ class_name PlayerHUD extends Node3D
 signal slot_selected(slot_item: Item)
 
 @export var fill: Array[Item] = []
+@export var view_model: Marker3D
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var hotbar_display: HBoxContainer = %HotbarContainer
 @onready var pause_menu: PanelContainer = %PauseMenu
 @onready var library_interface: Control = %LibraryInterface
-@onready var view_model: Marker3D = %ViewModel
 
 const MAIN_MENU := "res://scenes/level/main_menu.tscn"
 
@@ -120,6 +120,8 @@ func pause() -> void:
 			
 func close() -> void:
 	gui_open = false
+	hotbar_array.resize(Dynamic.inventory_space)
+	_update_display(0)
 	hotbar_display.show()
 	
 func mutant_encounter(active: bool) -> void:
@@ -138,7 +140,7 @@ func _spawn_item(item: Item) -> void:
 func _update_display(index: int) -> void:
 	hotbar_display.update_hotbar(hotbar_array)
 	hotbar_display.highlight_slot(index)
-	view_model.update_held_item(hotbar_array[index])
+	#view_model.update_held_item(hotbar_array[index])
 	
 func _on_hotbar_container_slot_selected(index: int) -> void:
 	selected_slot = clamp(index, 0, Dynamic.inventory_space - 1)

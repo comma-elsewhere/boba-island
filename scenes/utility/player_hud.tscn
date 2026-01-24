@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://blhd62dvlvboc"]
+[gd_scene load_steps=7 format=3 uid="uid://blhd62dvlvboc"]
 
 [ext_resource type="PackedScene" uid="uid://dolgr51ei36y2" path="res://scenes/prefab/gui_interface/pause_menu.tscn" id="1_4wev0"]
 [ext_resource type="Script" uid="uid://ctk5uv2035svm" path="res://gui_comp/script/hotbar_inventory.gd" id="1_f2b3q"]
 [ext_resource type="Script" uid="uid://otsnq1800gab" path="res://gui_comp/script/stats_display.gd" id="3_f2b3q"]
 [ext_resource type="Script" uid="uid://bwijg6lsih103" path="res://gui_comp/script/hotbar_container.gd" id="3_xcoxm"]
-[ext_resource type="Script" uid="uid://bmn1dpl5s5tf5" path="res://scripts/utility/view_model.gd" id="5_jdtkk"]
 [ext_resource type="PackedScene" uid="uid://mttpxrvsfbud" path="res://scenes/utility/library_interface.tscn" id="11_wv6bk"]
 
 [sub_resource type="GDScript" id="GDScript_xcoxm"]
@@ -89,9 +88,5 @@ unique_name_in_owner = true
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("1_4wev0")]
 unique_name_in_owner = true
-
-[node name="ViewModel" type="Marker3D" parent="."]
-unique_name_in_owner = true
-script = ExtResource("5_jdtkk")
 
 [connection signal="slot_selected" from="CanvasLayer/HotbarHUD/HotbarContainer" to="." method="_on_hotbar_container_slot_selected"]

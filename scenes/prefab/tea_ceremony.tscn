@@ -403,7 +403,6 @@ tea_base = ExtResource("2_onml7")
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.35112333, 0.9363287, 0, -0.9363287, 0.35112333, 0, 2, 0.75)
 script = ExtResource("1_klhyc")
-priority = 1
 look_at_mode = 2
 look_at_target = NodePath("../TeaSet")
 tween_resource = SubResource("Resource_oapsv")
@@ -433,7 +432,7 @@ mesh = ExtResource("5_mmnsu")
 script = ExtResource("6_mmnsu")
 
 [node name="GaiwanLid" type="MeshInstance3D" parent="TeaSet"]
-transform = Transform3D(0.495134, 0.0695865, 4.897948e-10, -0.06954417, 0.49483195, 0.017449746, 0.0024285354, -0.017279916, 0.49969533, 0.1, -0.90000004, -0.7)
+transform = Transform3D(0.495134, 0.06958649, 4.897948e-10, -0.06954417, 0.49483192, 0.017449746, 0.0024285354, -0.017279914, 0.49969533, 0.1, -0.90000004, -0.7)
 mesh = ExtResource("6_ke5ej")
 
 [node name="TeapotLid" type="MeshInstance3D" parent="TeaSet"]

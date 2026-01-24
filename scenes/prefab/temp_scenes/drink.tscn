@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5regmlr6pot4"]
+
+[ext_resource type="CylinderMesh" uid="uid://clw54gbs4o86k" path="res://resources/meshes/TEMP_drink.res" id="1_bksxx"]
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+mesh = ExtResource("1_bksxx")

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_8nfpd"]
 [ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/items_and_recipes/drink.gd" id="1_k7k2n"]
 [ext_resource type="Texture2D" uid="uid://bfcgeiw054wjf" path="res://assets/icons/temp_water-droplet.png" id="1_ykde2"]
-[ext_resource type="PackedScene" uid="uid://crwh4hrt5orun" path="res://scenes/prefab/temp_scenes/crop_sprouting.tscn" id="3_jth5t"]
+[ext_resource type="PackedScene" uid="uid://b5regmlr6pot4" path="res://scenes/prefab/temp_scenes/drink.tscn" id="3_ykde2"]
 
 [resource]
 script = ExtResource("1_k7k2n")
@@ -11,5 +11,5 @@ drink_type = 4
 price_multiplier = 3.0
 name = "Strawberry Milk Tea"
 icon = ExtResource("1_ykde2")
-mesh = ExtResource("3_jth5t")
+mesh = ExtResource("3_ykde2")
 metadata/_custom_type_script = "uid://bburi43myo1eb"

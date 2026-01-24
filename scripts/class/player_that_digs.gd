@@ -41,6 +41,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	animation.animation_finished.connect(_on_animation_done)
 	add_child(mesh_slicer)
+	phantom_camera_host.set_host_layers(2)
 	
  #Crouch
 func _input(event: InputEvent) -> void:
@@ -212,5 +213,6 @@ func _cam_switch(layer: int) -> void:
 	if layer == 1:
 		hud.gui_open = true
 		hud.hotbar_display.hide()
+		camera.rotation = Vector3.ZERO
 	elif layer == 2:
 		camera.rotation = Vector3.ZERO

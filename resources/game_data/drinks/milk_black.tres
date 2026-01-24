@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_5xjn4"]
 [ext_resource type="Texture2D" uid="uid://bfcgeiw054wjf" path="res://assets/icons/temp_water-droplet.png" id="1_450sl"]
 [ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/items_and_recipes/drink.gd" id="1_vldwv"]
-[ext_resource type="PackedScene" uid="uid://crwh4hrt5orun" path="res://scenes/prefab/temp_scenes/crop_sprouting.tscn" id="3_7wyiu"]
+[ext_resource type="PackedScene" uid="uid://b5regmlr6pot4" path="res://scenes/prefab/temp_scenes/drink.tscn" id="3_450sl"]
 
 [resource]
 script = ExtResource("1_vldwv")
@@ -11,5 +11,5 @@ drink_type = 2
 price_multiplier = 2.0
 name = "Milk Tea"
 icon = ExtResource("1_450sl")
-mesh = ExtResource("3_7wyiu")
+mesh = ExtResource("3_450sl")
 metadata/_custom_type_script = "uid://bburi43myo1eb"
