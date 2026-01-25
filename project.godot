@@ -125,6 +125,7 @@ library={
 3d_physics/layer_4="RayCast"
 3d_physics/layer_5="Dirt"
 3d_physics/layer_6="DrinkZone"
+3d_physics/layer_7="NoPlanting"
 
 [physics]
 

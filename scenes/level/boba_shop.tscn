@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bae4empxna1o"]
+[gd_scene load_steps=62 format=3 uid="uid://bae4empxna1o"]
 
 [ext_resource type="ArrayMesh" uid="uid://1uf24nhkhnty" path="res://resources/meshes/boba_shop/Floor.res" id="1_uah5q"]
 [ext_resource type="Material" uid="uid://dwnh605nsdnn4" path="res://resources/materials/floor_material.material" id="2_1qbsa"]
@@ -69,6 +69,9 @@ size = Vector3(2.8, 8.400001, 2.6000001)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_du356"]
 size = Vector3(13, 8.8, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hdofh"]
+size = Vector3(20, 1, 20)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rwsu5"]
 points = PackedVector3Array(0.4766035, 2.6726863, 6.256959, 0.15168768, 3.8083324, 6.1098824, 0.12807745, 3.7767181, 6.156725, 0.04048717, 3.8249876, 6.156725, -0.47673586, 2.6726863, 6.256959, 0.4766035, 2.2863753, 6.256959, 0.7015735, 2.2967079, 5.394291, 0.69337726, 2.3150594, 5.4169292, 0.15168768, 3.8083324, 4.985809, 0.063975036, 3.8567562, 6.1098824, -0.5246903, 3.0656285, 6.156725, -0.5481782, 3.0340142, 6.1098824, -0.47673586, 2.2863753, 6.256959, 0.65545404, 2.2812862, 5.394291, 0.7015735, 2.2967079, 4.8519735, 0.12807745, 3.7767181, 4.9389663, 0.063975036, 3.8567562, 4.985809, 0.69337726, 2.3150594, 4.829335, 0.6590017, 2.3924758, 4.829335, 0.512447, 2.722344, 4.829335, 0.4977671, 2.755346, 4.829335, -0.5246903, 3.0656285, 4.9389663, -0.5481782, 3.0340142, 4.985809, -0.47673586, 2.2863753, 4.802426, 0.45189238, 2.2812862, 5.394291, 0.65545404, 2.2812862, 4.8519735, 0.6473801, 2.299638, 4.829335, 0.04048717, 3.8249876, 4.9389663, 0.4766035, 2.6726863, 4.802426, 0.4766035, 2.2863753, 4.802426, -0.47673586, 2.6726863, 4.802426, 0.45189238, 2.2812862, 4.8519735)
@@ -266,6 +269,14 @@ shape = SubResource("BoxShape3D_du356")
 [node name="WallCollision4" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7.1)
 shape = SubResource("BoxShape3D_du356")
+
+[node name="NoPlantZone" type="StaticBody3D" parent="Exterior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, 0)
+collision_layer = 64
+collision_mask = 64
+
+[node name="NoPlanting" type="CollisionShape3D" parent="Exterior/NoPlantZone"]
+shape = SubResource("BoxShape3D_hdofh")
 
 [node name="Lanterns" type="Node3D" parent="."]
 metadata/_edit_group_ = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://ddadbc6h0js3d"]
+[gd_scene load_steps=48 format=3 uid="uid://ddadbc6h0js3d"]
 
 [ext_resource type="Script" uid="uid://n4l3njvdde37" path="res://scripts/class/world_crop.gd" id="1_palxt"]
 [ext_resource type="Texture2D" uid="uid://bfcgeiw054wjf" path="res://assets/icons/temp_water-droplet.png" id="4_veuov"]
@@ -212,6 +212,10 @@ resource_local_to_scene = true
 material = SubResource("ShaderMaterial_w4de5")
 size = Vector2(0.5, 0.5)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lcnsd"]
+height = 1.0
+radius = 1.0
+
 [node name="Crop" type="Node3D" groups=["GameEvent"]]
 script = ExtResource("1_palxt")
 
@@ -261,6 +265,7 @@ tint_under = Color(0, 0, 0, 1)
 
 [node name="GrowTime" type="Label" parent="SubViewport/CanvasLayer/Control"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -291,3 +296,11 @@ shape = SubResource("SphereShape3D_3esa8")
 [node name="GUI_3DVisualizer" type="MeshInstance3D" parent="WaterVisualizer"]
 mesh = SubResource("QuadMesh_s0l26")
 skeleton = NodePath("../..")
+
+[node name="NoPlanting" type="StaticBody3D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoPlanting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2977295, 0)
+shape = SubResource("CylinderShape3D_lcnsd")

@@ -29,37 +29,30 @@ func upgrade(index: int) -> void:
 func _inventory() -> void:
 	if Dynamic.inventory_space < 9:
 		Dynamic.inventory_space += 2
-		print("Inventory")
 	
 func _moisture_loss() -> void:
-	if Dynamic.moisture_loss > 0.5:
-		Dynamic.moisture_loss -= 2.5
-		print("Moist")
+	if Dynamic.moisture_loss > 0.1:
+		Dynamic.moisture_loss -= 0.1
 	
 func _grow_speed() -> void:
 	if Dynamic.grow_mod > 0.5:
 		Dynamic.grow_mod /= 2
-		print("Grow")
 	
 func _crop_yield() -> void:
 	if Dynamic.crop_yield < 4:
 		Dynamic.crop_yield += 1
-		print("CROPS")
 	
 func _processor() -> void:
 	if Dynamic.process_speed > 0.25:
 		Dynamic.process_speed /= 2
-		print("procressor")
 	
 func _cooker() -> void:
 	if Dynamic.cook_speed > 0.25:
 		Dynamic.cook_speed /= 2
-		print("Cooker")
 	
 func _mixer() -> void:
 	if Dynamic.mix_speed > 0.25:
 		Dynamic.mix_speed /= 2
-		print("MIXER")
 
 func _default(index: int) -> void:
 	if index < 4:
@@ -79,7 +72,7 @@ func _default_one() -> void:
 	Dynamic.mixer = 2 # adds plain boba tea
 	Dynamic.processor = 2 # adds tapioca pearls
 	
-# UNLOCK MILK, MATCHA, OOLONG
+# UNLOCK MILK, MINT, CHAI
 func _default_two() -> void:
 	Dynamic.unlocked_tea[Static.TEA.MINT] = Static.TEA.MINT + 1
 	Dynamic.unlocked_tea[Static.TEA.CHAI] = Static.TEA.CHAI + 1

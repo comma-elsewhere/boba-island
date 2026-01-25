@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0g8ltwp1y6oo"]
+[gd_scene load_steps=8 format=3 uid="uid://d0g8ltwp1y6oo"]
 
 [ext_resource type="Script" uid="uid://cbdoadclgpkpl" path="res://scripts/utility/overgrowth.gd" id="1_pfhtm"]
 [ext_resource type="PackedScene" uid="uid://diy8yjj62qmfh" path="res://assets/models/plants/plant-style1.glb" id="3_qnmuy"]
@@ -28,6 +28,10 @@ _data = {
 &"harvest": SubResource("Animation_2qfuk")
 }
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6ri4h"]
+height = 1.0
+radius = 1.0
+
 [node name="Overgrowth" type="Node3D" groups=["GameEvent"]]
 script = ExtResource("1_pfhtm")
 weed_array = Array[PackedScene]([ExtResource("3_qnmuy"), ExtResource("4_xlnl6")])
@@ -42,3 +46,11 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_g4n7e")
 }
+
+[node name="NoPlanting" type="StaticBody3D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoPlanting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2977295, 0)
+shape = SubResource("CylinderShape3D_6ri4h")
