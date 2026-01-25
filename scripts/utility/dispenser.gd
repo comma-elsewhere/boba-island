@@ -19,6 +19,8 @@ func _ready() -> void:
 		item_price.hide()
 		
 func pickup() -> Item:
+	if visible == false:
+		return null
 	if item_data.has_method("am_seed"):
 		if item_data.buy_seed(): # Returns true if you have enough money, subs the price of seed
 			return item_data

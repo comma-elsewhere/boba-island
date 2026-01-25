@@ -13,6 +13,7 @@
 [resource]
 script = ExtResource("1_p6fj8")
 grow_meshes = Array[PackedScene]([ExtResource("1_6h7kv"), ExtResource("2_0whib"), ExtResource("3_780o6"), ExtResource("4_j8bmf"), ExtResource("5_jg0ya")])
+grow_time = 10.0
 water_max = 60
 water_min = 60
 name = "Strawberries"

@@ -12,7 +12,9 @@ func init_gui_scene() -> void:
 	end_day.set_labels()
 	canvas_layer.show()
 	
-func _hide_gui_scene() -> void:
+func close() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	canvas_layer.hide()
+	
+func _hide_gui_scene() -> void:
 	get_tree().call_group("GUI_Event", "close")

@@ -32,7 +32,7 @@ func _inventory() -> void:
 	
 func _moisture_loss() -> void:
 	if Dynamic.moisture_loss > 0.1:
-		Dynamic.moisture_loss -= 0.1
+		Dynamic.moisture_loss -= 0.4
 	
 func _grow_speed() -> void:
 	if Dynamic.grow_mod > 0.5:

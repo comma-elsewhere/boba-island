@@ -13,7 +13,7 @@
 [resource]
 script = ExtResource("1_yffod")
 grow_meshes = Array[PackedScene]([ExtResource("1_qyvtu"), ExtResource("2_4rgvw"), ExtResource("3_6tmhq"), ExtResource("4_33cel"), ExtResource("5_mwpp1")])
-grow_time = 6.0
+grow_time = 12.0
 water_max = 40
 water_min = 40
 name = "Taro Root"

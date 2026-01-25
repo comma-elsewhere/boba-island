@@ -122,7 +122,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Bookshelf" parent="Contrast" instance=ExtResource("6_hdofh")]
+[node name="Bookshelf" parent="Contrast" groups=["GUI_Event"] instance=ExtResource("6_hdofh")]
 transform = Transform3D(0.7660444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.7660444, -5.7526584, 1.1999999, -6.0213404)
 
 [node name="Roof" type="MeshInstance3D" parent="Contrast"]
@@ -236,7 +236,8 @@ mesh = ExtResource("5_wnjol")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Exterior"]
-collision_mask = 3
+collision_layer = 9
+collision_mask = 11
 
 [node name="CornerCollision" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2000003, 3, 6.8)

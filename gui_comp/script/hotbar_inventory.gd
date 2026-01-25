@@ -31,13 +31,12 @@ func _ready() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and canvas_layer.visible:
-		pause()
-	if event.is_action_pressed("library") and !pause_menu.visible and canvas_layer.visible:
-		library_interface.visible = !library_interface.visible
 		if library_interface.visible:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			_toggle_library()
 		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			pause()
+	if event.is_action_pressed("library") and !pause_menu.visible and canvas_layer.visible:
+		_toggle_library()
 	
 func setup() -> void:
 	for child in hotbar_display.get_children():
@@ -47,6 +46,13 @@ func setup() -> void:
 		_create_hotbar_button(i + 1)
 		
 	hotbar_display.get_slots()
+	
+func _toggle_library() -> void:
+	library_interface.visible = !library_interface.visible
+	if library_interface.visible:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func plant_crop(pos: Vector3) -> bool:
 	var selected = hotbar_array[selected_slot]
@@ -89,6 +95,13 @@ func remove_item(item: Item) -> void:
 			_update_display(i)
 			return
 
+func remove_item_name(item_name: String) -> void:
+	for i in len(hotbar_array):
+		if hotbar_array[i].name == item_name:
+			hotbar_array.erase(hotbar_array[i])
+			_update_display(i)
+			return
+
 func erase_selected() -> void:
 	var item = hotbar_array[selected_slot]
 	if item != null:
@@ -117,7 +130,7 @@ func pause() -> void:
 			%Reticle.update_visible()
 	else:
 		get_tree().call_group("GUI_Event", "close")
-			
+	
 func close() -> void:
 	gui_open = false
 	hotbar_array.resize(Dynamic.inventory_space)

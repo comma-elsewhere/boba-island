@@ -39,6 +39,8 @@ func init_gui_scene() -> void:
 		new_crafting_scene.craft_pending.connect(_craft_pending)
 		canvas_layer.add_child(new_crafting_scene)
 		new_crafting_scene.open()
+	else: 
+		get_tree().call_group("GUI_Event", "close")
 
 func close() -> void:
 	if new_crafting_scene != null:

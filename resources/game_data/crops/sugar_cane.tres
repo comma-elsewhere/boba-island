@@ -13,9 +13,9 @@
 [resource]
 script = ExtResource("1_tsr8t")
 grow_meshes = Array[PackedScene]([ExtResource("1_q7bdb"), ExtResource("2_tpvfb"), ExtResource("3_5l74r"), ExtResource("4_gxndl"), ExtResource("5_gmbmo")])
-grow_time = 4.0
-water_max = 30
-water_min = 30
+grow_time = 8.0
+water_max = 50
+water_min = 50
 name = "Sugar Cane"
 icon = ExtResource("1_nsp7e")
 stack_limit = 9

@@ -22,7 +22,7 @@ func update_hotbar(items: Array[Item]):
 func highlight_slot(slot_index: int):
 	for i in range(slots.size()):
 		slots[i].modulate = Color(1,1,1)
-	slots[slot_index].modulate = Color(1.5, 1.5, 1.5)
+	slots[slot_index].modulate = Color(1.75, 1.75, 1.75)
 
 func _select_slot(slot_index: int) -> void:
 	slot_selected.emit(slot_index)

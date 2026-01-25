@@ -14,9 +14,9 @@
 [resource]
 script = ExtResource("1_yxbix")
 grow_meshes = Array[PackedScene]([ExtResource("1_i1xqv"), ExtResource("2_twqvw"), ExtResource("3_65fkl"), ExtResource("4_v5hv4"), ExtResource("5_qjnxf")])
-grow_time = 8.0
-water_max = 50
-water_min = 50
+grow_time = 16.0
+water_max = 30
+water_min = 30
 name = "Cassava Root"
 icon = ExtResource("1_ikgxp")
 mesh = ExtResource("1_gqrd4")

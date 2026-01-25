@@ -449,7 +449,6 @@ shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
 [node name="PostProcessing" type="MeshInstance3D" parent="."]
-visible = false
 material_override = ExtResource("7_m1jft")
 cast_shadow = 0
 extra_cull_margin = 16384.0
