@@ -38,6 +38,7 @@ func init_gui_scene() -> void:
 		new_crafting_scene.set_recipes(available_recipes)
 		new_crafting_scene.craft_pending.connect(_craft_pending)
 		canvas_layer.add_child(new_crafting_scene)
+		new_crafting_scene.set_machine_name(_get_name())
 		new_crafting_scene.open()
 	else: 
 		get_tree().call_group("GUI_Event", "close")
@@ -63,6 +64,13 @@ func _enable_display(enable: bool) -> void:
 	%CollisionShape3D.disabled = !enable
 	if !enable:
 		%ItemTexture.texture = null
+
+func _get_name() -> String:
+	match machine_type:
+		0: return "Raw Ingredient Processor"
+		1: return "Cooker"
+		2: return "Drink Mixer"
+	return "Crafting"
 
 func _return_time() -> float:
 	var time: float

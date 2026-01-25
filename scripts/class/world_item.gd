@@ -19,6 +19,10 @@ func _spawn_item_with_collision(packed_scene) -> Node3D:
 	if Kinetic.mesh_to_collision(mesh_instance, self):
 		
 		scale = mesh_instance.scale
+		
+		if instantiated_scene.has_method("drink_setup"):
+			instantiated_scene.drink_setup(item_data)
+		
 		add_child(instantiated_scene)
 		mesh_instance.global_position = Vector3.ZERO
 		mesh_instance.scale = Vector3.ONE

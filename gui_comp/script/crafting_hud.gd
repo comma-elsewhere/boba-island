@@ -5,6 +5,7 @@ signal craft_pending(result: Array[Item])
 @export var crafting_item: PackedScene
 @export var crafting_check: Array[int] = [0]
 
+@onready var machine_name_label: Label = %MachineName
 @onready var recipe_list: ItemList = %RecipeList
 @onready var ingredients_container: ItemGrid = %IngredientsContainer
 @onready var results_container: ItemGrid = %ResultsContainer
@@ -32,6 +33,9 @@ func _ready() -> void:
 		_on_recipe_list_item_selected(0)
 		_enable_crafting()
 		crafting_button.disabled = crafting_check.has(0)
+		
+func set_machine_name(name_text: String) -> void:
+	machine_name_label.text = name_text
 		
 func set_recipes(new_recipes: Array[Recipe]) -> void:
 	recipes.clear()
