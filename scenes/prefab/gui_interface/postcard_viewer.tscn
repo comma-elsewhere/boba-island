@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://4qoviebs8pn6"]
+[gd_scene load_steps=4 format=3 uid="uid://4qoviebs8pn6"]
 
 [ext_resource type="Texture2D" uid="uid://cr4qwww4peatn" path="res://assets/textures/temp_postcard.png" id="1_x1mol"]
+[ext_resource type="Script" uid="uid://g0gm20tueawh" path="res://scripts/utility/postcard.gd" id="2_khgoc"]
+[ext_resource type="Texture2D" uid="uid://33qyhpolkgag" path="res://assets/art/postcard_2.jpg" id="3_h5u3k"]
 
 [node name="PostcardViewer" type="SubViewportContainer"]
 size_flags_horizontal = 4
@@ -10,7 +12,7 @@ size_flags_vertical = 4
 handle_input_locally = false
 gui_disable_input = true
 size = Vector2i(315, 210)
-size_2d_override = Vector2i(630, 420)
+size_2d_override = Vector2i(2420, 1668)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -18,3 +20,5 @@ render_target_update_mode = 4
 unique_name_in_owner = true
 texture = ExtResource("1_x1mol")
 centered = false
+script = ExtResource("2_khgoc")
+available_textures = Array[Texture2D]([ExtResource("3_h5u3k")])

@@ -28,10 +28,6 @@ func load_game() -> void:
 	get_tree().change_scene_to_packed(MAIN)
 	
 func _resize_progress_indicators() -> void:
-	# initialize progress indicators
-	Dynamic.unlocked_book.resize(Static.NUMBER_OF_BOOKS)
-	Dynamic.unlocked_tea.resize(Static.NUMBER_OF_TEAS)
-	Dynamic.unlocked_crop.resize(Static.NUMBER_OF_CROPS)
 	# Set starter things
 	Dynamic.unlocked_book[Static.BOOKS.HOSPICE] = Static.BOOKS.HOSPICE + 1
 	Dynamic.unlocked_book[Static.BOOKS.DEBT] = Static.BOOKS.DEBT + 1

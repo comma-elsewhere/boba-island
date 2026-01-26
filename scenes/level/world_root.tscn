@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://6k5dg51rvx2c"]
+[gd_scene load_steps=88 format=3 uid="uid://6k5dg51rvx2c"]
 
 [ext_resource type="Script" uid="uid://dmgan4c1aqq32" path="res://scripts/manager/lighting.gd" id="1_utkfw"]
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
@@ -10,8 +10,53 @@
 [ext_resource type="Script" uid="uid://b4odpya85dlip" path="res://scripts/manager/world_clock.gd" id="7_vuwh0"]
 [ext_resource type="PackedScene" uid="uid://d0g8ltwp1y6oo" path="res://scenes/utility/overgrowth.tscn" id="9_utkfw"]
 [ext_resource type="PackedScene" uid="uid://c0y2e6yqp6vgf" path="res://scenes/manager/saver_loader.tscn" id="10_jksdq"]
-[ext_resource type="PackedScene" uid="uid://bae4empxna1o" path="res://scenes/level/boba_shop.tscn" id="10_wc1lk"]
+[ext_resource type="ArrayMesh" uid="uid://cw5ac7xefuoe4" path="res://resources/meshes/boba_shop/InteriorWall.res" id="11_l65j2"]
 [ext_resource type="Shader" uid="uid://doqqx7wv7ml5w" path="res://resources/shaders/viewport_from_control.gdshader" id="11_wc1lk"]
+[ext_resource type="Material" uid="uid://c5cnemreba402" path="res://resources/materials/boba_shop_walls.material" id="12_1bkbh"]
+[ext_resource type="AudioStream" uid="uid://cd7hwhs28eb3j" path="res://assets/music/MainLoop.ogg" id="13_0glrw"]
+[ext_resource type="ArrayMesh" uid="uid://drdslpwtfot27" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_015.res" id="13_ay7tk"]
+[ext_resource type="ArrayMesh" uid="uid://b5cs38518yyc3" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_016.res" id="14_s7m4n"]
+[ext_resource type="ArrayMesh" uid="uid://b22xjv1plo5u3" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_017.res" id="15_eymlh"]
+[ext_resource type="PackedScene" uid="uid://t2umiaj41a6d" path="res://scenes/prefab/save_bookshelf.tscn" id="16_73hpc"]
+[ext_resource type="ArrayMesh" uid="uid://b20vriu2u2qkl" path="res://resources/meshes/boba_shop/Roof.res" id="17_i1ufx"]
+[ext_resource type="Material" uid="uid://dl1aqd7kxxn72" path="res://resources/materials/building_contrast.material" id="18_8jg4c"]
+[ext_resource type="ArrayMesh" uid="uid://bbb887ybb10i8" path="res://resources/meshes/boba_shop/InteriorCorner.res" id="19_6jced"]
+[ext_resource type="ArrayMesh" uid="uid://ltdee7hrijfm" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_032.res" id="20_0vj80"]
+[ext_resource type="ArrayMesh" uid="uid://c01qu4cmi0hlf" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_033.res" id="21_sm585"]
+[ext_resource type="ArrayMesh" uid="uid://d0tu3je35usey" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_034.res" id="22_ojn6a"]
+[ext_resource type="ArrayMesh" uid="uid://md8pptc0s8m3" path="res://resources/meshes/boba_shop/ExteriorCorner.res" id="23_jdla0"]
+[ext_resource type="ArrayMesh" uid="uid://cwyda3ulbhe5v" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_043.res" id="24_h7uqe"]
+[ext_resource type="ArrayMesh" uid="uid://d12pf65rs1sn7" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_044.res" id="25_cxv5i"]
+[ext_resource type="ArrayMesh" uid="uid://bkvgvcsb1smk7" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_045.res" id="26_36he6"]
+[ext_resource type="ArrayMesh" uid="uid://1uf24nhkhnty" path="res://resources/meshes/boba_shop/Floor.res" id="27_1umkb"]
+[ext_resource type="Material" uid="uid://dwnh605nsdnn4" path="res://resources/materials/floor_material.material" id="28_88kpa"]
+[ext_resource type="ArrayMesh" uid="uid://c2vl1hwmaul5h" path="res://resources/meshes/boba_shop/Counter.res" id="29_1bmbi"]
+[ext_resource type="ArrayMesh" uid="uid://csyjja8i2jwjf" path="res://resources/meshes/boba_shop/Table.res" id="30_da8rp"]
+[ext_resource type="ArrayMesh" uid="uid://c2kgiwhsdj4rx" path="res://resources/meshes/boba_shop/WallBack.res" id="31_g63oo"]
+[ext_resource type="ArrayMesh" uid="uid://cisjk8s5hr3g" path="res://resources/meshes/boba_shop/WallFront.res" id="32_e3fev"]
+[ext_resource type="ArrayMesh" uid="uid://d181v30s7mtcc" path="res://resources/meshes/boba_shop/WallLeft.res" id="33_v8yse"]
+[ext_resource type="ArrayMesh" uid="uid://dnb6axf1gsi5f" path="res://resources/meshes/boba_shop/WallRight.res" id="34_hr8nq"]
+[ext_resource type="PackedScene" uid="uid://xmxetlo2tvop" path="res://scenes/prefab/set_dressing/lantern_white.tscn" id="35_bwgsc"]
+[ext_resource type="PackedScene" uid="uid://dd02uj78itvs1" path="res://scenes/prefab/set_dressing/lantern_pink.tscn" id="36_q82qv"]
+[ext_resource type="ArrayMesh" uid="uid://da2wf5uc0oic1" path="res://resources/meshes/boba_shop/CashRegister.res" id="37_v2pjp"]
+[ext_resource type="ArrayMesh" uid="uid://b6v5cf0pswh04" path="res://resources/meshes/boba_shop/Shelf.res" id="38_7v8ft"]
+[ext_resource type="ArrayMesh" uid="uid://dwjalijlv57o4" path="res://resources/meshes/boba_shop/LongWindow.res" id="39_5yr35"]
+[ext_resource type="PackedScene" uid="uid://bhxg4sxnl4l64" path="res://scenes/prefab/set_dressing/door.tscn" id="40_bmysp"]
+[ext_resource type="Script" uid="uid://dqdmygmjbiseu" path="res://scripts/manager/drink_zone.gd" id="41_y5ljf"]
+[ext_resource type="PackedScene" uid="uid://cdp4b2op1gor0" path="res://gui_comp/drink_orders.tscn" id="43_ryr6b"]
+[ext_resource type="PackedScene" uid="uid://dre3kgeqhjprj" path="res://scenes/prefab/tea_ceremony.tscn" id="44_wydm5"]
+[ext_resource type="PackedScene" uid="uid://516o65n4jcsn" path="res://scenes/prefab/process_machine.tscn" id="45_ciwc4"]
+[ext_resource type="PackedScene" uid="uid://btm7sbwffnkl2" path="res://scenes/prefab/drink_machine.tscn" id="46_opc87"]
+[ext_resource type="PackedScene" uid="uid://ccgpum2em3yhl" path="res://scenes/prefab/cook_machine.tscn" id="47_ynwp6"]
+[ext_resource type="PackedScene" uid="uid://jj4cqbvtb1xk" path="res://scenes/prefab/dispenser.tscn" id="48_vgd2u"]
+[ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="49_g2oif"]
+[ext_resource type="Resource" uid="uid://db3yuj54ic2xe" path="res://resources/game_data/ingredients/milk.tres" id="50_ced0m"]
+[ext_resource type="Resource" uid="uid://becxnuwetlie2" path="res://resources/game_data/ingredients/matcha_powder.tres" id="51_1gexm"]
+[ext_resource type="Resource" uid="uid://bav1oqtqeh1s7" path="res://resources/game_data/crops/seeds/sugar_seed.tres" id="52_5js7k"]
+[ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="53_tyaha"]
+[ext_resource type="Resource" uid="uid://chedclappraxa" path="res://resources/game_data/crops/seeds/taro_seed.tres" id="54_q46nv"]
+[ext_resource type="Resource" uid="uid://dv3sjdeuv8x4p" path="res://resources/game_data/crops/seeds/strawberry_seed.tres" id="55_dcdew"]
+[ext_resource type="PackedScene" uid="uid://ctpynxvobxcd3" path="res://scenes/prefab/storage_unit.tscn" id="56_swqu6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ttd6"]
 
@@ -119,6 +164,42 @@ _data = {
 &"RESET": SubResource("Animation_ipn8i"),
 &"day_night": SubResource("Animation_m1jft")
 }
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4nhxi"]
+points = PackedVector3Array(-0.58021784, 2.2997, 0.9896744, -6.9095845, 2.1105347, -0.86548495, -6.6796966, 0.82769996, -0.5906259, -0.5506501, 2.1105347, -0.86548495, -0.87613356, 0.82769996, 0.96382135, -6.645791, 2.270231, 0.85139996, -6.646178, 0.83578914, 0.8515, -0.87613356, 0.82769996, -0.5906259, -0.5506501, 2.3338928, -0.86548495, -6.7192593, 2.2879612, -0.80969995)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iocvq"]
+points = PackedVector3Array(-2.3754468, 0.82769996, 1.2174908, -0.43853426, 1.9989321, 6.2749844, -0.43853426, 1.6642772, 6.2749844, -2.4467914, 1.9989321, 6.2749844, -0.43853426, 2.3338928, 1.0312023, -2.4028206, 2.2997, 1.1460149, -0.7399, 0.85027415, 6.012896, -0.7399, 0.85027415, 1.2932904, -2.3754468, 0.82769996, 6.088696, -2.4467914, 2.3338928, 3.8204262, -0.43853426, 2.3338928, 3.8204262, -0.43853426, 1.6642772, 3.4857605, -0.43853426, 2.1105347, 1.0312023)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ygp8d"]
+points = PackedVector3Array(1.476165, 2.5140576, 1.476165, -1.476165, 2.1451252, -1.476165, -0.18556717, 2.1392584, -0.1858, -1.476165, 2.1451252, 1.476165, -1.476165, 2.514017, -1.476165, 1.476165, 2.1450846, -1.476165, 1.476165, 2.1450846, 1.476165, 1.476165, 2.5140576, -1.476165, -1.476165, 2.514017, 1.476165, 0.18556717, 2.1392584, 0.1858)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m8b4s"]
+points = PackedVector3Array(0.1858, 0.14357348, 0.1858, -1.0148635, -0.023065075, -1.0148635, -1.0148635, -0.023065075, 1.0148635, 1.0148635, -0.023065075, -1.0148635, 1.0148635, -0.023065075, 1.0148635, -1.0148635, 0.11530734, -1.0148635, -1.0148635, 0.11530734, 1.0148635, 1.0148635, 0.11530734, -1.0148635, 1.0148635, 0.11530734, 1.0148635, -0.1858, 0.14357348, -0.1858, -0.1858, 0.14357348, 0.1858, 0.1858, 0.14357348, -0.1858)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_decg2"]
+points = PackedVector3Array(0.25214717, 2.189, 0.25214717, -0.24440229, 0.1039, -0.24440229, -0.24440229, 0.1039, 0.24440229, -0.25214717, 2.189, -0.25214717, 0.24440229, 0.1039, -0.24440229, -0.25214717, 2.189, 0.25214717, 0.25214717, 2.189, -0.25214717, 0.24440229, 0.1039, 0.24440229)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1qbsa"]
+size = Vector3(2.8, 8.400001, 2.6000001)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_du356"]
+size = Vector3(13, 8.8, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hdofh"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rwsu5"]
+points = PackedVector3Array(0.4766035, 2.6726863, 6.256959, 0.15168768, 3.8083324, 6.1098824, 0.12807745, 3.7767181, 6.156725, 0.04048717, 3.8249876, 6.156725, -0.47673586, 2.6726863, 6.256959, 0.4766035, 2.2863753, 6.256959, 0.7015735, 2.2967079, 5.394291, 0.69337726, 2.3150594, 5.4169292, 0.15168768, 3.8083324, 4.985809, 0.063975036, 3.8567562, 6.1098824, -0.5246903, 3.0656285, 6.156725, -0.5481782, 3.0340142, 6.1098824, -0.47673586, 2.2863753, 6.256959, 0.65545404, 2.2812862, 5.394291, 0.7015735, 2.2967079, 4.8519735, 0.12807745, 3.7767181, 4.9389663, 0.063975036, 3.8567562, 4.985809, 0.69337726, 2.3150594, 4.829335, 0.6590017, 2.3924758, 4.829335, 0.512447, 2.722344, 4.829335, 0.4977671, 2.755346, 4.829335, -0.5246903, 3.0656285, 4.9389663, -0.5481782, 3.0340142, 4.985809, -0.47673586, 2.2863753, 4.802426, 0.45189238, 2.2812862, 5.394291, 0.65545404, 2.2812862, 4.8519735, 0.6473801, 2.299638, 4.829335, 0.04048717, 3.8249876, 4.9389663, 0.4766035, 2.6726863, 4.802426, 0.4766035, 2.2863753, 4.802426, -0.47673586, 2.6726863, 4.802426, 0.45189238, 2.2812862, 4.8519735)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4ym88"]
+points = PackedVector3Array(-1.1433178, 1.6657486, -0.39853904, -1.1415234, 1.7637377, -0.40540296, 1.1481553, 1.6657486, -0.39853904, -1.1433178, 1.6657486, 0.409966, -1.1433178, 5.4720488, -0.39853904, 1.1414262, 1.7637377, -0.40540296, -1.1415234, 5.376668, -0.40540296, 1.1481553, 1.6657486, 0.409966, 1.1481553, 5.4720488, -0.39853904, -1.1433178, 5.4720488, 0.409966, 1.1414262, 5.376668, -0.40540296, 1.1481553, 5.4720488, 0.409966)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sinf0"]
+size = Vector3(2.2, 0.5, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_alrdh"]
+size = Vector3(1.4, 1, 0.1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_vuwh0"]
 viewport_path = NodePath("WorldRoot/BobaShop/DrinkZone3D/SubViewport")
@@ -486,11 +567,378 @@ player = NodePath("../Player")
 [node name="Player" parent="WorldRoot" instance=ExtResource("1_x1yw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -11)
 
-[node name="BobaShop" parent="WorldRoot" instance=ExtResource("10_wc1lk")]
+[node name="BobaShop" type="Node3D" parent="WorldRoot"]
 transform = Transform3D(0.25357094, 0, 0.54378474, 0, 0.6, 0, -0.54378474, 0, 0.25357094, -23.300001, 0, -11.1)
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" parent="WorldRoot/BobaShop/DrinkZone3D/Screen" index="1"]
+[node name="Primary" type="Node3D" parent="WorldRoot/BobaShop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="InteriorWall1" type="MeshInstance3D" parent="WorldRoot/BobaShop/Primary"]
+mesh = ExtResource("11_l65j2")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("12_1bkbh")
+
+[node name="InteriorWall2" type="MeshInstance3D" parent="WorldRoot/BobaShop/Primary"]
+mesh = ExtResource("13_ay7tk")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("12_1bkbh")
+
+[node name="InteriorWall3" type="MeshInstance3D" parent="WorldRoot/BobaShop/Primary"]
+mesh = ExtResource("14_s7m4n")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("12_1bkbh")
+
+[node name="InteriorWall4" type="MeshInstance3D" parent="WorldRoot/BobaShop/Primary"]
+mesh = ExtResource("15_eymlh")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("12_1bkbh")
+
+[node name="Contrast" type="Node3D" parent="WorldRoot/BobaShop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Bookshelf" parent="WorldRoot/BobaShop/Contrast" groups=["GUI_Event"] instance=ExtResource("16_73hpc")]
+transform = Transform3D(0.7660444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.7660444, -5.7526584, 1.1999999, -6.0213404)
+
+[node name="Roof" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.70000005, 0)
+mesh = ExtResource("17_i1ufx")
+skeleton = NodePath("../..")
+surface_material_override/1 = ExtResource("18_8jg4c")
+
+[node name="InteriorCorner1" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+mesh = ExtResource("19_6jced")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("18_8jg4c")
+
+[node name="InteriorCorner2" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+mesh = ExtResource("20_0vj80")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("18_8jg4c")
+
+[node name="InteriorCorner3" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+mesh = ExtResource("21_sm585")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("18_8jg4c")
+
+[node name="InteriorCorner4" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+mesh = ExtResource("22_ojn6a")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("18_8jg4c")
+
+[node name="ExteriorCorner1" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+mesh = ExtResource("23_jdla0")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("18_8jg4c")
+
+[node name="ExteriorCorner2" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+mesh = ExtResource("24_h7uqe")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("18_8jg4c")
+
+[node name="ExteriorCorner3" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+mesh = ExtResource("25_cxv5i")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("18_8jg4c")
+
+[node name="ExteriorCorner4" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+mesh = ExtResource("26_36he6")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("18_8jg4c")
+
+[node name="Accent" type="Node3D" parent="WorldRoot/BobaShop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Floor" type="MeshInstance3D" parent="WorldRoot/BobaShop/Accent"]
+mesh = ExtResource("27_1umkb")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("28_88kpa")
+
+[node name="Counter" type="MeshInstance3D" parent="WorldRoot/BobaShop/Accent"]
+transform = Transform3D(4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 4.3711385e-08, 1.5000002, -2, -7.699999)
+mesh = ExtResource("29_1bmbi")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("18_8jg4c")
+surface_material_override/1 = ExtResource("28_88kpa")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/Accent/Counter"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Counter/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_4nhxi")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Counter/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_iocvq")
+
+[node name="Table" type="MeshInstance3D" parent="WorldRoot/BobaShop/Accent"]
+transform = Transform3D(0.649519, 0, -0.375, 0, 0.75, 0, 0.375, 0, 0.649519, -2.7535899, -1.2, -2.6267948)
+mesh = ExtResource("30_da8rp")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("28_88kpa")
+surface_material_override/1 = ExtResource("18_8jg4c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/Accent/Table"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Table/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ygp8d")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Table/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_m8b4s")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Table/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_decg2")
+
+[node name="Exterior" type="Node3D" parent="WorldRoot/BobaShop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="WallBack" type="MeshInstance3D" parent="WorldRoot/BobaShop/Exterior"]
+mesh = ExtResource("31_g63oo")
+skeleton = NodePath("../..")
+
+[node name="WallFront" type="MeshInstance3D" parent="WorldRoot/BobaShop/Exterior"]
+mesh = ExtResource("32_e3fev")
+skeleton = NodePath("../..")
+
+[node name="WallLeft" type="MeshInstance3D" parent="WorldRoot/BobaShop/Exterior"]
+mesh = ExtResource("33_v8yse")
+skeleton = NodePath("../..")
+
+[node name="WallRight" type="MeshInstance3D" parent="WorldRoot/BobaShop/Exterior"]
+mesh = ExtResource("34_hr8nq")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/Exterior"]
+collision_layer = 9
+collision_mask = 11
+
+[node name="CornerCollision" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2000003, 3, 6.8)
+shape = SubResource("BoxShape3D_1qbsa")
+
+[node name="CornerCollision2" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 3, -6.7999997)
+shape = SubResource("BoxShape3D_1qbsa")
+
+[node name="CornerCollision3" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2000003, 3, 6.7000003)
+shape = SubResource("BoxShape3D_1qbsa")
+
+[node name="CornerCollision4" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2000003, 3, -6.7999997)
+shape = SubResource("BoxShape3D_1qbsa")
+
+[node name="WallCollision" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.536743e-07, 3.0000005, -7.25)
+shape = SubResource("BoxShape3D_du356")
+
+[node name="WallCollision2" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.7000003, 3, -3.365777e-07)
+shape = SubResource("BoxShape3D_du356")
+
+[node name="WallCollision3" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.7, 3, 0)
+shape = SubResource("BoxShape3D_du356")
+
+[node name="WallCollision4" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7.1)
+shape = SubResource("BoxShape3D_du356")
+
+[node name="NoPlantZone" type="StaticBody3D" parent="WorldRoot/BobaShop/Exterior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, 0)
+collision_layer = 64
+collision_mask = 64
+
+[node name="NoPlanting" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/NoPlantZone"]
+shape = SubResource("BoxShape3D_hdofh")
+
+[node name="Lanterns" type="Node3D" parent="WorldRoot/BobaShop"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="LanternWhite" parent="WorldRoot/BobaShop/Lanterns" instance=ExtResource("35_bwgsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.5, -3)
+
+[node name="LanternWhite2" parent="WorldRoot/BobaShop/Lanterns" instance=ExtResource("35_bwgsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 2)
+
+[node name="LanternWhite3" parent="WorldRoot/BobaShop/Lanterns" instance=ExtResource("35_bwgsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4.5, -4)
+
+[node name="LanternPink" parent="WorldRoot/BobaShop/Lanterns" instance=ExtResource("36_q82qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4.1, 1)
+
+[node name="LanternPink2" parent="WorldRoot/BobaShop/Lanterns" instance=ExtResource("36_q82qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.1, 0)
+
+[node name="LanternPink3" parent="WorldRoot/BobaShop/Lanterns" instance=ExtResource("36_q82qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.1, -2)
+
+[node name="NoColor" type="Node3D" parent="WorldRoot/BobaShop"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CashRegister" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.4749995, -0.8, -5.999999)
+mesh = ExtResource("37_v2pjp")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/NoColor/CashRegister"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/NoColor/CashRegister/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_rwsu5")
+
+[node name="SeedShelf" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor"]
+transform = Transform3D(1.9470718e-07, 0, 1, 0, 1, 0, -1, 0, 1.9470718e-07, -7.0339756, -1.6, 4.467949)
+mesh = ExtResource("38_7v8ft")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/NoColor/SeedShelf"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/NoColor/SeedShelf/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_4ym88")
+
+[node name="SupplyShelf" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor"]
+transform = Transform3D(1.9470718e-07, 0, 1, 0, 1, 0, -1, 0, 1.9470718e-07, -7.033975, -1.6, 1.9679486)
+mesh = ExtResource("38_7v8ft")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/NoColor/SupplyShelf"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/NoColor/SupplyShelf/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_4ym88")
+
+[node name="StorageShelf" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor"]
+transform = Transform3D(-1, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -1, -4.833976, -1.6, 6.467949)
+mesh = ExtResource("38_7v8ft")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/NoColor/StorageShelf"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/NoColor/StorageShelf/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_4ym88")
+
+[node name="LongWindow" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor"]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, 2.2499988, 1.2, 2.4499989)
+mesh = ExtResource("39_5yr35")
+skeleton = NodePath("../..")
+
+[node name="DoorInside" parent="WorldRoot/BobaShop/NoColor" instance=ExtResource("40_bmysp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.608579e-06, -3.2000003, 32.6)
+skeleton = NodePath("../..")
+
+[node name="DoorOutside" parent="WorldRoot/BobaShop/NoColor" instance=ExtResource("40_bmysp")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.067141e-06, -3.2000003, -18.400002)
+skeleton = NodePath("../..")
+
+[node name="DrinkZone3D" type="Node3D" parent="WorldRoot/BobaShop" groups=["GameEvent"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9, 2.6985164, -5.1475663)
+script = ExtResource("41_y5ljf")
+metadata/_edit_group_ = true
+
+[node name="PickupZone" type="Area3D" parent="WorldRoot/BobaShop/DrinkZone3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5000002, -1.622884, -1.9333348)
+collision_layer = 32
+collision_mask = 32
+input_ray_pickable = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/DrinkZone3D/PickupZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25000012, 0.8000002)
+shape = SubResource("BoxShape3D_sinf0")
+
+[node name="Screen" type="StaticBody3D" parent="WorldRoot/BobaShop/DrinkZone3D"]
+transform = Transform3D(0.86, 0, 0, 0, 0.6957546, 0.5054953, 0, -0.5054953, 0.6957546, 0.169, -0.029345818, -0.61914027)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/DrinkZone3D/Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010986328, -1.9073486e-06, 0.049999714)
+shape = SubResource("BoxShape3D_alrdh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldRoot/BobaShop/DrinkZone3D/Screen"]
+transform = Transform3D(1, 0, 0, 0, 0.9999254, 0.012217001, 0, -0.012217001, 0.9999254, 0, 0, -0.007)
 mesh = SubResource("PlaneMesh_tyjbu")
 
-[editable path="WorldRoot/BobaShop"]
+[node name="SubViewport" type="SubViewport" parent="WorldRoot/BobaShop/DrinkZone3D"]
+gui_embed_subwindows = true
+size = Vector2i(717, 512)
+render_target_update_mode = 4
+
+[node name="DrinkOrders" parent="WorldRoot/BobaShop/DrinkZone3D/SubViewport" instance=ExtResource("43_ryr6b")]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -358.5
+offset_top = -256.0
+offset_right = 358.5
+offset_bottom = 256.0
+
+[node name="TeaCeremony" parent="WorldRoot/BobaShop" instance=ExtResource("44_wydm5")]
+transform = Transform3D(0.44999996, 0, 0.7794229, 0, 0.9, 0, -0.7794229, 0, 0.44999996, -2.866, 1.8, -2.172)
+metadata/_edit_lock_ = true
+
+[node name="ProcessMachine" parent="WorldRoot/BobaShop" instance=ExtResource("45_ciwc4")]
+transform = Transform3D(-1.1471529, 0, -1.6383042, 0, 2, 0, 1.6383042, 0, -1.1471529, 6.024, 0.099999994, 5.088)
+
+[node name="DrinkMachine" parent="WorldRoot/BobaShop" instance=ExtResource("46_opc87")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 1.5, -4)
+
+[node name="CookMahcine" parent="WorldRoot/BobaShop" instance=ExtResource("47_ynwp6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5999999, 1.5, -2.2)
+
+[node name="StorageAndDispensers" type="Node3D" parent="WorldRoot/BobaShop"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Water" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.94, 1.42)
+item_data = ExtResource("49_g2oif")
+
+[node name="Milk" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.94, 2.44)
+item_data = ExtResource("50_ced0m")
+
+[node name="MatchaPowder" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.15, 1.8)
+item_data = ExtResource("51_1gexm")
+
+[node name="SugarCaneSeed" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.94, 4.52)
+item_data = ExtResource("52_5js7k")
+
+[node name="CassavaSeed" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.15, 3.92)
+item_data = ExtResource("53_tyaha")
+
+[node name="TaroSeed" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.15, 5)
+item_data = ExtResource("54_q46nv")
+
+[node name="StrawberrySeed" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 0.25, 4.08)
+item_data = ExtResource("55_dcdew")
+
+[node name="StorageUnit" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("56_swqu6")]
+transform = Transform3D(-1.5298985e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5298985e-08, -4.41, 1.9399999, 6.55)
+
+[node name="Music" type="AudioStreamPlayer" parent="WorldRoot"]
+process_mode = 1
+stream = ExtResource("13_0glrw")
+autoplay = true
+parameters/looping = true
+
+[connection signal="body_entered" from="WorldRoot/BobaShop/DrinkZone3D/PickupZone" to="WorldRoot/BobaShop/DrinkZone3D" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="WorldRoot/BobaShop/DrinkZone3D/PickupZone" to="WorldRoot/BobaShop/DrinkZone3D" method="_on_area_3d_body_exited"]
+[connection signal="drink_ordered" from="WorldRoot/BobaShop/DrinkZone3D/SubViewport/DrinkOrders" to="WorldRoot/BobaShop/DrinkZone3D" method="_on_drink_orders_drink_ordered"]
+[connection signal="drink_served" from="WorldRoot/BobaShop/DrinkZone3D/SubViewport/DrinkOrders" to="WorldRoot/BobaShop/DrinkZone3D" method="_on_drink_orders_drink_served"]

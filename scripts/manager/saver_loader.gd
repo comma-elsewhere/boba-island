@@ -7,6 +7,8 @@ func _ready() -> void:
 	if Dynamic.load_game:
 		call_deferred("load_game")
 		Dynamic.load_game = false
+	else:
+		get_tree().call_group("GameEvent", "on_start")
 
 func save_game() -> void:
 	var saved_game: SavedGame = SavedGame.new()
@@ -32,12 +34,9 @@ func save_game() -> void:
 	ResourceSaver.save(saved_game, "user://savedata.res")
 	
 func load_game() -> void:
-	var saved_game = load("user://savedata.res")
+	var saved_game = ResourceLoader.load("user://savedata.res")
 	
-	print(saved_game.time)
 	world_root.load_time(saved_game.time)
-	
-	get_tree().call_group("GameEvent","on_preload")
 	
 	_set_options(saved_game.options)
 	_set_access(saved_game.accessibility)
@@ -46,6 +45,8 @@ func load_game() -> void:
 	_set_player_upgrades(saved_game.player_upgrades) 
 	_set_recipe_upgrades(saved_game.recipe_upgrades) 
 	_set_difficulty(saved_game.difficulty) 
+	
+	get_tree().call_group("GameEvent","on_preload")
 	
 	player.global_position = saved_game.player_position
 	
@@ -74,14 +75,13 @@ func _set_access(access: Array[bool]) -> void:
 	Dynamic.reticle = access[2]
 	
 func _get_progress() -> Array[Array]:
-	return [Dynamic.tutorial_progress, Dynamic.unlocked_book, Dynamic.unlocked_tea, Dynamic.unlocked_crop, Dynamic.locked_letters]
+	return [Dynamic.unlocked_book, Dynamic.unlocked_tea, Dynamic.unlocked_crop, Dynamic.locked_letters]
 	
 func _set_progress(progress: Array[Array]) -> void:
-	Dynamic.tutorial_progress = progress[0]
-	Dynamic.unlocked_book = progress[1]
-	Dynamic.unlocked_tea = progress[2]
-	Dynamic.unlocked_crop = progress[3]
-	Dynamic.locked_letters = progress[4]
+	Dynamic.unlocked_book = progress[0]
+	Dynamic.unlocked_tea = progress[1]
+	Dynamic.unlocked_crop = progress[2]
+	Dynamic.locked_letters = progress[3]
 	
 func _get_finances() -> Array[int]:
 	return [Dynamic.total_money, Dynamic.total_debt]

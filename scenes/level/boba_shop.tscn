@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bae4empxna1o"]
+[gd_scene load_steps=62 format=3 uid="uid://bae4empxna1o"]
 
 [ext_resource type="ArrayMesh" uid="uid://1uf24nhkhnty" path="res://resources/meshes/boba_shop/Floor.res" id="1_uah5q"]
 [ext_resource type="Material" uid="uid://dwnh605nsdnn4" path="res://resources/materials/floor_material.material" id="2_1qbsa"]
@@ -35,10 +35,8 @@
 [ext_resource type="PackedScene" uid="uid://dre3kgeqhjprj" path="res://scenes/prefab/tea_ceremony.tscn" id="34_4wiyc"]
 [ext_resource type="PackedScene" uid="uid://cdp4b2op1gor0" path="res://gui_comp/drink_orders.tscn" id="34_gy110"]
 [ext_resource type="PackedScene" uid="uid://516o65n4jcsn" path="res://scenes/prefab/process_machine.tscn" id="35_eeamv"]
-[ext_resource type="Resource" uid="uid://ddne8iogyrhns" path="res://resources/game_data/recipe_upgrade_groups/drink_machine_upgrades.tres" id="36_7oo2i"]
-[ext_resource type="PackedScene" uid="uid://dcsxnqd8vhk4c" path="res://scenes/prefab/gui_interface/drink_hud.tscn" id="37_iwl6g"]
-[ext_resource type="Resource" uid="uid://fnw81gfwi5n4" path="res://resources/game_data/recipe_upgrade_groups/cook_machine_upgrades.tres" id="38_8ijwx"]
-[ext_resource type="Resource" uid="uid://cfoou3oklaqqf" path="res://resources/game_data/recipe_upgrade_groups/process_machine_upgrades.tres" id="39_7oo2i"]
+[ext_resource type="PackedScene" uid="uid://btm7sbwffnkl2" path="res://scenes/prefab/drink_machine.tscn" id="36_gexap"]
+[ext_resource type="PackedScene" uid="uid://ccgpum2em3yhl" path="res://scenes/prefab/cook_machine.tscn" id="37_3np5k"]
 [ext_resource type="PackedScene" uid="uid://jj4cqbvtb1xk" path="res://scenes/prefab/dispenser.tscn" id="40_iwl6g"]
 [ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="41_ui4tw"]
 [ext_resource type="Resource" uid="uid://db3yuj54ic2xe" path="res://resources/game_data/ingredients/milk.tres" id="42_gc0ip"]
@@ -419,23 +417,14 @@ offset_bottom = 256.0
 transform = Transform3D(0.44999996, 0, 0.7794229, 0, 0.9, 0, -0.7794229, 0, 0.44999996, -2.866, 1.8, -2.172)
 metadata/_edit_lock_ = true
 
-[node name="DrinkMixer" parent="." instance=ExtResource("35_eeamv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.536684, 1.4661609, -4.7854967)
-machine_type = 2
-recipe_upgrades = ExtResource("36_7oo2i")
-crafting_scene = ExtResource("37_iwl6g")
-metadata/_edit_lock_ = true
+[node name="ProcessMachine" parent="." instance=ExtResource("35_eeamv")]
+transform = Transform3D(-1.1471529, 0, -1.6383042, 0, 2, 0, 1.6383042, 0, -1.1471529, 6.024, 0.099999994, 5.088)
 
-[node name="Cooker" parent="." instance=ExtResource("35_eeamv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.536684, 1.4661609, -2.5112996)
-machine_type = 1
-recipe_upgrades = ExtResource("38_8ijwx")
-metadata/_edit_lock_ = true
+[node name="DrinkMachine" parent="." instance=ExtResource("36_gexap")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 1.5, -4)
 
-[node name="Processer" parent="." instance=ExtResource("35_eeamv")]
-transform = Transform3D(1.5459102, 0, -1.2689214, 0, 2, 0, 1.2689214, 0, 1.5459102, 6.023893, 0, 5.087975)
-recipe_upgrades = ExtResource("39_7oo2i")
-metadata/_edit_lock_ = true
+[node name="CookMahcine" parent="." instance=ExtResource("37_3np5k")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5999999, 1.5, -2.2)
 
 [node name="StorageAndDispensers" type="Node3D" parent="."]
 metadata/_edit_group_ = true

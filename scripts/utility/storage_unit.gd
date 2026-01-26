@@ -35,11 +35,14 @@ func _on_inventory_grid_return_item(item: Item) -> void:
 	_storage_inventory.remove_item(item)
 	player.hud.add_item(item)
 	
+	
 func on_save(save_data: Array[SavedData]) -> void:
 	var my_data: SavedGUI = SavedGUI.new()
 	my_data.position = global_position
 	my_data.scene_file_path = scene_file_path
-	my_data.storage_items = _storage_inventory.get_items()
+	
+	for item in _storage_inventory.get_items():
+		my_data.storage_items.append(item)
 	
 	save_data.append(my_data)
 

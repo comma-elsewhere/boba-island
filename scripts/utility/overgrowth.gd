@@ -14,7 +14,7 @@ var static_body: StaticBody3D
 var alive: bool = true
 var weed_index: int
 
-func _ready() -> void:
+func on_start() -> void:
 	%Placeholder.queue_free()
 	_start()
 	
@@ -70,9 +70,27 @@ func on_save(save_data: Array[SavedData]) -> void:
 	
 	save_data.append(my_data)
 	
+func on_preload() -> void:
+	get_parent().remove_child(self)
+	queue_free()
 	
-func on_load(_save_data: SavedData) -> void:
-	pass
+func on_load(save_data: SavedData) -> void:
+	var my_data: SavedWeed = save_data as SavedWeed
+	global_position = my_data.position
+	alive = my_data.alive
+	
+	print(my_data.alive)
+	
+	$Placeholder.queue_free()
+	
+	if alive:
+		weed_index = my_data.weed_index
+		var new_weed = weed_array[weed_index]
+		weed = new_weed.instantiate() as Node3D
+		_grow_weed()
+	else:
+		collision_shape.disabled = true
+		$Timer.start(randf_range(MIN, MAX))
 	
 func _on_timer_timeout() -> void:
 	_start()

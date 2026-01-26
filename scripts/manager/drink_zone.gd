@@ -7,6 +7,12 @@ var drinks_in_area: Array[Drink] = []
 var ordered_drink: Drink = null
 var served_drink: Drink = null
 
+func on_start() -> void:
+	drink_orders.on_start()
+	
+func on_preload() -> void:
+	drink_orders.on_start()
+
 func on_click() -> void:
 	if drink_orders.next_dialogue_button.disabled == false:
 		drink_orders.continue_dialogue()

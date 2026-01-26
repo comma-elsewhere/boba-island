@@ -22,8 +22,8 @@ func drink_setup(data: Item) -> void:
 	item_data = data as Drink
 	
 func _ready() -> void:
-	tea.surface_get_material(0).albedo_color = get_color()
-	tea.surface_get_material(1).albedo_color = get_color()
+	tea.get_surface_override_material(0).albedo_color = get_color()
+	tea.get_surface_override_material(1).albedo_color = get_color()
 	boba.visible = show_boba()
 
 func get_color() -> Color:

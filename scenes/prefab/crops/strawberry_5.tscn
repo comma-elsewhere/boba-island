@@ -1,7 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://b54u1s3qihrqy"]
 
-[ext_resource type="PackedScene" uid="uid://bqcaxfx1ivhsa" path="res://scenes/prefab/temp_scenes/crop_mutant.tscn" id="1_3hunh"]
+[ext_resource type="ArrayMesh" uid="uid://bjqgta4ri732n" path="res://resources/meshes/mutant_strawberry.res" id="1_3hunh"]
 
 [node name="Taro" type="Node3D"]
 
-[node name="CropPlanted" parent="." instance=ExtResource("1_3hunh")]
+[node name="MutantStrawberry" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+mesh = ExtResource("1_3hunh")

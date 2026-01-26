@@ -8,15 +8,19 @@ extends StaticBody3D
 @onready var wait_time: Timer = %WaitTime
 @onready var shaker: ShakerComponent3D = %ShakerComponent3D
 
-const PROCESS := 3.0
-const COOK := 2.0
-const MIX := 2.0
+const PROCESS := 6.0
+const COOK := 5.0
+const MIX := 4.0
 
 var new_crafting_scene: CraftingHUD = null
 var available_recipes: Array[Recipe] = []
 var pending_result: Array[Item] = []
 
-func _ready() -> void:
+func on_start() -> void:
+	add_recipes()
+	_enable_display(false)
+	
+func on_preload() -> void:
 	add_recipes()
 	_enable_display(false)
 	
@@ -51,6 +55,8 @@ func close() -> void:
 
 func pickup_array() -> Array[Item]:
 	_enable_display(false)
+	if machine_type == 2:
+		$"drink-machine_READY_Game-Animation/AnimationPlayer".play("drink_mixer/TakeCup")
 	return pending_result
 
 func _craft_pending(result: Array[Item]) -> void:
@@ -58,12 +64,21 @@ func _craft_pending(result: Array[Item]) -> void:
 	%ItemTexture.texture = result[0].icon
 	%WaitTime.start(_return_time())
 	shaker.play_shake()
+	if machine_type == 2:
+		$"drink-machine_READY_Game-Animation/AnimationPlayer".play("drink_mixer/Main")
+	elif machine_type == 1:
+		%lid_down.show()
+		$"tapioca-cooker/top".hide()
 
 func _enable_display(enable: bool) -> void:
 	%IconDisplay.visible = enable
 	%CollisionShape3D.disabled = !enable
 	if !enable:
 		%ItemTexture.texture = null
+	if machine_type == 1:
+		%lid_down.hide()
+		$"tapioca-cooker/top".show()
+		
 
 func _get_name() -> String:
 	match machine_type:

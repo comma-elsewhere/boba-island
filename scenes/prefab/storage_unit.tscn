@@ -7,7 +7,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_mmytf"]
 size = Vector3(2.2, 1.25, 2)
 
-[node name="StorageUnit" type="StaticBody3D" groups=["GUI_Event", "GameEvent"]]
+[node name="StorageUnit" type="StaticBody3D" groups=["GUI_Event"]]
 transform = Transform3D(-1.5298985e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5298985e-08, 0, 0, 0)
 collision_layer = 9
 collision_mask = 9

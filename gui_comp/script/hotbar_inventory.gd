@@ -97,10 +97,11 @@ func remove_item(item: Item) -> void:
 
 func remove_item_name(item_name: String) -> void:
 	for i in len(hotbar_array):
-		if hotbar_array[i].name == item_name:
-			hotbar_array.erase(hotbar_array[i])
-			_update_display(i)
-			return
+		if hotbar_array[i] != null:
+			if hotbar_array[i].name == item_name:
+				hotbar_array.erase(hotbar_array[i])
+				_update_display(i)
+				return
 
 func erase_selected() -> void:
 	var item = hotbar_array[selected_slot]

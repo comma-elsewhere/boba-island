@@ -1,28 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://516o65n4jcsn"]
+[gd_scene load_steps=17 format=3 uid="uid://516o65n4jcsn"]
 
 [ext_resource type="Script" uid="uid://cgiwewpcymgdx" path="res://scripts/utility/process_machine.gd" id="1_un0w0"]
+[ext_resource type="Resource" uid="uid://cfoou3oklaqqf" path="res://resources/game_data/recipe_upgrade_groups/process_machine_upgrades.tres" id="2_e82m1"]
 [ext_resource type="Script" uid="uid://clls85kmjfpf5" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="2_ongrt"]
 [ext_resource type="Shader" uid="uid://dv2cahnhcv346" path="res://resources/shaders/viewport_y-billboard.gdshader" id="3_3ix07"]
 [ext_resource type="Script" uid="uid://d4maeuwhpdt85" path="res://addons/shaker/data/Vector3/BaseShakerType3D.gd" id="3_hescf"]
 [ext_resource type="Texture2D" uid="uid://dvwg0qembtom4" path="res://assets/icons/temp_no-sign.png" id="4_27507"]
 [ext_resource type="Script" uid="uid://dlykoqiifgl50" path="res://addons/shaker/data/Vector3/ShakerTypeSineWave3D.gd" id="4_e82m1"]
 [ext_resource type="Script" uid="uid://bn6mmvstgwt75" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="5_guwhl"]
+[ext_resource type="PackedScene" uid="uid://trfhrdaj614t" path="res://assets/models/machines/raw-processor-machine-without-pearls.glb" id="8_hescf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ix07"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_27507"]
-
-[sub_resource type="Resource" id="Resource_bbce8"]
-script = ExtResource("4_e82m1")
-frequency = Vector3(0.2, 0.5, 0.2)
-amplitude = Vector3(0.2, 0.5, 0.2)
-BlendingMode = 4
-metadata/_custom_type_script = "uid://dlykoqiifgl50"
-
-[sub_resource type="Resource" id="Resource_14ru7"]
-script = ExtResource("5_guwhl")
-ScaleShake = Array[ExtResource("3_hescf")]([SubResource("Resource_bbce8")])
-metadata/_custom_type_script = "uid://bn6mmvstgwt75"
+size = Vector3(0.8360596, 1.4172363, 0.913208)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_27507"]
 radius = 0.3
@@ -41,25 +30,27 @@ resource_local_to_scene = true
 material = SubResource("ShaderMaterial_w4de5")
 size = Vector2(0.5, 0.5)
 
+[sub_resource type="Resource" id="Resource_bbce8"]
+script = ExtResource("4_e82m1")
+frequency = Vector3(0.2, 0.5, 0.2)
+amplitude = Vector3(0.2, 0.5, 0.2)
+BlendingMode = 4
+metadata/_custom_type_script = "uid://dlykoqiifgl50"
+
+[sub_resource type="Resource" id="Resource_14ru7"]
+script = ExtResource("5_guwhl")
+ScaleShake = Array[ExtResource("3_hescf")]([SubResource("Resource_bbce8")])
+metadata/_custom_type_script = "uid://bn6mmvstgwt75"
+
 [node name="ProcessMachine" type="StaticBody3D" groups=["GUI_Event", "GameEvent"]]
 collision_layer = 11
 collision_mask = 11
 script = ExtResource("1_un0w0")
+recipe_upgrades = ExtResource("2_e82m1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.709, 0)
 shape = SubResource("BoxShape3D_3ix07")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.0675436, 0, 0, 0, 0.947287, 0, 0, 0, 0.9956277, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_27507")
-skeleton = NodePath("../..")
-
-[node name="ShakerComponent3D" type="Node3D" parent="MeshInstance3D"]
-unique_name_in_owner = true
-script = ExtResource("2_ongrt")
-shakerPreset = SubResource("Resource_14ru7")
-metadata/_custom_type_script = "uid://clls85kmjfpf5"
 
 [node name="GUI_Parent" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -67,9 +58,10 @@ layer = 3
 
 [node name="IconDisplay" type="StaticBody3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.76526845)
 collision_layer = 8
 collision_mask = 8
+metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IconDisplay"]
 unique_name_in_owner = true
@@ -105,5 +97,16 @@ stretch_mode = 5
 [node name="WaitTime" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="raw-processor-machine-without-pearls" parent="." instance=ExtResource("8_hescf")]
+transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 0, -0.124, 0)
+
+[node name="ShakerComponent3D" type="Node3D" parent="raw-processor-machine-without-pearls"]
+unique_name_in_owner = true
+transform = Transform3D(1.0675436, 0, 0, 0, 0.947287, 0, 0, 0, 0.9956277, 1.8566945, 0.5, -2.7037315)
+script = ExtResource("2_ongrt")
+intensity = 0.2
+shakerPreset = SubResource("Resource_14ru7")
+metadata/_custom_type_script = "uid://clls85kmjfpf5"
 
 [connection signal="timeout" from="WaitTime" to="." method="_on_wait_time_timeout"]

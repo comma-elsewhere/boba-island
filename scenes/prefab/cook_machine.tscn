@@ -1,0 +1,123 @@
+[gd_scene load_steps=18 format=3 uid="uid://ccgpum2em3yhl"]
+
+[ext_resource type="Script" uid="uid://cgiwewpcymgdx" path="res://scripts/utility/process_machine.gd" id="1_30cyd"]
+[ext_resource type="Resource" uid="uid://fnw81gfwi5n4" path="res://resources/game_data/recipe_upgrade_groups/cook_machine_upgrades.tres" id="2_0pcj6"]
+[ext_resource type="Shader" uid="uid://dv2cahnhcv346" path="res://resources/shaders/viewport_y-billboard.gdshader" id="2_rvi8a"]
+[ext_resource type="Texture2D" uid="uid://dvwg0qembtom4" path="res://assets/icons/temp_no-sign.png" id="3_0pcj6"]
+[ext_resource type="PackedScene" uid="uid://cn2sqvjrrpnem" path="res://assets/models/machines/tapioca-cooker.glb" id="4_30cyd"]
+[ext_resource type="Script" uid="uid://clls85kmjfpf5" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="5_21vse"]
+[ext_resource type="ArrayMesh" uid="uid://dsxfcxra1vdtk" path="res://resources/meshes/cooker_lid.res" id="6_0pcj6"]
+[ext_resource type="Script" uid="uid://d4maeuwhpdt85" path="res://addons/shaker/data/Vector3/BaseShakerType3D.gd" id="6_l7l36"]
+[ext_resource type="Script" uid="uid://dlykoqiifgl50" path="res://addons/shaker/data/Vector3/ShakerTypeSineWave3D.gd" id="7_loo2u"]
+[ext_resource type="Script" uid="uid://bn6mmvstgwt75" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="8_ht81q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ix07"]
+size = Vector3(0.6397095, 0.4390869, 0.5433655)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_27507"]
+radius = 0.3
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_27507"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4de5"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("2_rvi8a")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_27507")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ok6gk"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_w4de5")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_bbce8"]
+script = ExtResource("7_loo2u")
+frequency = Vector3(0.2, 0.5, 0.2)
+amplitude = Vector3(0.2, 0.5, 0.2)
+BlendingMode = 4
+metadata/_custom_type_script = "uid://dlykoqiifgl50"
+
+[sub_resource type="Resource" id="Resource_14ru7"]
+script = ExtResource("8_ht81q")
+ScaleShake = Array[ExtResource("6_l7l36")]([SubResource("Resource_bbce8")])
+metadata/_custom_type_script = "uid://bn6mmvstgwt75"
+
+[node name="ProcessMachine" type="StaticBody3D" groups=["GUI_Event", "GameEvent"]]
+collision_layer = 11
+collision_mask = 11
+script = ExtResource("1_30cyd")
+machine_type = 1
+recipe_upgrades = ExtResource("2_0pcj6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22, 0)
+shape = SubResource("BoxShape3D_3ix07")
+
+[node name="GUI_Parent" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 3
+
+[node name="IconDisplay" type="StaticBody3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+collision_layer = 8
+collision_mask = 8
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IconDisplay"]
+unique_name_in_owner = true
+shape = SubResource("SphereShape3D_27507")
+
+[node name="GUI_3DVisualizer" type="MeshInstance3D" parent="IconDisplay"]
+mesh = SubResource("QuadMesh_ok6gk")
+skeleton = NodePath("../..")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemTexture" type="TextureRect" parent="SubViewport/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0pcj6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WaitTime" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="tapioca-cooker" parent="." instance=ExtResource("4_30cyd")]
+transform = Transform3D(0.30000097, 0, 0, 0, 0.29999897, 0, 0, 0, 0.2999999, 0, -0.027400494, 0)
+
+[node name="lid_down" type="MeshInstance3D" parent="tapioca-cooker"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.9999999, 0, 1, -4.3711385e-08, 0, 0.25048184, -2.3766801)
+visible = false
+mesh = ExtResource("6_0pcj6")
+skeleton = NodePath("../..")
+
+[node name="ShakerComponent3D" type="Node3D" parent="tapioca-cooker"]
+unique_name_in_owner = true
+transform = Transform3D(-6.221841e-08, 0, -1.3275034, 0, 1.2630492, 0, 1.4233913, 0, -5.8027023e-08, 3.6055021, 0.3450527, 2.0087955)
+script = ExtResource("5_21vse")
+intensity = 0.206
+shakerPreset = SubResource("Resource_14ru7")
+metadata/_custom_type_script = "uid://clls85kmjfpf5"
+
+[connection signal="timeout" from="WaitTime" to="." method="_on_wait_time_timeout"]
+
+[editable path="tapioca-cooker"]

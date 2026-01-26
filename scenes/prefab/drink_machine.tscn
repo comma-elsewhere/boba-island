@@ -1,0 +1,192 @@
+[gd_scene load_steps=32 format=3 uid="uid://btm7sbwffnkl2"]
+
+[ext_resource type="Script" uid="uid://cgiwewpcymgdx" path="res://scripts/utility/process_machine.gd" id="1_bjh2w"]
+[ext_resource type="Resource" uid="uid://ddne8iogyrhns" path="res://resources/game_data/recipe_upgrade_groups/drink_machine_upgrades.tres" id="2_l18tl"]
+[ext_resource type="Shader" uid="uid://dv2cahnhcv346" path="res://resources/shaders/viewport_y-billboard.gdshader" id="2_sajm6"]
+[ext_resource type="Texture2D" uid="uid://dvwg0qembtom4" path="res://assets/icons/temp_no-sign.png" id="3_7o87f"]
+[ext_resource type="PackedScene" uid="uid://dcsxnqd8vhk4c" path="res://scenes/prefab/gui_interface/drink_hud.tscn" id="3_ec67p"]
+[ext_resource type="Script" uid="uid://clls85kmjfpf5" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="5_1il3m"]
+[ext_resource type="Script" uid="uid://d4maeuwhpdt85" path="res://addons/shaker/data/Vector3/BaseShakerType3D.gd" id="6_hfgjn"]
+[ext_resource type="Script" uid="uid://dlykoqiifgl50" path="res://addons/shaker/data/Vector3/ShakerTypeSineWave3D.gd" id="7_vf2dq"]
+[ext_resource type="PackedScene" uid="uid://lbeqjxuiqugr" path="res://assets/models/machines/drink-machine_READY_Game-Animation.glb" id="8_bjh2w"]
+[ext_resource type="Script" uid="uid://bn6mmvstgwt75" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="8_ygmpd"]
+[ext_resource type="Animation" uid="uid://ccsheog6pnsb7" path="res://resources/meshes/animation/back left wheel turnAction.res" id="9_hcmex"]
+[ext_resource type="Animation" uid="uid://cpbkbb2wwl8j5" path="res://resources/meshes/animation/cup holder slidersAction.res" id="10_8bu8i"]
+[ext_resource type="Animation" uid="uid://b74fir0ijc1p7" path="res://resources/meshes/animation/Cylinder_013Action.res" id="11_l18tl"]
+[ext_resource type="Animation" uid="uid://ce2k3ao1pi6at" path="res://resources/meshes/animation/front right wheel turnAction.res" id="12_ec67p"]
+[ext_resource type="Animation" uid="uid://dvw7ooeoalhii" path="res://resources/meshes/animation/lower left rotation poleAction.res" id="13_oq5mj"]
+[ext_resource type="Animation" uid="uid://bgb7n4u2mqrj2" path="res://resources/meshes/animation/lower right rotation poleAction.res" id="14_br6x3"]
+[ext_resource type="Animation" uid="uid://jdpbg4fkvsy" path="res://resources/meshes/animation/plasticAction.res" id="15_0y4s6"]
+[ext_resource type="Animation" uid="uid://ds1krsl40tegn" path="res://resources/meshes/animation/seal presserAction.res" id="16_18kyh"]
+[ext_resource type="Animation" uid="uid://cyske5knoi5od" path="res://resources/meshes/animation/top Action.res" id="17_06pnt"]
+[ext_resource type="Animation" uid="uid://g2ws7anplo1r" path="res://resources/meshes/animation/Cup_001Action.res" id="18_obt27"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ix07"]
+size = Vector3(0.6397095, 1.1705933, 0.5433655)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_27507"]
+radius = 0.3
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_27507"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4de5"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("2_sajm6")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_27507")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ok6gk"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_w4de5")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_hcmex"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cup_001:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bu8i"]
+_data = {
+&"RESET": SubResource("Animation_hcmex")
+}
+
+[sub_resource type="Animation" id="Animation_l18tl"]
+resource_name = "TakeCup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cup_001:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5w7gk"]
+_data = {
+&"Cup_001Action": ExtResource("18_obt27"),
+&"Cylinder_013Action": ExtResource("11_l18tl"),
+&"Main": ExtResource("15_0y4s6"),
+&"TakeCup": SubResource("Animation_l18tl"),
+&"back left wheel turnAction": ExtResource("9_hcmex"),
+&"cup holder slidersAction": ExtResource("10_8bu8i"),
+&"front right wheel turnAction": ExtResource("12_ec67p"),
+&"lower left rotation poleAction": ExtResource("13_oq5mj"),
+&"lower right rotation poleAction": ExtResource("14_br6x3"),
+&"seal presserAction": ExtResource("16_18kyh"),
+&"top Action": ExtResource("17_06pnt")
+}
+
+[sub_resource type="Resource" id="Resource_bbce8"]
+script = ExtResource("7_vf2dq")
+frequency = Vector3(0.2, 0.5, 0.2)
+amplitude = Vector3(0.2, 0.5, 0.2)
+BlendingMode = 4
+metadata/_custom_type_script = "uid://dlykoqiifgl50"
+
+[sub_resource type="Resource" id="Resource_14ru7"]
+script = ExtResource("8_ygmpd")
+ScaleShake = Array[ExtResource("6_hfgjn")]([SubResource("Resource_bbce8")])
+metadata/_custom_type_script = "uid://bn6mmvstgwt75"
+
+[node name="ProcessMachine" type="StaticBody3D" groups=["GUI_Event", "GameEvent"]]
+collision_layer = 11
+collision_mask = 11
+script = ExtResource("1_bjh2w")
+machine_type = 2
+recipe_upgrades = ExtResource("2_l18tl")
+crafting_scene = ExtResource("3_ec67p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5857532, 0)
+shape = SubResource("BoxShape3D_3ix07")
+
+[node name="GUI_Parent" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 3
+
+[node name="IconDisplay" type="StaticBody3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7745783, 0.52381754)
+collision_layer = 8
+collision_mask = 8
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IconDisplay"]
+unique_name_in_owner = true
+shape = SubResource("SphereShape3D_27507")
+
+[node name="GUI_3DVisualizer" type="MeshInstance3D" parent="IconDisplay"]
+mesh = SubResource("QuadMesh_ok6gk")
+skeleton = NodePath("../..")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemTexture" type="TextureRect" parent="SubViewport/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7o87f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WaitTime" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="drink-machine_READY_Game-Animation" parent="." instance=ExtResource("8_bjh2w")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0.31655753)
+
+[node name="back left wheel turn" parent="drink-machine_READY_Game-Animation" index="0"]
+transform = Transform3D(-1, -3.8941437e-07, 0, 3.8941437e-07, -1, 0, 0, 0, 1, -0.74330616, 5.2214293, -1.0535389)
+
+[node name="Cup_001" parent="drink-machine_READY_Game-Animation" index="2"]
+visible = false
+
+[node name="front right wheel turn" parent="drink-machine_READY_Game-Animation" index="3"]
+transform = Transform3D(-0.98480785, 0.17364831, 0, -0.17364831, -0.98480785, 0, 0, 0, 1, 0.7273901, 5.225183, -1.0568805)
+
+[node name="AnimationPlayer" parent="drink-machine_READY_Game-Animation" index="16"]
+libraries = {
+&"": SubResource("AnimationLibrary_8bu8i"),
+&"drink_mixer": SubResource("AnimationLibrary_5w7gk")
+}
+
+[node name="ShakerComponent3D" type="Node3D" parent="drink-machine_READY_Game-Animation"]
+unique_name_in_owner = true
+transform = Transform3D(-1.8665752e-08, 0, -0.3982559, 0, 0.37891927, 0, 0.42702174, 0, -1.7408285e-08, 1.0477469, 0.07611654, -0.32639468)
+script = ExtResource("5_1il3m")
+intensity = 0.15
+shakerPreset = SubResource("Resource_14ru7")
+metadata/_custom_type_script = "uid://clls85kmjfpf5"
+
+[connection signal="timeout" from="WaitTime" to="." method="_on_wait_time_timeout"]
+
+[editable path="drink-machine_READY_Game-Animation"]

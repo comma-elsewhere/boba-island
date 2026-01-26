@@ -20,8 +20,8 @@ const CORRECT_DRINK := "Correct Drink! Customer paid "
 const LOVED_TEA := "\n And they tipped an extra "
 const WRONG_TEA := "\n But they didn't care for the tea..."
 
-const MIN_WAIT := 1.0
-const MAX_WAIT := 2.0
+const MIN_WAIT := 3.0
+const MAX_WAIT := 5.0
 
 var available_drinks: Array[Recipe]
 var order_generator: OrderGen
@@ -35,7 +35,8 @@ var awaiting_customer: bool = false
 var _unlocked_tea: Array = []
 var _unlocked_milk_tea: Array = []
 
-func _ready() -> void:
+func on_start() -> void:
+	print("starting")
 	order_generator = OrderGen.new()
 	regular_generator = NpcGen.new()
 	_reset_labels()
@@ -44,6 +45,7 @@ func _ready() -> void:
 	activate_serve_button(false)
 	serve_drink_button.button_up.connect(serve_drink)
 	next_dialogue_button.button_up.connect(continue_dialogue)
+	$NextCustomerTimer.start(MIN_WAIT)
 		
 func finish_order(paid: int, tipped: int) -> void:
 	Dynamic.orders_filled += 1

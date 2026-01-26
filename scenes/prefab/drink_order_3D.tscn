@@ -25,7 +25,7 @@ material = SubResource("ShaderMaterial_svpgd")
 size = Vector2(2, 1)
 orientation = 2
 
-[node name="DrinkZone3D" type="Node3D"]
+[node name="DrinkZone3D" type="Node3D" groups=["GameEvent"]]
 script = ExtResource("1_sinf0")
 
 [node name="Area3D" type="Area3D" parent="."]
