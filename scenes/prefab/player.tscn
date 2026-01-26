@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d0b3clifjliac"]
+[gd_scene load_steps=29 format=3 uid="uid://d0b3clifjliac"]
 
 [ext_resource type="Script" uid="uid://dnepsi6c0l41w" path="res://scripts/class/player_that_digs.gd" id="1_72ieh"]
 [ext_resource type="PackedScene" uid="uid://blhd62dvlvboc" path="res://scenes/utility/player_hud.tscn" id="2_t63vk"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://bni0jrcydsw6r" path="res://addons/shaker/data/Vector3/ShakerTypeBrownianShake3D.gd" id="9_sm572"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_sm572"]
 [ext_resource type="Script" uid="uid://bmn1dpl5s5tf5" path="res://scripts/utility/view_model.gd" id="15_gumar"]
+[ext_resource type="AudioStream" uid="uid://bdgderca3376u" path="res://assets/sound effects/MutantNoises.ogg" id="16_2v2me"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_22t8h"]
 
@@ -125,6 +126,18 @@ metadata/_custom_type_script = "uid://bni0jrcydsw6r"
 script = ExtResource("9_bdjfl")
 PositionShake = Array[ExtResource("8_octyv")]([SubResource("Resource_ob2so")])
 metadata/_custom_type_script = "uid://bn6mmvstgwt75"
+
+[sub_resource type="GDScript" id="GDScript_2v2me"]
+resource_name = "TheVoices"
+script/source = "extends AudioStreamPlayer3D
+
+func mutant_encounter(active: bool) -> void:
+	if active:
+		play()
+	else:
+		await get_tree().create_timer(1.0).timeout
+		stop()
+"
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
@@ -245,3 +258,12 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="ViewModel" type="Marker3D" parent="Head"]
 visible = false
 script = ExtResource("15_gumar")
+
+[node name="VoicesInYourHead" type="AudioStreamPlayer3D" parent="." groups=["Lighting"]]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0.5)
+stream = ExtResource("16_2v2me")
+attenuation_model = 1
+volume_db = -55.0
+parameters/looping = true
+script = SubResource("GDScript_2v2me")

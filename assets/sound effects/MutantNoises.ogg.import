@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bdgderca3376u"
+path="res://.godot/imported/MutantNoises.ogg-1b953159a48ffb80afce69fa173f0834.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound effects/MutantNoises.ogg"
+dest_files=["res://.godot/imported/MutantNoises.ogg-1b953159a48ffb80afce69fa173f0834.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ccgpum2em3yhl"]
+[gd_scene load_steps=19 format=3 uid="uid://ccgpum2em3yhl"]
 
 [ext_resource type="Script" uid="uid://cgiwewpcymgdx" path="res://scripts/utility/process_machine.gd" id="1_30cyd"]
 [ext_resource type="Resource" uid="uid://fnw81gfwi5n4" path="res://resources/game_data/recipe_upgrade_groups/cook_machine_upgrades.tres" id="2_0pcj6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://d4maeuwhpdt85" path="res://addons/shaker/data/Vector3/BaseShakerType3D.gd" id="6_l7l36"]
 [ext_resource type="Script" uid="uid://dlykoqiifgl50" path="res://addons/shaker/data/Vector3/ShakerTypeSineWave3D.gd" id="7_loo2u"]
 [ext_resource type="Script" uid="uid://bn6mmvstgwt75" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="8_ht81q"]
+[ext_resource type="AudioStream" uid="uid://flanhb4dggb4" path="res://assets/sound effects/BrewLoop.ogg" id="11_7tag5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ix07"]
 size = Vector3(0.6397095, 0.4390869, 0.5433655)
@@ -117,6 +118,15 @@ script = ExtResource("5_21vse")
 intensity = 0.206
 shakerPreset = SubResource("Resource_14ru7")
 metadata/_custom_type_script = "uid://clls85kmjfpf5"
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20288455, 0)
+stream = ExtResource("11_7tag5")
+attenuation_model = 2
+volume_db = -25.0
+max_db = 0.0
+parameters/looping = true
 
 [connection signal="timeout" from="WaitTime" to="." method="_on_wait_time_timeout"]
 

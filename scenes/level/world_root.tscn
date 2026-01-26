@@ -935,6 +935,7 @@ transform = Transform3D(-1.5298985e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.529898
 [node name="Music" type="AudioStreamPlayer" parent="WorldRoot"]
 process_mode = 1
 stream = ExtResource("13_0glrw")
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 

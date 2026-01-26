@@ -8,9 +8,9 @@ extends StaticBody3D
 @onready var wait_time: Timer = %WaitTime
 @onready var shaker: ShakerComponent3D = %ShakerComponent3D
 
-const PROCESS := 6.0
-const COOK := 5.0
-const MIX := 4.0
+const PROCESS := 8.0
+const COOK := 6.0
+const MIX := 10.0
 
 var new_crafting_scene: CraftingHUD = null
 var available_recipes: Array[Recipe] = []
@@ -69,6 +69,9 @@ func _craft_pending(result: Array[Item]) -> void:
 	elif machine_type == 1:
 		%lid_down.show()
 		$"tapioca-cooker/top".hide()
+		
+	if machine_type < 2:
+		%Audio.play()
 
 func _enable_display(enable: bool) -> void:
 	%IconDisplay.visible = enable
@@ -78,6 +81,9 @@ func _enable_display(enable: bool) -> void:
 	if machine_type == 1:
 		%lid_down.hide()
 		$"tapioca-cooker/top".show()
+	
+	if machine_type < 2:
+		%Audio.stop()
 		
 
 func _get_name() -> String:
