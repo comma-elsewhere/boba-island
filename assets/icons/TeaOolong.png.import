@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddocp4qakew5v"
-path="res://.godot/imported/sugar_cane_seed.png-da49bda5d17efc9503d741b0988e475d.ctex"
+uid="uid://67hfyq05g3vy"
+path="res://.godot/imported/TeaOolong.png-62dd45d64495f83cbd908175cc5a7038.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/sugar_cane_seed.png"
-dest_files=["res://.godot/imported/sugar_cane_seed.png-da49bda5d17efc9503d741b0988e475d.ctex"]
+source_file="res://assets/icons/TeaOolong.png"
+dest_files=["res://.godot/imported/TeaOolong.png-62dd45d64495f83cbd908175cc5a7038.ctex"]
 
 [params]
 

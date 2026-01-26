@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Tea" load_steps=4 format=3 uid="uid://cdcw34iyxefmk"]
 
 [ext_resource type="Script" uid="uid://mlslmml4ade1" path="res://scripts/resource/items_and_recipes/tea.gd" id="1_jewcy"]
-[ext_resource type="Texture2D" uid="uid://c0oxbjc7urppf" path="res://assets/icons/oolong_tea.png" id="1_rqeh4"]
+[ext_resource type="Texture2D" uid="uid://c0e83whslvwwu" path="res://assets/icons/TeaJasmine.png" id="1_rqeh4"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_dninv"]
 
 [resource]

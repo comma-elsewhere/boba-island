@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://flanhb4dggb4"
+path="res://.godot/imported/BrewLoop.ogg-5e7307098813c2a6edf45eb6ee24d12b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound effects/BrewLoop.ogg"
+dest_files=["res://.godot/imported/BrewLoop.ogg-5e7307098813c2a6edf45eb6ee24d12b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

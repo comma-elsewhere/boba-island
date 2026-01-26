@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxsuyv6w1sxwi"
-path="res://.godot/imported/starwberry.png-d7ac0ee799a87fbaa702d117171045ba.ctex"
+uid="uid://chtxx0slfko74"
+path="res://.godot/imported/CupBlackTea.png-8fa65c4c31717686df57762e452e21a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/starwberry.png"
-dest_files=["res://.godot/imported/starwberry.png-d7ac0ee799a87fbaa702d117171045ba.ctex"]
+source_file="res://assets/icons/CupBlackTea.png"
+dest_files=["res://.godot/imported/CupBlackTea.png-8fa65c4c31717686df57762e452e21a4.ctex"]
 
 [params]
 

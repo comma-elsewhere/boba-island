@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ddadbc6h0js3d" path="res://scenes/utility/crop.tscn" id="1_pjx31"]
 [ext_resource type="Resource" uid="uid://ondr30glbdiq" path="res://resources/game_data/crops/taro.tres" id="1_vatqn"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_vatqn"]
-[ext_resource type="Texture2D" uid="uid://cupjqjvdcy2jf" path="res://assets/icons/Taro_seed.png" id="3_750ng"]
+[ext_resource type="Texture2D" uid="uid://drqdlunltaq6f" path="res://assets/icons/SeedTaro.png" id="3_750ng"]
 [ext_resource type="Script" uid="uid://bsoorundtclwe" path="res://scripts/resource/items_and_recipes/seed.gd" id="3_vcfof"]
 [ext_resource type="PackedScene" uid="uid://bhkqowqmtstqe" path="res://scenes/prefab/crops/taro_1.tscn" id="5_750ng"]
 

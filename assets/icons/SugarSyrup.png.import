@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cupjqjvdcy2jf"
-path="res://.godot/imported/Taro_seed.png-217f362db1b53fc6687aa076a3e34cf4.ctex"
+uid="uid://bg5auxies77fi"
+path="res://.godot/imported/SugarSyrup.png-feac994f18b27a5918bc778e83515f6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/Taro_seed.png"
-dest_files=["res://.godot/imported/Taro_seed.png-217f362db1b53fc6687aa076a3e34cf4.ctex"]
+source_file="res://assets/icons/SugarSyrup.png"
+dest_files=["res://.godot/imported/SugarSyrup.png-feac994f18b27a5918bc778e83515f6f.ctex"]
 
 [params]
 

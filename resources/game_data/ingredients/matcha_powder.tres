@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://becxnuwetlie2"]
 
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_2cftb"]
-[ext_resource type="Texture2D" uid="uid://dvwg0qembtom4" path="res://assets/icons/temp_no-sign.png" id="1_7g3cq"]
+[ext_resource type="Texture2D" uid="uid://dpelvhhbtwo58" path="res://assets/icons/MatchaPowder.png" id="1_7g3cq"]
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_xgijo"]
 
 [resource]

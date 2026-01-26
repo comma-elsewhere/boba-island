@@ -36,7 +36,6 @@ var _unlocked_tea: Array = []
 var _unlocked_milk_tea: Array = []
 
 func on_start() -> void:
-	print("starting")
 	order_generator = OrderGen.new()
 	regular_generator = NpcGen.new()
 	_reset_labels()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpgjwdpflyssd"
-path="res://.godot/imported/Cassava_seed.png-0c734b75a6d0358d1dfd19e213b7c27d.ctex"
+uid="uid://b5vhbnu6s0cc8"
+path="res://.godot/imported/Milk.png-fa6994993a40d8d8fd420ca7cb4a1105.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/Cassava_seed.png"
-dest_files=["res://.godot/imported/Cassava_seed.png-0c734b75a6d0358d1dfd19e213b7c27d.ctex"]
+source_file="res://assets/icons/Milk.png"
+dest_files=["res://.godot/imported/Milk.png-fa6994993a40d8d8fd420ca7cb4a1105.ctex"]
 
 [params]
 

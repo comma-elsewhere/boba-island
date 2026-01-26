@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_8nfpd"]
 [ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/items_and_recipes/drink.gd" id="1_k7k2n"]
-[ext_resource type="Texture2D" uid="uid://bfcgeiw054wjf" path="res://assets/icons/temp_water-droplet.png" id="1_ykde2"]
-[ext_resource type="PackedScene" uid="uid://c1jaefu6rw3ne" path="res://scenes/prefab/drinks/sealed_drink.tscn" id="3_ykde2"]
+[ext_resource type="Texture2D" uid="uid://dyf6835pdw32r" path="res://assets/icons/StrawberryMilkTea.png" id="1_ykde2"]
+[ext_resource type="PackedScene" uid="uid://b5regmlr6pot4" path="res://scenes/prefab/temp_scenes/drink.tscn" id="3_ykde2"]
 
 [resource]
 script = ExtResource("1_k7k2n")

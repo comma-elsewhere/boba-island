@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5regmlr6pot4"]
+[gd_scene load_steps=3 format=3 uid="uid://b5regmlr6pot4"]
 
-[ext_resource type="CylinderMesh" uid="uid://clw54gbs4o86k" path="res://resources/meshes/TEMP_drink.res" id="1_bksxx"]
+[ext_resource type="ArrayMesh" uid="uid://clfr4uhedr70e" path="res://resources/meshes/cup_nolid.res" id="1_bksxx"]
+[ext_resource type="ArrayMesh" uid="uid://bti6sm8jsr3co" path="res://resources/meshes/cup_lid.res" id="2_sd68i"]
 
 [node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 mesh = ExtResource("1_bksxx")
+
+[node name="CupLid" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_sd68i")

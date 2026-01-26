@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmmbght46dnh0"
-path="res://.godot/imported/temp_tea-shape.png-8ac67da380ce320373832df82e7bfaa5.ctex"
+uid="uid://krqr2i50fko5"
+path="res://.godot/imported/Water.png-3895aa9176d15d32644f7bad20ab458b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/temp_tea-shape.png"
-dest_files=["res://.godot/imported/temp_tea-shape.png-8ac67da380ce320373832df82e7bfaa5.ctex"]
+source_file="res://assets/icons/Water.png"
+dest_files=["res://.godot/imported/Water.png-3895aa9176d15d32644f7bad20ab458b.ctex"]
 
 [params]
 

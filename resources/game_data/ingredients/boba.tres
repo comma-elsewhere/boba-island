@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://8ro3okhrpfwh"]
 
-[ext_resource type="Texture2D" uid="uid://rvi2k5t0d03x" path="res://assets/icons/boba.png" id="1_goit2"]
+[ext_resource type="Texture2D" uid="uid://bp8ysbu0yg3qc" path="res://assets/icons/Boba.png" id="1_goit2"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_jotic"]
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_rqctp"]
 

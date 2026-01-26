@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5lty58am1ma6"
-path="res://.godot/imported/cassava.png-ddeb74e9603db7be678e09c289d04fc2.ctex"
+uid="uid://jtmpnbvu5q5y"
+path="res://.godot/imported/CropStrawberry.png-fa3d806393ff8d15e8c7b0d622aaa179.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/cassava.png"
-dest_files=["res://.godot/imported/cassava.png-ddeb74e9603db7be678e09c289d04fc2.ctex"]
+source_file="res://assets/icons/CropStrawberry.png"
+dest_files=["res://.godot/imported/CropStrawberry.png-fa3d806393ff8d15e8c7b0d622aaa179.ctex"]
 
 [params]
 

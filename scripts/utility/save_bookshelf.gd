@@ -18,3 +18,4 @@ func close() -> void:
 	
 func _hide_gui_scene() -> void:
 	get_tree().call_group("GUI_Event", "close")
+	get_tree().reload_current_scene()

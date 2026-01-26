@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7nujfsrjhyo4"
-path="res://.godot/imported/Starwberry_seed.png-1e0a21e5e62e1e3301decb6cbd0cfb39.ctex"
+uid="uid://dcawhayqpjf3h"
+path="res://.godot/imported/CropCassava.png-57f9c9ca0f97b4e7708cabbff09bd26d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/Starwberry_seed.png"
-dest_files=["res://.godot/imported/Starwberry_seed.png-1e0a21e5e62e1e3301decb6cbd0cfb39.ctex"]
+source_file="res://assets/icons/CropCassava.png"
+dest_files=["res://.godot/imported/CropCassava.png-57f9c9ca0f97b4e7708cabbff09bd26d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b32fwejvnx6ol"
-path="res://.godot/imported/Taro_root.png-9dde2e70684a412def27e00647bd9e3c.ctex"
+uid="uid://b4ggxur1xuatl"
+path="res://.godot/imported/CupOolongTea.png-a247f8449eb9d07446a8f482d7b1552b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/Taro_root.png"
-dest_files=["res://.godot/imported/Taro_root.png-9dde2e70684a412def27e00647bd9e3c.ctex"]
+source_file="res://assets/icons/CupOolongTea.png"
+dest_files=["res://.godot/imported/CupOolongTea.png-a247f8449eb9d07446a8f482d7b1552b.ctex"]
 
 [params]
 

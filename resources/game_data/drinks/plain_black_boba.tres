@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://movqr2bvm2b7"]
 
-[ext_resource type="Texture2D" uid="uid://bfcgeiw054wjf" path="res://assets/icons/temp_water-droplet.png" id="1_bunpv"]
+[ext_resource type="Texture2D" uid="uid://bghdemp1v18r8" path="res://assets/icons/PlainTeaBoba.png" id="1_bunpv"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_vm0td"]
 [ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/items_and_recipes/drink.gd" id="1_ybsxm"]
-[ext_resource type="PackedScene" uid="uid://c1jaefu6rw3ne" path="res://scenes/prefab/drinks/sealed_drink.tscn" id="3_bunpv"]
+[ext_resource type="PackedScene" uid="uid://b5regmlr6pot4" path="res://scenes/prefab/temp_scenes/drink.tscn" id="3_bunpv"]
 
 [resource]
 script = ExtResource("1_ybsxm")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://4qoviebs8pn6"]
+[gd_scene load_steps=5 format=3 uid="uid://4qoviebs8pn6"]
 
 [ext_resource type="Texture2D" uid="uid://cr4qwww4peatn" path="res://assets/textures/temp_postcard.png" id="1_x1mol"]
 [ext_resource type="Script" uid="uid://g0gm20tueawh" path="res://scripts/utility/postcard.gd" id="2_khgoc"]
 [ext_resource type="Texture2D" uid="uid://33qyhpolkgag" path="res://assets/art/postcard_2.jpg" id="3_h5u3k"]
+[ext_resource type="Texture2D" uid="uid://bgn0ww8mgj5dj" path="res://assets/art/postcard_1.jpg" id="4_ile51"]
 
 [node name="PostcardViewer" type="SubViewportContainer"]
 size_flags_horizontal = 4
@@ -21,4 +22,4 @@ unique_name_in_owner = true
 texture = ExtResource("1_x1mol")
 centered = false
 script = ExtResource("2_khgoc")
-available_textures = Array[Texture2D]([ExtResource("3_h5u3k")])
+available_textures = Array[Texture2D]([ExtResource("3_h5u3k"), ExtResource("4_ile51")])
