@@ -7,6 +7,19 @@ var tutorial_progress: Array = [0]
 var unlocked_book: Array = []
 var unlocked_tea: Array = []
 var unlocked_crop: Array =  []
+var locked_letters: Array = [
+	Static.BOOKS.LETTER11, 
+	Static.BOOKS.LETTER5, 
+	Static.BOOKS.LETTER7, 
+	Static.BOOKS.LETTER1, 
+	Static.BOOKS.LETTER4, 
+	Static.BOOKS.LETTER3, 
+	Static.BOOKS.LETTER2, 
+	Static.BOOKS.LETTER6, 
+	Static.BOOKS.LETTER9,
+	Static.BOOKS.LETTER8, 
+	Static.BOOKS.LETTER10, 
+]
 
 # Options menu settings, save
 var mouse_sensitivity: float = 0.004

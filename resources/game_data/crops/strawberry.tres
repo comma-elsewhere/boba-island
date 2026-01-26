@@ -16,6 +16,7 @@ grow_meshes = Array[PackedScene]([ExtResource("1_6h7kv"), ExtResource("2_0whib")
 grow_time = 10.0
 water_max = 60
 water_min = 60
+mutation_mod = 8.0
 name = "Strawberries"
 icon = ExtResource("1_vmi7m")
 stack_limit = 9

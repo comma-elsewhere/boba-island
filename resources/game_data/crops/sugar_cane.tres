@@ -16,6 +16,7 @@ grow_meshes = Array[PackedScene]([ExtResource("1_q7bdb"), ExtResource("2_tpvfb")
 grow_time = 8.0
 water_max = 50
 water_min = 50
+mutation_mod = 4.0
 name = "Sugar Cane"
 icon = ExtResource("1_nsp7e")
 stack_limit = 9

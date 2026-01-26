@@ -42,6 +42,7 @@ SaverLoader=""
 Lighting=""
 Player=""
 GUI_Event=""
+Clock=""
 
 [gui]
 

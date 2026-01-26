@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://mttpxrvsfbud"]
+[gd_scene load_steps=37 format=3 uid="uid://mttpxrvsfbud"]
 
 [ext_resource type="Script" uid="uid://bcilf6csioyox" path="res://scripts/manager/library_interface.gd" id="1_thpff"]
 [ext_resource type="Script" uid="uid://b8ny0ldtqgkd6" path="res://scripts/resource/other/book_entry.gd" id="2_h1sqb"]
@@ -11,17 +11,31 @@
 [ext_resource type="Resource" uid="uid://co0oo82m4gt7l" path="res://resources/game_texts/book_of_tea/ceylon_entry.res" id="6_yohpt"]
 [ext_resource type="Resource" uid="uid://bjn4ktx1y2ixs" path="res://resources/game_texts/books/gongfu.res" id="7_6md0s"]
 [ext_resource type="Resource" uid="uid://b3p6gvw4b26au" path="res://resources/game_texts/book_of_tea/chai_entry.res" id="7_a8tvu"]
+[ext_resource type="Resource" uid="uid://cx2wr2d5o7bvk" path="res://resources/game_texts/books/debt_notice.res" id="7_jlnv1"]
 [ext_resource type="Resource" uid="uid://c6hj1ch2dd0vi" path="res://resources/game_texts/book_of_tea/earlgrey_entry.res" id="8_25dfo"]
 [ext_resource type="Resource" uid="uid://bfnkfjgfxyac1" path="res://resources/game_texts/books/myth.res" id="8_l64xc"]
+[ext_resource type="Resource" uid="uid://dx7feokgavr63" path="res://resources/game_texts/books/final_will.res" id="8_npau3"]
 [ext_resource type="Resource" uid="uid://dmw2ei4e4s8q5" path="res://resources/game_texts/book_of_tea/hojicha_entry.res" id="9_bsf58"]
 [ext_resource type="Resource" uid="uid://u11rt21a248e" path="res://resources/game_texts/books/old_letter.res" id="9_ennne"]
 [ext_resource type="Resource" uid="uid://dlir7i7ewuygh" path="res://resources/game_texts/book_of_tea/jasmine_entry.res" id="10_4xtyn"]
 [ext_resource type="Resource" uid="uid://br17j8uv0ydck" path="res://resources/game_texts/books/unyieldy.res" id="10_h35x4"]
+[ext_resource type="Resource" uid="uid://dawq74ckedes2" path="res://resources/game_texts/books/hospice_letter.res" id="10_rg1ld"]
 [ext_resource type="Resource" uid="uid://c6ao7x6qdq1iy" path="res://resources/game_texts/book_of_tea/matcha_entry.res" id="11_8rkqh"]
 [ext_resource type="Resource" uid="uid://ckj1cw48pyx6s" path="res://resources/game_texts/book_of_tea/mint_entry.res" id="12_6md0s"]
 [ext_resource type="Resource" uid="uid://ceh5src0oku8f" path="res://resources/game_texts/book_of_tea/oolong_entry.res" id="13_l64xc"]
 [ext_resource type="Resource" uid="uid://cd2ktbqmtaf2k" path="res://resources/game_texts/book_of_tea/sencha_entry.res" id="14_ennne"]
+[ext_resource type="Resource" uid="uid://d3tiw4u4k3p0q" path="res://resources/game_texts/letters/letter_01.res" id="14_raliv"]
+[ext_resource type="Resource" uid="uid://c8agr5hyhmedm" path="res://resources/game_texts/letters/letter_02.res" id="15_2e1jt"]
 [ext_resource type="Resource" uid="uid://c13myy1efyut8" path="res://resources/game_texts/book_of_tea/taro_entry.res" id="15_h35x4"]
+[ext_resource type="Resource" uid="uid://cfcvqh3t5a6ck" path="res://resources/game_texts/letters/letter_03.res" id="16_kq7tt"]
+[ext_resource type="Resource" uid="uid://cmtevpah1hb72" path="res://resources/game_texts/letters/letter_04.res" id="17_nombu"]
+[ext_resource type="Resource" uid="uid://cvqdacwtlwc2v" path="res://resources/game_texts/letters/letter_05.res" id="18_0ufjf"]
+[ext_resource type="Resource" uid="uid://dlgmu0msl42w6" path="res://resources/game_texts/letters/letter_06.res" id="19_k88f8"]
+[ext_resource type="Resource" uid="uid://ixix8md20fej" path="res://resources/game_texts/letters/letter_07.res" id="20_n7nhk"]
+[ext_resource type="Resource" uid="uid://c62cdd7wj0hrs" path="res://resources/game_texts/letters/letter_08.res" id="21_4xd50"]
+[ext_resource type="Resource" uid="uid://c1elgskroj788" path="res://resources/game_texts/letters/letter_09.res" id="22_ad8mg"]
+[ext_resource type="Resource" uid="uid://bevmoruaebwwy" path="res://resources/game_texts/letters/letter_10.res" id="23_dv0ch"]
+[ext_resource type="Resource" uid="uid://tmowijtm663l" path="res://resources/game_texts/letters/letter_11.res" id="24_bnvgq"]
 
 [node name="LibraryInterface" type="Control"]
 layout_mode = 3
@@ -31,7 +45,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_thpff")
-book_entries = Array[ExtResource("2_h1sqb")]([ExtResource("3_bpn7x"), ExtResource("4_bsf58"), ExtResource("5_4xtyn"), ExtResource("6_8rkqh"), ExtResource("7_6md0s"), ExtResource("8_l64xc"), ExtResource("9_ennne"), ExtResource("10_h35x4")])
+book_entries = Array[ExtResource("2_h1sqb")]([ExtResource("3_bpn7x"), ExtResource("4_bsf58"), ExtResource("5_4xtyn"), ExtResource("6_8rkqh"), ExtResource("7_jlnv1"), ExtResource("8_npau3"), ExtResource("7_6md0s"), ExtResource("10_rg1ld"), ExtResource("8_l64xc"), ExtResource("9_ennne"), ExtResource("10_h35x4"), ExtResource("14_raliv"), ExtResource("15_2e1jt"), ExtResource("16_kq7tt"), ExtResource("17_nombu"), ExtResource("18_0ufjf"), ExtResource("19_k88f8"), ExtResource("20_n7nhk"), ExtResource("21_4xd50"), ExtResource("22_ad8mg"), ExtResource("23_dv0ch"), ExtResource("24_bnvgq")])
 tea_entries = Array[ExtResource("4_y8fun")]([ExtResource("5_s6xr7"), ExtResource("6_yohpt"), ExtResource("7_a8tvu"), ExtResource("8_25dfo"), ExtResource("9_bsf58"), ExtResource("10_4xtyn"), ExtResource("12_6md0s"), ExtResource("14_ennne"), ExtResource("13_l64xc"), ExtResource("11_8rkqh"), ExtResource("15_h35x4")])
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

@@ -16,6 +16,7 @@ grow_meshes = Array[PackedScene]([ExtResource("1_qyvtu"), ExtResource("2_4rgvw")
 grow_time = 12.0
 water_max = 40
 water_min = 40
+mutation_mod = 6.0
 name = "Taro Root"
 icon = ExtResource("1_mrssq")
 stack_limit = 9

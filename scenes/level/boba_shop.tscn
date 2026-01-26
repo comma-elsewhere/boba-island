@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bae4empxna1o"]
+[gd_scene load_steps=64 format=3 uid="uid://bae4empxna1o"]
 
 [ext_resource type="ArrayMesh" uid="uid://1uf24nhkhnty" path="res://resources/meshes/boba_shop/Floor.res" id="1_uah5q"]
 [ext_resource type="Material" uid="uid://dwnh605nsdnn4" path="res://resources/materials/floor_material.material" id="2_1qbsa"]
@@ -30,8 +30,8 @@
 [ext_resource type="ArrayMesh" uid="uid://b20vriu2u2qkl" path="res://resources/meshes/boba_shop/Roof.res" id="30_m8b4s"]
 [ext_resource type="PackedScene" uid="uid://bhxg4sxnl4l64" path="res://scenes/prefab/set_dressing/door.tscn" id="30_ttpka"]
 [ext_resource type="ArrayMesh" uid="uid://dwjalijlv57o4" path="res://resources/meshes/boba_shop/LongWindow.res" id="31_decg2"]
-[ext_resource type="Material" uid="uid://dclsqrov7a6jt" path="res://resources/materials/control_subviewport_orders.material" id="32_3np5k"]
 [ext_resource type="Script" uid="uid://dqdmygmjbiseu" path="res://scripts/manager/drink_zone.gd" id="32_4wiyc"]
+[ext_resource type="Shader" uid="uid://doqqx7wv7ml5w" path="res://resources/shaders/viewport_from_control.gdshader" id="32_hdofh"]
 [ext_resource type="PackedScene" uid="uid://dre3kgeqhjprj" path="res://scenes/prefab/tea_ceremony.tscn" id="34_4wiyc"]
 [ext_resource type="PackedScene" uid="uid://cdp4b2op1gor0" path="res://gui_comp/drink_orders.tscn" id="34_gy110"]
 [ext_resource type="PackedScene" uid="uid://516o65n4jcsn" path="res://scenes/prefab/process_machine.tscn" id="35_eeamv"]
@@ -85,8 +85,18 @@ size = Vector3(2.2, 0.5, 1.6)
 [sub_resource type="BoxShape3D" id="BoxShape3D_alrdh"]
 size = Vector3(1.4, 1, 0.1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_gy110"]
-material = ExtResource("32_3np5k")
+[sub_resource type="ViewportTexture" id="ViewportTexture_hqoqc"]
+viewport_path = NodePath("DrinkZone3D/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfnye"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("32_hdofh")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_hqoqc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ckfef"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_tfnye")
 size = Vector2(1.4, 1)
 orientation = 2
 
@@ -386,7 +396,7 @@ shape = SubResource("BoxShape3D_alrdh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DrinkZone3D/Screen"]
 transform = Transform3D(1, 0, 0, 0, 0.9999254, 0.012217001, 0, -0.012217001, 0.9999254, 0, 0, -0.007)
-mesh = SubResource("PlaneMesh_gy110")
+mesh = SubResource("PlaneMesh_ckfef")
 
 [node name="SubViewport" type="SubViewport" parent="DrinkZone3D"]
 gui_embed_subwindows = true

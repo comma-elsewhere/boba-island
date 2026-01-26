@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://6k5dg51rvx2c"]
+[gd_scene load_steps=31 format=3 uid="uid://6k5dg51rvx2c"]
 
 [ext_resource type="Script" uid="uid://dmgan4c1aqq32" path="res://scripts/manager/lighting.gd" id="1_utkfw"]
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://c2j0rugefguwn" path="res://resources/shaders/water.gdshader" id="6_m1jft"]
 [ext_resource type="Texture2D" uid="uid://cn5lvhda5wmfr" path="res://assets/textures/water.jpg" id="7_ipn8i"]
 [ext_resource type="Material" uid="uid://6kqx7xvjsbaf" path="res://resources/materials/watercolor.tres" id="7_m1jft"]
+[ext_resource type="Script" uid="uid://b4odpya85dlip" path="res://scripts/manager/world_clock.gd" id="7_vuwh0"]
 [ext_resource type="PackedScene" uid="uid://d0g8ltwp1y6oo" path="res://scenes/utility/overgrowth.tscn" id="9_utkfw"]
 [ext_resource type="PackedScene" uid="uid://c0y2e6yqp6vgf" path="res://scenes/manager/saver_loader.tscn" id="10_jksdq"]
 [ext_resource type="PackedScene" uid="uid://bae4empxna1o" path="res://scenes/level/boba_shop.tscn" id="10_wc1lk"]
@@ -120,7 +121,7 @@ _data = {
 }
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_vuwh0"]
-viewport_path = NodePath("BobaShop/DrinkZone3D/SubViewport")
+viewport_path = NodePath("WorldRoot/BobaShop/DrinkZone3D/SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0glrw"]
 resource_local_to_scene = true
@@ -134,330 +135,333 @@ material = SubResource("ShaderMaterial_0glrw")
 size = Vector2(1.4, 1)
 orientation = 2
 
-[node name="WorldRoot" type="Node3D"]
+[node name="Tree" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldRoot" type="Node3D" parent="." groups=["Clock"]]
+script = ExtResource("7_vuwh0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="WorldRoot"]
 environment = SubResource("Environment_22t8h")
 compositor = SubResource("Compositor_2ut7i")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." groups=["Lighting"]]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldRoot" groups=["Lighting"]]
 transform = Transform3D(-4.371139e-08, 0.64278764, 0.76604444, 0, -0.76604444, 0.64278764, 1, 2.809714e-08, 3.3484866e-08, 0, 10, 0)
 light_color = Color(1, 1, 0.76862746, 1)
 shadow_enabled = true
 script = ExtResource("1_utkfw")
 
-[node name="Weeds" type="Node" parent="."]
+[node name="Weeds" type="Node" parent="WorldRoot"]
 
-[node name="Overgrowth" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -26)
 
-[node name="Overgrowth3" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth3" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -20)
 
-[node name="Overgrowth8" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth8" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 10)
 
-[node name="Overgrowth11" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth11" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 7)
 
-[node name="Overgrowth19" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth19" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
 
-[node name="Overgrowth45" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth45" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 1)
 
-[node name="Overgrowth46" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth46" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -15)
 
-[node name="Overgrowth49" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth49" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -6)
 
-[node name="Overgrowth12" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth12" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 16)
 
-[node name="Overgrowth13" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth13" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4)
 
-[node name="Overgrowth14" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth14" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 4)
 
-[node name="Overgrowth15" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth15" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
-[node name="Overgrowth16" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth16" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -16)
 
-[node name="Overgrowth17" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth17" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 14)
 
-[node name="Overgrowth18" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth18" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 26)
 
-[node name="Overgrowth2" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth2" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -27)
 
-[node name="Overgrowth4" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth4" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9)
 
-[node name="Overgrowth5" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth5" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -24)
 
-[node name="Overgrowth6" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth6" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -20)
 
-[node name="Overgrowth7" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth7" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -20)
 
-[node name="Overgrowth9" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth9" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -23)
 
-[node name="Overgrowth10" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth10" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -13)
 
-[node name="Overgrowth41" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth41" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 19)
 
-[node name="Overgrowth42" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth42" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 13)
 
-[node name="Overgrowth43" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth43" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 21)
 
-[node name="Overgrowth44" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth44" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 10)
 
-[node name="Overgrowth20" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth20" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 5)
 
-[node name="Overgrowth21" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth21" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 9)
 
-[node name="Overgrowth22" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth22" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
 
-[node name="Overgrowth23" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth23" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 21)
 
-[node name="Overgrowth24" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth24" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 28)
 
-[node name="Overgrowth25" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth25" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 15)
 
-[node name="Overgrowth26" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth26" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 17)
 
-[node name="Overgrowth27" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth27" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 17)
 
-[node name="Overgrowth28" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth28" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 23)
 
-[node name="Overgrowth29" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth29" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 21)
 
-[node name="Overgrowth47" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth47" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 12)
 
-[node name="Overgrowth30" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth30" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 24)
 
-[node name="Overgrowth31" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth31" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 22.105988, 0, 9.122635)
 
-[node name="Overgrowth32" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth32" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 24.883646, 0, 2.6199722)
 
-[node name="Overgrowth33" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth33" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 17.881927, 0, -13.749999)
 
-[node name="Overgrowth34" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth34" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 7.7558002, 0, -3.004696)
 
-[node name="Overgrowth35" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth35" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 24.056421, 0, -5.883891)
 
-[node name="Overgrowth36" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth36" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 16.82807, 0, 5.637867)
 
-[node name="Overgrowth37" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth37" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 18.639803, 0, -1.1236134)
 
-[node name="Overgrowth38" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth38" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 14.138344, 0, -7.506156)
 
-[node name="Overgrowth39" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth39" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 20.90223, 0, -9.904192)
 
-[node name="Overgrowth40" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth40" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 11.80777, 0, 2.7920609)
 
-[node name="Overgrowth48" parent="Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth48" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 5.80777, 0, 2.7920609)
 
-[node name="Ocean" type="StaticBody3D" parent="."]
+[node name="Ocean" type="StaticBody3D" parent="WorldRoot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ocean"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldRoot/Ocean"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 material_override = SubResource("ShaderMaterial_m1jft")
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_adc38")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ocean"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/Ocean"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 shape = SubResource("WorldBoundaryShape3D_7j0eo")
 
-[node name="Island" type="StaticBody3D" parent="."]
+[node name="Island" type="StaticBody3D" parent="WorldRoot"]
 collision_layer = 16
 collision_mask = 19
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Island"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldRoot/Island"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 mesh = SubResource("CylinderMesh_m1jft")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Island"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/Island"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 shape = SubResource("CylinderShape3D_ipn8i")
 
-[node name="WallofBees" type="StaticBody3D" parent="."]
+[node name="WallofBees" type="StaticBody3D" parent="WorldRoot"]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.199999, 3.6000001, 0.1)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(0.9659259, 0, 0.25881907, 0, 1, 0, -0.25881907, 0, 0.9659259, -29.1, 3.6000001, 8.3)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(0.86602545, 0, 0.5, 0, 1, 0, -0.5, 0, 0.86602545, -26.000002, 3.6000001, 15.300001)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(0.7071068, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.7071068, -21.100002, 3.6000001, 21.600002)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(0.5, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, 0.5, -15.4000025, 3.6000001, 26.000002)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(0.2588191, 0, 0.96592593, 0, 1, 0, -0.96592593, 0, 0.2588191, -8.500003, 3.6000001, 29.000002)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(2.9802322e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 2.9802322e-08, -0.70000285, 3.6000001, 30.1)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(-0.25881907, 0, 0.96592593, 0, 1, 0, -0.96592593, 0, -0.25881907, 7.199998, 3.6000001, 29.2)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(-0.5, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, -0.5, 14.699998, 3.6000001, 26.2)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(-0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, -0.70710677, 21.3, 3.6000001, 21)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(-0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, -0.8660254, 26.4, 3.6000001, 14.8)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(-0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, -0.9659258, 29, 3.6000001, 7.6999993)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D13" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 29.999998, 3.6000001, -0.30000088)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D14" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 28.854544, 3.6000001, -9.045451)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D15" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(-0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, -0.8660254, 25.554544, 3.6000001, -16.145452)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D16" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(-0.7071068, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071068, 19.954542, 3.6000001, -22.545452)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D17" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(-0.49999994, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.49999994, 14.654542, 3.6000001, -26.545452)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D18" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(-0.25881904, 0, -0.96592593, 0, 1, 0, 0.96592593, 0, -0.25881904, 6.7545433, 3.6000001, -29.64545)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D19" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(2.9802322e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 2.9802322e-08, -0.8454561, 3.6000001, -30.245451)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D20" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, -8.045456, 3.6000001, -29.04545)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D21" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(0.5, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, 0.5, -15.645458, 3.6000001, -25.84545)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D22" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(0.7071068, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, 0.7071068, -21.445457, 3.6000001, -21.24545)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D23" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(0.86602545, 0, -0.49999994, 0, 1, 0, 0.49999994, 0, 0.86602545, -26.045458, 3.6000001, -15.445449)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D24" type="CollisionShape3D" parent="WallofBees"]
+[node name="CollisionShape3D24" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
 transform = Transform3D(0.96592593, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.96592593, -29.145458, 3.6000001, -7.9454484)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="PostProcessing" type="MeshInstance3D" parent="."]
+[node name="PostProcessing" type="MeshInstance3D" parent="WorldRoot"]
 material_override = ExtResource("7_m1jft")
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_i4eph")
 
-[node name="DayNight" type="CanvasLayer" parent="."]
+[node name="DayNight" type="CanvasLayer" parent="WorldRoot"]
 layer = 0
 
-[node name="DayNightAnimator" type="AnimationPlayer" parent="DayNight"]
+[node name="DayNightAnimator" type="AnimationPlayer" parent="WorldRoot/DayNight"]
 root_node = NodePath("../..")
 callback_mode_process = 2
 libraries = {
@@ -466,7 +470,7 @@ libraries = {
 playback_auto_capture = false
 script = ExtResource("5_adc38")
 
-[node name="ColorRect" type="ColorRect" parent="DayNight"]
+[node name="ColorRect" type="ColorRect" parent="WorldRoot/DayNight"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -475,18 +479,18 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.9843137, 0.7529412, 0.22745098, 1)
 
-[node name="SaverLoader" parent="." node_paths=PackedStringArray("world_root", "player") groups=["SaverLoader"] instance=ExtResource("10_jksdq")]
+[node name="SaverLoader" parent="WorldRoot" node_paths=PackedStringArray("world_root", "player") groups=["SaverLoader"] instance=ExtResource("10_jksdq")]
 world_root = NodePath("..")
 player = NodePath("../Player")
 
-[node name="Player" parent="." instance=ExtResource("1_x1yw8")]
+[node name="Player" parent="WorldRoot" instance=ExtResource("1_x1yw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -11)
 
-[node name="BobaShop" parent="." instance=ExtResource("10_wc1lk")]
+[node name="BobaShop" parent="WorldRoot" instance=ExtResource("10_wc1lk")]
 transform = Transform3D(0.25357094, 0, 0.54378474, 0, 0.6, 0, -0.54378474, 0, 0.25357094, -23.300001, 0, -11.1)
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" parent="BobaShop/DrinkZone3D/Screen" index="1"]
+[node name="MeshInstance3D" parent="WorldRoot/BobaShop/DrinkZone3D/Screen" index="1"]
 mesh = SubResource("PlaneMesh_tyjbu")
 
-[editable path="BobaShop"]
+[editable path="WorldRoot/BobaShop"]

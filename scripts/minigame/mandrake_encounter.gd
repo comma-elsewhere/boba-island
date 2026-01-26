@@ -40,10 +40,15 @@ func _process(_delta: float) -> void:
 	
 func _finish_puzzle() -> void:
 	get_tree().paused = false
+	if !Dynamic.locked_letters.is_empty():
+		_unlock_letter()
 	get_tree().call_group("Lighting", "mutant_encounter", false)
 	encounter_end.emit(puzzle_solved)
 	call_deferred("queue_free")
 	
+func _unlock_letter():
+	var index:int = Dynamic.locked_letters.pop_front()
+	Dynamic.unlocked_book[index] = index + 1
 	
 func _adjust_blur(value: float) -> void:
 	value = absf(value)

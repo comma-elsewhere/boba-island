@@ -11,14 +11,20 @@ class_name WorldCrop extends Node3D
 
 enum STATE {GROWING, CAN_HARVEST, HARVESTED}
 
+const MUTATE_HOUR := 18
+const SAFE_HOUR := 4
+
 var physical_crop: Node3D = null
 var static_body: StaticBody3D = null
 
 var mutated: bool = false
 var crop_state: int
 
+var current_mutation_mod: float = 1.0
+
 func _ready() -> void:
 	crop_state = STATE.GROWING
+	get_tree().get_first_node_in_group("Clock").hour_changed.connect(_set_mutation_mod)
 
 func set_data(data: Crop) -> void:
 	crop_data = data
@@ -93,6 +99,11 @@ func _encounter_success(success: bool) -> void:
 		crop_state = STATE.HARVESTED
 		animation_player.play("harvest")
 		
+func _set_mutation_mod(new_hour: int) -> void:
+	if new_hour >= MUTATE_HOUR or new_hour < SAFE_HOUR:
+		current_mutation_mod = crop_data.mutation_mod
+	else:
+		current_mutation_mod = 1.0
 
 func on_save(save_data: Array[SavedData]) -> void:
 	if crop_state != STATE.HARVESTED:

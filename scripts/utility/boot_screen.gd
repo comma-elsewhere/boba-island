@@ -33,6 +33,9 @@ func _resize_progress_indicators() -> void:
 	Dynamic.unlocked_tea.resize(Static.NUMBER_OF_TEAS)
 	Dynamic.unlocked_crop.resize(Static.NUMBER_OF_CROPS)
 	# Set starter things
+	Dynamic.unlocked_book[Static.BOOKS.HOSPICE] = Static.BOOKS.HOSPICE + 1
+	Dynamic.unlocked_book[Static.BOOKS.DEBT] = Static.BOOKS.DEBT + 1
+	Dynamic.unlocked_book[Static.BOOKS.WILL] = Static.BOOKS.WILL + 1
 	Dynamic.unlocked_crop[Static.CROP.SUGAR_CANE] = Static.CROP.SUGAR_CANE + 1
 	Dynamic.unlocked_tea[Static.TEA.CEYLON] = Static.TEA.CEYLON + 1
 	Dynamic.unlocked_tea[Static.TEA.SENCHA] = Static.TEA.SENCHA + 1

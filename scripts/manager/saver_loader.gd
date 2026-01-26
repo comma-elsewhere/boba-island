@@ -1,5 +1,5 @@
 class_name SaverLoader extends Node
-@export var world_root: Node3D
+@export var world_root: WorldClock
 @export var player: Player
 
 func _ready() -> void:
@@ -10,6 +10,8 @@ func _ready() -> void:
 
 func save_game() -> void:
 	var saved_game: SavedGame = SavedGame.new()
+	
+	saved_game.time = world_root.world_time
 	
 	saved_game.player_inventory.clear()
 	for item in player.hud.hotbar_array:
@@ -31,6 +33,9 @@ func save_game() -> void:
 	
 func load_game() -> void:
 	var saved_game = load("user://savedata.res")
+	
+	print(saved_game.time)
+	world_root.load_time(saved_game.time)
 	
 	get_tree().call_group("GameEvent","on_preload")
 	
@@ -69,13 +74,14 @@ func _set_access(access: Array[bool]) -> void:
 	Dynamic.reticle = access[2]
 	
 func _get_progress() -> Array[Array]:
-	return [Dynamic.tutorial_progress, Dynamic.unlocked_book, Dynamic.unlocked_tea, Dynamic.unlocked_crop]
+	return [Dynamic.tutorial_progress, Dynamic.unlocked_book, Dynamic.unlocked_tea, Dynamic.unlocked_crop, Dynamic.locked_letters]
 	
 func _set_progress(progress: Array[Array]) -> void:
 	Dynamic.tutorial_progress = progress[0]
 	Dynamic.unlocked_book = progress[1]
 	Dynamic.unlocked_tea = progress[2]
 	Dynamic.unlocked_crop = progress[3]
+	Dynamic.locked_letters = progress[4]
 	
 func _get_finances() -> Array[int]:
 	return [Dynamic.total_money, Dynamic.total_debt]
