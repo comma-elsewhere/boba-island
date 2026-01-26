@@ -29,6 +29,7 @@ func load_game() -> void:
 	
 func _resize_progress_indicators() -> void:
 	# Set starter things
+	Dynamic.unlocked_book[Static.BOOKS.GRANDPA] = Static.BOOKS.GRANDPA + 1
 	Dynamic.unlocked_book[Static.BOOKS.HOSPICE] = Static.BOOKS.HOSPICE + 1
 	Dynamic.unlocked_book[Static.BOOKS.DEBT] = Static.BOOKS.DEBT + 1
 	Dynamic.unlocked_book[Static.BOOKS.WILL] = Static.BOOKS.WILL + 1

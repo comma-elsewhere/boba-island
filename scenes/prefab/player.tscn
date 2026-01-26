@@ -210,6 +210,8 @@ rotation_order = 0
 [node name="HarvestSound" type="AudioStreamPlayer3D" parent="Head/PhantomCamera3D/Camera3D/SpringArm3D/SlicerArea/Slicer"]
 unique_name_in_owner = true
 stream = ExtResource("6_psnur")
+volume_db = -6.0
+max_db = 0.0
 
 [node name="WaterSound" type="AudioStreamPlayer3D" parent="Head/PhantomCamera3D/Camera3D/SpringArm3D/SlicerArea/Slicer"]
 unique_name_in_owner = true

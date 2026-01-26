@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://6k5dg51rvx2c"]
+[gd_scene load_steps=89 format=3 uid="uid://6k5dg51rvx2c"]
 
 [ext_resource type="Script" uid="uid://dmgan4c1aqq32" path="res://scripts/manager/lighting.gd" id="1_utkfw"]
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
@@ -57,6 +57,7 @@
 [ext_resource type="Resource" uid="uid://chedclappraxa" path="res://resources/game_data/crops/seeds/taro_seed.tres" id="54_q46nv"]
 [ext_resource type="Resource" uid="uid://dv3sjdeuv8x4p" path="res://resources/game_data/crops/seeds/strawberry_seed.tres" id="55_dcdew"]
 [ext_resource type="PackedScene" uid="uid://ctpynxvobxcd3" path="res://scenes/prefab/storage_unit.tscn" id="56_swqu6"]
+[ext_resource type="AudioStream" uid="uid://c0c3ryh01vdt2" path="res://assets/sound effects/BeachLoop.ogg" id="58_1bkbh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ttd6"]
 
@@ -830,13 +831,16 @@ transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, 
 mesh = ExtResource("39_5yr35")
 skeleton = NodePath("../..")
 
-[node name="DoorInside" parent="WorldRoot/BobaShop/NoColor" instance=ExtResource("40_bmysp")]
+[node name="DoorInside" parent="WorldRoot/BobaShop/NoColor" node_paths=PackedStringArray("outdoor_sounds") instance=ExtResource("40_bmysp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.608579e-06, -3.2000003, 32.6)
 skeleton = NodePath("../..")
+go_outside = true
+outdoor_sounds = NodePath("../../../BackgroundWaves")
 
-[node name="DoorOutside" parent="WorldRoot/BobaShop/NoColor" instance=ExtResource("40_bmysp")]
+[node name="DoorOutside" parent="WorldRoot/BobaShop/NoColor" node_paths=PackedStringArray("outdoor_sounds") instance=ExtResource("40_bmysp")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.067141e-06, -3.2000003, -18.400002)
 skeleton = NodePath("../..")
+outdoor_sounds = NodePath("../../../BackgroundWaves")
 
 [node name="DrinkZone3D" type="Node3D" parent="WorldRoot/BobaShop" groups=["GameEvent"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9, 2.6985164, -5.1475663)
@@ -937,6 +941,11 @@ process_mode = 1
 stream = ExtResource("13_0glrw")
 volume_db = -10.0
 autoplay = true
+parameters/looping = true
+
+[node name="BackgroundWaves" type="AudioStreamPlayer" parent="WorldRoot"]
+stream = ExtResource("58_1bkbh")
+volume_db = -20.0
 parameters/looping = true
 
 [connection signal="body_entered" from="WorldRoot/BobaShop/DrinkZone3D/PickupZone" to="WorldRoot/BobaShop/DrinkZone3D" method="_on_area_3d_body_entered"]

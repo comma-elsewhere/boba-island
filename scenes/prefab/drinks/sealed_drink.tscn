@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1jaefu6rw3ne"]
-
-[ext_resource type="PackedScene" uid="uid://dp5hse6oswmtt" path="res://assets/models/machines/cup-with-top.glb" id="1_b4jqk"]
-
-[node name="SealedDrink" type="Node3D"]
-
-[node name="cup-with-top" parent="." instance=ExtResource("1_b4jqk")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.13065183, -0.043012872)

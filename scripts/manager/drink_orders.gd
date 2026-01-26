@@ -45,7 +45,8 @@ func on_start() -> void:
 	serve_drink_button.button_up.connect(serve_drink)
 	next_dialogue_button.button_up.connect(continue_dialogue)
 	$NextCustomerTimer.start(MIN_WAIT)
-		
+	
+	
 func finish_order(paid: int, tipped: int) -> void:
 	Dynamic.orders_filled += 1
 	Dynamic.today_earned += paid

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cef8yale2ppkg"]
+[gd_scene load_steps=3 format=3 uid="uid://cef8yale2ppkg"]
 
 [ext_resource type="Script" uid="uid://nk634vd3nxtk" path="res://gui_comp/script/tea_slot.gd" id="1_320l1"]
+[ext_resource type="AudioStream" uid="uid://blvb55l30gcwm" path="res://assets/sound effects/TeaScoop.wav" id="2_5bo4n"]
 
 [node name="TeaSlot" type="PanelContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -48,3 +49,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 10
 horizontal_alignment = 1
+
+[node name="ScoopSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5bo4n")
+volume_db = -12.0

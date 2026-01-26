@@ -10,6 +10,7 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if item_data and !held_item and interactable:
 			_make_item_draggable(item_data)
+			$ScoopSound.play()
 	
 func _make_item_draggable(item: Item) -> void:
 	var new_draggable = DragItem.new()

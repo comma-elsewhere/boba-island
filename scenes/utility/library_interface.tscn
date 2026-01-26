@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://mttpxrvsfbud"]
+[gd_scene load_steps=38 format=3 uid="uid://mttpxrvsfbud"]
 
 [ext_resource type="Script" uid="uid://bcilf6csioyox" path="res://scripts/manager/library_interface.gd" id="1_thpff"]
 [ext_resource type="Script" uid="uid://b8ny0ldtqgkd6" path="res://scripts/resource/other/book_entry.gd" id="2_h1sqb"]
@@ -36,6 +36,7 @@
 [ext_resource type="Resource" uid="uid://c1elgskroj788" path="res://resources/game_texts/letters/letter_09.res" id="22_ad8mg"]
 [ext_resource type="Resource" uid="uid://bevmoruaebwwy" path="res://resources/game_texts/letters/letter_10.res" id="23_dv0ch"]
 [ext_resource type="Resource" uid="uid://tmowijtm663l" path="res://resources/game_texts/letters/letter_11.res" id="24_bnvgq"]
+[ext_resource type="Resource" uid="uid://btxusbmoogepf" path="res://resources/game_texts/books/grandpa_letter.res" id="25_npau3"]
 
 [node name="LibraryInterface" type="Control"]
 layout_mode = 3
@@ -45,7 +46,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_thpff")
-book_entries = Array[ExtResource("2_h1sqb")]([ExtResource("3_bpn7x"), ExtResource("4_bsf58"), ExtResource("5_4xtyn"), ExtResource("6_8rkqh"), ExtResource("7_jlnv1"), ExtResource("8_npau3"), ExtResource("7_6md0s"), ExtResource("10_rg1ld"), ExtResource("8_l64xc"), ExtResource("9_ennne"), ExtResource("10_h35x4"), ExtResource("14_raliv"), ExtResource("15_2e1jt"), ExtResource("16_kq7tt"), ExtResource("17_nombu"), ExtResource("18_0ufjf"), ExtResource("19_k88f8"), ExtResource("20_n7nhk"), ExtResource("21_4xd50"), ExtResource("22_ad8mg"), ExtResource("23_dv0ch"), ExtResource("24_bnvgq")])
+book_entries = Array[ExtResource("2_h1sqb")]([ExtResource("3_bpn7x"), ExtResource("4_bsf58"), ExtResource("5_4xtyn"), ExtResource("6_8rkqh"), ExtResource("7_jlnv1"), ExtResource("8_npau3"), ExtResource("7_6md0s"), ExtResource("10_rg1ld"), ExtResource("8_l64xc"), ExtResource("9_ennne"), ExtResource("10_h35x4"), ExtResource("14_raliv"), ExtResource("15_2e1jt"), ExtResource("16_kq7tt"), ExtResource("17_nombu"), ExtResource("18_0ufjf"), ExtResource("19_k88f8"), ExtResource("20_n7nhk"), ExtResource("21_4xd50"), ExtResource("22_ad8mg"), ExtResource("23_dv0ch"), ExtResource("24_bnvgq"), ExtResource("25_npau3")])
 tea_entries = Array[ExtResource("4_y8fun")]([ExtResource("5_s6xr7"), ExtResource("6_yohpt"), ExtResource("7_a8tvu"), ExtResource("8_25dfo"), ExtResource("9_bsf58"), ExtResource("10_4xtyn"), ExtResource("12_6md0s"), ExtResource("14_ennne"), ExtResource("13_l64xc"), ExtResource("11_8rkqh"), ExtResource("15_h35x4")])
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
