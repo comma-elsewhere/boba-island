@@ -16,13 +16,12 @@ var new_crafting_scene: CraftingHUD = null
 var available_recipes: Array[Recipe] = []
 var pending_result: Array[Item] = []
 
-func on_start() -> void:
+func _ready() -> void:
 	add_recipes()
 	_enable_display(false)
 	
-func on_preload() -> void:
+func reload() -> void:
 	add_recipes()
-	_enable_display(false)
 	
 func add_recipes() -> void:
 	var upgrade_level: int
@@ -49,7 +48,6 @@ func init_gui_scene() -> void:
 
 func close() -> void:
 	if new_crafting_scene != null:
-		print("close")
 		new_crafting_scene.close()
 		new_crafting_scene.call_deferred("queue_free")
 
@@ -104,4 +102,3 @@ func _return_time() -> float:
 
 func _on_wait_time_timeout() -> void:
 	_enable_display(true)
-	print("DONE")

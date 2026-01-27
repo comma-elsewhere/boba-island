@@ -18,7 +18,7 @@ func update_visible() -> void:
 	visible = Dynamic.reticle
 "
 
-[node name="PlayerHUD" type="Node3D" groups=["GUI_Event", "Lighting"]]
+[node name="PlayerHUD" type="Node3D" groups=["GUI_Event", "Lighting", "Reload"]]
 script = ExtResource("1_f2b3q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

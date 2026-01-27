@@ -9,6 +9,14 @@ func get_slots():
 	for slot in slots:
 		slot.pressed.connect(_select_slot.bind(slot.get_index()))
 
+func update_slots() -> void:
+	slots = get_children()
+	for slot in slots:
+		if slot.pressed.has_connections():
+			return
+		else:
+			slot.pressed.connect(_select_slot.bind(slot.get_index()))
+
 func update_hotbar(items: Array[Item]):
 	for i in len(items):
 		var item = items[i]

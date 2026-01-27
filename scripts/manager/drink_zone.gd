@@ -37,16 +37,18 @@ func _erase_drink(drink: Drink) -> void:
 		drinks_in_area.remove_at(index)
 
 func _calc_paid() -> int:
+	print(served_drink.quality)
+	print(ordered_drink.quality)
+	print(served_drink.tea_flavor)
+	print(ordered_drink.tea_flavor)
+	print(Dynamic.tea_flavor)
 	return int(Dynamic.base_price * ordered_drink.price_multiplier)
 	
 func _calc_tipped() -> int:
-	var tip: float
+	var tip: float = 0
 	if served_drink.tea_flavor == Dynamic.tea_flavor:
-		tip = Dynamic.starting_tip * served_drink.quality
-	#elif served_drink.tea_type == ordered_drink.tea_type:
-		#tip = Dynamic.starting_tip * served_drink.quality /2
-	else:
-		tip = 0
+		tip = float(Dynamic.starting_tip) * served_drink.quality
+		
 	return int(tip)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

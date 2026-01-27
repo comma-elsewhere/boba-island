@@ -38,7 +38,7 @@
 [ext_resource type="Resource" uid="uid://tmowijtm663l" path="res://resources/game_texts/letters/letter_11.res" id="24_bnvgq"]
 [ext_resource type="Resource" uid="uid://btxusbmoogepf" path="res://resources/game_texts/books/grandpa_letter.res" id="25_npau3"]
 
-[node name="LibraryInterface" type="Control"]
+[node name="LibraryInterface" type="Control" groups=["Reload"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

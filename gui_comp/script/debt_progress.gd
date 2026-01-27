@@ -64,9 +64,3 @@ func _calc_steps() -> void:
 		var step: float = SET_DEBT * curve.sample_baked(i/10.0)
 		step = snappedf(step, 1000)
 		step_amounts.append(int(step))
-	
-	var sum: int = 0
-	for i in step_amounts:
-		print(i)
-		sum += i
-	print(sum)

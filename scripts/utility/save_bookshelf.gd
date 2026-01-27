@@ -17,5 +17,5 @@ func close() -> void:
 	canvas_layer.hide()
 	
 func _hide_gui_scene() -> void:
+	get_tree().call_group("Reload", "reload")
 	get_tree().call_group("GUI_Event", "close")
-	get_tree().call_group("SaverLoader", "load_game")

@@ -38,6 +38,25 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("library") and !pause_menu.visible and canvas_layer.visible:
 		_toggle_library()
 	
+func reload() -> void:
+	if Dynamic.inventory_space <= hotbar_array.size():
+		print("nope")
+		return
+	else:
+		var diff = Dynamic.inventory_space - hotbar_array.size()
+		var extra_slot_index = Dynamic.inventory_space
+		print(extra_slot_index)
+		print(diff)
+		while diff > 0:
+			hotbar_array.append(null)
+			_create_hotbar_button(extra_slot_index - diff + 1)
+			diff -= 1
+		
+		hotbar_display.update_slots()
+		
+		#_update_display(0)
+		#selected_slot = 0
+	
 func setup() -> void:
 	for child in hotbar_display.get_children():
 		child.queue_free()
@@ -136,6 +155,7 @@ func close() -> void:
 	gui_open = false
 	hotbar_array.resize(Dynamic.inventory_space)
 	_update_display(0)
+	selected_slot = 0
 	hotbar_display.show()
 	
 func mutant_encounter(active: bool) -> void:

@@ -5,4 +5,6 @@ func add_item(item: Item) -> bool:
 		return false
 	else:
 		_contents.append(item)
+		print(item.name)
+		print(item.quality)
 		return true

@@ -18,6 +18,10 @@ func _ready() -> void:
 	else:
 		item_price.hide()
 		
+func reload() -> void:
+	visible = _hide_self(item_data.name)
+		
+		
 func pickup() -> Item:
 	if visible == false:
 		return null

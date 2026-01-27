@@ -43,6 +43,7 @@ Lighting=""
 Player=""
 GUI_Event=""
 Clock=""
+Reload=""
 
 [gui]
 

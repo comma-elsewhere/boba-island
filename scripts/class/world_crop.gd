@@ -79,7 +79,8 @@ func harvest() -> Crop:
 		crop_state = STATE.HARVESTED
 		animation_player.play("harvest")
 		return crop_data
-	else: return null
+	else: 
+		return null
 
 func _spawn_with_static_body(packed_scene) -> void:
 	physical_crop = packed_scene.instantiate() as Node3D
@@ -97,7 +98,7 @@ func _encounter_success(success: bool) -> void:
 		allow_harvest()
 	else:
 		crop_state = STATE.HARVESTED
-		animation_player.play("harvest")
+		call_deferred("queue_free")
 		
 func _set_mutation_mod(new_hour: int) -> void:
 	if new_hour >= MUTATE_HOUR or new_hour < SAFE_HOUR:

@@ -70,5 +70,5 @@ func _on_crafting_button_button_up() -> void:
 	for item in _selected_recipe.ingredients:
 		player.hud.remove_item_name(item.name)
 	
-	craft_pending.emit(_selected_recipe.result)
+	craft_pending.emit(_selected_recipe.result.duplicate(true))
 	get_tree().call_group("GUI_Event", "close")

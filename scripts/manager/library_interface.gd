@@ -20,6 +20,13 @@ func _ready() -> void:
 	_fill_book_list()
 	_fill_tea_list()
 	
+func reload() -> void:
+	_reset_book_list()
+	
+func _reset_book_list() -> void:
+	book_list.clear()
+	_fill_book_list()
+	
 func _select_book_entry(index: int) -> void:
 	_clear_paragraph()
 	if index > 0:

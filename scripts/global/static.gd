@@ -25,10 +25,10 @@ const DANGER_NEGLECT := 5
 const DANGER_FORGET := 3
 
 # Easy mode settings
-const EASY_MONEY := 50
+const EASY_MONEY := 50000
 const EASY_TIP := 300
 const EASY_PRICE := 500
-const EASY_SEED := 10
+const EASY_SEED := 20
 # Normal mode settings
 const NORMAL_MONEY := 75
 const NORMAL_TIP := 400

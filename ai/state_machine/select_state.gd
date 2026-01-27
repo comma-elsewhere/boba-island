@@ -34,8 +34,8 @@ func _enter() -> void:
 func _on_button_down() -> void:
 	var held_item: DragItem = get_tree().get_first_node_in_group("DraggableItem") as DragItem
 	if held_item:
-		agent.current_tea = held_item.item_data
-		Dynamic.tea_flavor = held_item.item_data.get_flavor_num()
+		agent.current_tea = held_item.item_data.duplicate(true)
+		#Dynamic.tea_flavor = held_item.item_data.get_flavor_num()
 		held_item.call_deferred("queue_free")
 		get_root().dispatch("proceed_to_boil")
 		

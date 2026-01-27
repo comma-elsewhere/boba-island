@@ -75,6 +75,7 @@ func get_order(customer_num: int) -> Drink:
 			drink = DIALOGUE.NPC_3.ORDER
 			tea = DIALOGUE.NPC_3.TEA
 	drink.set_tea_flavor(tea)
+	Dynamic.tea_flavor = tea
 	return drink
 
 func get_dialogue(customer_num: int) -> Array:

@@ -21,7 +21,7 @@ shader_parameter/viewport_texture = SubResource("ViewportTexture_r8bsf")
 resource_local_to_scene = true
 material = SubResource("ShaderMaterial_ybgio")
 
-[node name="Dispenser" type="StaticBody3D"]
+[node name="Dispenser" type="StaticBody3D" groups=["Reload"]]
 collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_ybgio")

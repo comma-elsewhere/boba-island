@@ -68,10 +68,6 @@ func start_ceremony() -> void:
 func finish_ceremony() -> void:
 	var time = (BREW - brew_timer.time_left) / BREW * 100.0
 	var temp = heat_slider.value / HEAT * 100.0
-	print(current_tea.perfect_time)
-	print(time)
-	print(current_tea.perfect_temp)
-	print(temp)
 	var results = current_tea.set_quality(temp, time)
 	_display_results(results, current_tea.quality)
 
@@ -97,7 +93,8 @@ func _restart() -> void:
 
 func _complete() -> void:
 	var player: Player = get_tree().get_first_node_in_group("Player") as Player
-	player.hud.add_item(current_tea.duplicate())
+	print(current_tea.quality)
+	player.hud.add_item(current_tea)
 	get_tree().call_group("GUI_Event", "close")
 
 func _abort() -> void:

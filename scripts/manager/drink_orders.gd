@@ -39,7 +39,7 @@ var awaiting_customer: bool = false
 var _unlocked_tea: Array = []
 var _unlocked_milk_tea: Array = []
 
-func on_start() -> void:
+func _ready() -> void:
 	order_generator = OrderGen.new()
 	regular_generator = NpcGen.new()
 	_reset_labels()
@@ -49,6 +49,11 @@ func on_start() -> void:
 	serve_drink_button.button_up.connect(serve_drink)
 	next_dialogue_button.button_up.connect(continue_dialogue)
 	$NextCustomerTimer.start(MIN_WAIT)
+	
+func reload() -> void:
+	_get_available_drinks()
+	_get_available_tourists()
+	
 	
 	
 func finish_order(paid: int, tipped: int) -> void:
@@ -107,6 +112,9 @@ func serve_drink() -> void:
 	drink_served.emit()
 	#_reset_labels()
 	activate_serve_button(false)
+	
+func _get_available_tourists() -> void:
+	pass
 
 func _get_available_drinks() -> void:
 	available_drinks.clear()
