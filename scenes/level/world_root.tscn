@@ -842,7 +842,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.0
 skeleton = NodePath("../..")
 outdoor_sounds = NodePath("../../../BackgroundWaves")
 
-[node name="DrinkZone3D" type="Node3D" parent="WorldRoot/BobaShop" groups=["GameEvent"]]
+[node name="DrinkZone3D" type="Node3D" parent="WorldRoot/BobaShop"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9, 2.6985164, -5.1475663)
 script = ExtResource("41_y5ljf")
 metadata/_edit_group_ = true

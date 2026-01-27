@@ -42,7 +42,9 @@ var _unlocked_milk_tea: Array = []
 func _ready() -> void:
 	order_generator = OrderGen.new()
 	regular_generator = NpcGen.new()
+	regular_generator.books_reload.connect(_on_books_reload)
 	_reset_labels()
+	_get_available_tourists()
 	_set_tourist_odds()
 	_get_available_drinks()
 	activate_serve_button(false)
@@ -53,8 +55,7 @@ func _ready() -> void:
 func reload() -> void:
 	_get_available_drinks()
 	_get_available_tourists()
-	
-	
+	_set_tourist_odds()
 	
 func finish_order(paid: int, tipped: int) -> void:
 	Dynamic.orders_filled += 1
@@ -110,11 +111,16 @@ func continue_dialogue() -> void:
 	
 func serve_drink() -> void:
 	drink_served.emit()
-	#_reset_labels()
 	activate_serve_button(false)
 	
 func _get_available_tourists() -> void:
-	pass
+	tourist_odds.clear()
+	if Dynamic.mixer > 3:
+		tourist_odds.append_array([1,2,3])
+	elif Dynamic.mixer > 1:
+		tourist_odds.append_array([1,2])
+	else:
+		tourist_odds.append_array([1])
 
 func _get_available_drinks() -> void:
 	available_drinks.clear()
@@ -140,7 +146,7 @@ func _pick_rand_drink() -> Recipe:
 		flavor = _unlocked_milk_tea.pick_random() -1
 	rand_drink.result[0].set_tea_flavor(flavor)
 	Dynamic.tea_flavor = flavor
-	return rand_drink.duplicate()
+	return rand_drink.duplicate(true)
 
 func _set_tourist_odds() -> void:
 	var new_odds: int = tourist_odds.size() + tourist_ratio
@@ -158,6 +164,10 @@ func _rand_available_flavor(max_range: int) -> int:
 	while check_flavor == null:
 		check_flavor = available_flavors.pick_random()
 	return available_flavors.find(check_flavor)
+
+func _on_books_reload() -> void:
+	await drink_served
+	get_tree().call_group("Reload", "reload")
 
 func _on_next_customer_timer_timeout() -> void:
 	order_text.text = generate_new_order()

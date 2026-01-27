@@ -1457,11 +1457,13 @@ metadata/_custom_type_script = "uid://clls85kmjfpf5"
 [node name="SealSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4283211, 0.18418175)
 stream = ExtResource("23_0y4s6")
+attenuation_model = 2
 volume_db = -15.0
 
 [node name="ShakeSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24389538, -0.16300184)
 stream = ExtResource("24_18kyh")
+attenuation_model = 2
 volume_db = -12.0
 parameters/looping = true
 

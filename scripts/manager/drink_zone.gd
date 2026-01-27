@@ -7,12 +7,6 @@ var drinks_in_area: Array[Drink] = []
 var ordered_drink: Drink = null
 var served_drink: Drink = null
 
-func on_start() -> void:
-	drink_orders.on_start()
-	
-func on_preload() -> void:
-	drink_orders.on_start()
-
 func on_click() -> void:
 	if drink_orders.next_dialogue_button.disabled == false:
 		drink_orders.continue_dialogue()
@@ -37,12 +31,7 @@ func _erase_drink(drink: Drink) -> void:
 		drinks_in_area.remove_at(index)
 
 func _calc_paid() -> int:
-	print(served_drink.quality)
-	print(ordered_drink.quality)
-	print(served_drink.tea_flavor)
-	print(ordered_drink.tea_flavor)
-	print(Dynamic.tea_flavor)
-	return int(Dynamic.base_price * ordered_drink.price_multiplier)
+	return int(Dynamic.base_price * served_drink.price_multiplier)
 	
 func _calc_tipped() -> int:
 	var tip: float = 0

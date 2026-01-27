@@ -40,13 +40,10 @@ func _input(event: InputEvent) -> void:
 	
 func reload() -> void:
 	if Dynamic.inventory_space <= hotbar_array.size():
-		print("nope")
 		return
 	else:
 		var diff = Dynamic.inventory_space - hotbar_array.size()
 		var extra_slot_index = Dynamic.inventory_space
-		print(extra_slot_index)
-		print(diff)
 		while diff > 0:
 			hotbar_array.append(null)
 			_create_hotbar_button(extra_slot_index - diff + 1)

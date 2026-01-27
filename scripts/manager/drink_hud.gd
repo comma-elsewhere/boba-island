@@ -40,13 +40,11 @@ func _populate_tea_items() -> void:
 			for j in len(tea_base.tea_array):
 				if inventory[i].name == tea_base.tea_array[j].name:
 					tea_array.append(inventory[i])
-					print(inventory[i].quality)
 
 	if tea_array.is_empty():
 		return
 		
 	for i in len(tea_array):
-		print(tea_array[i].quality)
 		tea_list.add_item(tea_array[i].name, i)
 		tea_list.set_item_metadata(i, tea_array[i])
 		
@@ -58,8 +56,6 @@ func _check_tea(index: int) -> void:
 	if item == null:
 		crafting_check[1] = 0
 	else:
-		print(item.quality)
-		print(item.name)
 		_selected_recipe.result[0].quality = item.quality
 		_selected_recipe.result[0].tea_flavor = Kinetic.get_flavor_num(item.name)
 		crafting_check[1] = 1

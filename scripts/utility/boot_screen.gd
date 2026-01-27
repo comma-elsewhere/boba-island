@@ -3,7 +3,6 @@ extends Control
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var game_settings: VBoxContainer = %GameSettings
 @onready var diificulty_list: ItemList = %DiificultyList
-@onready var danger_list: ItemList = %DangerList
 @onready var done_button: Button = %DoneButton
 
 var MAIN := load("res://scenes/level/world_root.tscn")
@@ -13,12 +12,10 @@ func _ready() -> void:
 		_play_load_anim()
 	else:
 		_set_difficulty(1)
-		_set_danger(1)
 		_resize_progress_indicators()
 		game_settings.show()
 		done_button.button_up.connect(_play_load_anim)
 		diificulty_list.item_selected.connect(_set_difficulty)
-		danger_list.item_selected.connect(_set_danger)
 
 func _play_load_anim() -> void:
 	game_settings.hide()
@@ -41,35 +38,28 @@ func _set_difficulty(setting_id: int) -> void:
 	Dynamic.difficulty_setting = setting_id
 	match setting_id:
 		Static.SET.LIGHT:
-			Dynamic.starting_money = Static.EASY_MONEY
-			Dynamic.starting_tip = Static.EASY_TIP
-			Dynamic.base_price = Static.EASY_PRICE
-			Dynamic.seed_cost = Static.EASY_SEED
+			Dynamic.starting_money = Static.LIGHT_MONEY
+			Dynamic.starting_tip = Static.LIGHT_TIP
+			Dynamic.base_price = Static.LIGHT_PRICE
+			Dynamic.seed_cost = Static.LIGHT_SEED
+			Dynamic.disappoint = Static.LIGHT_DISAPPOINT
+			Dynamic.neglect = Static.LIGHT_NEGLECT
+			Dynamic.forget = Static.LIGHT_FORGET
 		Static.SET.MEDIUM:
-			Dynamic.starting_money = Static.NORMAL_MONEY
-			Dynamic.starting_tip = Static.NORMAL_TIP
-			Dynamic.base_price = Static.NORMAL_PRICE
-			Dynamic.seed_cost = Static.NORMAL_SEED
+			Dynamic.starting_money = Static.MEDIUM_MONEY
+			Dynamic.starting_tip = Static.MEDIUM_TIP
+			Dynamic.base_price = Static.MEDIUM_PRICE
+			Dynamic.seed_cost = Static.MEDIUM_SEED
+			Dynamic.disappoint = Static.MEDIUM_DISAPPOINT
+			Dynamic.neglect = Static.MEDIUM_NEGLECT
+			Dynamic.forget = Static.MEDIUM_FORGET
 		Static.SET.HARD:
 			Dynamic.starting_money = Static.HARD_MONEY
 			Dynamic.starting_tip = Static.HARD_TIP
 			Dynamic.base_price = Static.HARD_PRICE
 			Dynamic.seed_cost = Static.HARD_SEED
+			Dynamic.disappoint = Static.HARD_DISAPPOINT
+			Dynamic.neglect = Static.HARD_NEGLECT
+			Dynamic.forget = Static.HARD_FORGET
 			
 	Dynamic.total_money = Dynamic.starting_money
-			
-func _set_danger(setting_id: int) -> void:
-	Dynamic.danger_setting = setting_id
-	match setting_id:
-		Static.SET.LIGHT:
-			Dynamic.disappoint = Static.PEACEFUL_DISAPPOINT
-			Dynamic.neglect = Static.PEACEFUL_NEGLECT
-			Dynamic.forget = Static.PEACEFUL_FORGET
-		Static.SET.MEDIUM:
-			Dynamic.disappoint = Static.STORY_DISAPPOINT
-			Dynamic.neglect = Static.STORY_NEGLECT
-			Dynamic.forget = Static.STORY_FORGET
-		Static.SET.HARD:
-			Dynamic.disappoint = Static.DANGER_DISAPPOINT
-			Dynamic.neglect = Static.DANGER_NEGLECT
-			Dynamic.forget = Static.DANGER_FORGET

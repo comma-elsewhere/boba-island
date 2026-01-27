@@ -93,7 +93,6 @@ func _restart() -> void:
 
 func _complete() -> void:
 	var player: Player = get_tree().get_first_node_in_group("Player") as Player
-	print(current_tea.quality)
 	player.hud.add_item(current_tea)
 	get_tree().call_group("GUI_Event", "close")
 

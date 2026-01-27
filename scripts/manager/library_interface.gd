@@ -25,7 +25,9 @@ func reload() -> void:
 	
 func _reset_book_list() -> void:
 	book_list.clear()
+	tea_list.clear()
 	_fill_book_list()
+	_fill_tea_list()
 	
 func _select_book_entry(index: int) -> void:
 	_clear_paragraph()

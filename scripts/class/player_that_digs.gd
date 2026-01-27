@@ -70,7 +70,7 @@ func _input(event: InputEvent) -> void:
 				elif pointer.get_collider().get_parent().has_method("on_click"):
 					pointer.get_collider().get_parent().on_click()
 					if pointer.get_collider().get_parent().has_method("reduce_water"):
-						%WaterSound.play()
+						%WaterSound.play(0.05)
 			
 			else:
 				var new_item = _harvest()

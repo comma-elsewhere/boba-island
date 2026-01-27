@@ -47,7 +47,6 @@ func _finish_puzzle() -> void:
 	call_deferred("queue_free")
 	
 func _unlock_letter():
-	print("UNLOCK")
 	var index:int = Dynamic.locked_letters.pop_front()
 	Dynamic.unlocked_book[index] = index + 1
 	get_tree().call_group("Reload", "reload")

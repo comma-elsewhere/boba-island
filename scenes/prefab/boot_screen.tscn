@@ -189,32 +189,9 @@ auto_height = true
 item_count = 3
 same_column_width = true
 fixed_column_width = 150
-item_0/text = "Silver Spoon"
-item_1/text = "Middle Class"
-item_2/text = "Rock Bottom"
-
-[node name="Danger" type="VBoxContainer" parent="GameSettings/HBox"]
-layout_mode = 2
-
-[node name="Static" type="Label" parent="GameSettings/HBox/Danger"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Danger"
-
-[node name="DangerList" type="ItemList" parent="GameSettings/HBox/Danger"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-allow_reselect = true
-allow_search = false
-auto_width = true
-auto_height = true
-item_count = 3
-same_column_width = true
-fixed_column_width = 150
-item_0/text = "Peaceful"
-item_1/text = "Storymode"
-item_2/text = "Deadly"
+item_0/text = "Inheritance"
+item_1/text = "Balanced"
+item_2/text = "Struggling"
 
 [node name="DoneButton" type="Button" parent="GameSettings"]
 unique_name_in_owner = true

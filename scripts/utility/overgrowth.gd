@@ -79,8 +79,6 @@ func on_load(save_data: SavedData) -> void:
 	global_position = my_data.position
 	alive = my_data.alive
 	
-	print(my_data.alive)
-	
 	$Placeholder.queue_free()
 	
 	if alive:
