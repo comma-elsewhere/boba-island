@@ -26,9 +26,13 @@ const MAX_WAIT := 5.0
 var available_drinks: Array[Recipe]
 var order_generator: OrderGen
 var regular_generator: NpcGen
-var tourist_odds: Array[int] = []
+var tourist_odds: Array[int] = [1]
 var current_order: Drink
 var current_dialogue: Array = []
+
+# 1 = old_letter
+# 2 = cult_doctrine, myth, unyieldy
+# 3 = cult_flyer, gongfu
 
 var awaiting_customer: bool = false
 

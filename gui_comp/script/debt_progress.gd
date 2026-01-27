@@ -15,7 +15,7 @@ signal debt_paid
 @export var upgrade_8: Array[Upgrade] = []
 @export var upgrade_9: Array[Upgrade] = []
 
-const SET_DEBT := 100000
+const SET_DEBT := 200000
 const STEPS := 10
 
 var step_amounts: Array[int] = []

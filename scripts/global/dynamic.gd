@@ -35,7 +35,8 @@ var tea_flavor: int
 # Financial variables
 # consistent through game --- Just save these two as Array[int]
 var total_money: int = 0
-var total_debt: int = 1010000
+var total_debt: int = 980000
+
 # adjusted and reset daily, no save
 var today_earned: int = 0
 var orders_filled: int = 0

@@ -20,31 +20,35 @@ const WITH = " with "
 
 var DIALOGUE: Dictionary = {
 	"NPC_1" = {
-		"NAME" = "Frank",
+		"NAME" = "Yan-Chen",
 		"ORDER" = preload("res://resources/game_data/drinks/plain_black.tres"),
-		"TEA" = Static.TEA.ASSAM,
+		"TEA" = Static.TEA.CEYLON,
 		"DIALOGUE" = [
-			["This is my unique demo dialogue!", "I can say lots of things!", "I can go on and on, in fact..."],
-			["Everytime I come here, I have different dialogue!", "Neato!"],
-			["And when I run out of written dialogue, I'll auto-generate friendly orders...", "So I never run out of things to say!"]
+			["Hello there! You’re a new face.", "Oh, is he doing alright?", "… I see.", "A business trip, huh?", "Name’s Yan-Chen, by the way. I’ll be back to check on you soon. Been coming here for years. Your grandpa n’ me were pretty close.", ". . . .", "Well… Give me my usual. Just a Ceylon Tea."],
+			["Hello, again. How are you holdin up?", "How’s taking over the business been?", "Good things ain’t won easy. That’s for sure. You know what always keeps me motivated?", "A cup of Ceylon tea."],
+			["Hangin in there, kiddo?", "Don't feel too bad about your grandpa. I’ve known that man for years, and he didn’t say nothin’ to me either.", "Can’t say it was all that hard to see toward the end.", "You know how he was. He was a proud man.", "What’s your plan? Do you think you'll stay?", "What’s complicated about it?", "Finances. That’s always what gets ya, isn’t it?", "The usual, please. Good ol' Ceylon. You know you make a cuppa just as well as your grandpa did."],
+			["Hey, kiddo. How's it going?", "Weird crops?", "Y’know your grandpa said something about that once. Hold on a sec.", "I think it’s in here. I keep all my correspondences. As should you.", "Never know when ya might need that information. Like today.", "I’m sure you know the strange tales about this island.", "I ain’t saying there is any truth to it… But.", "Well, you just read that and make up your own mind about it.", "And I'll take my usual Ceylon.",],
 		]
 	},
 	"NPC_2" = {
-		"NAME" = "Mary",
-		"ORDER" = preload("res://resources/game_data/drinks/plain_black.tres"),
-		"TEA" = Static.TEA.OOLONG,
+		"NAME" = "Dr. Green",
+		"ORDER" = preload("res://resources/game_data/drinks/milk_black.tres"),
+		"TEA" = Static.TEA.CHAI,
 		"DIALOGUE" = [
-			["Hi, this is demo dialogue.", "Named NPCs are regulars.", "We always order the name thing."],
-			["Tourists are randomly generated", "The ratio of tourists to regulars can be changed"],
-			["Tourist orders can be vague and confusingly worded.", "You might need to consult your notes.", "But regulars always know what they want."]
+			["What an intriguing shop you have here.", "Have you lived here long?", "Can you tell me about the history of this shop?", "Amazing. It’s no surprise this shop has stayed in business for nearly half a century. What a brilliant idea to have a boat drive-thru.", "Are you familiar with the folklore surrounding this island?", "Ah, I can very well imagine that it’s part of what draws customers here.", "Oh, yes. Please forgive me. My name is Dr. Green. I’m an anthropologist, and I was doing research in the area and came across some information on your island. Interesting stuff to say the least.", "Do you grow all your own produce?", "Of course you do. I found an old newspaper clipping about this island and this shop. I’m so glad that it’s still up and running.", "I'll bring it with me sometime. Might be nice to put up on the wall for customers.", "Oh… umm… May I trouble you for a chai with milk?"],
+			["Hello, again.", "You wouldn't happen to have any mutated crops around here? I've been reading up on this little island.", "I see. Still, even without them, there is no lack of intrigue about the place.", "Are you familiar with the myth of Mushu and Cài Yuán?", "It’s especially interesting, given the stories of mutated crops. I'll find it and bring it to you. I’d love to hear your thoughts.", "I’ve extended my residency. There is so much to this place, I’m thinking of writing my own book. Perhaps you’ll allow me a tour of the island sometime.", "For now, how about a tea? Chai with milk, please."],
+			["Cheerio! Any mutated crops or cultists latley?", "It is said that the murdered gods were buried on this very island.", "And did you know that there was once a group of cultists that used to conduct strange rituals on this island?", "They called themselves The Order of Life and Death.", "They were followers of Mushu and Cài Yuán. I found one of their earlier doctrines. It seems harmless enough. I dare say that they even make some good points.", "Apparently, a catastrophe of some kind befell the group, but I’m having a hard time unearthing exactly what happened. It’s all very mysterious.", "I’ll be sure to let you know when I find more out.", "But I won't hold you in suspense any longer, here are those documents I've mentioned.", "A little boost of caffeine will do me some good. Chai with a dash of milk, please."]
 		]
 	},
 	"NPC_3" = {
-		"NAME" = "Shelley",
-		"ORDER" = preload("res://resources/game_data/drinks/plain_black.tres"),
-		"TEA" = Static.TEA.SENCHA,
+		"NAME" = "Apple",
+		"ORDER" = preload("res://resources/game_data/drinks/strawberry_black_boba.tres"),
+		"TEA" = Static.TEA.MATCHA,
 		"DIALOGUE" = [
-			["Demo here, I'm dialogue.", "Prepare to be demo-ed."]
+			["Who are you?", "Sorry! That wasn’t much of a hello, huh? But I’ve never seen anyone else here besides the old man.", "You must be his new employee? My name is Apple. It’s nice to meet you!", "A drink? That’s why I’m here! I bet you can’t guess what my usual order is.", "I’ll give you a hint. I like fruity things. Which makes sense since my name is Apple, don’tcha think?", "Omg. You must be a mind reader. How did you know?", "It’s your only drink with fruit?", "So you're more of a deducer like a detective, got it!", "More like a deTEActive.", "... We might need to workshop that one.", "Matcha strawberry milk tea. And don't forget the boba!"],
+			["You said the old man was your grandfather?", "You know, I used to come around here when I was little with my grandma.", "I’d play here with another child. We’d play hide and seek in the yuca leaves.", "When we’d get hungry, we’d pick strawberries and mush them up with sugar in a bowl.", "It’s actually part of why I love strawberries so much! They taste like happy childhood days on the island.", "I’ve been coming here for a long time to get drinks, but the one you made me last time brought back those memories.", "Sorry to prattle on like that. I’ll take my usual. A matcha strawberry milk tea. With boba!"],
+			["I’m back!", "I was thinking about the kid that I used to play with when I was little, and I remembered a crazy day that we had.", "We weren’t supposed to leave the farm without an adult with us, but we were playing that we were adventurers.", "On the far side of the island was a series of little caves. When the tide goes down, there is a deeper hole that you can get into that opens up into a large cavern.", "Sometimes I think back on that moment, and I feel a chill run up my spine over what would have happened if we had still been in there when high tide rolled in.", "Anyway, we had one flashlight and were looking around the cavern when a shadow startled us. We both screamed, and I dropped the flashlight. The batteries popped out, and it was pitch black. So dark I felt like I couldn’t breathe.", "It took forever, both of us feeling around on the cave floor, to find the batteries.", "When we finally did, we discovered the shadow was cast by a little shrine.", "Placed at the foot of the shrine was a flyer. It said some weird stuff about a cult. We were terrified and ran all the way home.", "I still have the flyer if you want to see it again. I'll bring it next time!", "I’ll take a matcha strawberry milk tea, please. And lots of boba!"],
+			["Hey, hey! How are you doing today?", "I’ve been feeling so nostalgic lately.", "I was thinking back about my grandma and how much she loved tea.", "She was always drinking matcha, though without any sweetener or anything.", "I always thought it was so grown-up and that when I was older, I’d do the same thing.", "We both know that isn’t going to happen. I always say that the reason I’m so sweet is that I eat so many sweet things.", "Anyway, even though we don’t like the same kinds of tea. She always was so reverent when making it.", "She said the ceremony of making tea was the most important part; the mindful act of making it connected us to the land and created harmony.", "She loved being out here on the island with your grandparents and taking part in farming the ingredients. She’d say it was the ultimate tea ceremony.", "Like I said, I’ve been feeling extra nostalgic lately, and I’ve been reading up on tea ceremonies and thought of all people you’d be able to connect with it to. So I brought you this. Read over it if you get the chance.", "I’ll take my usual. Matcha strawberry milk tea. And lots of boba!"]
 		]
 	}
 }

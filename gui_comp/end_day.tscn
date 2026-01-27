@@ -22,8 +22,8 @@
 [ext_resource type="Resource" uid="uid://knknrbsrfhja" path="res://resources/game_data/upgrades/grow_speed.tres" id="16_mm705"]
 
 [sub_resource type="Curve" id="Curve_rpi5i"]
-_data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0.056179762), 0.0, 0.0, 0, 0, Vector2(0.50218344, 0.55056185), 3.040858, 3.040858, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pi3m8"]
 bg_color = Color(0.5264825, 0.64726573, 0.3951104, 1)
