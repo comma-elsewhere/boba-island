@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dob22kpua6k0t"]
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://dob22kpua6k0t"]
 
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_2d3ao"]
 [ext_resource type="Texture2D" uid="uid://rkebwg4hub64" path="res://assets/icons/TapiocaPearls.png" id="1_42cpk"]
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_iampt"]
+[ext_resource type="PackedScene" uid="uid://p66au82jxsxb" path="res://scenes/prefab/ingredients/3d_tapocia_pearls.tscn" id="3_6dmhp"]
 
 [resource]
 script = ExtResource("1_iampt")
 name = "Tapioca Pearls"
 icon = ExtResource("1_42cpk")
+mesh = ExtResource("3_6dmhp")
 stack_limit = 9
 metadata/_custom_type_script = "uid://bln87ln83cftx"

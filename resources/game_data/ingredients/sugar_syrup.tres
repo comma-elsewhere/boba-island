@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bd8k4jlboxvqc"]
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://bd8k4jlboxvqc"]
 
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_3mgpn"]
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_5tmft"]
 [ext_resource type="Texture2D" uid="uid://bg5auxies77fi" path="res://assets/icons/SugarSyrup.png" id="1_eaijl"]
+[ext_resource type="PackedScene" uid="uid://vnpgnb8b88bn" path="res://scenes/prefab/ingredients/3d_sugar_syrup.tscn" id="3_ysa8n"]
 
 [resource]
 script = ExtResource("1_5tmft")
 name = "Sugar Syrup"
 icon = ExtResource("1_eaijl")
+mesh = ExtResource("3_ysa8n")
 stack_limit = 9
 metadata/_custom_type_script = "uid://bln87ln83cftx"

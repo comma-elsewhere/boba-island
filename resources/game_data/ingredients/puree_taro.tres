@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bshj6d4uajaa3"]
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://bshj6d4uajaa3"]
 
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_1shko"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_dgwma"]
 [ext_resource type="Texture2D" uid="uid://csce1r0m6rwe8" path="res://assets/icons/PureeTaro.png" id="1_tc8ii"]
+[ext_resource type="PackedScene" uid="uid://c6va867ykl0ms" path="res://scenes/prefab/ingredients/3d_taro_puree.tscn" id="3_415cq"]
 
 [resource]
 script = ExtResource("1_1shko")
 name = "Taro Puree"
 icon = ExtResource("1_tc8ii")
+mesh = ExtResource("3_415cq")
 stack_limit = 9
 metadata/_custom_type_script = "uid://bln87ln83cftx"

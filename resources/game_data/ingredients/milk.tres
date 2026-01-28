@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://db3yuj54ic2xe"]
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://db3yuj54ic2xe"]
 
 [ext_resource type="Texture2D" uid="uid://b5vhbnu6s0cc8" path="res://assets/icons/Milk.png" id="1_j1m3c"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_nlyrn"]
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_w1rdo"]
+[ext_resource type="PackedScene" uid="uid://iw0kbnadumbi" path="res://scenes/prefab/ingredients/3d_milk.tscn" id="3_okohb"]
 
 [resource]
 script = ExtResource("1_w1rdo")
 name = "Milk"
 icon = ExtResource("1_j1m3c")
+mesh = ExtResource("3_okohb")
 stack_limit = 9
 metadata/_custom_type_script = "uid://bln87ln83cftx"

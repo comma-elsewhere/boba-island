@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dcxtagxrswosr"]
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://dcxtagxrswosr"]
 
 [ext_resource type="Script" uid="uid://bln87ln83cftx" path="res://scripts/resource/items_and_recipes/item.gd" id="1_e5s0l"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_l76rv"]
 [ext_resource type="Texture2D" uid="uid://krqr2i50fko5" path="res://assets/icons/Water.png" id="1_pgsnu"]
+[ext_resource type="PackedScene" uid="uid://kcw3s1ddfo5y" path="res://scenes/prefab/ingredients/3d_water.tscn" id="3_2qxkx"]
 
 [resource]
 script = ExtResource("1_e5s0l")
 name = "Water"
 icon = ExtResource("1_pgsnu")
+mesh = ExtResource("3_2qxkx")
 stack_limit = 9
 metadata/_custom_type_script = "uid://bln87ln83cftx"
