@@ -20,12 +20,14 @@ func _spawn_item_with_collision(packed_scene) -> Node3D:
 		
 		scale = mesh_instance.scale
 		
-		if instantiated_scene.has_method("drink_setup"):
-			instantiated_scene.drink_setup(item_data)
-		
 		add_child(instantiated_scene)
-		mesh_instance.global_position = Vector3.ZERO
-		mesh_instance.scale = Vector3.ONE
+		
+		if instantiated_scene.has_method("reset_children"):
+			instantiated_scene.reset_children()
+		else:
+			mesh_instance.global_position = Vector3.ZERO
+			mesh_instance.scale = Vector3.ONE
+			
 		set_collision_layer_value(1, true)
 		set_collision_mask_value(1, true)
 		set_collision_mask_value(5,true) # collides with dirt

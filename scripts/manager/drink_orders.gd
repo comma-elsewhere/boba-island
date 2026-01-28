@@ -20,8 +20,8 @@ const CORRECT_DRINK := "Correct Drink! Customer paid "
 const LOVED_TEA := "\n And they tipped an extra "
 const WRONG_TEA := "\n But they didn't care for the tea..."
 
-const MIN_WAIT := 3.0
-const MAX_WAIT := 5.0
+const MIN_WAIT := 1.0
+const MAX_WAIT := 3.0
 
 var available_drinks: Array[Recipe]
 var order_generator: OrderGen

@@ -1,13 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8dcqquuf7srh"]
+[gd_scene load_steps=8 format=3 uid="uid://b8dcqquuf7srh"]
 
 [ext_resource type="Script" uid="uid://c02be7rjfyhmn" path="res://gui_comp/script/main_menu.gd" id="1_nhkf3"]
 [ext_resource type="FontFile" uid="uid://dvfl1kk0lgrv4" path="res://assets/gui/fonts/Susrawa.ttf" id="2_55467"]
 [ext_resource type="Script" uid="uid://wnlnltffpy0p" path="res://gui_comp/script/menu_contents.gd" id="2_eaxye"]
+[ext_resource type="Texture2D" uid="uid://bgn0ww8mgj5dj" path="res://assets/art/postcard_1.jpg" id="2_tfjkd"]
 [ext_resource type="PackedScene" uid="uid://cuu8oj5rbrit0" path="res://gui_comp/options_menu.tscn" id="3_nfgcl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tfjkd"]
 font = ExtResource("2_55467")
-font_size = 72
+font_size = 180
+font_color = Color(0, 0, 0, 1)
+shadow_size = 20
+shadow_color = Color(0.9254902, 0.92941177, 0.8666667, 1)
+shadow_offset = Vector2(7, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2j5py"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("main_panel", "saved_panel", "options_panel", "saved_button", "options_button")]
 layout_mode = 3
@@ -23,14 +31,25 @@ options_panel = NodePath("ScreenMargins/MenuContents/MarginContainer/OptionsMenu
 saved_button = NodePath("ScreenMargins/MenuContents/MarginContainer/MainVBox/ContinueButton")
 options_button = NodePath("ScreenMargins/MenuContents/MarginContainer/MainVBox/OptionsButton")
 
-[node name="REPLACE_ME" type="ColorRect" parent="."]
+[node name="BackgroundColor" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.07016479, 0.4072413, 0.39875868, 1)
+color = Color(0.9254902, 0.92941177, 0.8666667, 1)
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tfjkd")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="ScreenMargins" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -39,9 +58,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 40
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 50
 
 [node name="GameTitle" type="Label" parent="ScreenMargins"]
@@ -55,6 +74,7 @@ label_settings = SubResource("LabelSettings_tfjkd")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_2j5py")
 script = ExtResource("2_eaxye")
 
 [node name="MarginContainer" type="MarginContainer" parent="ScreenMargins/MenuContents"]

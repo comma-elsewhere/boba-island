@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Tea" load_steps=4 format=3 uid="uid://bfvxhjsl3t15w"]
+[gd_resource type="Resource" script_class="Tea" load_steps=5 format=3 uid="uid://bfvxhjsl3t15w"]
 
 [ext_resource type="Script" uid="uid://mlslmml4ade1" path="res://scripts/resource/items_and_recipes/tea.gd" id="1_ndplb"]
 [ext_resource type="Texture2D" uid="uid://67hfyq05g3vy" path="res://assets/icons/TeaOolong.png" id="1_vxusy"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_bfof6"]
+[ext_resource type="PackedScene" uid="uid://b5regmlr6pot4" path="res://scenes/prefab/ingredients/tea.tscn" id="3_bfof6"]
 
 [resource]
 script = ExtResource("1_ndplb")
@@ -11,4 +12,5 @@ perfect_temp = 80.0
 perfect_time = 90.0
 name = "Oolong"
 icon = ExtResource("1_vxusy")
+mesh = ExtResource("3_bfof6")
 metadata/_custom_type_script = "uid://mlslmml4ade1"

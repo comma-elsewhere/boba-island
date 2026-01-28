@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Tea" load_steps=4 format=3 uid="uid://rpncj70g58ht"]
+[gd_resource type="Resource" script_class="Tea" load_steps=5 format=3 uid="uid://rpncj70g58ht"]
 
 [ext_resource type="Texture2D" uid="uid://b13frnxu2npam" path="res://assets/icons/TeaMint.png" id="1_gnx2d"]
 [ext_resource type="Script" uid="uid://mlslmml4ade1" path="res://scripts/resource/items_and_recipes/tea.gd" id="1_nvs8k"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="2_pqit5"]
+[ext_resource type="PackedScene" uid="uid://b5regmlr6pot4" path="res://scenes/prefab/ingredients/tea.tscn" id="3_pqit5"]
 
 [resource]
 script = ExtResource("1_nvs8k")
@@ -11,4 +12,5 @@ perfect_temp = 30.0
 perfect_time = 90.0
 name = "Moroccan Mint"
 icon = ExtResource("1_gnx2d")
+mesh = ExtResource("3_pqit5")
 metadata/_custom_type_script = "uid://mlslmml4ade1"

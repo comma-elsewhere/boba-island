@@ -66,7 +66,7 @@ theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer"]
 layout_mode = 2
-text = "Daily Recap"
+text = "Recap"
 horizontal_alignment = 1
 
 [node name="CropsHarvested" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer"]
@@ -264,4 +264,4 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_pi3m8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pi3m8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pi3m8")
-text = "Save and Finish Day"
+text = "Save Game"

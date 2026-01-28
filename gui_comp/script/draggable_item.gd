@@ -19,6 +19,10 @@ func _ready() -> void:
 	amount_label.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
 	update_amount_label()
 	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		queue_free()
+	
 func update_amount_label() -> void:
 	if item_data.amount > 1:
 		amount_label.text = str(item_data.amount)

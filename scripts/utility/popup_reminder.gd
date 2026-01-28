@@ -15,14 +15,15 @@ func _ready() -> void:
 		
 func _input(event: InputEvent) -> void:
 	if Dynamic.tutorial_on:
-		if event.is_action_pressed("library") and visible:
+		if event.is_action_pressed("library") and visible and reminder.text == POPUP:
 			hide()
-		elif event.is_action_pressed("library"):
+		if event.is_action_pressed("library") or event.is_action_pressed("pause"):
 			set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
 			reminder.text = QUESTS
 			show()
 
 func _hide_forever() -> void:
+	get_tree().get_first_node_in_group("DrinkOrders").drink_served.disconnect(_hide_forever)
 	Dynamic.tutorial_on = false
 	set_anchors_and_offsets_preset(Control.PRESET_CENTER_LEFT)
 	reminder.text = DONE

@@ -14,7 +14,8 @@ func _ready() -> void:
 	else:
 		tutorial_enabled_button.button_pressed = Dynamic.tutorial_on
 		_set_difficulty(1)
-		_resize_progress_indicators()
+		_new_game_unlocks()
+		_new_game_reset_stats()
 		game_settings.show()
 		done_button.button_up.connect(_play_load_anim)
 		tutorial_enabled_button.toggled.connect(_enable_tutorial)
@@ -27,7 +28,7 @@ func _play_load_anim() -> void:
 func load_game() -> void:
 	get_tree().change_scene_to_packed(MAIN)
 	
-func _resize_progress_indicators() -> void:
+func _new_game_unlocks() -> void:
 	# Set starter things
 	Dynamic.unlocked_book[Static.BOOKS.GRANDPA] = Static.BOOKS.GRANDPA + 1
 	Dynamic.unlocked_book[Static.BOOKS.HOSPICE] = Static.BOOKS.HOSPICE + 1
@@ -36,6 +37,19 @@ func _resize_progress_indicators() -> void:
 	Dynamic.unlocked_crop[Static.CROP.SUGAR_CANE] = Static.CROP.SUGAR_CANE + 1
 	Dynamic.unlocked_tea[Static.TEA.CEYLON] = Static.TEA.CEYLON + 1
 	Dynamic.unlocked_tea[Static.TEA.SENCHA] = Static.TEA.SENCHA + 1
+
+func _new_game_reset_stats() -> void:
+	Dynamic.inventory_space = 4 # Min 3, Max 9 --> 5, 7, 9 --> +2 three times
+	Dynamic.moisture_loss = 3.2 # Min 0.5, Max 8.0 --> 5.5, 3.0, 0.5 --> -0.1 three times
+	Dynamic.grow_mod = 4.0 # Min 0.5, Max 4.0 --> 2.0, 1.0, 0.5 --> /2 three times
+	Dynamic.crop_yield = 1 # Min 1, Max 4 --> 2, 3, 4 --> +1 three times ---> need inventory upgrade
+	Dynamic.process_speed = 2.5 # Min 0.25, Max 2.0 --> 1.0, 0.5, 0.25 --> /2 three times
+	Dynamic.cook_speed = 2.5 # Min 0.25, Max 2.0 --> "" ""
+	Dynamic.mix_speed = 2.5 # Min 0.25, Max 2.0 --> "" ""
+	Dynamic.processor = 1 # Max 4
+	Dynamic.cooker = 1 # Max 2
+	Dynamic.mixer = 1 # Max 4
+
 
 func _set_difficulty(setting_id: int) -> void:
 	Dynamic.difficulty_setting = setting_id

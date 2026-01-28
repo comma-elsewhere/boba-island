@@ -45,7 +45,7 @@ func _reset_globals() -> void:
 	Dynamic.tips_earned = 0
 
 func _pay_debt() -> void:
-	if Dynamic.total_money >= _selected_payment:
+	if Dynamic.total_money -500 >= _selected_payment:
 		Dynamic.total_money -= _selected_payment
 		Dynamic.total_debt -= _selected_payment
 		_update_money()
@@ -60,7 +60,7 @@ func _select_payment(index: int) -> void:
 		4: _selected_payment = 5000
 		5: _selected_payment = 10000
 	
-	if _selected_payment > Dynamic.total_money:
+	if _selected_payment > Dynamic.total_money -500:
 		pay_button.disabled = true
 	else:
 		pay_button.disabled = false

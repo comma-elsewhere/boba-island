@@ -25,10 +25,11 @@ func upgrade(index: int) -> void:
 				7: _mixer()
 				8: _default(index)
 
-
 func _inventory() -> void:
-	if Dynamic.inventory_space < 9:
+	if Dynamic.inventory_space < 8:
 		Dynamic.inventory_space += 2
+	elif Dynamic.inventory_space == 8:
+		Dynamic.inventory_space += 1
 	
 func _moisture_loss() -> void:
 	if Dynamic.moisture_loss > 0.1:

@@ -100,7 +100,8 @@ func add_item(item: Item) -> bool:
 	for i in range(Dynamic.inventory_space):
 		if hotbar_array[i] == null:
 			hotbar_array[i] = item
-			_update_display(i)
+			#_update_display(i)
+			_on_hotbar_container_slot_selected(i)
 			return true
 	return false
 

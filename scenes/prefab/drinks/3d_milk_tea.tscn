@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bssf04mnifnc1"]
+[gd_scene load_steps=5 format=3 uid="uid://bssf04mnifnc1"]
 
 [ext_resource type="ArrayMesh" uid="uid://b31quy0b0g084" path="res://resources/meshes/cup.res" id="1_33w5p"]
+[ext_resource type="Script" uid="uid://duu67xmqn1ns6" path="res://scripts/utility/3d_tea.gd" id="1_pnpky"]
 [ext_resource type="ArrayMesh" uid="uid://cu2n88mj80fk7" path="res://resources/meshes/milk_tea_inside.res" id="3_lv6fc"]
-[ext_resource type="ArrayMesh" uid="uid://c258ohhdn16vm" path="res://resources/meshes/milk_tea_lid.res" id="4_ban5t"]
+[ext_resource type="ArrayMesh" uid="uid://deohpmx5glwoq" path="res://resources/meshes/milk_tea_lid.res" id="4_ban5t"]
 
 [node name="3dPlainTeaBoba" type="Node3D"]
+script = ExtResource("1_pnpky")
 
 [node name="Cup" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.3, -0.02)
