@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://mmr3qjmcb5dq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hqwa"]
+albedo_color = Color(0.124156676, 0.08092084, 0.06586549, 1)
+roughness = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_5hqwa"]
+material = SubResource("StandardMaterial3D_5hqwa")
+
+[node name="3dWater" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("SphereMesh_5hqwa")

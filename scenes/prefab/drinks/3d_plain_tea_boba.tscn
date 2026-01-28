@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://chrp6pjx5am1t"]
+
+[ext_resource type="ArrayMesh" uid="uid://b31quy0b0g084" path="res://resources/meshes/cup.res" id="1_w2srj"]
+[ext_resource type="ArrayMesh" uid="uid://cbw0gaylcn5mg" path="res://resources/meshes/plain_tea_inside.res" id="2_mk7js"]
+[ext_resource type="ArrayMesh" uid="uid://p0gf7kpe8pu8" path="res://resources/meshes/plain_tea_lid.res" id="3_lk41y"]
+[ext_resource type="ArrayMesh" uid="uid://bvuvjx3qvuos4" path="res://resources/meshes/boba.res" id="4_mk7js"]
+
+[node name="3dPlainTeaBoba" type="Node3D"]
+
+[node name="Cup" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.3, -0.02)
+mesh = ExtResource("1_w2srj")
+
+[node name="PlainTeaInside" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.3, -0.02)
+mesh = ExtResource("2_mk7js")
+
+[node name="PlainTeaLid" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.3, -0.02)
+mesh = ExtResource("3_lk41y")
+
+[node name="Boba" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, -0.33035058, -0.29331204, 0.12043126)
+mesh = ExtResource("4_mk7js")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://daua5m3m8m0px"]
+
+[ext_resource type="ArrayMesh" uid="uid://dalccrrdoa1ax" path="res://resources/meshes/crop_strawberry.res" id="1_idvtb"]
+
+[node name="3dWater" type="Node3D"]
+
+[node name="CropStrawberry" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
+mesh = ExtResource("1_idvtb")

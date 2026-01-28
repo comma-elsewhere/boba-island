@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw57cccmc15ca"]
+
+[ext_resource type="ArrayMesh" uid="uid://k7t0xfls63oq" path="res://resources/meshes/matcha_powder.res" id="1_qvpij"]
+
+[node name="3dWater" type="Node3D"]
+
+[node name="MatchaPowder" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+mesh = ExtResource("1_qvpij")

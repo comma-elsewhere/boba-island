@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7iu3gk7rgdqx"]
+
+[ext_resource type="ArrayMesh" uid="uid://roq284njf5h1" path="res://resources/meshes/crop_sugarcane_2.res" id="2_x53pb"]
+
+[node name="3dWater" type="Node3D"]
+
+[node name="CropSugarcane2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.6, 0)
+mesh = ExtResource("2_x53pb")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpwwdmqch1hlf"]
+
+[ext_resource type="ArrayMesh" uid="uid://b8bqknakkebag" path="res://resources/meshes/crop_taro.res" id="1_ljwrp"]
+
+[node name="3dWater" type="Node3D"]
+
+[node name="CropTaro" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.1, 0)
+mesh = ExtResource("1_ljwrp")

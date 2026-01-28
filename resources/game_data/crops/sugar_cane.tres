@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Crop" load_steps=10 format=3 uid="uid://yxg8m560ssfp"]
+[gd_resource type="Resource" script_class="Crop" load_steps=11 format=3 uid="uid://yxg8m560ssfp"]
 
 [ext_resource type="PackedScene" uid="uid://23aa8ktejy4y" path="res://scenes/prefab/crops/sugarcane_1.tscn" id="1_q7bdb"]
 [ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/items_and_recipes/crop.gd" id="1_tsr8t"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://blsubntrwyjlv" path="res://assets/icons/CropSugarcane.png" id="6_q7bdb"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="7_80yri"]
 [ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/utility/mandrake_encounter.tscn" id="8_1tlc0"]
+[ext_resource type="PackedScene" uid="uid://c7iu3gk7rgdqx" path="res://scenes/prefab/ingredients/3d_harvest_sugarcane.tscn" id="8_tpvfb"]
 
 [resource]
 script = ExtResource("1_tsr8t")
@@ -19,5 +20,6 @@ water_min = 50
 mutation_mod = 4.0
 name = "Sugar Cane"
 icon = ExtResource("6_q7bdb")
+mesh = ExtResource("8_tpvfb")
 stack_limit = 9
 metadata/_custom_type_script = "uid://c0v8vbpbe4egw"

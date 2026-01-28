@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_5xjn4"]
 [ext_resource type="Texture2D" uid="uid://c2pcsls3uk2gw" path="res://assets/icons/MilkTea.png" id="1_450sl"]
 [ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/items_and_recipes/drink.gd" id="1_vldwv"]
-[ext_resource type="PackedScene" uid="uid://b5regmlr6pot4" path="res://scenes/prefab/temp_scenes/drink.tscn" id="3_450sl"]
+[ext_resource type="PackedScene" uid="uid://b5regmlr6pot4" path="res://scenes/prefab/ingredients/tea.tscn" id="3_450sl"]
 
 [resource]
 script = ExtResource("1_vldwv")

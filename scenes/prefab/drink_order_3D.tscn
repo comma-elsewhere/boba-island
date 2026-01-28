@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://1cehb2otnn10"]
+[gd_scene load_steps=10 format=3 uid="uid://1cehb2otnn10"]
 
 [ext_resource type="PackedScene" uid="uid://cdp4b2op1gor0" path="res://gui_comp/drink_orders.tscn" id="1_hfier"]
 [ext_resource type="Script" uid="uid://dqdmygmjbiseu" path="res://scripts/manager/drink_zone.gd" id="1_sinf0"]
 [ext_resource type="Shader" uid="uid://doqqx7wv7ml5w" path="res://resources/shaders/viewport_from_control.gdshader" id="2_sinf0"]
+[ext_resource type="AudioStream" uid="uid://bhr7x0o1ynedh" path="res://assets/sound effects/SaleSound.ogg" id="3_jfuh2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sinf0"]
 size = Vector3(2, 1, 1)
@@ -52,6 +53,11 @@ layers = 2
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_myrua")
 skeleton = NodePath("../..")
+
+[node name="ChaChingSound" type="AudioStreamPlayer3D" parent="StaticBody3D"]
+unique_name_in_owner = true
+stream = ExtResource("3_jfuh2")
+attenuation_model = 2
 
 [node name="SubViewport" type="SubViewport" parent="."]
 gui_embed_subwindows = true

@@ -59,6 +59,7 @@ func _on_drink_orders_drink_ordered(drink: Drink) -> void:
 		_check_drinks()
 
 func _on_drink_orders_drink_served() -> void:
+	%ChaChingSound.play()
 	drink_orders.finish_order(_calc_paid(), _calc_tipped())
 	_erase_drink(served_drink)
 	served_drink = null

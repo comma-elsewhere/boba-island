@@ -37,6 +37,27 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"harvested_sugarcane_Cylinder": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/crop_sugarcane_2.res",
+"save_to_file/path": "uid://roq284njf5h1"
+},
+"harvested_sugarcane_Cylinder_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://resources/meshes/crop_sugarcane_1.res",
+"save_to_file/path": "uid://b2cq17utqtvfu"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

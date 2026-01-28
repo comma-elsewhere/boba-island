@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6va867ykl0ms"]
+
+[ext_resource type="ArrayMesh" uid="uid://c3oa81tnjkg4w" path="res://resources/meshes/puree_taro.res" id="1_0qgap"]
+
+[node name="3dWater" type="Node3D"]
+
+[node name="PureeTaro" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+mesh = ExtResource("1_0qgap")

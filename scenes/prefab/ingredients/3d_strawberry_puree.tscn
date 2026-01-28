@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgq4pke5318pd"]
+
+[ext_resource type="ArrayMesh" uid="uid://d1i1h2thqbv3q" path="res://resources/meshes/puree_strawberry.res" id="1_3l1x3"]
+
+[node name="3dWater" type="Node3D"]
+
+[node name="PureeStrawberry" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.2, 0)
+mesh = ExtResource("1_3l1x3")

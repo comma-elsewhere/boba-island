@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://vnpgnb8b88bn"]
+
+[ext_resource type="ArrayMesh" uid="uid://cf6hspxabo4wn" path="res://resources/meshes/bottle.res" id="1_3tg02"]
+
+[node name="3dWater" type="Node3D"]
+
+[node name="Bottle" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, -0.2, 0)
+mesh = ExtResource("1_3tg02")

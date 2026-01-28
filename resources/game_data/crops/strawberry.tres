@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Crop" load_steps=10 format=3 uid="uid://360c740binkf"]
+[gd_resource type="Resource" script_class="Crop" load_steps=11 format=3 uid="uid://360c740binkf"]
 
 [ext_resource type="PackedScene" uid="uid://cwv31qrkuf2r" path="res://scenes/prefab/crops/strawberry_1.tscn" id="1_6h7kv"]
 [ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/items_and_recipes/crop.gd" id="1_p6fj8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dg05p8yk746uj" path="res://scenes/prefab/crops/strawberry_4.tscn" id="4_j8bmf"]
 [ext_resource type="PackedScene" uid="uid://b54u1s3qihrqy" path="res://scenes/prefab/crops/strawberry_5.tscn" id="5_jg0ya"]
 [ext_resource type="Texture2D" uid="uid://jtmpnbvu5q5y" path="res://assets/icons/CropStrawberry.png" id="6_6h7kv"]
+[ext_resource type="PackedScene" uid="uid://daua5m3m8m0px" path="res://scenes/prefab/ingredients/3d_harvest_strawberry.tscn" id="8_0whib"]
 
 [resource]
 script = ExtResource("1_p6fj8")
@@ -19,5 +20,6 @@ water_min = 60
 mutation_mod = 8.0
 name = "Strawberries"
 icon = ExtResource("6_6h7kv")
+mesh = ExtResource("8_0whib")
 stack_limit = 9
 metadata/_custom_type_script = "uid://c0v8vbpbe4egw"

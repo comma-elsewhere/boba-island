@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="Crop" load_steps=11 format=3 uid="uid://d30x8ug78gwmc"]
 
-[ext_resource type="PackedScene" uid="uid://bx1u545sylij2" path="res://scenes/prefab/temp_scenes/crop_planted.tscn" id="1_gqrd4"]
 [ext_resource type="PackedScene" uid="uid://bmbki50dhrcij" path="res://scenes/prefab/crops/cassava_1.tscn" id="1_i1xqv"]
 [ext_resource type="Script" uid="uid://c0v8vbpbe4egw" path="res://scripts/resource/items_and_recipes/crop.gd" id="1_yxbix"]
 [ext_resource type="PackedScene" uid="uid://boenmadmm52lo" path="res://scenes/prefab/crops/cassava_2.tscn" id="2_twqvw"]
@@ -9,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b31nhi71gdgyu" path="res://scenes/prefab/crops/cassava_5.tscn" id="5_qjnxf"]
 [ext_resource type="Texture2D" uid="uid://dcawhayqpjf3h" path="res://assets/icons/CropCassava.png" id="6_i1xqv"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="7_v5hv4"]
+[ext_resource type="PackedScene" uid="uid://cxsbydlso534i" path="res://scenes/prefab/ingredients/3d_harvest_cassava.tscn" id="8_i1xqv"]
 [ext_resource type="PackedScene" uid="uid://dnvr6he28bx8b" path="res://scenes/utility/mandrake_encounter.tscn" id="9_v5hv4"]
 
 [resource]
@@ -19,6 +19,6 @@ water_max = 30
 water_min = 30
 name = "Cassava Root"
 icon = ExtResource("6_i1xqv")
-mesh = ExtResource("1_gqrd4")
+mesh = ExtResource("8_i1xqv")
 stack_limit = 9
 metadata/_custom_type_script = "uid://c0v8vbpbe4egw"
