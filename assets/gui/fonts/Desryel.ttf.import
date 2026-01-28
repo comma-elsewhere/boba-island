@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dsnjp7ha13jin"
-path="res://.godot/imported/Extra Days.ttf-042a50b33d84f15d5283102800eb9474.fontdata"
+uid="uid://bmhbioup76d8a"
+path="res://.godot/imported/Desryel.ttf-c2df6f7743bdee1667d6751bf79ccb26.fontdata"
 
 [deps]
 
-source_file="res://assets/gui/fonts/game_title/Extra Days.ttf"
-dest_files=["res://.godot/imported/Extra Days.ttf-042a50b33d84f15d5283102800eb9474.fontdata"]
+source_file="res://assets/gui/fonts/Desryel.ttf"
+dest_files=["res://.godot/imported/Desryel.ttf-c2df6f7743bdee1667d6751bf79ccb26.fontdata"]
 
 [params]
 

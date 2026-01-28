@@ -1,14 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8dcqquuf7srh"]
+[gd_scene load_steps=13 format=3 uid="uid://b8dcqquuf7srh"]
 
 [ext_resource type="Script" uid="uid://c02be7rjfyhmn" path="res://gui_comp/script/main_menu.gd" id="1_nhkf3"]
 [ext_resource type="FontFile" uid="uid://dvfl1kk0lgrv4" path="res://assets/gui/fonts/Susrawa.ttf" id="2_55467"]
 [ext_resource type="Script" uid="uid://wnlnltffpy0p" path="res://gui_comp/script/menu_contents.gd" id="2_eaxye"]
 [ext_resource type="Texture2D" uid="uid://bgn0ww8mgj5dj" path="res://assets/art/postcard_1.jpg" id="2_tfjkd"]
 [ext_resource type="PackedScene" uid="uid://cuu8oj5rbrit0" path="res://gui_comp/options_menu.tscn" id="3_nfgcl"]
+[ext_resource type="Script" uid="uid://ctnifp81yas4q" path="res://gui_comp/script/menu_background_image.gd" id="3_shj7d"]
+[ext_resource type="Texture2D" uid="uid://33qyhpolkgag" path="res://assets/art/postcard_2.jpg" id="4_dindd"]
+[ext_resource type="FontFile" uid="uid://bmhbioup76d8a" path="res://assets/gui/fonts/Desryel.ttf" id="6_2j5py"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2j5py"]
+font = ExtResource("2_55467")
+font_size = 72
+font_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0.9254902, 0.92941177, 0.8666667, 1)
+shadow_offset = Vector2(5, 4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tfjkd"]
 font = ExtResource("2_55467")
-font_size = 180
+font_size = 148
 font_color = Color(0, 0, 0, 1)
 shadow_size = 20
 shadow_color = Color(0.9254902, 0.92941177, 0.8666667, 1)
@@ -16,6 +27,10 @@ shadow_offset = Vector2(7, 5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2j5py"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hmqxk"]
+font = ExtResource("6_2j5py")
+font_size = 48
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("main_panel", "saved_panel", "options_panel", "saved_button", "options_button")]
 layout_mode = 3
@@ -38,7 +53,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.9254902, 0.92941177, 0.8666667, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="BackgroundImage" type="TextureRect" parent="."]
 layout_mode = 1
@@ -50,6 +65,8 @@ grow_vertical = 2
 texture = ExtResource("2_tfjkd")
 expand_mode = 1
 stretch_mode = 5
+script = ExtResource("3_shj7d")
+postcards = Array[Texture2D]([ExtResource("2_tfjkd"), ExtResource("4_dindd")])
 
 [node name="ScreenMargins" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -58,16 +75,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 100
+theme_override_constants/margin_left = 145
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_right = 145
 theme_override_constants/margin_bottom = 50
 
-[node name="GameTitle" type="Label" parent="ScreenMargins"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScreenMargins"]
+layout_mode = 2
+
+[node name="GameTitle2" type="Label" parent="ScreenMargins/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Boba Island"
+theme_override_font_sizes/font_size = 72
+text = "Greetings from"
+label_settings = SubResource("LabelSettings_2j5py")
+
+[node name="GameTitle" type="Label" parent="ScreenMargins/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Boba Island!"
 label_settings = SubResource("LabelSettings_tfjkd")
 
 [node name="MenuContents" type="PanelContainer" parent="ScreenMargins"]
@@ -154,6 +182,16 @@ layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Back to Main"
+
+[node name="Label" type="Label" parent="ScreenMargins"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Come visit soon!
+- Grandpa"
+label_settings = SubResource("LabelSettings_hmqxk")
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/MainVBox/StartButton" to="ScreenMargins/MenuContents" method="_on_start_button_button_up"]
 [connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/MainVBox/QuitButton" to="ScreenMargins/MenuContents" method="_on_quit_button_button_up"]
