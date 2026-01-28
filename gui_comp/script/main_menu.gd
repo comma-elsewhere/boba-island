@@ -18,6 +18,11 @@ func _ready() -> void:
 	current_panel = main_panel
 	_show_panel()
 	
+func hide_elements() -> void:
+	$BackgroundColor.hide()
+	$BackgroundImage.hide()
+	$ScreenMargins/Label.hide()
+	
 func _toggle_panel(panel: VBoxContainer) -> void:
 	if current_panel:
 		current_panel.hide()

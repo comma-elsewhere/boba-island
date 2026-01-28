@@ -1,0 +1,149 @@
+[gd_scene load_steps=25 format=3 uid="uid://br3qekgm3368w"]
+
+[ext_resource type="ArrayMesh" uid="uid://byino4t1ews7h" path="res://resources/meshes/gaiwan_bowl.res" id="1_026ui"]
+[ext_resource type="Script" uid="uid://ca1adlnxxltl6" path="res://scripts/utility/opening.gd" id="1_crenl"]
+[ext_resource type="Material" uid="uid://c346boiwd32lx" path="res://resources/materials/grass.material" id="1_yhdj0"]
+[ext_resource type="ArrayMesh" uid="uid://gp1x2prfo5hk" path="res://resources/meshes/gaiwan_lid.res" id="2_rirhm"]
+[ext_resource type="ArrayMesh" uid="uid://slv84ptkkpu8" path="res://resources/meshes/gaiwan_saucer.res" id="3_gkk04"]
+[ext_resource type="ArrayMesh" uid="uid://ddnrt1g6ybjxj" path="res://resources/meshes/teapot_pot.res" id="4_yhdj0"]
+[ext_resource type="ArrayMesh" uid="uid://d38j1mfkw3s84" path="res://resources/meshes/teapot_lid.res" id="5_cn85i"]
+[ext_resource type="ArrayMesh" uid="uid://ce63207g6mn4h" path="res://resources/meshes/strawberry_tea_inside.res" id="6_crenl"]
+[ext_resource type="ArrayMesh" uid="uid://djhtrf66bqxqs" path="res://resources/meshes/strawberry_tea_lid.res" id="7_0j5mk"]
+[ext_resource type="ArrayMesh" uid="uid://d1lj5t0dvemyo" path="res://resources/meshes/cup.res" id="8_o22p7"]
+[ext_resource type="ArrayMesh" uid="uid://dalccrrdoa1ax" path="res://resources/meshes/crop_strawberry.res" id="9_f42go"]
+[ext_resource type="ArrayMesh" uid="uid://d1i1h2thqbv3q" path="res://resources/meshes/puree_strawberry.res" id="10_nhids"]
+[ext_resource type="ArrayMesh" uid="uid://bvuvjx3qvuos4" path="res://resources/meshes/boba.res" id="11_bdx2q"]
+[ext_resource type="Shader" uid="uid://c2j0rugefguwn" path="res://resources/shaders/water.gdshader" id="12_gkk04"]
+[ext_resource type="Texture2D" uid="uid://cn5lvhda5wmfr" path="res://assets/textures/water.jpg" id="13_yhdj0"]
+[ext_resource type="PackedScene" uid="uid://b8dcqquuf7srh" path="res://scenes/level/main_menu.tscn" id="15_cn85i"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7cfqy"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_to8ac"]
+sky_material = SubResource("ProceduralSkyMaterial_7cfqy")
+
+[sub_resource type="Environment" id="Environment_v2b4k"]
+background_mode = 2
+sky = SubResource("Sky_to8ac")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t1dg5"]
+material = ExtResource("1_yhdj0")
+top_radius = 2.0
+bottom_radius = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cn85i"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("12_gkk04")
+shader_parameter/slide_speed = 0.3
+shader_parameter/wobble_speed = 1.0
+shader_parameter/wobble_intensity = 0.4
+shader_parameter/texture_scale = 0.05
+shader_parameter/water = ExtResource("13_yhdj0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crenl"]
+resource_local_to_scene = true
+albedo_color = Color(0, 1, 0.8745098, 1)
+roughness = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0j5mk"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_crenl")
+size = Vector2(1000, 1000)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_o22p7"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_crenl")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v2b4k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.1804505, -0.8518088, 0.49179196, 5.5622138e-08, 0.4999999, 0.8660253, -0.98358405, 0.15627474, -0.09022528, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02696228, -1, 0)
+mesh = SubResource("CylinderMesh_t1dg5")
+
+[node name="GaiwanBowl" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.3567443, 0, -0.18092406, 0, 0.39999998, 0, 0.18092406, 0, -0.3567443, -0.85662115, -0.21271625, -0.29769993)
+mesh = ExtResource("1_026ui")
+
+[node name="GaiwanLid" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.34188503, -0.10188789, -0.18092407, -0.114241906, 0.38333902, -5.3120157e-09, 0.17338812, 0.05167276, -0.3567443, -1.0844704, -0.7906629, -0.23785222)
+mesh = ExtResource("2_rirhm")
+
+[node name="GaiwanSaucer" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.3567443, 0, -0.18092406, 0, 0.39999998, 0, 0.18092406, 0, -0.3567443, -0.85662115, -0.0321081, -0.29769993)
+mesh = ExtResource("3_gkk04")
+
+[node name="TeapotPot" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.35174647, 0, -0.19045845, 0, 0.39999998, 0, 0.19045845, 0, 0.35174647, 1.0608673, -0.21271646, -0.38946533)
+mesh = ExtResource("4_yhdj0")
+
+[node name="TeapotLid" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.35174647, 0, -0.19045845, 0, 0.39999998, 0, 0.19045845, 0, 0.35174647, 1.0608673, -0.6542034, -0.38946533)
+mesh = ExtResource("5_cn85i")
+
+[node name="StrawberryTeaInside" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.22097397, -0.30502737, 0)
+mesh = ExtResource("6_crenl")
+
+[node name="StrawberryTeaLid" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.22097397, -0.30502737, 0)
+mesh = ExtResource("7_0j5mk")
+
+[node name="Cup" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.22097397, -0.30502737, 0)
+mesh = ExtResource("8_o22p7")
+
+[node name="CropStrawberry" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.04201807, 0.09074403, 0, -0.09074403, 0.04201807, 0, 0, 0, 0.099999994, 0.55628204, 0.08078796, -0.09399414)
+mesh = ExtResource("9_f42go")
+
+[node name="CropStrawberry2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.021980504, -0.09300589, -0.029440816, -0.055641215, 0.036741044, -0.074526176, 0.0801306, 0, -0.059825476, 0.17874908, 0.08078793, -0.12854004)
+mesh = ExtResource("9_f42go")
+
+[node name="CropStrawberry3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.07724831, 0.055109836, -0.031553194, 0.008019407, 0.040823787, 0.09093464, 0.06299515, -0.07277586, 0.027116207, 0.42975616, 0.08406529, -0.29992676)
+mesh = ExtResource("9_f42go")
+
+[node name="PureeStrawberry" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.06523144, 0, 0.24133971, 0, 0.25, 0, -0.24133971, 0, 0.06523144, 0.082307816, -0.22475708, -0.67352295)
+mesh = ExtResource("10_nhids")
+
+[node name="Boba" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -0.9720937, -0.2988739, 0.31608868)
+mesh = ExtResource("11_bdx2q")
+
+[node name="Ocean" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3972168, 0)
+material_override = SubResource("ShaderMaterial_cn85i")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_0j5mk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+shape = SubResource("WorldBoundaryShape3D_o22p7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.65558475, 0.7551217, 0, -0.7551217, 0.65558475, 0, 1.7659912, 1.5483398)
+fov = 60.0
+near = 0.001
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
+
+[node name="MainMenu" parent="Camera3D/CanvasLayer" instance=ExtResource("15_cn85i")]
+unique_name_in_owner = true
