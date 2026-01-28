@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8dcqquuf7srh"]
+[gd_scene load_steps=14 format=3 uid="uid://b8dcqquuf7srh"]
 
 [ext_resource type="Script" uid="uid://c02be7rjfyhmn" path="res://gui_comp/script/main_menu.gd" id="1_nhkf3"]
 [ext_resource type="FontFile" uid="uid://dvfl1kk0lgrv4" path="res://assets/gui/fonts/Susrawa.ttf" id="2_55467"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://ctnifp81yas4q" path="res://gui_comp/script/menu_background_image.gd" id="3_shj7d"]
 [ext_resource type="Texture2D" uid="uid://33qyhpolkgag" path="res://assets/art/postcard_2.jpg" id="4_dindd"]
 [ext_resource type="FontFile" uid="uid://bmhbioup76d8a" path="res://assets/gui/fonts/Desryel.ttf" id="6_2j5py"]
+[ext_resource type="AudioStream" uid="uid://dls44hnvvidcs" path="res://assets/music/MenuLoop.ogg" id="9_dindd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2j5py"]
 font = ExtResource("2_55467")
@@ -194,6 +195,12 @@ text = "Come back again soon!
 label_settings = SubResource("LabelSettings_hmqxk")
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_dindd")
+volume_db = -15.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/MainVBox/StartButton" to="ScreenMargins/MenuContents" method="_on_start_button_button_up"]
 [connection signal="button_up" from="ScreenMargins/MenuContents/MarginContainer/MainVBox/QuitButton" to="ScreenMargins/MenuContents" method="_on_quit_button_button_up"]
