@@ -11,9 +11,9 @@ const NUMBER_OF_TEAS := 11
 const NUMBER_OF_BOOKS := 23
 const NUMBER_OF_CROPS := 4
 
-const LIGHT_MONEY := 75000
-const LIGHT_TIP := 400
-const LIGHT_PRICE := 500
+const LIGHT_MONEY := 60000
+const LIGHT_TIP := 500
+const LIGHT_PRICE := 600
 const LIGHT_SEED := 50
 const LIGHT_DISAPPOINT := 3
 const LIGHT_NEGLECT := 5
@@ -28,8 +28,8 @@ const MEDIUM_NEGLECT := 3
 const MEDIUM_FORGET := 1
 
 const HARD_MONEY := 75
-const HARD_TIP := 400
-const HARD_PRICE := 400
+const HARD_TIP := 300
+const HARD_PRICE := 300
 const HARD_SEED := 25
 const HARD_DISAPPOINT := 8
 const HARD_NEGLECT := 5

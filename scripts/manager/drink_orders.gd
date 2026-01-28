@@ -73,7 +73,11 @@ func finish_order(paid: int, tipped: int) -> void:
 		order_text.text = CORRECT_DRINK + Kinetic.display_money(paid) + LOVED_TEA + Kinetic.display_money(tipped)
 	
 func generate_new_order() -> String:
-	var npc_or_tourist: int = tourist_odds.pick_random()
+	var npc_or_tourist: int
+	if Dynamic.tutorial_on:
+		npc_or_tourist = 1
+	else:
+		npc_or_tourist = tourist_odds.pick_random()
 	if npc_or_tourist > 0:
 		customer_name.text = regular_generator.get_name(npc_or_tourist)
 		current_dialogue = regular_generator.get_dialogue(npc_or_tourist)

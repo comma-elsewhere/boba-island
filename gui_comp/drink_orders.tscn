@@ -9,7 +9,7 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68eaa"]
 bg_color = Color(1, 0.33737984, 0.32428834, 1)
 
-[node name="DrinkOrders" type="Control" groups=["GameEvent", "Reload"]]
+[node name="DrinkOrders" type="Control" groups=["DrinkOrders", "GameEvent", "Reload"]]
 custom_minimum_size = Vector2(717, 512)
 layout_mode = 3
 anchors_preset = 15
@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_058xe")
 drinks = ExtResource("2_68eaa")
-tourist_ratio = 0
+tourist_ratio = 5
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1

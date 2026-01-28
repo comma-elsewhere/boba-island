@@ -3,6 +3,7 @@ class_name SavedGame extends Resource
 @export var player_position: Vector3
 @export var player_inventory: Array[Item] = []
 @export var time: Array[int] = []
+@export var tutorial: bool
 @export var saved_data: Array[SavedData] = []
 
 @export var options: Array[float] = []

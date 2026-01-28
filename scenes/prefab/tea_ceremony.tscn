@@ -550,9 +550,10 @@ flat = true
 [node name="TeaContainer" type="GridContainer" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-grow_vertical = 2
+grow_vertical = 0
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 10
 columns = 3

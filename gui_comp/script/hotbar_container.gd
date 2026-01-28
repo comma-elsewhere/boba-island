@@ -13,7 +13,7 @@ func update_slots() -> void:
 	slots = get_children()
 	for slot in slots:
 		if slot.pressed.has_connections():
-			return
+			pass
 		else:
 			slot.pressed.connect(_select_slot.bind(slot.get_index()))
 

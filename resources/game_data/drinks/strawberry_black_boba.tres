@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bburi43myo1eb" path="res://scripts/resource/items_and_recipes/drink.gd" id="1_111i8"]
 [ext_resource type="PackedScene" uid="uid://4ahyf2rlufib" path="res://scenes/utility/world_item.tscn" id="1_rk0uj"]
-[ext_resource type="Texture2D" uid="uid://dvwg0qembtom4" path="res://assets/icons/temp_no-sign.png" id="1_uq0ty"]
+[ext_resource type="Texture2D" uid="uid://bxpjtc8wf3avh" path="res://assets/icons/StrawberryMilkTeaBoba.png" id="1_uq0ty"]
 [ext_resource type="PackedScene" uid="uid://b5regmlr6pot4" path="res://scenes/prefab/temp_scenes/drink.tscn" id="3_uq0ty"]
 
 [resource]

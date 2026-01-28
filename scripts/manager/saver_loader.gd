@@ -14,6 +14,7 @@ func save_game() -> void:
 	var saved_game: SavedGame = SavedGame.new()
 	
 	saved_game.time = world_root.world_time
+	saved_game.tutorial = Dynamic.tutorial_on
 	
 	saved_game.player_inventory.clear()
 	for item in player.hud.hotbar_array:
@@ -36,6 +37,7 @@ func save_game() -> void:
 func load_game() -> void:
 	var saved_game = ResourceLoader.load("user://savedata.res")
 	
+	Dynamic.tutorial_on = saved_game.tutorial
 	world_root.load_time(saved_game.time)
 	
 	_set_options(saved_game.options)

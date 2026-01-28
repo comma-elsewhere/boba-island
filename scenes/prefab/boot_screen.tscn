@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt6sa2mc42xi0"]
+[gd_scene load_steps=8 format=3 uid="uid://dt6sa2mc42xi0"]
 
 [ext_resource type="Texture2D" uid="uid://pj0fllbjie1m" path="res://assets/icons/MerakiOmada.png" id="1_8kds6"]
 [ext_resource type="Script" uid="uid://b63cd8r73udqj" path="res://scripts/utility/boot_screen.gd" id="1_hmj8t"]
@@ -101,6 +101,8 @@ _data = {
 &"load_game": SubResource("Animation_8kds6")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmj8t"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kds6"]
 
 [node name="BootScreen" type="Control"]
@@ -158,27 +160,26 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="GameSettings"]
 layout_mode = 2
-text = "Select your difficulty levels
-(This cannot be changed later)"
+text = "Select your play style.
+This cannot be changed later.
+
+(The game will default to Balanced
+if a mode is not selected)"
 horizontal_alignment = 1
 
-[node name="HBox" type="HBoxContainer" parent="GameSettings"]
-layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="Difficulty" type="VBoxContainer" parent="GameSettings/HBox"]
+[node name="Difficulty" type="VBoxContainer" parent="GameSettings"]
 layout_mode = 2
 
-[node name="Static" type="Label" parent="GameSettings/HBox/Difficulty"]
+[node name="Static" type="Label" parent="GameSettings/Difficulty"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Finances"
+text = "Game Mode"
 
-[node name="DiificultyList" type="ItemList" parent="GameSettings/HBox/Difficulty"]
+[node name="DiificultyList" type="ItemList" parent="GameSettings/Difficulty"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -188,10 +189,30 @@ auto_width = true
 auto_height = true
 item_count = 3
 same_column_width = true
-fixed_column_width = 150
-item_0/text = "Inheritance"
+fixed_column_width = 200
+item_0/text = "More Money"
 item_1/text = "Balanced"
-item_2/text = "Struggling"
+item_2/text = "More Problems"
+
+[node name="Tutorial" type="HBoxContainer" parent="GameSettings"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="GameSettings/Tutorial"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Start with Tutorial"
+
+[node name="TutorialEnabledButton" type="CheckBox" parent="GameSettings/Tutorial"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_hmj8t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hmj8t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hmj8t")
+icon_alignment = 1
+expand_icon = true
 
 [node name="DoneButton" type="Button" parent="GameSettings"]
 unique_name_in_owner = true

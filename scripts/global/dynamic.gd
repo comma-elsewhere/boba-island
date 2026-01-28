@@ -2,7 +2,7 @@ extends Node
 
 #Save and load + progress indicators
 var load_game: bool = false
-var tutorial_on: bool = false
+var tutorial_on: bool = true
 # ---Progress: save as Array[Array]---
 var unlocked_book: Array = []
 var unlocked_tea: Array = []
