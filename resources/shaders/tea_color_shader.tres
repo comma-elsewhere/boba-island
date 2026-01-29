@@ -1,27 +1,10 @@
-[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://bk8aef5dwt3ef"]
+[gd_resource type="VisualShader" format=3 uid="uid://bk8aef5dwt3ef"]
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_ofen7"]
 output_port_for_preview = 0
 constant = Color(0.23209421, 0, 0, 0.40800002)
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_sub, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
-
-
-
-
-void fragment() {
-// ColorConstant:2
-	vec4 n_out2p0 = vec4(0.232094, 0.000000, 0.000000, 0.408000);
-
-
-// Output:0
-	ALBEDO = vec3(n_out2p0.xyz);
-
-
-}
-"
 modes/blend = 2
 nodes/fragment/0/position = Vector2(720, 120)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_ofen7")

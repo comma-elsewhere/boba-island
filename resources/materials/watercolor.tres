@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://6kqx7xvjsbaf"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://6kqx7xvjsbaf"]
 
 [ext_resource type="Shader" uid="uid://di6svailsy25h" path="res://resources/shaders/watercolor_texture.gdshader" id="1_fd126"]
 

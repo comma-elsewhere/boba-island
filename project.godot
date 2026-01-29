@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Boba Island"
 run/main_scene="uid://br3qekgm3368w"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -21,8 +25,8 @@ Cleric="*res://scripts/global/cleric.gd"
 Dynamic="*res://scripts/global/dynamic.gd"
 Static="*res://scripts/global/static.gd"
 Kinetic="*res://scripts/global/kinetic.gd"
-Shaker="*res://addons/shaker/src/Shaker.gd"
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+Shaker="*uid://dd8wfxaevuhkh"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 
 [display]
 

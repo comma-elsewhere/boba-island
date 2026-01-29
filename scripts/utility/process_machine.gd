@@ -53,8 +53,6 @@ func close() -> void:
 
 func pickup_array() -> Array[Item]:
 	_enable_display(false)
-	if machine_type == 2:
-		$"drink-machine_READY_Game-Animation/AnimationPlayer".play("drink_mixer/TakeCup")
 	return pending_result
 
 func _craft_pending(result: Array[Item]) -> void:
@@ -63,7 +61,7 @@ func _craft_pending(result: Array[Item]) -> void:
 	%WaitTime.start(_return_time())
 	shaker.play_shake()
 	if machine_type == 2:
-		$"drink-machine_READY_Game-Animation/AnimationPlayer".play("drink_mixer/Main")
+		$"drink-machine_READY_Game-Animation/AnimationPlayer".play("plasticAction")
 	elif machine_type == 1:
 		%lid_down.show()
 		$"tapioca-cooker/top".hide()
