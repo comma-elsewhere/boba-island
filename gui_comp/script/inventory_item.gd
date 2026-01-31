@@ -38,7 +38,9 @@ func _on_gui_input(event: InputEvent) -> void:
 					_return_to_inventory()
 
 func _return_to_inventory():
-	return_item.emit(item_data)
+	var returned_item: Item = item_data.duplicate()
+	returned_item.amount = 1
+	return_item.emit(returned_item)
 	
 	if item_data.amount <= 1:
 		_clear_display()

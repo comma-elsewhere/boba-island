@@ -105,6 +105,15 @@ func add_item(item: Item) -> bool:
 			return true
 	return false
 
+func add_storage_item(item: Item) -> void:
+	hotbar_array.resize(Dynamic.inventory_space)
+	for i in range(Dynamic.inventory_space):
+		if hotbar_array[i] == null:
+			hotbar_array[i] = item
+			hotbar_display.update_hotbar(hotbar_array)
+			return
+	reject_item(item)
+
 func remove_item(item: Item) -> void:
 	for i in len(hotbar_array):
 		if hotbar_array[i] == item:

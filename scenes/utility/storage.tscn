@@ -21,27 +21,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.58726805, 0)
 shape = SubResource("BoxShape3D_mmytf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1638010230]
-unique_name_in_owner = true
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1519331098]
-custom_minimum_size = Vector2(750, 500)
+custom_minimum_size = Vector2(750, 0)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -375.0
+offset_top = -250.0
+offset_right = 375.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="InventoryHUD" parent="CanvasLayer/Control" unique_id=1850173239 instance=ExtResource("3_trbpi")]
 unique_name_in_owner = true
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
-[connection signal="return_item" from="CanvasLayer/Control/InventoryHUD/InventoryGrid" to="." method="_on_inventory_grid_return_item"]
+[node name="InventoryGrid" parent="CanvasLayer/Control/InventoryHUD" index="0"]
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
 
 [editable path="CanvasLayer/Control/InventoryHUD"]
