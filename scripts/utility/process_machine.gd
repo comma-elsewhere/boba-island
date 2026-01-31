@@ -60,14 +60,11 @@ func _craft_pending(result: Array[Item]) -> void:
 	%ItemTexture.texture = result[0].icon
 	%WaitTime.start(_return_time())
 	shaker.play_shake()
-	if machine_type == 2:
-		$"drink-machine_READY_Game-Animation/AnimationPlayer".play("plasticAction")
-	elif machine_type == 1:
+	if machine_type == 1:
 		%lid_down.show()
 		$"tapioca-cooker/top".hide()
 		
-	if machine_type < 2:
-		%Audio.play()
+	%Audio.play()
 
 func _enable_display(enable: bool) -> void:
 	%IconDisplay.visible = enable
@@ -78,8 +75,7 @@ func _enable_display(enable: bool) -> void:
 		%lid_down.hide()
 		$"tapioca-cooker/top".show()
 	
-	if machine_type < 2:
-		%Audio.stop()
+	%Audio.stop()
 		
 
 func _get_name() -> String:

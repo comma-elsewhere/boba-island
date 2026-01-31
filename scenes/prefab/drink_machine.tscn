@@ -104,38 +104,32 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="SealSound" type="AudioStreamPlayer3D" parent="." unique_id=916662854]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4283211, 0.18418175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30059385, 2.1049783, -0.1625728)
 stream = ExtResource("23_0y4s6")
 attenuation_model = 2
 volume_db = -15.0
 
-[node name="ShakeSound" type="AudioStreamPlayer3D" parent="." unique_id=161072100]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24389538, -0.16300184)
+[node name="Audio" type="AudioStreamPlayer3D" parent="." unique_id=161072100]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2137909, 1.3895692, -1.0582836)
 stream = ExtResource("24_18kyh")
 attenuation_model = 2
 volume_db = -12.0
 parameters/looping = true
 
-[node name="drink-machine_READY_Game-Animation" parent="." unique_id=1706774575 instance=ExtResource("8_bjh2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32381874, 0, 0.6557946)
+[node name="drink-machine_READY_Game-Animation" parent="." unique_id=574635810 instance=ExtResource("8_bjh2w")]
+transform = Transform3D(1.0000002, 0, 0, 0, 0.99999684, 0, 0, 0, 0.9999957, -0.32381874, 0, 0.6557946)
 
-[node name="back left wheel turn" parent="drink-machine_READY_Game-Animation" index="0" unique_id=55722462]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74330616, 5.2214293, -1.0535389)
+[node name="back left wheel turn" parent="drink-machine_READY_Game-Animation" index="0" unique_id=229204500]
+transform = Transform3D(-1, -3.8941437e-07, 0, 3.8941437e-07, -1, 0, 0, 0, 1, -0.74330616, 5.2214293, -1.0535389)
 
-[node name="Cup_001" parent="drink-machine_READY_Game-Animation" index="2" unique_id=1182090467]
+[node name="Cup_001" parent="drink-machine_READY_Game-Animation" index="2" unique_id=788163514]
 visible = false
 
-[node name="front right wheel turn" parent="drink-machine_READY_Game-Animation" index="3" unique_id=1614791799]
-transform = Transform3D(0.9994698, -0.032562613, 0, 0.032562613, 0.9994698, 0, 0, 0, 1, 0.7273901, 5.225183, -1.0568805)
+[node name="front right wheel turn" parent="drink-machine_READY_Game-Animation" index="3" unique_id=1910802975]
+transform = Transform3D(-0.98480785, 0.17364831, 0, -0.17364831, -0.98480785, 0, 0, 0, 1, 0.7273901, 5.225183, -1.0568805)
 
-[node name="lower left rotation pole" parent="drink-machine_READY_Game-Animation" index="5" unique_id=929478541]
-transform = Transform3D(-0.9986946, 0.051079836, 0, -0.051079836, -0.9986946, 0, 0, 0, 1, -0.68621707, 2.176768, -1.0899509)
-
-[node name="lower right rotation pole" parent="drink-machine_READY_Game-Animation" index="6" unique_id=326742132]
-transform = Transform3D(-0.9986946, 0.051079836, 0, -0.051079836, -0.9986946, 0, 0, 0, 1, 0.7273901, 2.176768, -1.0955949)
-
-[node name="top " parent="drink-machine_READY_Game-Animation" index="15" unique_id=1128769694]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="top " parent="drink-machine_READY_Game-Animation" index="15" unique_id=233521716]
 visible = false
 
 [node name="ShakerComponent3D" type="Node3D" parent="drink-machine_READY_Game-Animation" unique_id=1691475564]

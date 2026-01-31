@@ -56,8 +56,10 @@
 [ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="53_tyaha"]
 [ext_resource type="Resource" uid="uid://chedclappraxa" path="res://resources/game_data/crops/seeds/taro_seed.tres" id="54_q46nv"]
 [ext_resource type="Resource" uid="uid://dv3sjdeuv8x4p" path="res://resources/game_data/crops/seeds/strawberry_seed.tres" id="55_dcdew"]
-[ext_resource type="PackedScene" uid="uid://ctpynxvobxcd3" path="res://scenes/prefab/storage_unit.tscn" id="56_swqu6"]
+[ext_resource type="Script" uid="uid://bsmxu3jfosv22" path="res://scripts/manager/storage.gd" id="56_s7m4n"]
+[ext_resource type="ArrayMesh" uid="uid://bdl1lbc2ucxg4" path="res://resources/meshes/boba_shop/Crate.res" id="57_eymlh"]
 [ext_resource type="AudioStream" uid="uid://c0c3ryh01vdt2" path="res://assets/sound effects/BeachLoop.ogg" id="58_1bkbh"]
+[ext_resource type="PackedScene" uid="uid://c50xg2v4jhejc" path="res://scenes/prefab/gui_interface/inventory_hud.tscn" id="58_73hpc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ttd6"]
 
@@ -209,6 +211,9 @@ resource_local_to_scene = true
 material = SubResource("ShaderMaterial_0glrw")
 size = Vector2(1.4, 1)
 orientation = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mmytf"]
+size = Vector3(2.2, 1.25, 2)
 
 [node name="Tree" type="Node3D" unique_id=529315002]
 
@@ -883,7 +888,7 @@ metadata/_edit_lock_ = true
 [node name="ProcessMachine" parent="WorldRoot/BobaShop" unique_id=344965166 instance=ExtResource("45_ciwc4")]
 transform = Transform3D(-1.1471529, 0, -1.6383042, 0, 2, 0, 1.6383042, 0, -1.1471529, 6.024, 0.099999994, 5.088)
 
-[node name="DrinkMachine" parent="WorldRoot/BobaShop" unique_id=984689496 instance=ExtResource("46_opc87")]
+[node name="DrinkMachine" parent="WorldRoot/BobaShop" unique_id=1283751013 instance=ExtResource("46_opc87")]
 transform = Transform3D(-7.450581e-09, 0, 0.25, 0, 0.24999999, 0, -0.25, 0, -7.450581e-09, 1.8021011, 1.4999998, -4.140877)
 
 [node name="CookMahcine" parent="WorldRoot/BobaShop" unique_id=188520040 instance=ExtResource("47_ynwp6")]
@@ -921,8 +926,40 @@ item_data = ExtResource("54_q46nv")
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 0.25, 4.08)
 item_data = ExtResource("55_dcdew")
 
-[node name="StorageUnit" parent="WorldRoot/BobaShop/StorageAndDispensers" unique_id=466406292 instance=ExtResource("56_swqu6")]
+[node name="Storage" type="StaticBody3D" parent="WorldRoot/BobaShop/StorageAndDispensers" unique_id=466406292 groups=["GUI_Event"]]
 transform = Transform3D(-1.5298985e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5298985e-08, -4.41, 1.9399999, 6.55)
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("56_s7m4n")
+
+[node name="Crate" type="MeshInstance3D" parent="WorldRoot/BobaShop/StorageAndDispensers/Storage" unique_id=830523397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15937094, 0)
+mesh = ExtResource("57_eymlh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/StorageAndDispensers/Storage" unique_id=665910696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.58726805, 0)
+shape = SubResource("BoxShape3D_mmytf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="WorldRoot/BobaShop/StorageAndDispensers/Storage" unique_id=277645683]
+
+[node name="Control" type="Control" parent="WorldRoot/BobaShop/StorageAndDispensers/Storage/CanvasLayer" unique_id=281877175]
+custom_minimum_size = Vector2(750, 500)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryHUD" parent="WorldRoot/BobaShop/StorageAndDispensers/Storage/CanvasLayer/Control" unique_id=1516474923 instance=ExtResource("58_73hpc")]
+unique_name_in_owner = true
+layout_mode = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="WorldRoot" unique_id=685197379]
 process_mode = 1
@@ -940,3 +977,6 @@ parameters/looping = true
 [connection signal="body_exited" from="WorldRoot/BobaShop/DrinkZone3D/PickupZone" to="WorldRoot/BobaShop/DrinkZone3D" method="_on_area_3d_body_exited"]
 [connection signal="drink_ordered" from="WorldRoot/BobaShop/DrinkZone3D/SubViewport/DrinkOrders" to="WorldRoot/BobaShop/DrinkZone3D" method="_on_drink_orders_drink_ordered"]
 [connection signal="drink_served" from="WorldRoot/BobaShop/DrinkZone3D/SubViewport/DrinkOrders" to="WorldRoot/BobaShop/DrinkZone3D" method="_on_drink_orders_drink_served"]
+[connection signal="return_item" from="WorldRoot/BobaShop/StorageAndDispensers/Storage/CanvasLayer/Control/InventoryHUD/InventoryGrid" to="WorldRoot/BobaShop/StorageAndDispensers/Storage" method="_on_inventory_grid_return_item"]
+
+[editable path="WorldRoot/BobaShop/StorageAndDispensers/Storage/CanvasLayer/Control/InventoryHUD"]

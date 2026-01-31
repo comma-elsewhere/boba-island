@@ -1,21 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bssf04mnifnc1"]
+[gd_scene format=3 uid="uid://bssf04mnifnc1"]
 
-[ext_resource type="ArrayMesh" uid="uid://b31quy0b0g084" path="res://resources/meshes/cup.res" id="1_33w5p"]
+[ext_resource type="ArrayMesh" uid="uid://d1lj5t0dvemyo" path="res://resources/meshes/cup.res" id="1_33w5p"]
 [ext_resource type="Script" uid="uid://duu67xmqn1ns6" path="res://scripts/utility/3d_tea.gd" id="1_pnpky"]
-[ext_resource type="ArrayMesh" uid="uid://cu2n88mj80fk7" path="res://resources/meshes/milk_tea_inside.res" id="3_lv6fc"]
+[ext_resource type="ArrayMesh" uid="uid://co076dyy4lxdt" path="res://resources/meshes/milk_tea_inside.res" id="3_lv6fc"]
 [ext_resource type="ArrayMesh" uid="uid://deohpmx5glwoq" path="res://resources/meshes/milk_tea_lid.res" id="4_ban5t"]
 
-[node name="3dPlainTeaBoba" type="Node3D"]
+[node name="3dPlainTeaBoba" type="Node3D" unique_id=1884607163]
 script = ExtResource("1_pnpky")
 
-[node name="Cup" type="MeshInstance3D" parent="."]
+[node name="Cup" type="MeshInstance3D" parent="." unique_id=1399875355]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.3, -0.02)
 mesh = ExtResource("1_33w5p")
 
-[node name="MilkTeaInside" type="MeshInstance3D" parent="."]
+[node name="MilkTeaInside" type="MeshInstance3D" parent="." unique_id=519616241]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.30000114, -0.02)
 mesh = ExtResource("3_lv6fc")
 
-[node name="MilkTeaLid" type="MeshInstance3D" parent="."]
+[node name="MilkTeaLid" type="MeshInstance3D" parent="." unique_id=1346422005]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.30000114, -0.02)
 mesh = ExtResource("4_ban5t")

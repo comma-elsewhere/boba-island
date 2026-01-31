@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bmnn1io6ks1fq"]
+
+[ext_resource type="Script" uid="uid://bsmxu3jfosv22" path="res://scripts/manager/storage.gd" id="1_25r0l"]
+[ext_resource type="ArrayMesh" uid="uid://bdl1lbc2ucxg4" path="res://resources/meshes/boba_shop/Crate.res" id="2_8f7h6"]
+[ext_resource type="PackedScene" uid="uid://c50xg2v4jhejc" path="res://scenes/prefab/gui_interface/inventory_hud.tscn" id="3_trbpi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mmytf"]
+size = Vector3(2.2, 1.25, 2)
+
+[node name="Storage" type="StaticBody3D" unique_id=1786342574 groups=["GUI_Event"]]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_25r0l")
+
+[node name="Crate" type="MeshInstance3D" parent="." unique_id=1083786525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15937094, 0)
+mesh = ExtResource("2_8f7h6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1465574495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.58726805, 0)
+shape = SubResource("BoxShape3D_mmytf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1638010230]
+unique_name_in_owner = true
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1519331098]
+custom_minimum_size = Vector2(750, 500)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryHUD" parent="CanvasLayer/Control" unique_id=1850173239 instance=ExtResource("3_trbpi")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[connection signal="return_item" from="CanvasLayer/Control/InventoryHUD/InventoryGrid" to="." method="_on_inventory_grid_return_item"]
+
+[editable path="CanvasLayer/Control/InventoryHUD"]

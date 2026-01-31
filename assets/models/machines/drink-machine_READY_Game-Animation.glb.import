@@ -42,7 +42,7 @@ _subresources={
 "Cup_001Action": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/meshes/animation/Cup_001Action.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://dfucxjod208tb",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -2098,7 +2098,7 @@ _subresources={
 "Cylinder_013Action": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/meshes/animation/Cylinder_013Action.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://cyhopkseiw52r",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -4154,7 +4154,7 @@ _subresources={
 "back left wheel turnAction": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/meshes/animation/back left wheel turnAction.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://cc3lviashoapd",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -6210,7 +6210,7 @@ _subresources={
 "cup holder slidersAction": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/meshes/animation/cup holder slidersAction.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://cepatgmo8h58g",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -8266,7 +8266,7 @@ _subresources={
 "front right wheel turnAction": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/meshes/animation/front right wheel turnAction.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://dcsg230h6ils6",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -10322,7 +10322,7 @@ _subresources={
 "lower left rotation poleAction": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/meshes/animation/lower left rotation poleAction.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://ct0wfs46xbl0m",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -12378,7 +12378,7 @@ _subresources={
 "lower right rotation poleAction": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/meshes/animation/lower right rotation poleAction.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://yd74h7k003cc",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -14434,7 +14434,7 @@ _subresources={
 "plasticAction": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/meshes/animation/plasticAction.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://biodr538m67tb",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -16490,7 +16490,7 @@ _subresources={
 "seal presserAction": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/meshes/animation/seal presserAction.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://d1wjbyhbxyjoo",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -18546,7 +18546,7 @@ _subresources={
 "top Action": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/meshes/animation/top Action.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://b1whke00gida",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -20609,6 +20609,11 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/meshes/cup_nolid.res",
 "save_to_file/path": "uid://c6ebvukfee30i"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"import/skip_import": true
 }
 }
 }

@@ -58,7 +58,7 @@ func _add_default_items() -> void:
 	
 	
 func _add_tooltip_text(items: Array) -> void:
-	var all_items: String
+	var all_items: String = ""
 	for i in len(items):
 		all_items += items[i] + "\n"
 		

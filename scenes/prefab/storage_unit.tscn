@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctpynxvobxcd3"]
+[gd_scene format=3 uid="uid://ctpynxvobxcd3"]
 
 [ext_resource type="ArrayMesh" uid="uid://bdl1lbc2ucxg4" path="res://resources/meshes/boba_shop/Crate.res" id="1_mmytf"]
 [ext_resource type="Script" uid="uid://dihxk5suwyd5k" path="res://scripts/utility/storage_unit.gd" id="1_q66w6"]
@@ -7,23 +7,23 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_mmytf"]
 size = Vector3(2.2, 1.25, 2)
 
-[node name="StorageUnit" type="StaticBody3D" groups=["GUI_Event"]]
+[node name="StorageUnit" type="StaticBody3D" unique_id=543971495 groups=["GUI_Event"]]
 transform = Transform3D(-1.5298985e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5298985e-08, 0, 0, 0)
 collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_q66w6")
 
-[node name="Crate" type="MeshInstance3D" parent="."]
+[node name="Crate" type="MeshInstance3D" parent="." unique_id=830523397]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15937094, 0)
 mesh = ExtResource("1_mmytf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=665910696]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.58726805, 0)
 shape = SubResource("BoxShape3D_mmytf")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=277645683]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=281877175]
 custom_minimum_size = Vector2(750, 500)
 layout_mode = 3
 anchors_preset = 8
@@ -38,7 +38,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InventoryHUD" parent="CanvasLayer/Control" instance=ExtResource("2_1ne5r")]
+[node name="InventoryHUD" parent="CanvasLayer/Control" unique_id=1516474923 instance=ExtResource("2_1ne5r")]
 unique_name_in_owner = true
 layout_mode = 1
 

@@ -36,23 +36,23 @@ func _on_inventory_grid_return_item(item: Item) -> void:
 	player.hud.add_item(item)
 	
 	
-func on_save(save_data: Array[SavedData]) -> void:
-	var my_data: SavedGUI = SavedGUI.new()
-	my_data.position = global_position
-	my_data.scene_file_path = scene_file_path
-	
-	for item in _storage_inventory.get_items():
-		my_data.storage_items.append(item)
-	
-	save_data.append(my_data)
-
-func on_preload() -> void:
-	get_parent().remove_child(self)
-	queue_free()
-
-func on_load(save_data: SavedData) -> void:
-	var my_data: SavedGUI = save_data as SavedGUI
-	global_position = my_data.position
-	
-	for item in my_data.storage_items:
-		_storage_inventory.add_item(item)
+#func on_save(save_data: Array[SavedData]) -> void:
+	#var my_data: SavedGUI = SavedGUI.new()
+	#my_data.position = global_position
+	#my_data.scene_file_path = scene_file_path
+	#
+	#for item in _storage_inventory.get_items():
+		#my_data.storage_items.append(item)
+	#
+	#save_data.append(my_data)
+#
+#func on_preload() -> void:
+	#get_parent().remove_child(self)
+	#queue_free()
+#
+#func on_load(save_data: SavedData) -> void:
+	#var my_data: SavedGUI = save_data as SavedGUI
+	#global_position = my_data.position
+	#
+	#for item in my_data.storage_items:
+		#_storage_inventory.add_item(item)
