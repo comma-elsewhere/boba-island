@@ -38,6 +38,7 @@ func harvest() -> Crop:
 	return null
 	
 func clear_self() -> void:
+	Dynamic.total_money += int (float(Dynamic.seed_cost) / 2)
 	alive = false
 	static_body.queue_free()
 	collision_shape.disabled = true

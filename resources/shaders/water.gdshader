@@ -45,5 +45,5 @@ void fragment() {
 	object_view.xyz /= object_view.w;
 	float linear_object_depth = -object_view.z;
 
-	ALBEDO = mix(color1, color2, smoothstep(0.0, 4.0, linear_depth - linear_object_depth));
+	ALBEDO = mix(color1, color2, smoothstep(0.0, 0.0, linear_depth - linear_object_depth));
 }

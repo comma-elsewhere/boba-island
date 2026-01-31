@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bho636j158u2y"]
+[gd_scene format=3 uid="uid://bho636j158u2y"]
 
 [ext_resource type="Script" uid="uid://cwthf7bpmhw2g" path="res://gui_comp/script/debt_progress.gd" id="1_2xqwm"]
 [ext_resource type="PackedScene" uid="uid://dvj76y5d1ey6m" path="res://gui_comp/debt_step.tscn" id="1_lcw3d"]
@@ -28,7 +28,7 @@ point_count = 3
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pi3m8"]
 bg_color = Color(0.5264825, 0.64726573, 0.3951104, 1)
 
-[node name="EndDay" type="Control"]
+[node name="EndDay" type="Control" unique_id=205196685]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,7 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rpi5i")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1263615931]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,114 +45,114 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1066994472]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=813815891]
 layout_mode = 2
 
-[node name="DailyRecap" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="DailyRecap" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=180960960]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap" unique_id=1706685410]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 30
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer" unique_id=2124389729]
 layout_mode = 2
 text = "Recap"
 horizontal_alignment = 1
 
-[node name="CropsHarvested" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+[node name="CropsHarvested" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer" unique_id=1502807705]
 layout_mode = 2
 
-[node name="Static" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/CropsHarvested"]
+[node name="Static" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/CropsHarvested" unique_id=1978472522]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Crops Harvested:"
 horizontal_alignment = 1
 
-[node name="CropNumbers" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/CropsHarvested"]
+[node name="CropNumbers" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/CropsHarvested" unique_id=365693935]
 unique_name_in_owner = true
 layout_mode = 2
 text = "XX"
 
-[node name="OrdersFilled" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+[node name="OrdersFilled" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer" unique_id=704948750]
 layout_mode = 2
 
-[node name="Static" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/OrdersFilled"]
+[node name="Static" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/OrdersFilled" unique_id=60019073]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Orders Filled:"
 horizontal_alignment = 1
 
-[node name="OrderNumbers" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/OrdersFilled"]
+[node name="OrderNumbers" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/OrdersFilled" unique_id=282042356]
 unique_name_in_owner = true
 layout_mode = 2
 text = "XX"
 
-[node name="MoneyFromOrders" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+[node name="MoneyFromOrders" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer" unique_id=1078866337]
 layout_mode = 2
 
-[node name="Static" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/MoneyFromOrders"]
+[node name="Static" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/MoneyFromOrders" unique_id=1911419825]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="OrderMoney" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/MoneyFromOrders"]
+[node name="OrderMoney" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/MoneyFromOrders" unique_id=249132424]
 unique_name_in_owner = true
 layout_mode = 2
 text = "+$XX"
 
-[node name="TipsEarned" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+[node name="TipsEarned" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer" unique_id=936823399]
 layout_mode = 2
 
-[node name="Static" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/TipsEarned"]
+[node name="Static" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/TipsEarned" unique_id=962145826]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Tips Earned:"
 horizontal_alignment = 1
 
-[node name="TipMoney" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/TipsEarned"]
+[node name="TipMoney" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/TipsEarned" unique_id=2018576682]
 unique_name_in_owner = true
 layout_mode = 2
 text = "+$XX"
 
-[node name="TotalEarnings" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+[node name="TotalEarnings" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer" unique_id=1711907101]
 layout_mode = 2
 
-[node name="Static" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/TotalEarnings"]
+[node name="Static" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/TotalEarnings" unique_id=394598377]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Total Earnings:"
 horizontal_alignment = 1
 
-[node name="TotalMoney" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/TotalEarnings"]
+[node name="TotalMoney" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/TotalEarnings" unique_id=829592054]
 unique_name_in_owner = true
 layout_mode = 2
 text = "$XX"
 
-[node name="PayDebtOption" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer"]
+[node name="PayDebtOption" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer" unique_id=1236071731]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/PayDebtOption"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/PayDebtOption" unique_id=669924900]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 
-[node name="PayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/PayDebtOption/MarginContainer"]
+[node name="PayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/PayDebtOption/MarginContainer" unique_id=1601861227]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Pay Debt"
 
-[node name="PaymentOptions" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/PayDebtOption"]
+[node name="PaymentOptions" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/DailyRecap/VBoxContainer/PayDebtOption" unique_id=1631331885]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
@@ -172,13 +172,13 @@ popup/item_4/id = 4
 popup/item_5/text = "$100.00"
 popup/item_5/id = 5
 
-[node name="UpgradeProgress" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="UpgradeProgress" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=993371380]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="DebtProgress" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress"]
+[node name="DebtProgress" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress" unique_id=1663767446]
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("1_2xqwm")
@@ -194,67 +194,67 @@ upgrade_7 = Array[ExtResource("3_c3bjc")]([ExtResource("15_44gid"), ExtResource(
 upgrade_8 = Array[ExtResource("3_c3bjc")]([ExtResource("16_mm705"), ExtResource("10_dfypt")])
 upgrade_9 = Array[ExtResource("3_c3bjc")]([ExtResource("11_0x1nf"), ExtResource("12_1g8yo")])
 
-[node name="DebtStep1" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+[node name="DebtStep1" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=2141050085 instance=ExtResource("1_lcw3d")]
 layout_mode = 2
 
-[node name="UpgradeButton1" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+[node name="UpgradeButton1" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=631601679 instance=ExtResource("2_2xqwm")]
 layout_mode = 2
 
-[node name="DebtStep2" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+[node name="DebtStep2" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=2012967701 instance=ExtResource("1_lcw3d")]
 layout_mode = 2
 
-[node name="UpgradeButton2" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+[node name="UpgradeButton2" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=567429934 instance=ExtResource("2_2xqwm")]
 layout_mode = 2
 
-[node name="DebtStep3" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+[node name="DebtStep3" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=1145620276 instance=ExtResource("1_lcw3d")]
 layout_mode = 2
 
-[node name="UpgradeButton3" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+[node name="UpgradeButton3" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=343213581 instance=ExtResource("2_2xqwm")]
 layout_mode = 2
 
-[node name="DebtStep4" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+[node name="DebtStep4" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=568645707 instance=ExtResource("1_lcw3d")]
 layout_mode = 2
 
-[node name="UpgradeButton4" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+[node name="UpgradeButton4" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=1408556140 instance=ExtResource("2_2xqwm")]
 layout_mode = 2
 
-[node name="DebtStep5" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+[node name="DebtStep5" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=2099374876 instance=ExtResource("1_lcw3d")]
 layout_mode = 2
 
-[node name="UpgradeButton5" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+[node name="UpgradeButton5" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=2114059992 instance=ExtResource("2_2xqwm")]
 layout_mode = 2
 
-[node name="DebtStep6" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+[node name="DebtStep6" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=1138975045 instance=ExtResource("1_lcw3d")]
 layout_mode = 2
 
-[node name="UpgradeButton6" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+[node name="UpgradeButton6" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=1565136723 instance=ExtResource("2_2xqwm")]
 layout_mode = 2
 
-[node name="DebtStep7" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+[node name="DebtStep7" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=2122897372 instance=ExtResource("1_lcw3d")]
 layout_mode = 2
 
-[node name="UpgradeButton7" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+[node name="UpgradeButton7" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=1619219377 instance=ExtResource("2_2xqwm")]
 layout_mode = 2
 
-[node name="DebtStep8" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+[node name="DebtStep8" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=1553906996 instance=ExtResource("1_lcw3d")]
 layout_mode = 2
 
-[node name="UpgradeButton8" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+[node name="UpgradeButton8" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=1309174429 instance=ExtResource("2_2xqwm")]
 layout_mode = 2
 
-[node name="DebtStep9" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+[node name="DebtStep9" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=1826906337 instance=ExtResource("1_lcw3d")]
 layout_mode = 2
 
-[node name="UpgradeButton9" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+[node name="UpgradeButton9" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=1060389259 instance=ExtResource("2_2xqwm")]
 layout_mode = 2
 
-[node name="DebtStep10" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("1_lcw3d")]
+[node name="DebtStep10" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=1297518723 instance=ExtResource("1_lcw3d")]
 layout_mode = 2
 
-[node name="UpgradeButton10" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" instance=ExtResource("2_2xqwm")]
+[node name="UpgradeButton10" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeProgress/DebtProgress" unique_id=538408101 instance=ExtResource("2_2xqwm")]
 layout_mode = 2
 
-[node name="FinishButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="FinishButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1560166834]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
@@ -264,4 +264,4 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_pi3m8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pi3m8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pi3m8")
-text = "Save Game"
+text = "Save Upgrades"

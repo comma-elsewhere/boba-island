@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0g8ltwp1y6oo"]
+[gd_scene format=3 uid="uid://d0g8ltwp1y6oo"]
 
 [ext_resource type="Script" uid="uid://cbdoadclgpkpl" path="res://scripts/utility/overgrowth.gd" id="1_pfhtm"]
 [ext_resource type="PackedScene" uid="uid://diy8yjj62qmfh" path="res://assets/models/plants/plant-style1.glb" id="3_qnmuy"]
@@ -32,30 +32,28 @@ _data = {
 height = 1.0
 radius = 1.0
 
-[node name="Overgrowth" type="Node3D" groups=["GameEvent"]]
+[node name="Overgrowth" type="Node3D" unique_id=1071168782 groups=["GameEvent"]]
 script = ExtResource("1_pfhtm")
 weed_array = Array[PackedScene]([ExtResource("3_qnmuy"), ExtResource("4_xlnl6")])
 
-[node name="Placeholder" type="MeshInstance3D" parent="."]
+[node name="Placeholder" type="MeshInstance3D" parent="." unique_id=1270854639]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("BoxMesh_g4n7e")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=336774025]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_g4n7e")
-}
+libraries/ = SubResource("AnimationLibrary_g4n7e")
 
-[node name="NoPlanting" type="StaticBody3D" parent="."]
+[node name="NoPlanting" type="StaticBody3D" parent="." unique_id=610840182]
 collision_layer = 64
 collision_mask = 64
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NoPlanting"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoPlanting" unique_id=533810200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2977295, 0)
 shape = SubResource("CylinderShape3D_6ri4h")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1302349057]
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

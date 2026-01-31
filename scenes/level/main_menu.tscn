@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8dcqquuf7srh"]
+[gd_scene format=3 uid="uid://b8dcqquuf7srh"]
 
 [ext_resource type="Script" uid="uid://c02be7rjfyhmn" path="res://gui_comp/script/main_menu.gd" id="1_nhkf3"]
 [ext_resource type="FontFile" uid="uid://dvfl1kk0lgrv4" path="res://assets/gui/fonts/Susrawa.ttf" id="2_55467"]
@@ -33,7 +33,7 @@ bg_color = Color(0, 0, 0, 1)
 font = ExtResource("6_2j5py")
 font_size = 48
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("main_panel", "saved_panel", "options_panel", "saved_button", "options_button")]
+[node name="MainMenu" type="Control" unique_id=2140990485 node_paths=PackedStringArray("main_panel", "saved_panel", "options_panel", "saved_button", "options_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,7 +47,7 @@ options_panel = NodePath("ScreenMargins/MenuContents/MarginContainer/OptionsMenu
 saved_button = NodePath("ScreenMargins/MenuContents/MarginContainer/MainVBox/ContinueButton")
 options_button = NodePath("ScreenMargins/MenuContents/MarginContainer/MainVBox/OptionsButton")
 
-[node name="BackgroundColor" type="ColorRect" parent="."]
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=206317454]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +56,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="BackgroundImage" type="TextureRect" parent="."]
+[node name="BackgroundImage" type="TextureRect" parent="." unique_id=1909292480]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,7 +69,7 @@ stretch_mode = 5
 script = ExtResource("3_shj7d")
 postcards = Array[Texture2D]([ExtResource("2_tfjkd"), ExtResource("4_dindd")])
 
-[node name="ScreenMargins" type="MarginContainer" parent="."]
+[node name="ScreenMargins" type="MarginContainer" parent="." unique_id=503474261]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -81,12 +81,12 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScreenMargins"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScreenMargins" unique_id=1945477424]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="GameTitle2" type="Label" parent="ScreenMargins/VBoxContainer"]
+[node name="GameTitle2" type="Label" parent="ScreenMargins/VBoxContainer" unique_id=132766090]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -94,21 +94,21 @@ theme_override_font_sizes/font_size = 72
 text = "Greetings from"
 label_settings = SubResource("LabelSettings_2j5py")
 
-[node name="GameTitle" type="Label" parent="ScreenMargins/VBoxContainer"]
+[node name="GameTitle" type="Label" parent="ScreenMargins/VBoxContainer" unique_id=1347982897]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "Boba Island!"
 label_settings = SubResource("LabelSettings_tfjkd")
 
-[node name="MenuContents" type="PanelContainer" parent="ScreenMargins"]
+[node name="MenuContents" type="PanelContainer" parent="ScreenMargins" unique_id=147577628]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_2j5py")
 script = ExtResource("2_eaxye")
 
-[node name="MarginContainer" type="MarginContainer" parent="ScreenMargins/MenuContents"]
+[node name="MarginContainer" type="MarginContainer" parent="ScreenMargins/MenuContents" unique_id=1835715854]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -117,86 +117,87 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 50
 
-[node name="MainVBox" type="VBoxContainer" parent="ScreenMargins/MenuContents/MarginContainer"]
+[node name="MainVBox" type="VBoxContainer" parent="ScreenMargins/MenuContents/MarginContainer" unique_id=411808808]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Label" type="Label" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
+[node name="Label" type="Label" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox" unique_id=29118292]
 layout_mode = 2
 text = "Main Menu"
 horizontal_alignment = 1
 
-[node name="StartButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
+[node name="StartButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox" unique_id=712124865]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "New Game"
 
-[node name="ContinueButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
+[node name="ContinueButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox" unique_id=1548017402]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 disabled = true
 text = "Continue"
 
-[node name="OptionsButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
+[node name="OptionsButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox" unique_id=1736586296]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Options"
 
-[node name="QuitButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox"]
+[node name="QuitButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/MainVBox" unique_id=527445318]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Quit to Desktop"
 
-[node name="SavedMenu" type="VBoxContainer" parent="ScreenMargins/MenuContents/MarginContainer"]
+[node name="SavedMenu" type="VBoxContainer" parent="ScreenMargins/MenuContents/MarginContainer" unique_id=398605594]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="PageLabel" type="Label" parent="ScreenMargins/MenuContents/MarginContainer/SavedMenu"]
+[node name="PageLabel" type="Label" parent="ScreenMargins/MenuContents/MarginContainer/SavedMenu" unique_id=2069583450]
 layout_mode = 2
 text = "Start from Save?"
 horizontal_alignment = 1
 
-[node name="SavedButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/SavedMenu"]
+[node name="SavedButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/SavedMenu" unique_id=1802065953]
 layout_mode = 2
 text = "Last Save"
 
-[node name="BackButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/SavedMenu"]
+[node name="BackButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/SavedMenu" unique_id=751409591]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Back to Main"
 
-[node name="OptionsMenu" type="VBoxContainer" parent="ScreenMargins/MenuContents/MarginContainer"]
+[node name="OptionsMenu" type="VBoxContainer" parent="ScreenMargins/MenuContents/MarginContainer" unique_id=580102089]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="PageLabel" type="Label" parent="ScreenMargins/MenuContents/MarginContainer/OptionsMenu"]
+[node name="PageLabel" type="Label" parent="ScreenMargins/MenuContents/MarginContainer/OptionsMenu" unique_id=1018367669]
 layout_mode = 2
 text = "Options"
 horizontal_alignment = 1
 
-[node name="OptionsMenu" parent="ScreenMargins/MenuContents/MarginContainer/OptionsMenu" instance=ExtResource("3_nfgcl")]
+[node name="OptionsMenu" parent="ScreenMargins/MenuContents/MarginContainer/OptionsMenu" unique_id=1690521880 instance=ExtResource("3_nfgcl")]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/OptionsMenu"]
+[node name="BackButton" type="Button" parent="ScreenMargins/MenuContents/MarginContainer/OptionsMenu" unique_id=811688055]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Back to Main"
 
-[node name="Label" type="Label" parent="ScreenMargins"]
+[node name="Label" type="Label" parent="ScreenMargins" unique_id=734003351]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-text = "Come back again soon!
+text = "See you soon!
 - Grandpa"
 label_settings = SubResource("LabelSettings_hmqxk")
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1504367882]
 stream = ExtResource("9_dindd")
 volume_db = -15.0
 autoplay = true

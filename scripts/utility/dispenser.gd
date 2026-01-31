@@ -27,6 +27,7 @@ func pickup() -> Item:
 		return null
 	if item_data.has_method("am_seed"):
 		if item_data.buy_seed(): # Returns true if you have enough money, subs the price of seed
+			%ChaChingSound.play()
 			return item_data
 		else: return null
 	# If item is not seed

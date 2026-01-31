@@ -17,8 +17,7 @@ func set_control_sibling(sibling: DebtStep) -> void:
 	
 func add_menu_items(index: int, upgrade_array: Array[Upgrade]) -> void:
 	self_index = index
-	if self_index < 4:
-		_add_default_items()
+	_add_default_items()
 	var id_num: int = 10
 	for i in len(upgrade_array):
 		get_popup().add_radio_check_item(upgrade_array[i].upgrade_name, id_num)
@@ -53,4 +52,16 @@ func _add_default_items() -> void:
 			get_popup().set_item_metadata(id_num, null)
 			id_num += 1
 			
+	_add_tooltip_text(new_items)
+		
 	get_popup().add_separator("Upgrade Options")
+	
+	
+func _add_tooltip_text(items: Array) -> void:
+	var all_items: String
+	for i in len(items):
+		all_items += items[i] + "\n"
+		
+	all_items += "Choice of Two Upgrade Options"
+		
+	tooltip_text = all_items

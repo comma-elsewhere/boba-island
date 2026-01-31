@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://6k5dg51rvx2c"]
+[gd_scene format=3 uid="uid://6k5dg51rvx2c"]
 
 [ext_resource type="Script" uid="uid://dmgan4c1aqq32" path="res://scripts/manager/lighting.gd" id="1_utkfw"]
 [ext_resource type="PackedScene" uid="uid://d0b3clifjliac" path="res://scenes/prefab/player.tscn" id="1_x1yw8"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://hewmp0eu4iwx" path="res://scripts/manager/day_night.gd" id="5_adc38"]
 [ext_resource type="Shader" uid="uid://c2j0rugefguwn" path="res://resources/shaders/water.gdshader" id="6_m1jft"]
 [ext_resource type="Texture2D" uid="uid://cn5lvhda5wmfr" path="res://assets/textures/water.jpg" id="7_ipn8i"]
-[ext_resource type="Material" uid="uid://6kqx7xvjsbaf" path="res://resources/materials/watercolor.tres" id="7_m1jft"]
 [ext_resource type="Script" uid="uid://b4odpya85dlip" path="res://scripts/manager/world_clock.gd" id="7_vuwh0"]
 [ext_resource type="PackedScene" uid="uid://d0g8ltwp1y6oo" path="res://scenes/utility/overgrowth.tscn" id="9_utkfw"]
 [ext_resource type="PackedScene" uid="uid://c0y2e6yqp6vgf" path="res://scenes/manager/saver_loader.tscn" id="10_jksdq"]
@@ -72,23 +71,23 @@ sky = SubResource("Sky_x1yw8")
 ambient_light_source = 2
 ambient_light_color = Color(0.7357165, 0.2781734, 0.9999972, 1)
 ambient_light_energy = 0.5
-tonemap_mode = 1
-tonemap_exposure = 1.5
-tonemap_white = 1.75
+tonemap_exposure = 0.25
 glow_enabled = true
 glow_normalized = true
-glow_intensity = 8.0
+glow_intensity = 1.5
 glow_mix = 0.6
-glow_bloom = 1.0
+glow_bloom = 0.2
 glow_blend_mode = 4
-glow_hdr_scale = 4.0
+glow_hdr_scale = 1.0
 glow_hdr_luminance_cap = 256.0
-fog_light_color = Color(0.6039216, 0.75686276, 0.8745098, 1)
-fog_light_energy = 1.2
-fog_sun_scatter = 0.2
-fog_sky_affect = 0.0
+fog_enabled = true
+fog_light_color = Color(0.7623703, 0.8602326, 0.9063318, 1)
+fog_light_energy = 2.0
+fog_sun_scatter = 1.0
+fog_density = 0.0025
 adjustment_enabled = true
-adjustment_contrast = 0.65
+adjustment_brightness = 1.5
+adjustment_contrast = 0.8
 adjustment_saturation = 1.2
 
 [sub_resource type="Compositor" id="Compositor_2ut7i"]
@@ -124,10 +123,6 @@ radius = 30.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_80ijt"]
 size = Vector3(1, 10, 9)
-
-[sub_resource type="QuadMesh" id="QuadMesh_i4eph"]
-flip_faces = true
-size = Vector2(2, 2)
 
 [sub_resource type="Animation" id="Animation_ipn8i"]
 length = 0.001
@@ -215,342 +210,335 @@ material = SubResource("ShaderMaterial_0glrw")
 size = Vector2(1.4, 1)
 orientation = 2
 
-[node name="Tree" type="Node3D"]
+[node name="Tree" type="Node3D" unique_id=529315002]
 
-[node name="WorldRoot" type="Node3D" parent="." groups=["Clock"]]
+[node name="WorldRoot" type="Node3D" parent="." unique_id=2089696710 groups=["Clock"]]
 script = ExtResource("7_vuwh0")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="WorldRoot"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="WorldRoot" unique_id=1657763481]
 environment = SubResource("Environment_22t8h")
 compositor = SubResource("Compositor_2ut7i")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldRoot" groups=["Lighting"]]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldRoot" unique_id=1381242887 groups=["Lighting"]]
 transform = Transform3D(-4.371139e-08, 0.64278764, 0.76604444, 0, -0.76604444, 0.64278764, 1, 2.809714e-08, 3.3484866e-08, 0, 10, 0)
 light_color = Color(1, 1, 0.76862746, 1)
+light_energy = 2.0
 shadow_enabled = true
 script = ExtResource("1_utkfw")
 
-[node name="Weeds" type="Node" parent="WorldRoot"]
+[node name="Weeds" type="Node" parent="WorldRoot" unique_id=475340512]
 
-[node name="Overgrowth" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth" parent="WorldRoot/Weeds" unique_id=1209938909 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -26)
 
-[node name="Overgrowth3" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth3" parent="WorldRoot/Weeds" unique_id=1742461667 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -20)
 
-[node name="Overgrowth8" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth8" parent="WorldRoot/Weeds" unique_id=165276543 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 10)
 
-[node name="Overgrowth11" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth11" parent="WorldRoot/Weeds" unique_id=876974798 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 7)
 
-[node name="Overgrowth19" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth19" parent="WorldRoot/Weeds" unique_id=1984167081 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
 
-[node name="Overgrowth45" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth45" parent="WorldRoot/Weeds" unique_id=1288694057 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 1)
 
-[node name="Overgrowth46" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth46" parent="WorldRoot/Weeds" unique_id=539322106 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -15)
 
-[node name="Overgrowth49" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth49" parent="WorldRoot/Weeds" unique_id=497818206 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -6)
 
-[node name="Overgrowth12" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth12" parent="WorldRoot/Weeds" unique_id=63914223 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 16)
 
-[node name="Overgrowth13" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth13" parent="WorldRoot/Weeds" unique_id=771130377 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4)
 
-[node name="Overgrowth14" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth14" parent="WorldRoot/Weeds" unique_id=31360348 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 4)
 
-[node name="Overgrowth15" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth15" parent="WorldRoot/Weeds" unique_id=1616254991 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
-[node name="Overgrowth16" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth16" parent="WorldRoot/Weeds" unique_id=430436364 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -16)
 
-[node name="Overgrowth17" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth17" parent="WorldRoot/Weeds" unique_id=804430818 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 14)
 
-[node name="Overgrowth18" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth18" parent="WorldRoot/Weeds" unique_id=1706840720 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 26)
 
-[node name="Overgrowth2" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth2" parent="WorldRoot/Weeds" unique_id=176295552 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -27)
 
-[node name="Overgrowth4" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth4" parent="WorldRoot/Weeds" unique_id=728432918 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9)
 
-[node name="Overgrowth5" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth5" parent="WorldRoot/Weeds" unique_id=316936548 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -24)
 
-[node name="Overgrowth6" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth6" parent="WorldRoot/Weeds" unique_id=1916656166 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -20)
 
-[node name="Overgrowth7" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth7" parent="WorldRoot/Weeds" unique_id=799659281 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -20)
 
-[node name="Overgrowth9" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth9" parent="WorldRoot/Weeds" unique_id=1390157819 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -23)
 
-[node name="Overgrowth10" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth10" parent="WorldRoot/Weeds" unique_id=975068616 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -13)
 
-[node name="Overgrowth41" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth41" parent="WorldRoot/Weeds" unique_id=662618685 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 19)
 
-[node name="Overgrowth42" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth42" parent="WorldRoot/Weeds" unique_id=102777059 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 13)
 
-[node name="Overgrowth43" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth43" parent="WorldRoot/Weeds" unique_id=619637922 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 21)
 
-[node name="Overgrowth44" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth44" parent="WorldRoot/Weeds" unique_id=1919494687 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 10)
 
-[node name="Overgrowth20" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth20" parent="WorldRoot/Weeds" unique_id=461331028 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 5)
 
-[node name="Overgrowth21" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth21" parent="WorldRoot/Weeds" unique_id=890700187 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 9)
 
-[node name="Overgrowth22" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth22" parent="WorldRoot/Weeds" unique_id=1056950523 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
 
-[node name="Overgrowth23" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth23" parent="WorldRoot/Weeds" unique_id=914868068 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 21)
 
-[node name="Overgrowth24" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth24" parent="WorldRoot/Weeds" unique_id=2050521730 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 28)
 
-[node name="Overgrowth25" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth25" parent="WorldRoot/Weeds" unique_id=294953546 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 15)
 
-[node name="Overgrowth26" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth26" parent="WorldRoot/Weeds" unique_id=1496782961 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 17)
 
-[node name="Overgrowth27" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth27" parent="WorldRoot/Weeds" unique_id=1971441829 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 17)
 
-[node name="Overgrowth28" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth28" parent="WorldRoot/Weeds" unique_id=584181586 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 23)
 
-[node name="Overgrowth29" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth29" parent="WorldRoot/Weeds" unique_id=1847070649 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 21)
 
-[node name="Overgrowth47" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth47" parent="WorldRoot/Weeds" unique_id=1421785774 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 12)
 
-[node name="Overgrowth30" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth30" parent="WorldRoot/Weeds" unique_id=1477808020 instance=ExtResource("9_utkfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 24)
 
-[node name="Overgrowth31" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth31" parent="WorldRoot/Weeds" unique_id=1451428131 instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 22.105988, 0, 9.122635)
 
-[node name="Overgrowth32" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth32" parent="WorldRoot/Weeds" unique_id=1547998470 instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 24.883646, 0, 2.6199722)
 
-[node name="Overgrowth33" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth33" parent="WorldRoot/Weeds" unique_id=1596908517 instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 17.881927, 0, -13.749999)
 
-[node name="Overgrowth34" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth34" parent="WorldRoot/Weeds" unique_id=1311870652 instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 7.7558002, 0, -3.004696)
 
-[node name="Overgrowth35" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth35" parent="WorldRoot/Weeds" unique_id=834297437 instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 24.056421, 0, -5.883891)
 
-[node name="Overgrowth36" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth36" parent="WorldRoot/Weeds" unique_id=1892503094 instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 16.82807, 0, 5.637867)
 
-[node name="Overgrowth37" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth37" parent="WorldRoot/Weeds" unique_id=447713459 instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 18.639803, 0, -1.1236134)
 
-[node name="Overgrowth38" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth38" parent="WorldRoot/Weeds" unique_id=1165917217 instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 14.138344, 0, -7.506156)
 
-[node name="Overgrowth39" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth39" parent="WorldRoot/Weeds" unique_id=1822937458 instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 20.90223, 0, -9.904192)
 
-[node name="Overgrowth40" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth40" parent="WorldRoot/Weeds" unique_id=824518523 instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 11.80777, 0, 2.7920609)
 
-[node name="Overgrowth48" parent="WorldRoot/Weeds" instance=ExtResource("9_utkfw")]
+[node name="Overgrowth48" parent="WorldRoot/Weeds" unique_id=900425028 instance=ExtResource("9_utkfw")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 5.80777, 0, 2.7920609)
 
-[node name="Ocean" type="StaticBody3D" parent="WorldRoot"]
+[node name="Ocean" type="StaticBody3D" parent="WorldRoot" unique_id=944485241]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldRoot/Ocean"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldRoot/Ocean" unique_id=1320502146]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 material_override = SubResource("ShaderMaterial_m1jft")
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_adc38")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/Ocean"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/Ocean" unique_id=189815386]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 shape = SubResource("WorldBoundaryShape3D_7j0eo")
 
-[node name="Island" type="StaticBody3D" parent="WorldRoot"]
+[node name="Island" type="StaticBody3D" parent="WorldRoot" unique_id=787967178]
 collision_layer = 16
 collision_mask = 19
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldRoot/Island"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldRoot/Island" unique_id=173674557]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 mesh = SubResource("CylinderMesh_m1jft")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/Island"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/Island" unique_id=1754515982]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 shape = SubResource("CylinderShape3D_ipn8i")
 
-[node name="WallofBees" type="StaticBody3D" parent="WorldRoot"]
+[node name="WallofBees" type="StaticBody3D" parent="WorldRoot" unique_id=135391653]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=533760091]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.199999, 3.6000001, 0.1)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=1595661651]
 transform = Transform3D(0.9659259, 0, 0.25881907, 0, 1, 0, -0.25881907, 0, 0.9659259, -29.1, 3.6000001, 8.3)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=238261676]
 transform = Transform3D(0.86602545, 0, 0.5, 0, 1, 0, -0.5, 0, 0.86602545, -26.000002, 3.6000001, 15.300001)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=564354253]
 transform = Transform3D(0.7071068, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.7071068, -21.100002, 3.6000001, 21.600002)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=414357844]
 transform = Transform3D(0.5, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, 0.5, -15.4000025, 3.6000001, 26.000002)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=616314055]
 transform = Transform3D(0.2588191, 0, 0.96592593, 0, 1, 0, -0.96592593, 0, 0.2588191, -8.500003, 3.6000001, 29.000002)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=216144655]
 transform = Transform3D(2.9802322e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 2.9802322e-08, -0.70000285, 3.6000001, 30.1)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=278924978]
 transform = Transform3D(-0.25881907, 0, 0.96592593, 0, 1, 0, -0.96592593, 0, -0.25881907, 7.199998, 3.6000001, 29.2)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=1445194543]
 transform = Transform3D(-0.5, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, -0.5, 14.699998, 3.6000001, 26.2)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=166005217]
 transform = Transform3D(-0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, -0.70710677, 21.3, 3.6000001, 21)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=1868021930]
 transform = Transform3D(-0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, -0.8660254, 26.4, 3.6000001, 14.8)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=64671315]
 transform = Transform3D(-0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, -0.9659258, 29, 3.6000001, 7.6999993)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D13" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=1819387268]
 transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 29.999998, 3.6000001, -0.30000088)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D14" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=141472745]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 28.854544, 3.6000001, -9.045451)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D15" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=1791122985]
 transform = Transform3D(-0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, -0.8660254, 25.554544, 3.6000001, -16.145452)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D16" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=1881468508]
 transform = Transform3D(-0.7071068, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071068, 19.954542, 3.6000001, -22.545452)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D17" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=1642975930]
 transform = Transform3D(-0.49999994, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.49999994, 14.654542, 3.6000001, -26.545452)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D18" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=853902231]
 transform = Transform3D(-0.25881904, 0, -0.96592593, 0, 1, 0, 0.96592593, 0, -0.25881904, 6.7545433, 3.6000001, -29.64545)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D19" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=302722599]
 transform = Transform3D(2.9802322e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 2.9802322e-08, -0.8454561, 3.6000001, -30.245451)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D20" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=1146743064]
 transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, -8.045456, 3.6000001, -29.04545)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D21" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=522122575]
 transform = Transform3D(0.5, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, 0.5, -15.645458, 3.6000001, -25.84545)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D22" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=372492748]
 transform = Transform3D(0.7071068, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, 0.7071068, -21.445457, 3.6000001, -21.24545)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D23" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=1714496085]
 transform = Transform3D(0.86602545, 0, -0.49999994, 0, 1, 0, 0.49999994, 0, 0.86602545, -26.045458, 3.6000001, -15.445449)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="CollisionShape3D24" type="CollisionShape3D" parent="WorldRoot/WallofBees"]
+[node name="CollisionShape3D24" type="CollisionShape3D" parent="WorldRoot/WallofBees" unique_id=1489718549]
 transform = Transform3D(0.96592593, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.96592593, -29.145458, 3.6000001, -7.9454484)
 shape = SubResource("BoxShape3D_80ijt")
 debug_color = Color(0, 0.60038817, 0.70000815, 1)
 
-[node name="PostProcessing" type="MeshInstance3D" parent="WorldRoot"]
-material_override = ExtResource("7_m1jft")
-cast_shadow = 0
-extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_i4eph")
-
-[node name="DayNight" type="CanvasLayer" parent="WorldRoot"]
+[node name="DayNight" type="CanvasLayer" parent="WorldRoot" unique_id=161317937]
 layer = 0
 
-[node name="DayNightAnimator" type="AnimationPlayer" parent="WorldRoot/DayNight"]
+[node name="DayNightAnimator" type="AnimationPlayer" parent="WorldRoot/DayNight" unique_id=2085580032]
 root_node = NodePath("../..")
 callback_mode_process = 2
-libraries = {
-&"": SubResource("AnimationLibrary_m1jft")
-}
+libraries/ = SubResource("AnimationLibrary_m1jft")
 playback_auto_capture = false
 script = ExtResource("5_adc38")
 
-[node name="ColorRect" type="ColorRect" parent="WorldRoot/DayNight"]
+[node name="ColorRect" type="ColorRect" parent="WorldRoot/DayNight" unique_id=212317500]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -559,324 +547,324 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.9843137, 0.7529412, 0.22745098, 1)
 
-[node name="SaverLoader" parent="WorldRoot" node_paths=PackedStringArray("world_root", "player") groups=["SaverLoader"] instance=ExtResource("10_jksdq")]
+[node name="SaverLoader" parent="WorldRoot" unique_id=1253100869 node_paths=PackedStringArray("world_root", "player") groups=["SaverLoader"] instance=ExtResource("10_jksdq")]
 world_root = NodePath("..")
 player = NodePath("../Player")
 
-[node name="Player" parent="WorldRoot" instance=ExtResource("1_x1yw8")]
+[node name="Player" parent="WorldRoot" unique_id=554413623 instance=ExtResource("1_x1yw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6, 0, -9.4)
 
-[node name="BobaShop" type="Node3D" parent="WorldRoot"]
+[node name="BobaShop" type="Node3D" parent="WorldRoot" unique_id=1865297414]
 transform = Transform3D(0.25357094, 0, 0.54378474, 0, 0.6, 0, -0.54378474, 0, 0.25357094, -23.300001, 0, -11.1)
 metadata/_edit_lock_ = true
 
-[node name="Primary" type="Node3D" parent="WorldRoot/BobaShop"]
+[node name="Primary" type="Node3D" parent="WorldRoot/BobaShop" unique_id=1602491500]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="InteriorWall1" type="MeshInstance3D" parent="WorldRoot/BobaShop/Primary"]
+[node name="InteriorWall1" type="MeshInstance3D" parent="WorldRoot/BobaShop/Primary" unique_id=1295503006]
 mesh = ExtResource("11_l65j2")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("12_1bkbh")
 
-[node name="InteriorWall2" type="MeshInstance3D" parent="WorldRoot/BobaShop/Primary"]
+[node name="InteriorWall2" type="MeshInstance3D" parent="WorldRoot/BobaShop/Primary" unique_id=537970601]
 mesh = ExtResource("13_ay7tk")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("12_1bkbh")
 
-[node name="InteriorWall3" type="MeshInstance3D" parent="WorldRoot/BobaShop/Primary"]
+[node name="InteriorWall3" type="MeshInstance3D" parent="WorldRoot/BobaShop/Primary" unique_id=2075990583]
 mesh = ExtResource("14_s7m4n")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("12_1bkbh")
 
-[node name="InteriorWall4" type="MeshInstance3D" parent="WorldRoot/BobaShop/Primary"]
+[node name="InteriorWall4" type="MeshInstance3D" parent="WorldRoot/BobaShop/Primary" unique_id=1964308621]
 mesh = ExtResource("15_eymlh")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("12_1bkbh")
 
-[node name="Contrast" type="Node3D" parent="WorldRoot/BobaShop"]
+[node name="Contrast" type="Node3D" parent="WorldRoot/BobaShop" unique_id=1900451156]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Bookshelf" parent="WorldRoot/BobaShop/Contrast" groups=["GUI_Event"] instance=ExtResource("16_73hpc")]
+[node name="Bookshelf" parent="WorldRoot/BobaShop/Contrast" unique_id=880663020 groups=["GUI_Event"] instance=ExtResource("16_73hpc")]
 transform = Transform3D(0.7660444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.7660444, -5.7526584, 1.1999999, -6.0213404)
 
-[node name="Roof" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+[node name="Roof" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast" unique_id=1354455345]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.70000005, 0)
 mesh = ExtResource("17_i1ufx")
 skeleton = NodePath("../..")
 surface_material_override/1 = ExtResource("18_8jg4c")
 
-[node name="InteriorCorner1" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+[node name="InteriorCorner1" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast" unique_id=1045048634]
 mesh = ExtResource("19_6jced")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("18_8jg4c")
 
-[node name="InteriorCorner2" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+[node name="InteriorCorner2" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast" unique_id=341478782]
 mesh = ExtResource("20_0vj80")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("18_8jg4c")
 
-[node name="InteriorCorner3" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+[node name="InteriorCorner3" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast" unique_id=1488617339]
 mesh = ExtResource("21_sm585")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("18_8jg4c")
 
-[node name="InteriorCorner4" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+[node name="InteriorCorner4" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast" unique_id=1696315063]
 mesh = ExtResource("22_ojn6a")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("18_8jg4c")
 
-[node name="ExteriorCorner1" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+[node name="ExteriorCorner1" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast" unique_id=1087038726]
 mesh = ExtResource("23_jdla0")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("18_8jg4c")
 
-[node name="ExteriorCorner2" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+[node name="ExteriorCorner2" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast" unique_id=1905290026]
 mesh = ExtResource("24_h7uqe")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("18_8jg4c")
 
-[node name="ExteriorCorner3" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+[node name="ExteriorCorner3" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast" unique_id=21718704]
 mesh = ExtResource("25_cxv5i")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("18_8jg4c")
 
-[node name="ExteriorCorner4" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast"]
+[node name="ExteriorCorner4" type="MeshInstance3D" parent="WorldRoot/BobaShop/Contrast" unique_id=644074537]
 mesh = ExtResource("26_36he6")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("18_8jg4c")
 
-[node name="Accent" type="Node3D" parent="WorldRoot/BobaShop"]
+[node name="Accent" type="Node3D" parent="WorldRoot/BobaShop" unique_id=1231753186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Floor" type="MeshInstance3D" parent="WorldRoot/BobaShop/Accent"]
+[node name="Floor" type="MeshInstance3D" parent="WorldRoot/BobaShop/Accent" unique_id=2094591531]
 mesh = ExtResource("27_1umkb")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("28_88kpa")
 
-[node name="Counter" type="MeshInstance3D" parent="WorldRoot/BobaShop/Accent"]
+[node name="Counter" type="MeshInstance3D" parent="WorldRoot/BobaShop/Accent" unique_id=2064219306]
 transform = Transform3D(4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 4.3711385e-08, 1.5000002, -2, -7.699999)
 mesh = ExtResource("29_1bmbi")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("18_8jg4c")
 surface_material_override/1 = ExtResource("28_88kpa")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/Accent/Counter"]
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/Accent/Counter" unique_id=1364841195]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Counter/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Counter/StaticBody3D" unique_id=351321814]
 shape = SubResource("ConcavePolygonShape3D_ay7tk")
 
-[node name="Table" type="MeshInstance3D" parent="WorldRoot/BobaShop/Accent"]
+[node name="Table" type="MeshInstance3D" parent="WorldRoot/BobaShop/Accent" unique_id=1664430402]
 transform = Transform3D(0.649519, 0, -0.375, 0, 0.75, 0, 0.375, 0, 0.649519, -2.7535899, -1.2, -2.6267948)
 mesh = ExtResource("30_da8rp")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("28_88kpa")
 surface_material_override/1 = ExtResource("18_8jg4c")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/Accent/Table"]
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/Accent/Table" unique_id=284823019]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Table/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Table/StaticBody3D" unique_id=1103524866]
 shape = SubResource("ConvexPolygonShape3D_ygp8d")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Table/StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Table/StaticBody3D" unique_id=310954856]
 shape = SubResource("ConvexPolygonShape3D_m8b4s")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Table/StaticBody3D"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="WorldRoot/BobaShop/Accent/Table/StaticBody3D" unique_id=2086693778]
 shape = SubResource("ConvexPolygonShape3D_decg2")
 
-[node name="Exterior" type="Node3D" parent="WorldRoot/BobaShop"]
+[node name="Exterior" type="Node3D" parent="WorldRoot/BobaShop" unique_id=794341987]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="WallBack" type="MeshInstance3D" parent="WorldRoot/BobaShop/Exterior"]
+[node name="WallBack" type="MeshInstance3D" parent="WorldRoot/BobaShop/Exterior" unique_id=2034786298]
 mesh = ExtResource("31_g63oo")
 skeleton = NodePath("../..")
 
-[node name="WallFront" type="MeshInstance3D" parent="WorldRoot/BobaShop/Exterior"]
+[node name="WallFront" type="MeshInstance3D" parent="WorldRoot/BobaShop/Exterior" unique_id=1723322719]
 mesh = ExtResource("32_e3fev")
 skeleton = NodePath("../..")
 
-[node name="WallLeft" type="MeshInstance3D" parent="WorldRoot/BobaShop/Exterior"]
+[node name="WallLeft" type="MeshInstance3D" parent="WorldRoot/BobaShop/Exterior" unique_id=1031687480]
 mesh = ExtResource("33_v8yse")
 skeleton = NodePath("../..")
 
-[node name="WallRight" type="MeshInstance3D" parent="WorldRoot/BobaShop/Exterior"]
+[node name="WallRight" type="MeshInstance3D" parent="WorldRoot/BobaShop/Exterior" unique_id=54337932]
 mesh = ExtResource("34_hr8nq")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/Exterior"]
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/Exterior" unique_id=1022860479]
 collision_layer = 9
 collision_mask = 11
 
-[node name="CornerCollision" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+[node name="CornerCollision" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D" unique_id=566218856]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2000003, 3, 6.8)
 shape = SubResource("BoxShape3D_1qbsa")
 
-[node name="CornerCollision2" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+[node name="CornerCollision2" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D" unique_id=712793943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 3, -6.7999997)
 shape = SubResource("BoxShape3D_1qbsa")
 
-[node name="CornerCollision3" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+[node name="CornerCollision3" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D" unique_id=1235390478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2000003, 3, 6.7000003)
 shape = SubResource("BoxShape3D_1qbsa")
 
-[node name="CornerCollision4" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+[node name="CornerCollision4" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D" unique_id=1386744771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2000003, 3, -6.7999997)
 shape = SubResource("BoxShape3D_1qbsa")
 
-[node name="WallCollision" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+[node name="WallCollision" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D" unique_id=1784678592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.536743e-07, 3.0000005, -7.25)
 shape = SubResource("BoxShape3D_du356")
 
-[node name="WallCollision2" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+[node name="WallCollision2" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D" unique_id=1387834603]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.7000003, 3, -3.365777e-07)
 shape = SubResource("BoxShape3D_du356")
 
-[node name="WallCollision3" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+[node name="WallCollision3" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D" unique_id=1549734790]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.7, 3, 0)
 shape = SubResource("BoxShape3D_du356")
 
-[node name="WallCollision4" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D"]
+[node name="WallCollision4" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/StaticBody3D" unique_id=1290630953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7.1)
 shape = SubResource("BoxShape3D_du356")
 
-[node name="NoPlantZone" type="StaticBody3D" parent="WorldRoot/BobaShop/Exterior"]
+[node name="NoPlantZone" type="StaticBody3D" parent="WorldRoot/BobaShop/Exterior" unique_id=947691547]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, 0)
 collision_layer = 64
 collision_mask = 64
 
-[node name="NoPlanting" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/NoPlantZone"]
+[node name="NoPlanting" type="CollisionShape3D" parent="WorldRoot/BobaShop/Exterior/NoPlantZone" unique_id=23018716]
 shape = SubResource("BoxShape3D_hdofh")
 
-[node name="Lanterns" type="Node3D" parent="WorldRoot/BobaShop"]
+[node name="Lanterns" type="Node3D" parent="WorldRoot/BobaShop" unique_id=1745603982]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="LanternWhite" parent="WorldRoot/BobaShop/Lanterns" instance=ExtResource("35_bwgsc")]
+[node name="LanternWhite" parent="WorldRoot/BobaShop/Lanterns" unique_id=909325380 instance=ExtResource("35_bwgsc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.5, -3)
 
-[node name="LanternWhite2" parent="WorldRoot/BobaShop/Lanterns" instance=ExtResource("35_bwgsc")]
+[node name="LanternWhite2" parent="WorldRoot/BobaShop/Lanterns" unique_id=131840053 instance=ExtResource("35_bwgsc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 2)
 
-[node name="LanternWhite3" parent="WorldRoot/BobaShop/Lanterns" instance=ExtResource("35_bwgsc")]
+[node name="LanternWhite3" parent="WorldRoot/BobaShop/Lanterns" unique_id=1221965790 instance=ExtResource("35_bwgsc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4.5, -4)
 
-[node name="LanternPink" parent="WorldRoot/BobaShop/Lanterns" instance=ExtResource("36_q82qv")]
+[node name="LanternPink" parent="WorldRoot/BobaShop/Lanterns" unique_id=717861490 instance=ExtResource("36_q82qv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4.1, 1)
 
-[node name="LanternPink2" parent="WorldRoot/BobaShop/Lanterns" instance=ExtResource("36_q82qv")]
+[node name="LanternPink2" parent="WorldRoot/BobaShop/Lanterns" unique_id=1266796758 instance=ExtResource("36_q82qv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.1, 0)
 
-[node name="LanternPink3" parent="WorldRoot/BobaShop/Lanterns" instance=ExtResource("36_q82qv")]
+[node name="LanternPink3" parent="WorldRoot/BobaShop/Lanterns" unique_id=1257877009 instance=ExtResource("36_q82qv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.1, -2)
 
-[node name="NoColor" type="Node3D" parent="WorldRoot/BobaShop"]
+[node name="NoColor" type="Node3D" parent="WorldRoot/BobaShop" unique_id=14181351]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="CashRegister" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor"]
+[node name="CashRegister" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor" unique_id=461330728]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.4749995, -0.8, -5.999999)
 mesh = ExtResource("37_v2pjp")
 skeleton = NodePath("../..")
 metadata/_edit_group_ = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/NoColor/CashRegister"]
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/NoColor/CashRegister" unique_id=1573010712]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/NoColor/CashRegister/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/NoColor/CashRegister/StaticBody3D" unique_id=1670582200]
 shape = SubResource("ConvexPolygonShape3D_rwsu5")
 
-[node name="SeedShelf" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor"]
+[node name="SeedShelf" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor" unique_id=1490607301]
 transform = Transform3D(1.9470718e-07, 0, 1, 0, 1, 0, -1, 0, 1.9470718e-07, -7.0339756, -1.6, 4.467949)
 mesh = ExtResource("38_7v8ft")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/NoColor/SeedShelf"]
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/NoColor/SeedShelf" unique_id=1703171081]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/NoColor/SeedShelf/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/NoColor/SeedShelf/StaticBody3D" unique_id=1084157834]
 shape = SubResource("ConvexPolygonShape3D_4ym88")
 
-[node name="SupplyShelf" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor"]
+[node name="SupplyShelf" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor" unique_id=1598240795]
 transform = Transform3D(1.9470718e-07, 0, 1, 0, 1, 0, -1, 0, 1.9470718e-07, -7.033975, -1.6, 1.9679486)
 mesh = ExtResource("38_7v8ft")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/NoColor/SupplyShelf"]
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/NoColor/SupplyShelf" unique_id=2092434838]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/NoColor/SupplyShelf/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/NoColor/SupplyShelf/StaticBody3D" unique_id=1285005558]
 shape = SubResource("ConvexPolygonShape3D_4ym88")
 
-[node name="StorageShelf" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor"]
+[node name="StorageShelf" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor" unique_id=249290199]
 transform = Transform3D(-1, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -1, -4.833976, -1.6, 6.467949)
 mesh = ExtResource("38_7v8ft")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/NoColor/StorageShelf"]
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldRoot/BobaShop/NoColor/StorageShelf" unique_id=948796065]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/NoColor/StorageShelf/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/NoColor/StorageShelf/StaticBody3D" unique_id=606628178]
 shape = SubResource("ConvexPolygonShape3D_4ym88")
 
-[node name="LongWindow" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor"]
+[node name="LongWindow" type="MeshInstance3D" parent="WorldRoot/BobaShop/NoColor" unique_id=587832286]
 transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, 2.2499988, 1.2, 2.4499989)
 mesh = ExtResource("39_5yr35")
 skeleton = NodePath("../..")
 
-[node name="DoorInside" parent="WorldRoot/BobaShop/NoColor" node_paths=PackedStringArray("outdoor_sounds") instance=ExtResource("40_bmysp")]
+[node name="DoorInside" parent="WorldRoot/BobaShop/NoColor" unique_id=560945655 node_paths=PackedStringArray("outdoor_sounds") instance=ExtResource("40_bmysp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.608579e-06, -3.2000003, 32.6)
 skeleton = NodePath("../..")
 go_outside = true
 outdoor_sounds = NodePath("../../../BackgroundWaves")
 
-[node name="DoorOutside" parent="WorldRoot/BobaShop/NoColor" node_paths=PackedStringArray("outdoor_sounds") instance=ExtResource("40_bmysp")]
+[node name="DoorOutside" parent="WorldRoot/BobaShop/NoColor" unique_id=1527335859 node_paths=PackedStringArray("outdoor_sounds") instance=ExtResource("40_bmysp")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.067141e-06, -3.2000003, -18.400002)
 skeleton = NodePath("../..")
 outdoor_sounds = NodePath("../../../BackgroundWaves")
 
-[node name="DrinkZone3D" type="Node3D" parent="WorldRoot/BobaShop"]
+[node name="DrinkZone3D" type="Node3D" parent="WorldRoot/BobaShop" unique_id=2070100171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9, 2.6985164, -5.1475663)
 script = ExtResource("41_y5ljf")
 metadata/_edit_group_ = true
 
-[node name="PickupZone" type="Area3D" parent="WorldRoot/BobaShop/DrinkZone3D"]
+[node name="PickupZone" type="Area3D" parent="WorldRoot/BobaShop/DrinkZone3D" unique_id=1247954646]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5000002, -1.622884, -1.9333348)
 collision_layer = 32
 collision_mask = 32
 input_ray_pickable = false
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/DrinkZone3D/PickupZone"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/DrinkZone3D/PickupZone" unique_id=1724802606]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25000012, 0.8000002)
 shape = SubResource("BoxShape3D_sinf0")
 
-[node name="Screen" type="StaticBody3D" parent="WorldRoot/BobaShop/DrinkZone3D"]
+[node name="Screen" type="StaticBody3D" parent="WorldRoot/BobaShop/DrinkZone3D" unique_id=138862192]
 transform = Transform3D(0.86, 0, 0, 0, 0.6957546, 0.5054953, 0, -0.5054953, 0.6957546, 0.169, -0.029345818, -0.61914027)
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/DrinkZone3D/Screen"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldRoot/BobaShop/DrinkZone3D/Screen" unique_id=1587241601]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010986328, -1.9073486e-06, 0.049999714)
 shape = SubResource("BoxShape3D_alrdh")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldRoot/BobaShop/DrinkZone3D/Screen"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldRoot/BobaShop/DrinkZone3D/Screen" unique_id=1273392265]
 transform = Transform3D(1, 0, 0, 0, 0.9999254, 0.012217001, 0, -0.012217001, 0.9999254, 0, 0, -0.007)
 mesh = SubResource("PlaneMesh_tyjbu")
 
-[node name="ChaChingSound" type="AudioStreamPlayer3D" parent="WorldRoot/BobaShop/DrinkZone3D/Screen"]
+[node name="ChaChingSound" type="AudioStreamPlayer3D" parent="WorldRoot/BobaShop/DrinkZone3D/Screen" unique_id=898665144]
 unique_name_in_owner = true
 stream = ExtResource("43_ay7tk")
 attenuation_model = 2
 
-[node name="SubViewport" type="SubViewport" parent="WorldRoot/BobaShop/DrinkZone3D"]
+[node name="SubViewport" type="SubViewport" parent="WorldRoot/BobaShop/DrinkZone3D" unique_id=1599846535]
 gui_embed_subwindows = true
 size = Vector2i(717, 512)
 render_target_update_mode = 4
 
-[node name="DrinkOrders" parent="WorldRoot/BobaShop/DrinkZone3D/SubViewport" instance=ExtResource("43_ryr6b")]
+[node name="DrinkOrders" parent="WorldRoot/BobaShop/DrinkZone3D/SubViewport" unique_id=1541260877 instance=ExtResource("43_ryr6b")]
 unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -888,62 +876,62 @@ offset_top = -256.0
 offset_right = 358.5
 offset_bottom = 256.0
 
-[node name="TeaCeremony" parent="WorldRoot/BobaShop" instance=ExtResource("44_wydm5")]
+[node name="TeaCeremony" parent="WorldRoot/BobaShop" unique_id=349533990 instance=ExtResource("44_wydm5")]
 transform = Transform3D(0.44999996, 0, 0.7794229, 0, 0.9, 0, -0.7794229, 0, 0.44999996, -2.866, 1.8, -2.172)
 metadata/_edit_lock_ = true
 
-[node name="ProcessMachine" parent="WorldRoot/BobaShop" instance=ExtResource("45_ciwc4")]
+[node name="ProcessMachine" parent="WorldRoot/BobaShop" unique_id=344965166 instance=ExtResource("45_ciwc4")]
 transform = Transform3D(-1.1471529, 0, -1.6383042, 0, 2, 0, 1.6383042, 0, -1.1471529, 6.024, 0.099999994, 5.088)
 
-[node name="DrinkMachine" parent="WorldRoot/BobaShop" instance=ExtResource("46_opc87")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 1.5, -4)
+[node name="DrinkMachine" parent="WorldRoot/BobaShop" unique_id=984689496 instance=ExtResource("46_opc87")]
+transform = Transform3D(-7.450581e-09, 0, 0.25, 0, 0.24999999, 0, -0.25, 0, -7.450581e-09, 1.8021011, 1.4999998, -4.140877)
 
-[node name="CookMahcine" parent="WorldRoot/BobaShop" instance=ExtResource("47_ynwp6")]
+[node name="CookMahcine" parent="WorldRoot/BobaShop" unique_id=188520040 instance=ExtResource("47_ynwp6")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5999999, 1.5, -2.2)
 
-[node name="StorageAndDispensers" type="Node3D" parent="WorldRoot/BobaShop"]
+[node name="StorageAndDispensers" type="Node3D" parent="WorldRoot/BobaShop" unique_id=1490102248]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Water" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+[node name="Water" parent="WorldRoot/BobaShop/StorageAndDispensers" unique_id=1758709796 instance=ExtResource("48_vgd2u")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.94, 1.42)
 item_data = ExtResource("49_g2oif")
 
-[node name="Milk" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+[node name="Milk" parent="WorldRoot/BobaShop/StorageAndDispensers" unique_id=402173350 instance=ExtResource("48_vgd2u")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.94, 2.44)
 item_data = ExtResource("50_ced0m")
 
-[node name="MatchaPowder" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+[node name="MatchaPowder" parent="WorldRoot/BobaShop/StorageAndDispensers" unique_id=847470806 instance=ExtResource("48_vgd2u")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.15, 1.8)
 item_data = ExtResource("51_1gexm")
 
-[node name="SugarCaneSeed" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+[node name="SugarCaneSeed" parent="WorldRoot/BobaShop/StorageAndDispensers" unique_id=1900440126 instance=ExtResource("48_vgd2u")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.94, 4.52)
 item_data = ExtResource("52_5js7k")
 
-[node name="CassavaSeed" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+[node name="CassavaSeed" parent="WorldRoot/BobaShop/StorageAndDispensers" unique_id=1752508642 instance=ExtResource("48_vgd2u")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.15, 3.92)
 item_data = ExtResource("53_tyaha")
 
-[node name="TaroSeed" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+[node name="TaroSeed" parent="WorldRoot/BobaShop/StorageAndDispensers" unique_id=1081273334 instance=ExtResource("48_vgd2u")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.15, 5)
 item_data = ExtResource("54_q46nv")
 
-[node name="StrawberrySeed" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("48_vgd2u")]
+[node name="StrawberrySeed" parent="WorldRoot/BobaShop/StorageAndDispensers" unique_id=2126885503 instance=ExtResource("48_vgd2u")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 0.25, 4.08)
 item_data = ExtResource("55_dcdew")
 
-[node name="StorageUnit" parent="WorldRoot/BobaShop/StorageAndDispensers" instance=ExtResource("56_swqu6")]
+[node name="StorageUnit" parent="WorldRoot/BobaShop/StorageAndDispensers" unique_id=466406292 instance=ExtResource("56_swqu6")]
 transform = Transform3D(-1.5298985e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5298985e-08, -4.41, 1.9399999, 6.55)
 
-[node name="Music" type="AudioStreamPlayer" parent="WorldRoot"]
+[node name="Music" type="AudioStreamPlayer" parent="WorldRoot" unique_id=685197379]
 process_mode = 1
 stream = ExtResource("13_0glrw")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
-[node name="BackgroundWaves" type="AudioStreamPlayer" parent="WorldRoot"]
+[node name="BackgroundWaves" type="AudioStreamPlayer" parent="WorldRoot" unique_id=1081058259]
 stream = ExtResource("58_1bkbh")
 volume_db = -20.0
 parameters/looping = true

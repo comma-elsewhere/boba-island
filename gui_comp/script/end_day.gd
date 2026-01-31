@@ -31,7 +31,7 @@ func set_labels() -> void:
 	_update_money()
 	
 func _save_and_finish() -> void:
-	get_tree().call_group("SaverLoader", "save_game")
+	#get_tree().call_group("SaverLoader", "save_game")
 	_reset_globals()
 	save_game.emit()
 	

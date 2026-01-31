@@ -22,4 +22,4 @@ render_priority = 0
 shader = ExtResource("1_fd126")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_ipn8i")
 shader_parameter/damper = 300.0
-shader_parameter/color_intensity = 2.95999995619008
+shader_parameter/color_intensity = 3.0999999530608

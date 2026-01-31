@@ -10,7 +10,7 @@ var MAIN := load("res://scenes/level/world_root.tscn")
 
 func _ready() -> void:
 	if Dynamic.load_game:
-		_play_load_anim()
+		game_settings.hide()
 	else:
 		tutorial_enabled_button.button_pressed = Dynamic.tutorial_on
 		_set_difficulty(1)
@@ -22,7 +22,8 @@ func _ready() -> void:
 		diificulty_list.item_selected.connect(_set_difficulty)
 
 func _play_load_anim() -> void:
-	game_settings.hide()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$VBoxContainer.hide()
 	animation_player.play("load_game")
 
 func load_game() -> void:

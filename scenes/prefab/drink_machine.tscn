@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://d3hho5oeb6507" path="res://assets/sound effects/ShakeLoop.ogg" id="24_18kyh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ix07"]
-size = Vector3(0.6397095, 1.1705933, 0.5433655)
+size = Vector3(2.4294586, 5.561142, 2.9648209)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_27507"]
 radius = 0.3
@@ -54,7 +54,7 @@ recipe_upgrades = ExtResource("2_l18tl")
 crafting_scene = ExtResource("3_ec67p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1241885325]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5857532, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32312775, 2.7810276, -1.0854607)
 shape = SubResource("BoxShape3D_3ix07")
 
 [node name="GUI_Parent" type="CanvasLayer" parent="." unique_id=944270203]
@@ -103,14 +103,6 @@ stretch_mode = 5
 unique_name_in_owner = true
 one_shot = true
 
-[node name="ShakerComponent3D" type="Node3D" parent="." unique_id=1691475564]
-unique_name_in_owner = true
-transform = Transform3D(-3.7331502e-09, 0, -0.079651184, 0, 0.075783856, 0, 0.08540435, 0, -3.481657e-09, 0.20954938, 0.0152233085, 0.25127858)
-script = ExtResource("5_1il3m")
-intensity = 0.15
-shakerPreset = SubResource("Resource_14ru7")
-metadata/_custom_type_script = "uid://clls85kmjfpf5"
-
 [node name="SealSound" type="AudioStreamPlayer3D" parent="." unique_id=916662854]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4283211, 0.18418175)
 stream = ExtResource("23_0y4s6")
@@ -145,6 +137,14 @@ transform = Transform3D(-0.9986946, 0.051079836, 0, -0.051079836, -0.9986946, 0,
 [node name="top " parent="drink-machine_READY_Game-Animation" index="15" unique_id=1128769694]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
+
+[node name="ShakerComponent3D" type="Node3D" parent="drink-machine_READY_Game-Animation" unique_id=1691475564]
+unique_name_in_owner = true
+transform = Transform3D(-3.7331502e-09, 0, -0.079651184, 0, 0.075783856, 0, 0.08540435, 0, -3.481657e-09, 0.5333681, 0.0152233085, -0.40451604)
+script = ExtResource("5_1il3m")
+intensity = 0.15
+shakerPreset = SubResource("Resource_14ru7")
+metadata/_custom_type_script = "uid://clls85kmjfpf5"
 
 [connection signal="timeout" from="WaitTime" to="." method="_on_wait_time_timeout"]
 

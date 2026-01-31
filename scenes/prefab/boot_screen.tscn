@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt6sa2mc42xi0"]
+[gd_scene format=3 uid="uid://dt6sa2mc42xi0"]
 
 [ext_resource type="Texture2D" uid="uid://pj0fllbjie1m" path="res://assets/icons/MerakiOmada.png" id="1_8kds6"]
 [ext_resource type="Script" uid="uid://b63cd8r73udqj" path="res://scripts/utility/boot_screen.gd" id="1_hmj8t"]
@@ -105,7 +105,7 @@ _data = {
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kds6"]
 
-[node name="BootScreen" type="Control"]
+[node name="BootScreen" type="Control" unique_id=442860021]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,7 +114,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hmj8t")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1553487478]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -123,7 +123,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Logo" type="TextureRect" parent="Background"]
+[node name="Logo" type="TextureRect" parent="Background" unique_id=411455022]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -140,29 +140,31 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_8kds6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background" unique_id=402577372]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_5o28x")
-}
+libraries/ = SubResource("AnimationLibrary_5o28x")
 
-[node name="GameSettings" type="VBoxContainer" parent="."]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1531756108]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -118.0
+offset_top = -210.0
+offset_right = 118.0
+offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 75
+
+[node name="GameSettings" type="VBoxContainer" parent="VBoxContainer" unique_id=721479581]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Label" type="Label" parent="GameSettings"]
+[node name="Label" type="Label" parent="VBoxContainer/GameSettings" unique_id=833256668]
 layout_mode = 2
 text = "Select your play style.
 This cannot be changed later.
@@ -171,15 +173,15 @@ This cannot be changed later.
 if a mode is not selected)"
 horizontal_alignment = 1
 
-[node name="Difficulty" type="VBoxContainer" parent="GameSettings"]
+[node name="Difficulty" type="VBoxContainer" parent="VBoxContainer/GameSettings" unique_id=256686963]
 layout_mode = 2
 
-[node name="Static" type="Label" parent="GameSettings/Difficulty"]
+[node name="Static" type="Label" parent="VBoxContainer/GameSettings/Difficulty" unique_id=1430955919]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Game Mode"
 
-[node name="DiificultyList" type="ItemList" parent="GameSettings/Difficulty"]
+[node name="DiificultyList" type="ItemList" parent="VBoxContainer/GameSettings/Difficulty" unique_id=1359877228]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -194,16 +196,16 @@ item_0/text = "More Money"
 item_1/text = "Balanced"
 item_2/text = "More Problems"
 
-[node name="Tutorial" type="HBoxContainer" parent="GameSettings"]
+[node name="Tutorial" type="HBoxContainer" parent="VBoxContainer/GameSettings" unique_id=173621372]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="GameSettings/Tutorial"]
+[node name="Label" type="Label" parent="VBoxContainer/GameSettings/Tutorial" unique_id=2119831264]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Start with Tutorial"
 
-[node name="TutorialEnabledButton" type="CheckBox" parent="GameSettings/Tutorial"]
+[node name="TutorialEnabledButton" type="CheckBox" parent="VBoxContainer/GameSettings/Tutorial" unique_id=1330737059]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
@@ -214,13 +216,13 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hmj8t")
 icon_alignment = 1
 expand_icon = true
 
-[node name="DoneButton" type="Button" parent="GameSettings"]
+[node name="DoneButton" type="Button" parent="VBoxContainer" unique_id=1417608787]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 40)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 theme_override_styles/normal = SubResource("StyleBoxFlat_8kds6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8kds6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8kds6")
-text = "DONE"
+text = "START GAME"
