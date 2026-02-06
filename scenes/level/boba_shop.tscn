@@ -1,57 +1,57 @@
-[gd_scene load_steps=62 format=3 uid="uid://bae4empxna1o"]
+[gd_scene format=3 uid="uid://bae4empxna1o"]
 
-[ext_resource type="ArrayMesh" uid="uid://1uf24nhkhnty" path="res://resources/meshes/boba_shop/Floor.res" id="1_uah5q"]
-[ext_resource type="Material" uid="uid://dwnh605nsdnn4" path="res://resources/materials/floor_material.material" id="2_1qbsa"]
-[ext_resource type="ArrayMesh" uid="uid://c2kgiwhsdj4rx" path="res://resources/meshes/boba_shop/WallBack.res" id="2_lahac"]
-[ext_resource type="ArrayMesh" uid="uid://cisjk8s5hr3g" path="res://resources/meshes/boba_shop/WallFront.res" id="3_xaiee"]
-[ext_resource type="ArrayMesh" uid="uid://d181v30s7mtcc" path="res://resources/meshes/boba_shop/WallLeft.res" id="4_0esjs"]
-[ext_resource type="ArrayMesh" uid="uid://dnb6axf1gsi5f" path="res://resources/meshes/boba_shop/WallRight.res" id="5_wnjol"]
-[ext_resource type="PackedScene" uid="uid://t2umiaj41a6d" path="res://scenes/prefab/save_bookshelf.tscn" id="6_hdofh"]
-[ext_resource type="ArrayMesh" uid="uid://md8pptc0s8m3" path="res://resources/meshes/boba_shop/ExteriorCorner.res" id="6_hlu8j"]
-[ext_resource type="Material" uid="uid://dl1aqd7kxxn72" path="res://resources/materials/building_contrast.material" id="7_0nr2e"]
-[ext_resource type="ArrayMesh" uid="uid://ltdee7hrijfm" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_032.res" id="7_fp557"]
-[ext_resource type="ArrayMesh" uid="uid://c01qu4cmi0hlf" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_033.res" id="8_0nr2e"]
-[ext_resource type="ArrayMesh" uid="uid://d0tu3je35usey" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_034.res" id="9_c8my1"]
-[ext_resource type="ArrayMesh" uid="uid://cwyda3ulbhe5v" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_043.res" id="10_06mdm"]
-[ext_resource type="ArrayMesh" uid="uid://d12pf65rs1sn7" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_044.res" id="11_qqrpf"]
-[ext_resource type="ArrayMesh" uid="uid://bkvgvcsb1smk7" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_045.res" id="12_m5j23"]
-[ext_resource type="ArrayMesh" uid="uid://bbb887ybb10i8" path="res://resources/meshes/boba_shop/InteriorCorner.res" id="13_1qbsa"]
-[ext_resource type="ArrayMesh" uid="uid://cw5ac7xefuoe4" path="res://resources/meshes/boba_shop/InteriorWall.res" id="15_m5j23"]
-[ext_resource type="Material" uid="uid://c5cnemreba402" path="res://resources/materials/boba_shop_walls.material" id="16_1qbsa"]
-[ext_resource type="ArrayMesh" uid="uid://drdslpwtfot27" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_015.res" id="17_du356"]
-[ext_resource type="ArrayMesh" uid="uid://csyjja8i2jwjf" path="res://resources/meshes/boba_shop/Table.res" id="18_4nhxi"]
-[ext_resource type="ArrayMesh" uid="uid://b5cs38518yyc3" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_016.res" id="18_hq5wh"]
-[ext_resource type="ArrayMesh" uid="uid://b22xjv1plo5u3" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_017.res" id="19_s7br6"]
-[ext_resource type="ArrayMesh" uid="uid://c2vl1hwmaul5h" path="res://resources/meshes/boba_shop/Counter.res" id="22_hq5wh"]
-[ext_resource type="ArrayMesh" uid="uid://da2wf5uc0oic1" path="res://resources/meshes/boba_shop/CashRegister.res" id="23_s7br6"]
-[ext_resource type="PackedScene" uid="uid://xmxetlo2tvop" path="res://scenes/prefab/set_dressing/lantern_white.tscn" id="26_rwsu5"]
-[ext_resource type="PackedScene" uid="uid://dd02uj78itvs1" path="res://scenes/prefab/set_dressing/lantern_pink.tscn" id="27_0t658"]
-[ext_resource type="ArrayMesh" uid="uid://b6v5cf0pswh04" path="res://resources/meshes/boba_shop/Shelf.res" id="28_0t658"]
-[ext_resource type="ArrayMesh" uid="uid://b20vriu2u2qkl" path="res://resources/meshes/boba_shop/Roof.res" id="30_m8b4s"]
-[ext_resource type="PackedScene" uid="uid://bhxg4sxnl4l64" path="res://scenes/prefab/set_dressing/door.tscn" id="30_ttpka"]
-[ext_resource type="ArrayMesh" uid="uid://dwjalijlv57o4" path="res://resources/meshes/boba_shop/LongWindow.res" id="31_decg2"]
-[ext_resource type="Script" uid="uid://dqdmygmjbiseu" path="res://scripts/manager/drink_zone.gd" id="32_4wiyc"]
-[ext_resource type="Shader" uid="uid://doqqx7wv7ml5w" path="res://resources/shaders/viewport_from_control.gdshader" id="32_hdofh"]
-[ext_resource type="PackedScene" uid="uid://dre3kgeqhjprj" path="res://scenes/prefab/tea_ceremony.tscn" id="34_4wiyc"]
-[ext_resource type="PackedScene" uid="uid://cdp4b2op1gor0" path="res://gui_comp/drink_orders.tscn" id="34_gy110"]
-[ext_resource type="PackedScene" uid="uid://516o65n4jcsn" path="res://scenes/prefab/process_machine.tscn" id="35_eeamv"]
-[ext_resource type="PackedScene" uid="uid://btm7sbwffnkl2" path="res://scenes/prefab/drink_machine.tscn" id="36_gexap"]
-[ext_resource type="PackedScene" uid="uid://ccgpum2em3yhl" path="res://scenes/prefab/cook_machine.tscn" id="37_3np5k"]
-[ext_resource type="PackedScene" uid="uid://jj4cqbvtb1xk" path="res://scenes/prefab/dispenser.tscn" id="40_iwl6g"]
-[ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="41_ui4tw"]
-[ext_resource type="Resource" uid="uid://db3yuj54ic2xe" path="res://resources/game_data/ingredients/milk.tres" id="42_gc0ip"]
-[ext_resource type="Resource" uid="uid://becxnuwetlie2" path="res://resources/game_data/ingredients/matcha_powder.tres" id="43_tm8hb"]
-[ext_resource type="Resource" uid="uid://bav1oqtqeh1s7" path="res://resources/game_data/crops/seeds/sugar_seed.tres" id="44_gc0ip"]
-[ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="45_3np5k"]
-[ext_resource type="Resource" uid="uid://chedclappraxa" path="res://resources/game_data/crops/seeds/taro_seed.tres" id="45_tm8hb"]
-[ext_resource type="Resource" uid="uid://dv3sjdeuv8x4p" path="res://resources/game_data/crops/seeds/strawberry_seed.tres" id="47_hdofh"]
-[ext_resource type="PackedScene" uid="uid://ctpynxvobxcd3" path="res://scenes/prefab/storage_unit.tscn" id="48_hdofh"]
+[ext_resource type="ArrayMesh" uid="uid://cw5ac7xefuoe4" path="res://resources/meshes/boba_shop/InteriorWall.res" id="1_hqoqc"]
+[ext_resource type="Material" uid="uid://c5cnemreba402" path="res://resources/materials/boba_shop_walls.material" id="2_tfnye"]
+[ext_resource type="ArrayMesh" uid="uid://drdslpwtfot27" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_015.res" id="3_ckfef"]
+[ext_resource type="ArrayMesh" uid="uid://b5cs38518yyc3" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_016.res" id="4_8xngp"]
+[ext_resource type="ArrayMesh" uid="uid://b22xjv1plo5u3" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_017.res" id="5_xbsph"]
+[ext_resource type="PackedScene" uid="uid://t2umiaj41a6d" path="res://scenes/prefab/save_bookshelf.tscn" id="6_c01it"]
+[ext_resource type="ArrayMesh" uid="uid://b20vriu2u2qkl" path="res://resources/meshes/boba_shop/Roof.res" id="7_gu106"]
+[ext_resource type="Material" uid="uid://dl1aqd7kxxn72" path="res://resources/materials/building_contrast.material" id="8_5o8ha"]
+[ext_resource type="ArrayMesh" uid="uid://bbb887ybb10i8" path="res://resources/meshes/boba_shop/InteriorCorner.res" id="9_n65hi"]
+[ext_resource type="ArrayMesh" uid="uid://ltdee7hrijfm" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_032.res" id="10_qlu32"]
+[ext_resource type="ArrayMesh" uid="uid://c01qu4cmi0hlf" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_033.res" id="11_502tm"]
+[ext_resource type="ArrayMesh" uid="uid://d0tu3je35usey" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_034.res" id="12_b80xs"]
+[ext_resource type="ArrayMesh" uid="uid://md8pptc0s8m3" path="res://resources/meshes/boba_shop/ExteriorCorner.res" id="13_v16ch"]
+[ext_resource type="ArrayMesh" uid="uid://cwyda3ulbhe5v" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_043.res" id="14_6nqk0"]
+[ext_resource type="ArrayMesh" uid="uid://d12pf65rs1sn7" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_044.res" id="15_ysnr0"]
+[ext_resource type="ArrayMesh" uid="uid://bkvgvcsb1smk7" path="res://resources/meshes/boba_shop/boba-shop-roof-on_Cube_045.res" id="16_qv3rp"]
+[ext_resource type="ArrayMesh" uid="uid://1uf24nhkhnty" path="res://resources/meshes/boba_shop/Floor.res" id="17_dg4tk"]
+[ext_resource type="Material" uid="uid://dwnh605nsdnn4" path="res://resources/materials/floor_material.material" id="18_flebx"]
+[ext_resource type="ArrayMesh" uid="uid://c2vl1hwmaul5h" path="res://resources/meshes/boba_shop/Counter.res" id="19_yub28"]
+[ext_resource type="ArrayMesh" uid="uid://csyjja8i2jwjf" path="res://resources/meshes/boba_shop/Table.res" id="20_jglpc"]
+[ext_resource type="ArrayMesh" uid="uid://c2kgiwhsdj4rx" path="res://resources/meshes/boba_shop/WallBack.res" id="21_h4e7e"]
+[ext_resource type="ArrayMesh" uid="uid://cisjk8s5hr3g" path="res://resources/meshes/boba_shop/WallFront.res" id="22_u0gf5"]
+[ext_resource type="ArrayMesh" uid="uid://d181v30s7mtcc" path="res://resources/meshes/boba_shop/WallLeft.res" id="23_ehrdn"]
+[ext_resource type="ArrayMesh" uid="uid://dnb6axf1gsi5f" path="res://resources/meshes/boba_shop/WallRight.res" id="24_6krpq"]
+[ext_resource type="PackedScene" uid="uid://xmxetlo2tvop" path="res://scenes/prefab/set_dressing/lantern_white.tscn" id="25_2nyxv"]
+[ext_resource type="PackedScene" uid="uid://dd02uj78itvs1" path="res://scenes/prefab/set_dressing/lantern_pink.tscn" id="26_as2mi"]
+[ext_resource type="ArrayMesh" uid="uid://da2wf5uc0oic1" path="res://resources/meshes/boba_shop/CashRegister.res" id="27_ld3wn"]
+[ext_resource type="ArrayMesh" uid="uid://b6v5cf0pswh04" path="res://resources/meshes/boba_shop/Shelf.res" id="28_udqif"]
+[ext_resource type="ArrayMesh" uid="uid://dwjalijlv57o4" path="res://resources/meshes/boba_shop/LongWindow.res" id="29_aeryf"]
+[ext_resource type="PackedScene" uid="uid://bhxg4sxnl4l64" path="res://scenes/prefab/set_dressing/door.tscn" id="30_wovwa"]
+[ext_resource type="Script" uid="uid://dqdmygmjbiseu" path="res://scripts/manager/drink_zone.gd" id="31_82mye"]
+[ext_resource type="Shader" uid="uid://doqqx7wv7ml5w" path="res://resources/shaders/viewport_from_control.gdshader" id="32_gd1fw"]
+[ext_resource type="AudioStream" uid="uid://bhr7x0o1ynedh" path="res://assets/sound effects/SaleSound.ogg" id="33_yh28i"]
+[ext_resource type="PackedScene" uid="uid://cdp4b2op1gor0" path="res://gui_comp/drink_orders.tscn" id="34_48ts6"]
+[ext_resource type="PackedScene" uid="uid://dre3kgeqhjprj" path="res://scenes/prefab/tea_ceremony.tscn" id="35_m13bv"]
+[ext_resource type="PackedScene" uid="uid://516o65n4jcsn" path="res://scenes/prefab/process_machine.tscn" id="36_q8k0d"]
+[ext_resource type="PackedScene" uid="uid://btm7sbwffnkl2" path="res://scenes/prefab/drink_machine.tscn" id="37_aiaod"]
+[ext_resource type="PackedScene" uid="uid://ccgpum2em3yhl" path="res://scenes/prefab/cook_machine.tscn" id="38_vkj6x"]
+[ext_resource type="PackedScene" uid="uid://jj4cqbvtb1xk" path="res://scenes/prefab/dispenser.tscn" id="39_iojvn"]
+[ext_resource type="Resource" uid="uid://dcxtagxrswosr" path="res://resources/game_data/ingredients/water.tres" id="40_nte12"]
+[ext_resource type="Resource" uid="uid://db3yuj54ic2xe" path="res://resources/game_data/ingredients/milk.tres" id="41_32t2g"]
+[ext_resource type="Resource" uid="uid://becxnuwetlie2" path="res://resources/game_data/ingredients/matcha_powder.tres" id="42_yqvjy"]
+[ext_resource type="Resource" uid="uid://bav1oqtqeh1s7" path="res://resources/game_data/crops/seeds/sugar_seed.tres" id="43_cgmly"]
+[ext_resource type="Resource" uid="uid://dmuabnm6wo2ln" path="res://resources/game_data/crops/seeds/cassava_seed.tres" id="44_uipxd"]
+[ext_resource type="Resource" uid="uid://chedclappraxa" path="res://resources/game_data/crops/seeds/taro_seed.tres" id="45_6oblh"]
+[ext_resource type="Resource" uid="uid://dv3sjdeuv8x4p" path="res://resources/game_data/crops/seeds/strawberry_seed.tres" id="46_4urux"]
+[ext_resource type="Script" uid="uid://bsmxu3jfosv22" path="res://scripts/manager/storage.gd" id="47_xib66"]
+[ext_resource type="ArrayMesh" uid="uid://bdl1lbc2ucxg4" path="res://resources/meshes/boba_shop/Crate.res" id="48_7dh1a"]
+[ext_resource type="PackedScene" uid="uid://c50xg2v4jhejc" path="res://scenes/prefab/gui_interface/inventory_hud.tscn" id="49_t583o"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4nhxi"]
-points = PackedVector3Array(-0.58021784, 2.2997, 0.9896744, -6.9095845, 2.1105347, -0.86548495, -6.6796966, 0.82769996, -0.5906259, -0.5506501, 2.1105347, -0.86548495, -0.87613356, 0.82769996, 0.96382135, -6.645791, 2.270231, 0.85139996, -6.646178, 0.83578914, 0.8515, -0.87613356, 0.82769996, -0.5906259, -0.5506501, 2.3338928, -0.86548495, -6.7192593, 2.2879612, -0.80969995)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iocvq"]
-points = PackedVector3Array(-2.3754468, 0.82769996, 1.2174908, -0.43853426, 1.9989321, 6.2749844, -0.43853426, 1.6642772, 6.2749844, -2.4467914, 1.9989321, 6.2749844, -0.43853426, 2.3338928, 1.0312023, -2.4028206, 2.2997, 1.1460149, -0.7399, 0.85027415, 6.012896, -0.7399, 0.85027415, 1.2932904, -2.3754468, 0.82769996, 6.088696, -2.4467914, 2.3338928, 3.8204262, -0.43853426, 2.3338928, 3.8204262, -0.43853426, 1.6642772, 3.4857605, -0.43853426, 2.1105347, 1.0312023)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ay7tk"]
+data = PackedVector3Array(-2.425, 1.9081, -0.6127, -0.7399, 2.1743, -0.6127, -2.425, 2.1743, -0.6127, -2.425, 1.9081, -0.6127, -0.7399, 1.9081, -0.6127, -0.7399, 2.1743, -0.6127, -2.425, 2.1743, -0.6127, -6.8538, 1.9081, -0.6127, -2.425, 1.9081, -0.6127, -2.425, 2.1743, -0.6127, -6.8538, 2.1743, -0.6127, -6.8538, 1.9081, -0.6127, -2.425, 1.9081, -0.6127, -6.8538, 1.9081, -0.6127, -6.8538, 1.7702, -0.6127, -2.425, 1.7702, -0.6127, -0.7399, 1.9081, -0.6127, -2.425, 1.9081, -0.6127, -2.425, 1.9081, -0.6127, -6.8538, 1.7702, -0.6127, -2.425, 1.7702, -0.6127, -2.425, 1.7702, -0.6127, -0.7399, 1.7702, -0.6127, -0.7399, 1.9081, -0.6127, -2.425, 1.7702, -0.6127, -6.8538, 1.7702, -0.6127, -6.8538, 0.9817, -0.6127, -2.425, 0.9817, -0.6127, -0.7399, 1.7702, -0.6127, -2.425, 1.7702, -0.6127, -2.425, 1.7702, -0.6127, -6.8538, 0.9817, -0.6127, -2.425, 0.9817, -0.6127, -2.425, 0.9817, -0.6127, -6.8538, 0.9817, -0.6127, -6.8538, 0.82769996, -0.6127, -2.425, 0.9817, -0.6127, -0.7399, 0.9817, -0.6127, -0.7399, 1.7702, -0.6127, -2.425, 0.9817, -0.6127, -6.8538, 0.82769996, -0.6127, -2.425, 0.82769996, -0.6127, -2.425, 0.82769996, -0.6127, -0.7399, 0.9817, -0.6127, -2.425, 0.9817, -0.6127, -2.425, 0.82769996, -0.6127, -0.7399, 0.82769996, -0.6127, -0.7399, 0.9817, -0.6127, -2.425, 0.82769996, 3.5354, -0.7399, 0.82769996, 6.2191997, -0.7399, 0.82769996, 3.5354, -2.425, 0.82769996, 3.5354, -2.425, 0.82769996, 6.2191997, -0.7399, 0.82769996, 6.2191997, -2.425, 0.82769996, 0.8515, -2.425, 0.82769996, 3.5354, -0.7399, 0.82769996, 3.5354, -2.425, 0.82769996, 0.8515, -0.7399, 0.82769996, 3.5354, -0.7399, 0.82769996, 0.8515, -2.425, 0.82769996, -0.6127, -2.425, 0.82769996, 0.8515, -0.7399, 0.82769996, 0.8515, -2.425, 0.82769996, -0.6127, -0.7399, 0.82769996, 0.8515, -0.7399, 0.82769996, -0.6127, -2.425, 0.82769996, -0.6127, -6.8538, 0.82769996, 0.8515, -2.425, 0.82769996, 0.8515, -2.425, 0.82769996, -0.6127, -6.8538, 0.82769996, -0.6127, -6.8538, 0.82769996, 0.8515, -0.7399, 1.9081, -0.6127, -0.7399, 2.1743, 0.8515, -0.7399, 2.1743, -0.6127, -0.7399, 1.9081, -0.6127, -0.7399, 1.9081, 0.8515, -0.7399, 2.1743, 0.8515, -0.7399, 1.9081, 0.8515, -0.7399, 2.1743, 3.5354, -0.7399, 2.1743, 0.8515, -0.7399, 1.7702, -0.6127, -0.7399, 1.9081, 0.8515, -0.7399, 1.9081, -0.6127, -0.7399, 1.9081, 0.8515, -0.7399, 1.9081, 3.5354, -0.7399, 2.1743, 3.5354, -0.7399, 1.7702, -0.6127, -0.7399, 1.7702, 0.8515, -0.7399, 1.9081, 0.8515, -0.7399, 1.7702, 0.8515, -0.7399, 1.9081, 3.5354, -0.7399, 1.9081, 0.8515, -0.7399, 0.9817, -0.6127, -0.7399, 1.7702, 0.8515, -0.7399, 1.7702, -0.6127, -0.7399, 1.7702, 0.8515, -0.7399, 1.7702, 3.5354, -0.7399, 1.9081, 3.5354, -0.7399, 0.9817, -0.6127, -0.7399, 0.9817, 0.8515, -0.7399, 1.7702, 0.8515, -0.7399, 0.9817, 0.8515, -0.7399, 1.7702, 3.5354, -0.7399, 1.7702, 0.8515, -0.7399, 0.82769996, -0.6127, -0.7399, 0.9817, 0.8515, -0.7399, 0.9817, -0.6127, -0.7399, 0.82769996, -0.6127, -0.7399, 0.82769996, 0.8515, -0.7399, 0.9817, 0.8515, -0.7399, 0.9817, 0.8515, -0.7399, 0.9817, 3.5354, -0.7399, 1.7702, 3.5354, -0.7399, 0.82769996, 0.8515, -0.7399, 0.9817, 3.5354, -0.7399, 0.9817, 0.8515, -0.7399, 0.9817, 3.5354, -0.7399, 1.7702, 6.2191997, -0.7399, 1.7702, 3.5354, -0.7399, 0.82769996, 0.8515, -0.7399, 0.82769996, 3.5354, -0.7399, 0.9817, 3.5354, -0.7399, 0.9817, 3.5354, -0.7399, 0.9817, 6.2191997, -0.7399, 1.7702, 6.2191997, -0.7399, 0.82769996, 3.5354, -0.7399, 0.9817, 6.2191997, -0.7399, 0.9817, 3.5354, -0.7399, 0.82769996, 3.5354, -0.7399, 0.82769996, 6.2191997, -0.7399, 0.9817, 6.2191997, -2.425, 1.9081, 3.5354, -2.425, 2.1743, 0.8515, -2.425, 2.1743, 3.5354, -2.425, 1.9081, 3.5354, -2.425, 1.9081, 0.8515, -2.425, 2.1743, 0.8515, -2.425, 1.7702, 3.5354, -2.425, 1.9081, 0.8515, -2.425, 1.9081, 3.5354, -2.425, 1.7702, 3.5354, -2.425, 1.7702, 0.8515, -2.425, 1.9081, 0.8515, -2.425, 0.9817, 3.5354, -2.425, 1.7702, 0.8515, -2.425, 1.7702, 3.5354, -2.425, 0.9817, 3.5354, -2.425, 0.9817, 0.8515, -2.425, 1.7702, 0.8515, -2.425, 0.9817, 6.2191997, -2.425, 0.9817, 3.5354, -2.425, 1.7702, 3.5354, -2.425, 0.9817, 6.2191997, -2.425, 1.7702, 3.5354, -2.425, 1.7702, 6.2191997, -2.425, 0.82769996, 6.2191997, -2.425, 0.9817, 3.5354, -2.425, 0.9817, 6.2191997, -2.425, 0.82769996, 6.2191997, -2.425, 0.82769996, 3.5354, -2.425, 0.9817, 3.5354, -2.425, 0.82769996, 3.5354, -2.425, 0.9817, 0.8515, -2.425, 0.9817, 3.5354, -2.425, 0.82769996, 3.5354, -2.425, 0.82769996, 0.8515, -2.425, 0.9817, 0.8515, -6.8538, 1.9081, 0.8515, -6.8538, 2.1743, -0.6127, -6.8538, 2.1743, 0.8515, -6.8538, 1.9081, 0.8515, -6.8538, 1.9081, -0.6127, -6.8538, 2.1743, -0.6127, -6.8538, 1.7702, 0.8515, -6.8538, 1.9081, -0.6127, -6.8538, 1.9081, 0.8515, -6.8538, 1.7702, 0.8515, -6.8538, 1.7702, -0.6127, -6.8538, 1.9081, -0.6127, -6.8538, 0.9817, 0.8515, -6.8538, 1.7702, -0.6127, -6.8538, 1.7702, 0.8515, -6.8538, 0.9817, 0.8515, -6.8538, 0.9817, -0.6127, -6.8538, 1.7702, -0.6127, -6.8538, 0.82769996, 0.8515, -6.8538, 0.9817, -0.6127, -6.8538, 0.9817, 0.8515, -6.8538, 0.82769996, 0.8515, -6.8538, 0.82769996, -0.6127, -6.8538, 0.9817, -0.6127, -2.425, 1.9081, 0.8515, -6.8538, 2.1743, 0.8515, -2.425, 2.1743, 0.8515, -2.425, 1.9081, 0.8515, -6.8538, 1.9081, 0.8515, -6.8538, 2.1743, 0.8515, -2.425, 1.7702, 0.8515, -6.8538, 1.9081, 0.8515, -2.425, 1.9081, 0.8515, -2.425, 1.7702, 0.8515, -6.8538, 1.7702, 0.8515, -6.8538, 1.9081, 0.8515, -2.425, 0.9817, 0.8515, -6.8538, 1.7702, 0.8515, -2.425, 1.7702, 0.8515, -2.425, 0.9817, 0.8515, -6.8538, 0.9817, 0.8515, -6.8538, 1.7702, 0.8515, -2.425, 0.82769996, 0.8515, -6.8538, 0.9817, 0.8515, -2.425, 0.9817, 0.8515, -2.425, 0.82769996, 0.8515, -6.8538, 0.82769996, 0.8515, -6.8538, 0.9817, 0.8515, -0.7399, 1.7702, 3.5354, -0.5399, 1.9081, 3.5354, -0.7399, 1.9081, 3.5354, -0.7399, 1.7702, 3.5354, -0.5399, 1.7702, 3.5354, -0.5399, 1.9081, 3.5354, -0.7399, 0.9817, 6.2191997, -2.425, 1.7702, 6.2191997, -0.7399, 1.7702, 6.2191997, -0.7399, 0.9817, 6.2191997, -2.425, 0.9817, 6.2191997, -2.425, 1.7702, 6.2191997, -0.7399, 0.82769996, 6.2191997, -2.425, 0.9817, 6.2191997, -0.7399, 0.9817, 6.2191997, -0.7399, 0.82769996, 6.2191997, -2.425, 0.82769996, 6.2191997, -2.425, 0.9817, 6.2191997, -2.425, 0.9817, 3.5354, -0.7399, 0.82769996, 3.5354, -2.425, 0.82769996, 3.5354, -2.425, 0.9817, 3.5354, -0.7399, 0.9817, 3.5354, -0.7399, 0.82769996, 3.5354, -2.425, 1.7702, 3.5354, -0.7399, 0.9817, 3.5354, -2.425, 0.9817, 3.5354, -2.425, 1.7702, 3.5354, -0.7399, 1.7702, 3.5354, -0.7399, 0.9817, 3.5354, -2.425, 1.9081, 3.5354, -0.7399, 1.7702, 3.5354, -2.425, 1.7702, 3.5354, -0.7399, 1.7702, 3.5354, -2.425, 1.9081, 3.5354, -0.7399, 1.9081, 3.5354, -0.7399, 1.9081, 3.5354, -2.425, 1.9081, 3.5354, -0.7399, 2.1743, 3.5354, -0.7399, 2.1743, 3.5354, -2.425, 1.9081, 3.5354, -2.425, 2.1743, 3.5354, -0.7399, 1.7702, 6.2191997, -0.5399, 1.7702, 3.5354, -0.7399, 1.7702, 3.5354, -0.7399, 1.7702, 6.2191997, -0.5399, 1.7702, 6.2191997, -0.5399, 1.7702, 3.5354, -2.425, 2.1743, 0.85139996, -2.425, 2.2997, 3.5353, -2.425, 2.1743, 3.5353, -2.425, 2.1743, 0.85139996, -2.425, 2.2997, 0.85139996, -2.425, 2.2997, 3.5353, -2.425, 2.2997, 3.5353, -2.425, 2.1743, 3.7352998, -2.425, 2.1743, 3.5353, -2.425, 2.2997, 3.5353, -2.425, 2.2997, 3.7352998, -2.425, 2.1743, 3.7352998, -6.8538, 2.1743, -0.6127, -6.8538, 2.2997, -0.80969995, -6.8538, 2.2997, -0.6127, -6.8538, 2.1743, -0.6127, -6.8538, 2.1743, -0.80969995, -6.8538, 2.2997, -0.80969995, -6.8538, 2.1743, -0.6127, -6.8538, 2.2997, -0.6127, -6.8538, 2.2997, 0.85139996, -6.8538, 2.1743, -0.6127, -6.8538, 2.2997, 0.85139996, -6.8538, 2.1743, 0.85139996, -0.7399, 1.7702, 6.2191997, -2.425, 1.9081, 6.2191997, -0.7399, 1.9081, 6.2191997, -0.7399, 1.7702, 6.2191997, -2.425, 1.7702, 6.2191997, -2.425, 1.9081, 6.2191997, -0.7399, 1.9081, 6.2191997, -0.5399, 1.7702, 6.2191997, -0.7399, 1.7702, 6.2191997, -0.7399, 1.9081, 6.2191997, -0.5399, 1.9081, 6.2191997, -0.5399, 1.7702, 6.2191997, -2.425, 1.7702, 6.2191997, -2.425, 1.9081, 3.5353, -2.425, 1.9081, 6.2191997, -2.425, 1.7702, 6.2191997, -2.425, 1.7702, 3.5353, -2.425, 1.9081, 3.5353, -0.7399, 2.2997, -0.6127, -0.5399, 2.2997, 0.85139996, -0.7399, 2.2997, 0.85139996, -0.7399, 2.2997, -0.6127, -0.5985, 2.2997, -0.752, -0.5399, 2.2997, 0.85139996, -0.7399, 2.2997, 0.85139996, -0.5399, 2.2997, 0.85139996, -0.5399, 2.2997, 3.5353, -2.425, 2.2997, -0.6127, -0.5985, 2.2997, -0.752, -0.7399, 2.2997, -0.6127, -2.425, 2.2997, -0.6127, -2.425, 2.2997, -0.80969995, -0.5985, 2.2997, -0.752, -0.7399, 2.2997, -0.6127, -0.7399, 2.2997, 0.85139996, -2.425, 2.2997, 0.85139996, -0.7399, 2.2997, -0.6127, -2.425, 2.2997, 0.85139996, -2.425, 2.2997, -0.6127, -6.8538, 2.2997, -0.6127, -2.425, 2.2997, -0.80969995, -2.425, 2.2997, -0.6127, -2.425, 2.2997, 0.85139996, -6.8538, 2.2997, -0.6127, -2.425, 2.2997, -0.6127, -6.8538, 2.2997, -0.6127, -6.8538, 2.2997, -0.80969995, -2.425, 2.2997, -0.80969995, -2.425, 2.2997, 0.85139996, -6.8538, 2.2997, 0.85139996, -6.8538, 2.2997, -0.6127, -0.7399, 2.2997, 0.85139996, -2.425, 2.2997, 3.5353, -2.425, 2.2997, 0.85139996, -0.7399, 2.2997, 0.85139996, -0.7399, 2.2997, 3.5353, -2.425, 2.2997, 3.5353, -0.7399, 2.2997, 0.85139996, -0.5399, 2.2997, 3.5353, -0.7399, 2.2997, 3.5353, -0.7399, 2.2997, 3.5353, -2.425, 2.2997, 3.7352998, -2.425, 2.2997, 3.5353, -0.7399, 2.2997, 3.5353, -0.7399, 2.2997, 3.7352998, -2.425, 2.2997, 3.7352998, -0.5399, 2.2997, 3.5353, -0.7399, 2.2997, 3.7352998, -0.7399, 2.2997, 3.5353, -0.5399, 2.2997, 3.5353, -0.5399, 2.2997, 3.7352998, -0.7399, 2.2997, 3.7352998, -2.425, 1.9081, 6.2191997, -0.7399, 1.9081, 3.5353, -0.7399, 1.9081, 6.2191997, -2.425, 1.9081, 6.2191997, -2.425, 1.9081, 3.5353, -0.7399, 1.9081, 3.5353, -0.7399, 1.9081, 3.5353, -0.5399, 1.9081, 6.2191997, -0.7399, 1.9081, 6.2191997, -0.7399, 1.9081, 3.5353, -0.5399, 1.9081, 3.5353, -0.5399, 1.9081, 6.2191997, -0.7399, 2.1743, 3.5353, -0.5399, 2.1743, 0.85139996, -0.7399, 2.1743, 0.85139996, -0.7399, 2.1743, 0.85139996, -0.5399, 2.1743, 0.85139996, -0.5985, 2.1743, -0.752, -0.7399, 2.1743, 3.5353, -0.5399, 2.1743, 3.5353, -0.5399, 2.1743, 0.85139996, -0.7399, 2.1743, 0.85139996, -0.5985, 2.1743, -0.752, -0.7399, 2.1743, -0.6127, -0.7399, 2.1743, 3.5353, -0.5399, 2.1743, 3.7352998, -0.5399, 2.1743, 3.5353, -0.7399, 2.1743, -0.6127, -0.5985, 2.1743, -0.752, -2.425, 2.1743, -0.80969995, -0.7399, 2.1743, 3.5353, -0.7399, 2.1743, 3.7352998, -0.5399, 2.1743, 3.7352998, -2.425, 2.1743, 3.5353, -0.7399, 2.1743, 3.7352998, -0.7399, 2.1743, 3.5353, -2.425, 2.1743, 3.5353, -2.425, 2.1743, 3.7352998, -0.7399, 2.1743, 3.7352998, -0.7399, 2.1743, -0.6127, -2.425, 2.1743, -0.80969995, -2.425, 2.1743, -0.6127, -2.425, 2.1743, -0.6127, -2.425, 2.1743, -0.80969995, -6.8538, 2.1743, -0.80969995, -2.425, 2.1743, -0.6127, -6.8538, 2.1743, -0.80969995, -6.8538, 2.1743, -0.6127, -6.8538, 2.1743, 0.85139996, -2.425, 2.2997, 0.85139996, -2.425, 2.1743, 0.85139996, -6.8538, 2.1743, 0.85139996, -6.8538, 2.2997, 0.85139996, -2.425, 2.2997, 0.85139996, -0.5399, 1.7702, 3.5353, -0.5399, 1.9081, 6.2191997, -0.5399, 1.9081, 3.5353, -0.5399, 1.7702, 3.5353, -0.5399, 1.7702, 6.2191997, -0.5399, 1.9081, 6.2191997, -2.425, 2.1743, -0.80969995, -6.8538, 2.2997, -0.80969995, -6.8538, 2.1743, -0.80969995, -2.425, 2.1743, -0.80969995, -2.425, 2.2997, -0.80969995, -6.8538, 2.2997, -0.80969995, -0.5399, 2.1743, 0.85139996, -0.5985, 2.2997, -0.752, -0.5985, 2.1743, -0.752, -0.5399, 2.1743, 0.85139996, -0.5399, 2.2997, 0.85139996, -0.5985, 2.2997, -0.752, -0.5985, 2.1743, -0.752, -2.425, 2.2997, -0.80969995, -2.425, 2.1743, -0.80969995, -0.5985, 2.1743, -0.752, -0.5985, 2.2997, -0.752, -2.425, 2.2997, -0.80969995, -0.5399, 2.1743, 3.5353, -0.5399, 2.2997, 0.85139996, -0.5399, 2.1743, 0.85139996, -0.5399, 2.1743, 3.5353, -0.5399, 2.2997, 3.5353, -0.5399, 2.2997, 0.85139996, -0.5399, 2.1743, 3.5353, -0.5399, 2.2997, 3.7352998, -0.5399, 2.2997, 3.5353, -0.5399, 2.1743, 3.5353, -0.5399, 2.1743, 3.7352998, -0.5399, 2.2997, 3.7352998, -2.425, 2.1743, 3.7352998, -0.7399, 2.2997, 3.7352998, -0.7399, 2.1743, 3.7352998, -2.425, 2.1743, 3.7352998, -2.425, 2.2997, 3.7352998, -0.7399, 2.2997, 3.7352998, -0.7399, 2.2997, 3.7352998, -0.5399, 2.1743, 3.7352998, -0.7399, 2.1743, 3.7352998, -0.7399, 2.2997, 3.7352998, -0.5399, 2.2997, 3.7352998, -0.5399, 2.1743, 3.7352998)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ygp8d"]
 points = PackedVector3Array(1.476165, 2.5140576, 1.476165, -1.476165, 2.1451252, -1.476165, -0.18556717, 2.1392584, -0.1858, -1.476165, 2.1451252, 1.476165, -1.476165, 2.514017, -1.476165, 1.476165, 2.1450846, -1.476165, 1.476165, 2.1450846, 1.476165, 1.476165, 2.5140576, -1.476165, -1.476165, 2.514017, 1.476165, 0.18556717, 2.1392584, 0.1858)
@@ -83,325 +83,335 @@ size = Vector3(2.2, 0.5, 1.6)
 [sub_resource type="BoxShape3D" id="BoxShape3D_alrdh"]
 size = Vector3(1.4, 1, 0.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hqoqc"]
-viewport_path = NodePath("DrinkZone3D/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_vuwh0"]
+viewport_path = NodePath("WorldRoot/BobaShop/DrinkZone3D/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfnye"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0glrw"]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("32_hdofh")
-shader_parameter/viewport_texture = SubResource("ViewportTexture_hqoqc")
+shader = ExtResource("32_gd1fw")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_vuwh0")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ckfef"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_tyjbu"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_tfnye")
+material = SubResource("ShaderMaterial_0glrw")
 size = Vector2(1.4, 1)
 orientation = 2
 
-[node name="BobaShop" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mmytf"]
+size = Vector3(2.2, 1.25, 2)
 
-[node name="Primary" type="Node3D" parent="."]
+[node name="BobaShop" type="Node3D" unique_id=131978946]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="Primary" type="Node3D" parent="." unique_id=879305289]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="InteriorWall1" type="MeshInstance3D" parent="Primary"]
-mesh = ExtResource("15_m5j23")
+[node name="InteriorWall1" type="MeshInstance3D" parent="Primary" unique_id=797125248]
+mesh = ExtResource("1_hqoqc")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("16_1qbsa")
+surface_material_override/0 = ExtResource("2_tfnye")
 
-[node name="InteriorWall2" type="MeshInstance3D" parent="Primary"]
-mesh = ExtResource("17_du356")
+[node name="InteriorWall2" type="MeshInstance3D" parent="Primary" unique_id=272174588]
+mesh = ExtResource("3_ckfef")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("16_1qbsa")
+surface_material_override/0 = ExtResource("2_tfnye")
 
-[node name="InteriorWall3" type="MeshInstance3D" parent="Primary"]
-mesh = ExtResource("18_hq5wh")
+[node name="InteriorWall3" type="MeshInstance3D" parent="Primary" unique_id=1267111400]
+mesh = ExtResource("4_8xngp")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("16_1qbsa")
+surface_material_override/0 = ExtResource("2_tfnye")
 
-[node name="InteriorWall4" type="MeshInstance3D" parent="Primary"]
-mesh = ExtResource("19_s7br6")
+[node name="InteriorWall4" type="MeshInstance3D" parent="Primary" unique_id=635571339]
+mesh = ExtResource("5_xbsph")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("16_1qbsa")
+surface_material_override/0 = ExtResource("2_tfnye")
 
-[node name="Contrast" type="Node3D" parent="."]
+[node name="Contrast" type="Node3D" parent="." unique_id=1573603048]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Bookshelf" parent="Contrast" groups=["GUI_Event"] instance=ExtResource("6_hdofh")]
+[node name="Bookshelf" parent="Contrast" unique_id=669022955 groups=["GUI_Event"] instance=ExtResource("6_c01it")]
 transform = Transform3D(0.7660444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.7660444, -5.7526584, 1.1999999, -6.0213404)
 
-[node name="Roof" type="MeshInstance3D" parent="Contrast"]
+[node name="Roof" type="MeshInstance3D" parent="Contrast" unique_id=1084296017]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.70000005, 0)
-mesh = ExtResource("30_m8b4s")
+mesh = ExtResource("7_gu106")
 skeleton = NodePath("../..")
-surface_material_override/1 = ExtResource("7_0nr2e")
+surface_material_override/1 = ExtResource("8_5o8ha")
 
-[node name="InteriorCorner1" type="MeshInstance3D" parent="Contrast"]
-mesh = ExtResource("13_1qbsa")
+[node name="InteriorCorner1" type="MeshInstance3D" parent="Contrast" unique_id=1250658703]
+mesh = ExtResource("9_n65hi")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("7_0nr2e")
+surface_material_override/0 = ExtResource("8_5o8ha")
 
-[node name="InteriorCorner2" type="MeshInstance3D" parent="Contrast"]
-mesh = ExtResource("7_fp557")
+[node name="InteriorCorner2" type="MeshInstance3D" parent="Contrast" unique_id=1023543367]
+mesh = ExtResource("10_qlu32")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("7_0nr2e")
+surface_material_override/0 = ExtResource("8_5o8ha")
 
-[node name="InteriorCorner3" type="MeshInstance3D" parent="Contrast"]
-mesh = ExtResource("8_0nr2e")
+[node name="InteriorCorner3" type="MeshInstance3D" parent="Contrast" unique_id=50660755]
+mesh = ExtResource("11_502tm")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("7_0nr2e")
+surface_material_override/0 = ExtResource("8_5o8ha")
 
-[node name="InteriorCorner4" type="MeshInstance3D" parent="Contrast"]
-mesh = ExtResource("9_c8my1")
+[node name="InteriorCorner4" type="MeshInstance3D" parent="Contrast" unique_id=582337378]
+mesh = ExtResource("12_b80xs")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("7_0nr2e")
+surface_material_override/0 = ExtResource("8_5o8ha")
 
-[node name="ExteriorCorner1" type="MeshInstance3D" parent="Contrast"]
-mesh = ExtResource("6_hlu8j")
+[node name="ExteriorCorner1" type="MeshInstance3D" parent="Contrast" unique_id=921418947]
+mesh = ExtResource("13_v16ch")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("7_0nr2e")
+surface_material_override/0 = ExtResource("8_5o8ha")
 
-[node name="ExteriorCorner2" type="MeshInstance3D" parent="Contrast"]
-mesh = ExtResource("10_06mdm")
+[node name="ExteriorCorner2" type="MeshInstance3D" parent="Contrast" unique_id=2023834061]
+mesh = ExtResource("14_6nqk0")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("7_0nr2e")
+surface_material_override/0 = ExtResource("8_5o8ha")
 
-[node name="ExteriorCorner3" type="MeshInstance3D" parent="Contrast"]
-mesh = ExtResource("11_qqrpf")
+[node name="ExteriorCorner3" type="MeshInstance3D" parent="Contrast" unique_id=218704934]
+mesh = ExtResource("15_ysnr0")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("7_0nr2e")
+surface_material_override/0 = ExtResource("8_5o8ha")
 
-[node name="ExteriorCorner4" type="MeshInstance3D" parent="Contrast"]
-mesh = ExtResource("12_m5j23")
+[node name="ExteriorCorner4" type="MeshInstance3D" parent="Contrast" unique_id=1732939704]
+mesh = ExtResource("16_qv3rp")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("7_0nr2e")
+surface_material_override/0 = ExtResource("8_5o8ha")
 
-[node name="Accent" type="Node3D" parent="."]
+[node name="Accent" type="Node3D" parent="." unique_id=949093034]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Floor" type="MeshInstance3D" parent="Accent"]
-mesh = ExtResource("1_uah5q")
+[node name="Floor" type="MeshInstance3D" parent="Accent" unique_id=1488606238]
+mesh = ExtResource("17_dg4tk")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("2_1qbsa")
+surface_material_override/0 = ExtResource("18_flebx")
 
-[node name="Counter" type="MeshInstance3D" parent="Accent"]
+[node name="Counter" type="MeshInstance3D" parent="Accent" unique_id=1237784390]
 transform = Transform3D(4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 4.3711385e-08, 1.5000002, -2, -7.699999)
-mesh = ExtResource("22_hq5wh")
+mesh = ExtResource("19_yub28")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("7_0nr2e")
-surface_material_override/1 = ExtResource("2_1qbsa")
+surface_material_override/0 = ExtResource("8_5o8ha")
+surface_material_override/1 = ExtResource("18_flebx")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Accent/Counter"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Accent/Counter" unique_id=54446235]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Accent/Counter/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_4nhxi")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Accent/Counter/StaticBody3D" unique_id=1172768211]
+shape = SubResource("ConcavePolygonShape3D_ay7tk")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Accent/Counter/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_iocvq")
-
-[node name="Table" type="MeshInstance3D" parent="Accent"]
+[node name="Table" type="MeshInstance3D" parent="Accent" unique_id=502944056]
 transform = Transform3D(0.649519, 0, -0.375, 0, 0.75, 0, 0.375, 0, 0.649519, -2.7535899, -1.2, -2.6267948)
-mesh = ExtResource("18_4nhxi")
+mesh = ExtResource("20_jglpc")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("2_1qbsa")
-surface_material_override/1 = ExtResource("7_0nr2e")
+surface_material_override/0 = ExtResource("18_flebx")
+surface_material_override/1 = ExtResource("8_5o8ha")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Accent/Table"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Accent/Table" unique_id=1026042221]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Accent/Table/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Accent/Table/StaticBody3D" unique_id=1918397368]
 shape = SubResource("ConvexPolygonShape3D_ygp8d")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Accent/Table/StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Accent/Table/StaticBody3D" unique_id=2056170164]
 shape = SubResource("ConvexPolygonShape3D_m8b4s")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Accent/Table/StaticBody3D"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Accent/Table/StaticBody3D" unique_id=361482628]
 shape = SubResource("ConvexPolygonShape3D_decg2")
 
-[node name="Exterior" type="Node3D" parent="."]
+[node name="Exterior" type="Node3D" parent="." unique_id=428612578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="WallBack" type="MeshInstance3D" parent="Exterior"]
-mesh = ExtResource("2_lahac")
+[node name="WallBack" type="MeshInstance3D" parent="Exterior" unique_id=974182145]
+mesh = ExtResource("21_h4e7e")
 skeleton = NodePath("../..")
 
-[node name="WallFront" type="MeshInstance3D" parent="Exterior"]
-mesh = ExtResource("3_xaiee")
+[node name="WallFront" type="MeshInstance3D" parent="Exterior" unique_id=785877684]
+mesh = ExtResource("22_u0gf5")
 skeleton = NodePath("../..")
 
-[node name="WallLeft" type="MeshInstance3D" parent="Exterior"]
-mesh = ExtResource("4_0esjs")
+[node name="WallLeft" type="MeshInstance3D" parent="Exterior" unique_id=2001447817]
+mesh = ExtResource("23_ehrdn")
 skeleton = NodePath("../..")
 
-[node name="WallRight" type="MeshInstance3D" parent="Exterior"]
-mesh = ExtResource("5_wnjol")
+[node name="WallRight" type="MeshInstance3D" parent="Exterior" unique_id=521424219]
+mesh = ExtResource("24_6krpq")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Exterior"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Exterior" unique_id=1343171217]
 collision_layer = 9
 collision_mask = 11
 
-[node name="CornerCollision" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
+[node name="CornerCollision" type="CollisionShape3D" parent="Exterior/StaticBody3D" unique_id=654249911]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2000003, 3, 6.8)
 shape = SubResource("BoxShape3D_1qbsa")
 
-[node name="CornerCollision2" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
+[node name="CornerCollision2" type="CollisionShape3D" parent="Exterior/StaticBody3D" unique_id=766394338]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 3, -6.7999997)
 shape = SubResource("BoxShape3D_1qbsa")
 
-[node name="CornerCollision3" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
+[node name="CornerCollision3" type="CollisionShape3D" parent="Exterior/StaticBody3D" unique_id=122850307]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2000003, 3, 6.7000003)
 shape = SubResource("BoxShape3D_1qbsa")
 
-[node name="CornerCollision4" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
+[node name="CornerCollision4" type="CollisionShape3D" parent="Exterior/StaticBody3D" unique_id=603111019]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2000003, 3, -6.7999997)
 shape = SubResource("BoxShape3D_1qbsa")
 
-[node name="WallCollision" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
+[node name="WallCollision" type="CollisionShape3D" parent="Exterior/StaticBody3D" unique_id=1032483771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.536743e-07, 3.0000005, -7.25)
 shape = SubResource("BoxShape3D_du356")
 
-[node name="WallCollision2" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
+[node name="WallCollision2" type="CollisionShape3D" parent="Exterior/StaticBody3D" unique_id=364201695]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.7000003, 3, -3.365777e-07)
 shape = SubResource("BoxShape3D_du356")
 
-[node name="WallCollision3" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
+[node name="WallCollision3" type="CollisionShape3D" parent="Exterior/StaticBody3D" unique_id=2004847514]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.7, 3, 0)
 shape = SubResource("BoxShape3D_du356")
 
-[node name="WallCollision4" type="CollisionShape3D" parent="Exterior/StaticBody3D"]
+[node name="WallCollision4" type="CollisionShape3D" parent="Exterior/StaticBody3D" unique_id=1429320365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7.1)
 shape = SubResource("BoxShape3D_du356")
 
-[node name="NoPlantZone" type="StaticBody3D" parent="Exterior"]
+[node name="NoPlantZone" type="StaticBody3D" parent="Exterior" unique_id=1531331493]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, 0)
 collision_layer = 64
 collision_mask = 64
 
-[node name="NoPlanting" type="CollisionShape3D" parent="Exterior/NoPlantZone"]
+[node name="NoPlanting" type="CollisionShape3D" parent="Exterior/NoPlantZone" unique_id=148927620]
 shape = SubResource("BoxShape3D_hdofh")
 
-[node name="Lanterns" type="Node3D" parent="."]
+[node name="Lanterns" type="Node3D" parent="." unique_id=2134923047]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="LanternWhite" parent="Lanterns" instance=ExtResource("26_rwsu5")]
+[node name="LanternWhite" parent="Lanterns" unique_id=1761138241 instance=ExtResource("25_2nyxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.5, -3)
 
-[node name="LanternWhite2" parent="Lanterns" instance=ExtResource("26_rwsu5")]
+[node name="LanternWhite2" parent="Lanterns" unique_id=940917417 instance=ExtResource("25_2nyxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 2)
 
-[node name="LanternWhite3" parent="Lanterns" instance=ExtResource("26_rwsu5")]
+[node name="LanternWhite3" parent="Lanterns" unique_id=1563849223 instance=ExtResource("25_2nyxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4.5, -4)
 
-[node name="LanternPink" parent="Lanterns" instance=ExtResource("27_0t658")]
+[node name="LanternPink" parent="Lanterns" unique_id=1859096565 instance=ExtResource("26_as2mi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4.1, 1)
 
-[node name="LanternPink2" parent="Lanterns" instance=ExtResource("27_0t658")]
+[node name="LanternPink2" parent="Lanterns" unique_id=1746729682 instance=ExtResource("26_as2mi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.1, 0)
 
-[node name="LanternPink3" parent="Lanterns" instance=ExtResource("27_0t658")]
+[node name="LanternPink3" parent="Lanterns" unique_id=737297206 instance=ExtResource("26_as2mi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.1, -2)
 
-[node name="NoColor" type="Node3D" parent="."]
+[node name="NoColor" type="Node3D" parent="." unique_id=236397160]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="CashRegister" type="MeshInstance3D" parent="NoColor"]
+[node name="CashRegister" type="MeshInstance3D" parent="NoColor" unique_id=898482877]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.4749995, -0.8, -5.999999)
-mesh = ExtResource("23_s7br6")
+mesh = ExtResource("27_ld3wn")
 skeleton = NodePath("../..")
 metadata/_edit_group_ = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NoColor/CashRegister"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NoColor/CashRegister" unique_id=1424201968]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NoColor/CashRegister/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoColor/CashRegister/StaticBody3D" unique_id=1771850995]
 shape = SubResource("ConvexPolygonShape3D_rwsu5")
 
-[node name="SeedShelf" type="MeshInstance3D" parent="NoColor"]
+[node name="SeedShelf" type="MeshInstance3D" parent="NoColor" unique_id=239198774]
 transform = Transform3D(1.9470718e-07, 0, 1, 0, 1, 0, -1, 0, 1.9470718e-07, -7.0339756, -1.6, 4.467949)
-mesh = ExtResource("28_0t658")
+mesh = ExtResource("28_udqif")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NoColor/SeedShelf"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NoColor/SeedShelf" unique_id=635984294]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NoColor/SeedShelf/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoColor/SeedShelf/StaticBody3D" unique_id=187508809]
 shape = SubResource("ConvexPolygonShape3D_4ym88")
 
-[node name="SupplyShelf" type="MeshInstance3D" parent="NoColor"]
+[node name="SupplyShelf" type="MeshInstance3D" parent="NoColor" unique_id=718360228]
 transform = Transform3D(1.9470718e-07, 0, 1, 0, 1, 0, -1, 0, 1.9470718e-07, -7.033975, -1.6, 1.9679486)
-mesh = ExtResource("28_0t658")
+mesh = ExtResource("28_udqif")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NoColor/SupplyShelf"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NoColor/SupplyShelf" unique_id=1563882647]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NoColor/SupplyShelf/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoColor/SupplyShelf/StaticBody3D" unique_id=1454865248]
 shape = SubResource("ConvexPolygonShape3D_4ym88")
 
-[node name="StorageShelf" type="MeshInstance3D" parent="NoColor"]
+[node name="StorageShelf" type="MeshInstance3D" parent="NoColor" unique_id=563705165]
 transform = Transform3D(-1, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -1, -4.833976, -1.6, 6.467949)
-mesh = ExtResource("28_0t658")
+mesh = ExtResource("28_udqif")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NoColor/StorageShelf"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NoColor/StorageShelf" unique_id=884793757]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NoColor/StorageShelf/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoColor/StorageShelf/StaticBody3D" unique_id=186288871]
 shape = SubResource("ConvexPolygonShape3D_4ym88")
 
-[node name="LongWindow" type="MeshInstance3D" parent="NoColor"]
+[node name="LongWindow" type="MeshInstance3D" parent="NoColor" unique_id=65378922]
 transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, 2.2499988, 1.2, 2.4499989)
-mesh = ExtResource("31_decg2")
+mesh = ExtResource("29_aeryf")
 skeleton = NodePath("../..")
 
-[node name="DoorInside" parent="NoColor" instance=ExtResource("30_ttpka")]
+[node name="DoorInside" parent="NoColor" unique_id=1845877805 node_paths=PackedStringArray("outdoor_sounds") instance=ExtResource("30_wovwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.608579e-06, -3.2000003, 32.6)
 skeleton = NodePath("../..")
+go_outside = true
+outdoor_sounds = NodePath("")
 
-[node name="DoorOutside" parent="NoColor" instance=ExtResource("30_ttpka")]
+[node name="DoorOutside" parent="NoColor" unique_id=2126265712 node_paths=PackedStringArray("outdoor_sounds") instance=ExtResource("30_wovwa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.067141e-06, -3.2000003, -18.400002)
 skeleton = NodePath("../..")
+outdoor_sounds = NodePath("")
 
-[node name="DrinkZone3D" type="Node3D" parent="."]
+[node name="DrinkZone3D" type="Node3D" parent="." unique_id=668457867]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9, 2.6985164, -5.1475663)
-script = ExtResource("32_4wiyc")
+script = ExtResource("31_82mye")
 metadata/_edit_group_ = true
 
-[node name="PickupZone" type="Area3D" parent="DrinkZone3D"]
+[node name="PickupZone" type="Area3D" parent="DrinkZone3D" unique_id=715559038]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5000002, -1.622884, -1.9333348)
 collision_layer = 32
 collision_mask = 32
 input_ray_pickable = false
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DrinkZone3D/PickupZone"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DrinkZone3D/PickupZone" unique_id=648663955]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25000012, 0.8000002)
 shape = SubResource("BoxShape3D_sinf0")
 
-[node name="Screen" type="StaticBody3D" parent="DrinkZone3D"]
+[node name="Screen" type="StaticBody3D" parent="DrinkZone3D" unique_id=252546489]
 transform = Transform3D(0.86, 0, 0, 0, 0.6957546, 0.5054953, 0, -0.5054953, 0.6957546, 0.169, -0.029345818, -0.61914027)
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DrinkZone3D/Screen"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DrinkZone3D/Screen" unique_id=1034180669]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010986328, -1.9073486e-06, 0.049999714)
 shape = SubResource("BoxShape3D_alrdh")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DrinkZone3D/Screen"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DrinkZone3D/Screen" unique_id=1920407892]
 transform = Transform3D(1, 0, 0, 0, 0.9999254, 0.012217001, 0, -0.012217001, 0.9999254, 0, 0, -0.007)
-mesh = SubResource("PlaneMesh_ckfef")
+mesh = SubResource("PlaneMesh_tyjbu")
 
-[node name="SubViewport" type="SubViewport" parent="DrinkZone3D"]
+[node name="ChaChingSound" type="AudioStreamPlayer3D" parent="DrinkZone3D/Screen" unique_id=889298477]
+unique_name_in_owner = true
+stream = ExtResource("33_yh28i")
+attenuation_model = 2
+
+[node name="SubViewport" type="SubViewport" parent="DrinkZone3D" unique_id=1473490071]
 gui_embed_subwindows = true
 size = Vector2i(717, 512)
 render_target_update_mode = 4
 
-[node name="DrinkOrders" parent="DrinkZone3D/SubViewport" instance=ExtResource("34_gy110")]
+[node name="DrinkOrders" parent="DrinkZone3D/SubViewport" unique_id=1357467506 instance=ExtResource("34_48ts6")]
 unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -413,55 +423,90 @@ offset_top = -256.0
 offset_right = 358.5
 offset_bottom = 256.0
 
-[node name="TeaCeremony" parent="." instance=ExtResource("34_4wiyc")]
+[node name="TeaCeremony" parent="." unique_id=687153420 instance=ExtResource("35_m13bv")]
 transform = Transform3D(0.44999996, 0, 0.7794229, 0, 0.9, 0, -0.7794229, 0, 0.44999996, -2.866, 1.8, -2.172)
 metadata/_edit_lock_ = true
 
-[node name="ProcessMachine" parent="." instance=ExtResource("35_eeamv")]
+[node name="ProcessMachine" parent="." unique_id=1125292852 instance=ExtResource("36_q8k0d")]
 transform = Transform3D(-1.1471529, 0, -1.6383042, 0, 2, 0, 1.6383042, 0, -1.1471529, 6.024, 0.099999994, 5.088)
 
-[node name="DrinkMachine" parent="." instance=ExtResource("36_gexap")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 1.5, -4)
+[node name="DrinkMachine" parent="." unique_id=1283751013 instance=ExtResource("37_aiaod")]
+transform = Transform3D(-7.450581e-09, 0, 0.25, 0, 0.24999999, 0, -0.25, 0, -7.450581e-09, 1.8021011, 1.4999998, -4.140877)
 
-[node name="CookMahcine" parent="." instance=ExtResource("37_3np5k")]
+[node name="CookMahcine" parent="." unique_id=525514314 instance=ExtResource("38_vkj6x")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5999999, 1.5, -2.2)
 
-[node name="StorageAndDispensers" type="Node3D" parent="."]
+[node name="StorageAndDispensers" type="Node3D" parent="." unique_id=1780518704]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Water" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+[node name="Water" parent="StorageAndDispensers" unique_id=180210268 instance=ExtResource("39_iojvn")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.94, 1.42)
-item_data = ExtResource("41_ui4tw")
+item_data = ExtResource("40_nte12")
 
-[node name="Milk" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+[node name="Milk" parent="StorageAndDispensers" unique_id=1076004486 instance=ExtResource("39_iojvn")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.94, 2.44)
-item_data = ExtResource("42_gc0ip")
+item_data = ExtResource("41_32t2g")
 
-[node name="MatchaPowder" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+[node name="MatchaPowder" parent="StorageAndDispensers" unique_id=1086126296 instance=ExtResource("39_iojvn")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.15, 1.8)
-item_data = ExtResource("43_tm8hb")
+item_data = ExtResource("42_yqvjy")
 
-[node name="SugarCaneSeed" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+[node name="SugarCaneSeed" parent="StorageAndDispensers" unique_id=1693852822 instance=ExtResource("39_iojvn")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.94, 4.52)
-item_data = ExtResource("44_gc0ip")
+item_data = ExtResource("43_cgmly")
 
-[node name="CassavaSeed" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+[node name="CassavaSeed" parent="StorageAndDispensers" unique_id=220616704 instance=ExtResource("39_iojvn")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.15, 3.92)
-item_data = ExtResource("45_3np5k")
+item_data = ExtResource("44_uipxd")
 
-[node name="TaroSeed" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+[node name="TaroSeed" parent="StorageAndDispensers" unique_id=1482775761 instance=ExtResource("39_iojvn")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 1.15, 5)
-item_data = ExtResource("45_tm8hb")
+item_data = ExtResource("45_6oblh")
 
-[node name="StrawberrySeed" parent="StorageAndDispensers" instance=ExtResource("40_iwl6g")]
+[node name="StrawberrySeed" parent="StorageAndDispensers" unique_id=782255606 instance=ExtResource("39_iojvn")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -7.04, 0.25, 4.08)
-item_data = ExtResource("47_hdofh")
+item_data = ExtResource("46_4urux")
 
-[node name="StorageUnit" parent="StorageAndDispensers" instance=ExtResource("48_hdofh")]
+[node name="Storage" type="StaticBody3D" parent="StorageAndDispensers" unique_id=432943579 groups=["GUI_Event"]]
 transform = Transform3D(-1.5298985e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5298985e-08, -4.41, 1.9399999, 6.55)
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("47_xib66")
+
+[node name="Crate" type="MeshInstance3D" parent="StorageAndDispensers/Storage" unique_id=1816505264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15937094, 0)
+mesh = ExtResource("48_7dh1a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StorageAndDispensers/Storage" unique_id=1614339466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.58726805, 0)
+shape = SubResource("BoxShape3D_mmytf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="StorageAndDispensers/Storage" unique_id=1028004787]
+
+[node name="Control" type="Control" parent="StorageAndDispensers/Storage/CanvasLayer" unique_id=1237434111]
+custom_minimum_size = Vector2(750, 500)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryHUD" parent="StorageAndDispensers/Storage/CanvasLayer/Control" unique_id=1821941239 instance=ExtResource("49_t583o")]
+unique_name_in_owner = true
+layout_mode = 1
 
 [connection signal="body_entered" from="DrinkZone3D/PickupZone" to="DrinkZone3D" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="DrinkZone3D/PickupZone" to="DrinkZone3D" method="_on_area_3d_body_exited"]
 [connection signal="drink_ordered" from="DrinkZone3D/SubViewport/DrinkOrders" to="DrinkZone3D" method="_on_drink_orders_drink_ordered"]
 [connection signal="drink_served" from="DrinkZone3D/SubViewport/DrinkOrders" to="DrinkZone3D" method="_on_drink_orders_drink_served"]
+[connection signal="return_item" from="StorageAndDispensers/Storage/CanvasLayer/Control/InventoryHUD/InventoryGrid" to="StorageAndDispensers/Storage" method="_on_inventory_grid_return_item"]
+
+[editable path="StorageAndDispensers/Storage/CanvasLayer/Control/InventoryHUD"]
