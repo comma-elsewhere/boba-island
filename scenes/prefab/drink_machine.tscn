@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://d3hho5oeb6507" path="res://assets/sound effects/ShakeLoop.ogg" id="24_18kyh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ix07"]
-size = Vector3(2.4294586, 5.561142, 2.9648209)
+size = Vector3(2.4294586, 5.561142, 3.1000001)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_27507"]
 radius = 0.3
@@ -33,16 +33,14 @@ resource_local_to_scene = true
 material = SubResource("ShaderMaterial_w4de5")
 size = Vector2(0.5, 0.5)
 
-[sub_resource type="Resource" id="Resource_bbce8"]
+[sub_resource type="Resource" id="Resource_1il3m"]
 script = ExtResource("7_vf2dq")
-frequency = Vector3(0.2, 0.5, 0.2)
-amplitude = Vector3(0.2, 0.5, 0.2)
-BlendingMode = 4
+amplitude = Vector3(0.01, 0.05, 0.01)
 metadata/_custom_type_script = "uid://dlykoqiifgl50"
 
-[sub_resource type="Resource" id="Resource_14ru7"]
+[sub_resource type="Resource" id="Resource_hfgjn"]
 script = ExtResource("8_ygmpd")
-ScaleShake = Array[ExtResource("6_hfgjn")]([SubResource("Resource_bbce8")])
+ScaleShake = Array[ExtResource("6_hfgjn")]([SubResource("Resource_1il3m")])
 metadata/_custom_type_script = "uid://bn6mmvstgwt75"
 
 [node name="ProcessMachine" type="StaticBody3D" unique_id=1283751013 groups=["GUI_Event", "Reload"]]
@@ -54,7 +52,7 @@ recipe_upgrades = ExtResource("2_l18tl")
 crafting_scene = ExtResource("3_ec67p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1241885325]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32312775, 2.7810276, -1.0854607)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.7, -0.13750003)
 shape = SubResource("BoxShape3D_3ix07")
 
 [node name="GUI_Parent" type="CanvasLayer" parent="." unique_id=944270203]
@@ -104,21 +102,21 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="SealSound" type="AudioStreamPlayer3D" parent="." unique_id=916662854]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30059385, 2.1049783, -0.1625728)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0005938411, 0.10497832, 0.037427202)
 stream = ExtResource("23_0y4s6")
 attenuation_model = 2
 volume_db = -15.0
 
 [node name="Audio" type="AudioStreamPlayer3D" parent="." unique_id=161072100]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2137909, 1.3895692, -1.0582836)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013790891, -0.010430843, -0.45828354)
 stream = ExtResource("24_18kyh")
 attenuation_model = 2
 volume_db = -12.0
 parameters/looping = true
 
 [node name="drink-machine_READY_Game-Animation" parent="." unique_id=574635810 instance=ExtResource("8_bjh2w")]
-transform = Transform3D(1.0000002, 0, 0, 0, 0.99999684, 0, 0, 0, 0.9999957, -0.32381874, 0, 0.6557946)
+transform = Transform3D(0.24999847, 0, 0, 0, 0.24999863, 0, 0, 0, 0.24999861, 0, 0, 0.3)
 
 [node name="back left wheel turn" parent="drink-machine_READY_Game-Animation" index="0" unique_id=229204500]
 transform = Transform3D(-1, -3.8941437e-07, 0, 3.8941437e-07, -1, 0, 0, 0, 1, -0.74330616, 5.2214293, -1.0535389)
@@ -136,8 +134,9 @@ visible = false
 unique_name_in_owner = true
 transform = Transform3D(-3.7331502e-09, 0, -0.079651184, 0, 0.075783856, 0, 0.08540435, 0, -3.481657e-09, 0.5333681, 0.0152233085, -0.40451604)
 script = ExtResource("5_1il3m")
-intensity = 0.15
-shakerPreset = SubResource("Resource_14ru7")
+intensity = 0.4
+shake_speed = 2.5
+shakerPreset = SubResource("Resource_hfgjn")
 metadata/_custom_type_script = "uid://clls85kmjfpf5"
 
 [connection signal="timeout" from="WaitTime" to="." method="_on_wait_time_timeout"]
